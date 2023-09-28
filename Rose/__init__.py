@@ -1,34 +1,56 @@
-import asyncio
-import importlib
+import os
 
-from pytgcalls import idle
+from .console import LOGGER
+from .modules.core import Rose
+from .modules.vars import Config
+from .modules.utils import commandx
+from .modules.utils import commandz
 
-from . import rose as client
-from .import PLUGINS, log
-from .plugins import ALL_PLUGINS
+__version__ = "v2.0.1"
+
+if Config.API_ID == 0:
+    LOGGER.error("API_ID is missing! Kindly check again!")
+    exit()
+if not Config.API_HASH:
+    LOGGER.error("API_HASH is missing! Kindly check again!")
+    exit()
+if not Config.BOT_TOKEN:
+    LOGGER.error("BOT_TOKEN is missing! Kindly check again!")
+    exit()
+if not Config.STRING_SESSION:
+    LOGGER.error("STRING_SESSION is missing! Kindly check again!")
+    exit()
+if not Config.MONGO_DATABASE:
+    LOGGER.error("DATABASE_URL is missing! Kindly check again!")
+    exit()
+if Config.LOG_GROUP_ID == 0:
+    LOGGER.error("LOG_GROUP_ID is missing! Kindly check again!")
+    exit()
+
+for file in os.listdir():
+    if file.endswith(".session"):
+        os.remove(file)
+for file in os.listdir():
+    if file.endswith(".session-journal"):
+        os.remove(file)
 
 
-loop = asyncio.get_event_loop()
+rose = Rose()
+app = rose.app
+bot = rose.bot
+call = rose.call
+log = LOGGER
+var = Config()
 
-async def rose():
-    await client.start()
-    log.info("Importing all plugins ...")
-    for all_plugin in ALL_PLUGINS:
-        imported_plugin = importlib.import_module(
-            "Rose.plugins." + all_plugin)
-        if (hasattr(imported_plugin, "__NAME__"
-           ) and imported_plugin.__NAME__):
-            imported_plugin.__NAME__ = imported_plugin.__NAME__
-            if (hasattr(imported_plugin, "__MENU__"
-                ) and imported_plugin.__MENU__):
-                PLUGINS[imported_plugin.__NAME__.lower()
-                ] = imported_plugin
-        log.info(f">> Importing: {all_plugin}.py")
-    log.info(">> Successfully Imported All Plugins.")
-    await asyncio.sleep(1)
-    log.info("Userbot is Now Ready to Use !")
-    await idle()
+db = {}
 
-if __name__ == "__main__":
-    loop.run_until_complete(rose())
-    log.info("Userbot Has Been Stopped !")
+commandx = commandx
+commandz = commandz
+
+PLUGINS = var.PLUGINS
+SUPUSER = var.SUPUSER
+SUDOERS = var.SUDOERS
+
+
+from .modules.func import eor
+eor = eor
