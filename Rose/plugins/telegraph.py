@@ -65,13 +65,13 @@ async def telegraph_uploader(client, message):
 __NAME__ = "telegraph"
 __MENU__ = """**Telegraph Uploader:**
 
-`.tg` - Balas Perintah Ini KeBalas Perintah Ini Ke
-Teks atau Media Apa Pun Untuk Dibuat
-Tautan Telegraf.
+`.tg` - Balas perintah ini Ke balas perintah Ini ke
+teks atau media apa pun untuk dibuat
+tautan telegraf.
 
-`.tg` [title]” - Tetapkan Judul Kustom
-Di Pos Telegraf Anda.
+`.tg` [title] - Tetapkan judul kustom
+di pos telegraf anda.
 (Hanya Bekerja Pada Posting Teks).
 
-**Ex:-** `/tl 🥀 Catatan saya ✨`
+**Ex:-** tl 🥀 Catatan saya ✨`
 """
