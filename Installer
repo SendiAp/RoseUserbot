@@ -1,13 +1,3 @@
-asyncio
-GitPython
-motor
-py-tgcalls
-pyrogram
-python-dotenv
-telegraph
-TgCrypto
-youtube-search-python
-yt-dlp
 flask
 gunicorn
 gpytranslate
