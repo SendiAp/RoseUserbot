@@ -1,9 +1,7 @@
 import asyncio
 import dotenv
 from pyrogram.types import Message
-from ubotlibs.ubot.helper.basic import edit_or_reply
 from .. import *
-from ubotlibs.ubot.utils import *
 
 @app.on_message(commandx(["gcast"]) & SUDOERS)
 async def gcast_cmd(client, message):
