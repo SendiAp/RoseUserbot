@@ -2,6 +2,7 @@ import asyncio
 import dotenv
 from pyrogram.types import Message
 from .. import *
+from ..modules.tools import get_arg
 
 @app.on_message(commandx(["gcast"]) & SUDOERS)
 async def gcast_cmd(client, message):
