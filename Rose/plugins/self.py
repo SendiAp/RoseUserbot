@@ -36,7 +36,7 @@ async def gcast_cmd(client, message):
 
 
 @app.on_message(commandx(["gucast"]) & SUDOERS)
-async def gucast(client: Client, message: Message):
+async def gucast(client, message: Message):
     if message.reply_to_message or get_arg(message):
         ny = await message.reply("`Started global broadcast...`")
     else:
@@ -68,7 +68,7 @@ async def gucast(client: Client, message: Message):
 
 
 @app.on_message(commandx(["addbl"]) & SUDOERS)
-async def bl_chat(client, message):
+async def bl_chat(client, message: Message):
     if len(message.command) != 2:
         return await message.reply("**Gunakan Format:**\n `addbl [CHAT_ID]`")
     user_id = client.me.id
@@ -80,7 +80,7 @@ async def bl_chat(client, message):
         await message.edit("Obrolan telah berhasil masuk daftar Blacklist")
 
 @app.on_message(commandx(["delbl"]) & SUDOERS)
-async def del_bl(client, message):
+async def del_bl(client, message: Message):
     if len(message.command) != 2:
         return await message.reply("**Gunakan Format:**\n `delbl [CHAT_ID]`")
     user_id = client.me.id
@@ -94,7 +94,7 @@ async def del_bl(client, message):
     
 
 @app.on_message(commandx(["blchat"]) & SUDOERS)
-async def all_chats(client, message):
+async def all_chats(client, message: Message):
     text = "**Daftar Blacklist Gcast:**\n\n"
     j = 0
     user_id = client.me.id
