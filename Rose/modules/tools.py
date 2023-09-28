@@ -5,7 +5,6 @@ import shlex
 from typing import Tuple
 
 from PIL import Image
-from pymediainfo import MediaInfo
 from pyrogram.types import Message
 
 
