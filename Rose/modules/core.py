@@ -39,7 +39,7 @@ except Exception as e:
     LOGGER.error("Failed To Connect To Your Mongo Database.")
     exit()
 
-class Aditya(Client, PyTgCalls):
+class Rose(Client, PyTgCalls):
     def __init__(self):
         self.app = Client(
             name = "RosePlayer",
