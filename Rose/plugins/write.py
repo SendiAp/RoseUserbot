@@ -42,3 +42,4 @@ Halaman Demi Pena**.
 
 `.write [text]` - Untuk Menulis TeksUntuk Menulis Teks
 Di Halaman Putih.
+"""
