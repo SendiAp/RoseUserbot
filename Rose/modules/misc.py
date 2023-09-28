@@ -45,8 +45,9 @@ def inline_wrapper(func):
                     results=[
                         (
                             InlineQueryResultPhoto(
-                                photo_url=f"https://telegra.ph/file/027283ee9defebc3298b8.png",
+                                photo_url=f"https://telegra.ph/file/ed46e0424514d72d70419.jpg",
                                 title="🌹 Rose Userbot 🌹",
+                                url=f"t.me/RoseUserbotV2",
                                 thumb_url=f"https://telegra.ph/file/ed46e0424514d72d70419.jpg",
                                 description=f"🌷 Deploy Your Own Rose-Userbot 🌿...",
                                 caption=f"<b>🥀 Welcome › To › Rose 🌹\n✅ Userbot v2.0 ✨...</b>",
