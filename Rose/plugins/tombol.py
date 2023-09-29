@@ -23,14 +23,14 @@ async def alive_inline(_, inline_query):
     buttons = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("💫 𝗝𝗢𝗜𝗡 ✨", url="https://t.me/botupdatex"),
+                InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url="https://t.me/RoseUserbotV2"),
             ],
             [
-                InlineKeyboardButton("🌝 𝗗𝗘𝗩'𝗦", url="https://t.me/Sexy_Dark"),
-                InlineKeyboardButton("🌝 𝗗𝗘𝗩'𝗦", url="https://t.me/Siamkira"),
+                InlineKeyboardButton("ᴅᴇᴠꜱ", url="https://t.me/pikyus1"),
+                InlineKeyboardButton("ᴅᴇᴠꜱ", url="https://t.me/pikyus1"),
             ],
             [
-                InlineKeyboardButton("❄️ 𝗢𝗪𝗡𝗘𝗥", url="https://t.me/tobiix"),
+                InlineKeyboardButton("ᴄʜᴀɴɴᴇʟ", url="https://t.me/smprojectID"),
             ],
         ]
     )
