@@ -194,3 +194,12 @@ async def get_list_bots(client, message):
         await client.send_message(message.chat.id, teks, reply_to_message_id=replyid)
     else:
         await message.edit(teks)
+
+__NAME__ = "tag"
+__MENU__ = """
+
+`.admins` - Melihat daftar admin groups.
+`.zombies` - Menghapus akun terhapus dalam groups.
+`.tagall` - Mention teman dalan groups.
+`.botlist` - Mendapatkan list bot dalam groups.
+"""
