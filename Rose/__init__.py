@@ -35,6 +35,8 @@ for file in os.listdir():
         os.remove(file)
 
 
+RoseX = Client(name="RoseX", session_string=STRING_SESSION, api_id=API_ID, api_hash=API_HASH, plugins=dict(root="plugins"))
+
 rose = Rose()
 app = rose.app
 bot = rose.bot
