@@ -16,7 +16,7 @@ class Config(object):
     BOT_TOKEN = getenv("BOT_TOKEN", None)
     STRING_SESSION = getenv("STRING_SESSION", None)
     MONGO_DATABASE = getenv("MONGO_DATABASE", None)
-    HANDLER = getenv("HANDLER", None)
+    HANDLER = ["~", ".","!","?","@","$"]
     BLACKLIST_GCAST = getenv("BLACKLIST_GCAST", None)
   
     # OPTIONAL VARIABLES
