@@ -3,6 +3,7 @@ import dotenv
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from ..modules.vars import all_vars 
+from ..modules.vars import Config
 from .. import *
 from ..modules.basic import *
 from ..modules.tools import get_arg
@@ -12,7 +13,7 @@ BL_GCAST = [-1001599474353, -1001692751821, -1001473548283, -1001459812644, -100
 BL_UBOT = [-1001812143750]
 DEVS = [1307579425]
 
-@app.on_message(commandx("gcast", "ggrups", prefixes=HANDLER) & SUDOERS)
+@app.on_message(commandx("gcast", "ggrups", prefixes=Config.HANDLER) & SUDOERS)
 async def gcast_cmd(client, message):
     if message.reply_to_message or get_arg(message):
         Man = await edit_or_reply(message, "`Started global broadcast...`")
@@ -43,7 +44,7 @@ async def gcast_cmd(client, message):
     )
 
 
-@app.on_message(commandx("gucast", "gchat", prefixes=HANDLER) & SUDOERS)
+@app.on_message(commandx("gucast", "gchat", prefixes=Config.HANDLER) & SUDOERS)
 async def gucast(client, message: Message):
     if message.reply_to_message or get_arg(message):
         ny = await message.reply("`Started global broadcast...`")
