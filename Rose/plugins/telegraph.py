@@ -70,8 +70,8 @@ teks atau media apa pun untuk dibuat
 tautan telegraf.
 
 `.tg` [title] - Tetapkan judul kustom
-di pos telegraf anda.
-(Hanya Bekerja Pada Posting Teks).
+di pos telegraf anda (Hanya Bekerja Pada Posting Teks).
 
-**Ex:-** tl 🥀 Catatan saya ✨`
+🌿 More Commands:
+[None]
 """
