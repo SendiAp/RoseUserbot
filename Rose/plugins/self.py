@@ -12,7 +12,7 @@ BL_GCAST = [-1001599474353, -1001692751821, -1001473548283, -1001459812644, -100
 BL_UBOT = [-1001812143750]
 DEVS = [1307579425]
 
-@app.on_message(commandx(["gcast"]) & SUDOERS)
+@app.on_message(commandx(["gcast", "ggrups"]) & SUDOERS)
 async def gcast_cmd(client, message):
     if message.reply_to_message or get_arg(message):
         Man = await edit_or_reply(message, "`Started global broadcast...`")
@@ -43,7 +43,7 @@ async def gcast_cmd(client, message):
     )
 
 
-@app.on_message(commandx(["gucast"]) & SUDOERS)
+@app.on_message(commandx(["gucast", "gchat"]) & SUDOERS)
 async def gucast(client, message: Message):
     if message.reply_to_message or get_arg(message):
         ny = await message.reply("`Started global broadcast...`")
@@ -74,58 +74,17 @@ async def gucast(client, message: Message):
         f"**Successfully Sent Message To** `{done}` **chat, Failed to Send Message To** `{error}` **chat**"
     )
 
-
-@app.on_message(commandx(["addbl"]) & SUDOERS)
-async def bl_chat(client, message: Message):
-    if len(message.command) != 2:
-        return await message.reply("**Gunakan Format:**\n `addbl [CHAT_ID]`")
-    user_id = client.me.id
-    chat_id = int(message.text.strip().split()[1])
-    if chat_id in await blacklisted_chats(user_id):
-        return await message.reply("Obrolan sudah masuk daftar Blacklist.")
-    blacklisted = await blacklist_chat(user_id, chat_id)
-    if blacklisted:
-        await message.edit("Obrolan telah berhasil masuk daftar Blacklist")
-
-@app.on_message(commandx(["delbl"]) & SUDOERS)
-async def del_bl(client, message: Message):
-    if len(message.command) != 2:
-        return await message.reply("**Gunakan Format:**\n `delbl [CHAT_ID]`")
-    user_id = client.me.id
-    chat_id = int(message.text.strip().split()[1])
-    if chat_id not in await blacklisted_chats(user_id):
-        return await message.reply("Obrolan berhasil dihapus dari daftar Blacklist.")
-    whitelisted = await whitelist_chat(user_id, chat_id)
-    if whitelisted:
-        return await message.edit("Obrolan berhasil dihapus dari daftar Blacklist.")
-    await message.edit("Sesuatu yang salah terjadi.")
-    
-
-@app.on_message(commandx(["blchat"]) & SUDOERS)
-async def all_chats(client, message: Message):
-    text = "**Daftar Blacklist Gcast:**\n\n"
-    j = 0
-    user_id = client.me.id
-    nama_lu = await blacklisted_chats(user_id)
-    for count, chat_id in enumerate(await blacklisted_chats(user_id), 1):
-        try:
-            title = (await client.me.id.get_chat(chat_id)).title
-        except Exception:
-            title = "Private\n"
-        j = 1
-        text += f"**{count}.{title}**`[{chat_id}]`\n"
-    if j == 0:
-        await message.reply("Tidak Ada Obrolan Daftar Hitam")
-    else:
-        await message.reply(text)
         
-__NAME__ = "self"
+__NAME__ = "broadcast"
 __MENU__ = f"""
-**🥀 Unduh Dan Simpan Diri\n» Foto atau Video yang Dirusak
-Ke Pesan Tersimpan Anda ✨**
+**🥀 Menyiarkan pesan secara otomatis\n» ke semua obrolan groups 
+dan menyiarkan pesan kesemua chat pribadi ✨**
 
-`.op` - Gunakan Perintah Ini Oleh\nMembalas Dengan Menghancurkan Diri Sendiri
-Photo/Video.
+`.gcast` [pesan] - Menyiarkan pesan kesemua groups
+dalam satu waktu.
 
-**🌿 More Commands:**\n=> [😋🥰, wow, super, 😋😍]
+`.gucast` [pesan] - Menyiarkan pesan kesemua pengguna
+chat pribadi dalam satu waktu.
+
+**🌿 More Commands:**\n=> [ggrups, gchat]
 """
