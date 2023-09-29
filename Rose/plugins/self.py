@@ -1,7 +1,7 @@
 import asyncio
 import dotenv
 from pyrogram.types import Message
-from ..modules.vars import BLACKLIST_GCAST 
+from ..modules.vars import Config 
 from .. import *
 from ..modules.tools import get_arg
 
