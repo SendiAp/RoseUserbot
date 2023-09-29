@@ -11,7 +11,7 @@ from pytgcalls.types.input_stream.quality import *
 
 
 # Audio Stream
-@app.on_message(commandx(["play", "ply"]))
+@app.on_message(commandx(["rplay", "ply"]))
 async def audio_stream(client, message):
     chat_id = message.chat.id
     replied = message.reply_to_message
@@ -58,7 +58,7 @@ async def audio_stream(client, message):
 
   
 # Video Stream
-@app.on_message(commandx(["vplay", "vply"]))
+@app.on_message(commandx(["rvplay", "vply"]))
 async def video_stream(client, message):
     chat_id = message.chat.id
     replied = message.reply_to_message
@@ -191,10 +191,10 @@ __MENU__ = """
 untuk grup telegram 🌹
 
 **🌿 Vcbot semua perintah:**
-`.play` [name] - Putar audio
+`.rplay` [name] - Putar audio
 lagu Dengan memberi nama.
 
-`.vplay` [name] - Putar video
+`.rvplay` [name] - Putar video
 lagu dengan memberi nama.
 
 `.pause` - To pause stream.
