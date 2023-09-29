@@ -23,6 +23,7 @@ async def all_vals_(client, message):
 
 __NAME__ = "vars"
 __MENU__ = """**Dapatkan variabel userbot anda**
+
 `.vars` - **Gunakan perintah ini untuk gunakan perintah ini untuk
 dapatkan semua nama variabel.**
 
@@ -31,4 +32,7 @@ dapatkan semua nilai variabel.**
 
 **Note:** Jangan gunakan perintah ini
 di grup publik mana pun.
+
+🌿 More Commands:
+[None]
 """
