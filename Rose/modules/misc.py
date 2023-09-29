@@ -35,7 +35,7 @@ def inline_wrapper(func):
                     [
                         InlineKeyboardButton(
                             "🌹 Deploy Rose Userbot 🌹",
-                            url=f"https://github.com/SendiAp/Rose-Userbot"
+                            url=f"https://github.com/SendiAp/RoseUserbot"
                         )
                     ]
                 ]
