@@ -1,5 +1,6 @@
 import asyncio
 
+from pyrogram import Client
 from .. import *
 from .. import __version__
 from ..modules.misc import *
