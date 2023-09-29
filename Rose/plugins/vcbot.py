@@ -11,7 +11,7 @@ from pytgcalls.types.input_stream.quality import *
 
 
 # Audio Stream
-@app.on_message(commandz(["ply", "play"]) & SUDOERS)
+@app.on_message(commandx(["play", "ply"]))
 async def audio_stream(client, message):
     chat_id = message.chat.id
     replied = message.reply_to_message
@@ -58,7 +58,7 @@ async def audio_stream(client, message):
 
   
 # Video Stream
-@app.on_message(commandz(["vply", "vplay"]) & SUDOERS)
+@app.on_message(commandx(["vplay", "vply"]))
 async def video_stream(client, message):
     chat_id = message.chat.id
     replied = message.reply_to_message
@@ -106,7 +106,7 @@ async def video_stream(client, message):
 
 
 # Pause Stream
-@app.on_message(commandz(["pse", "pause"]) & SUDOERS)
+@app.on_message(commandx(["pause", "pse"]))
 async def pause_stream(client, message):
     chat_id = message.chat.id
     try:
@@ -121,7 +121,7 @@ async def pause_stream(client, message):
 
 
 # Resume Stream
-@app.on_message(commandz(["rsm", "resume"]) & SUDOERS)
+@app.on_message(commandx(["resume", "rsm"]))
 async def resume_streams(client, message):
     chat_id = message.chat.id
     try:
@@ -136,7 +136,7 @@ async def resume_streams(client, message):
         
         
 # Skip To Next Stream
-@app.on_message(commandz(["skp", "skip"]) & SUDOERS)
+@app.on_message(commandx(["skip", "skp"]))
 async def change_streams(client, message):
     chat_id = message.chat.id
     try:
@@ -170,7 +170,7 @@ async def change_streams(client, message):
 
 
 # Stop/End Stream
-@app.on_message(commandz(["stp", "stop", "end"]) & SUDOERS)
+@app.on_message(commandx(["stop", "end", "stp"]))
 async def leave_streams(client, message):
     chat_id = message.chat.id
     try:
