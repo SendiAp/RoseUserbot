@@ -4,7 +4,6 @@ import os
 import sys
 import asyncio
 
-from config import *
 from .. import *
 from git import *
 from git.exc import *
