@@ -8,7 +8,7 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import html
-
+from pyrogram import *
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
