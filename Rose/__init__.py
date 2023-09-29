@@ -34,7 +34,7 @@ for file in os.listdir():
     if file.endswith(".session-journal"):
         os.remove(file)
 
-cmds = Config.CMD_HNDLR
+
 rose = Rose()
 app = rose.app
 bot = rose.bot
