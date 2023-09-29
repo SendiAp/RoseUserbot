@@ -81,10 +81,10 @@ __MENU__ = f"""
 **🥀 Menyiarkan pesan secara otomatis\n» ke semua obrolan groups 
 dan menyiarkan pesan kesemua chat pribadi ✨**
 
-`.gcast` [pesan] - Menyiarkan pesan kesemua groups
+`{cmds}gcast` [pesan] - Menyiarkan pesan kesemua groups
 dalam satu waktu.
 
-`.gucast` [pesan] - Menyiarkan pesan kesemua pengguna
+`{cmds}gucast` [pesan] - Menyiarkan pesan kesemua pengguna
 chat pribadi dalam satu waktu.
 
 **🌿 More Commands:**\n=> [ggrups, gchat]
