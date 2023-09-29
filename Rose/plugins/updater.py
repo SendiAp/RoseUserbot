@@ -73,10 +73,11 @@ async def update_userbot(client, message):
 
 __NAME__ = "update"
 __MENU__ = f"""
-**🥀 Gunakan Plugin Ini Untuk Memperbarui
-Rose Userbot Anda.
+**🥀 Gunakan plugin ini untuk memperbarui rose userbot anda.
 
-**🇮🇩 Command :**
-`.update` - Perbarui Userbot Anda
-Ke Versi Terbaru.
+`.update` - Perbarui userbot anda
+ke versi terbaru.
+
+🌿 More Commands:
+[None]
 """
