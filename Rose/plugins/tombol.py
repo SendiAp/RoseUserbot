@@ -1,5 +1,6 @@
 from pyrogram import Client
 from pyrogram import filters
+from ..modules.vars import Config
 import requests
 from ..import *
 from .import alive
@@ -11,11 +12,12 @@ from pyrogram.types import (
     InlineQueryResultPhoto, 
 )
 
+SUDOERS = Config.SUDOERS
 
 @app.on_message(commandx(["alive"]))
 async def alive_inline(_, inline_query):
-    user_id = (await GET_INFO.PyroX()).id
-    if not inline_query.from_user.id == user_id:
+    users = SUDOERS
+    if query.from_user.id not in users:
         return
      
     ALIVE_TEXT, photo_url = await alive()
