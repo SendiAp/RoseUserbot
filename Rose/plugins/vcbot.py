@@ -52,7 +52,7 @@ async def audio_stream(client, message):
             await m.edit("**🥳 Berhasil memulai streaming audio!**\n\n**Powered By: Rose Userbot**")
         else:
             pos = await put_que(chat_id, file, "Audio")
-            await m.edit(f"**😋 Added To Queue #{pos}**")
+            await m.edit(f"**😋 Audio berikutnya ditambahkan ke posisi #{pos}**\n\n**Powered By: Rose Userbot**")
     except Exception as e:
         await m.edit(f"**Error:** `{e}`")
 
@@ -97,10 +97,10 @@ async def video_stream(client, message):
                 stream_type=StreamType().pulse_stream
             )
             await put_que(chat_id, file, "Video")
-            await m.edit("🥳 Berhasil memulai streaming video!**\n\n**Powered By: Rose Userbot**")
+            await m.edit("🥳 **Berhasil memulai streaming video!**\n\n**Powered By: Rose Userbot**")
         else:
             pos = await put_que(chat_id, file, "Video")
-            await m.edit(f"**😋 Added To Queue #{pos}**")
+            await m.edit(f"**😋 Video berikutnya ditambahkan ke posisi #{pos}**\n\n**Powered By: Rose Userbot**")
     except Exception as e:
         await m.edit(f"**Error:** `{e}`")
 
