@@ -36,6 +36,7 @@ for file in os.listdir():
 
 
 rose = Rose()
+cmds = PLUGINS
 app = rose.app
 bot = rose.bot
 call = rose.call
