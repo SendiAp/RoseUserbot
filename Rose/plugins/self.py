@@ -1,5 +1,6 @@
 import asyncio
 import dotenv
+from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from ..modules.vars import Config 
 from .. import *
