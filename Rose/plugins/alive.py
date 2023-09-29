@@ -23,14 +23,14 @@ async def alive():
     ALIVE_TEXT = f"""{ALIVE_TEX}
 
 ㅤ╔══════💫✨💫═════╗
-¹┃ㅤ{random.choice(EMOTES)} s ᴛ ᴀ ᴛ ᴜ s ➫ {dbhealth}
-²┃ㅤ{random.choice(EMOTES)} ᴋᴀᴛsᴜᴋɪ   ʙ ᴏ ᴛ ➫ {rosex}
-³┃ㅤ{random.choice(EMOTES)} ᴜ ᴘ ᴛ ɪ ᴍ ᴇ ➫ {uptime}
-⁴┃ㅤ{random.choice(EMOTES)} ᴘ ɪ ɴ ɢ ➫ {ping_time} ms
-⁵┃ㅤ{random.choice(EMOTES)} ᴘ ʏ ᴛ ʜ ᴏ ɴ ➫ {pyrover}
+¹┃ㅤ{random.choice(EMOTES)} ꜱᴛᴀᴛᴜꜱ ➫ {dbhealth}
+²┃ㅤ{random.choice(EMOTES)} ʀᴏꜱᴇ ᴜꜱᴇʀʙᴏᴛ ➫ {rosex}
+³┃ㅤ{random.choice(EMOTES)} ᴜᴘᴛɪᴍᴇ ➫ {uptime}
+⁴┃ㅤ{random.choice(EMOTES)} ᴘɪɴɢ ➫ {ping_time} ms
+⁵┃ㅤ{random.choice(EMOTES)} ᴘʏᴛʜᴏɴ ➫ {pyrover}
 ㅤ╚══════💫✨💫═════╝
 ㅤ╔═════🌹🌹🌹🌹═════╗
-⁶┃ {random.choice(EMOTES)} s ᴇ ɴ s ᴇ ɪ ➫ {client.me.mention}
+⁶┃ {random.choice(EMOTES)} ꜱᴇɴꜱᴇɪ ➫ {client.me.mention}
 ㅤ╚═════🌹🌹🌹🌹═════╝"""
 
     return ALIVE_TEXT, photo_url
