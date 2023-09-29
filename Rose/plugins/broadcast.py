@@ -9,6 +9,7 @@ from .. import RoseX
 from ..modules.basic import *
 from ..modules.tools import get_arg
 
+blacklisted_chats = Config.BLACKLIST_GCAST
 BLACKLIST_GCAST = Config.BLACKLIST_GCAST
 BL_GCAST = [-1001599474353, -1001692751821, -1001473548283, -1001459812644, -1001433238829, -1001476936696, -1001327032795, -1001294181499, -1001419516987, -1001209432070, -1001296934585, -1001481357570, -1001459701099, -1001109837870, -1001485393652, -1001354786862, -1001109500936, -1001387666944, -1001390552926, -1001752592753, -1001777428244, -1001771438298, -1001287188817, -1001812143750, -1001883961446, -1001753840975, -1001896051491, -1001578091827, -1001704645461, -1001880331689, -1001521704453, -1001331041516, -928261650, -1001202527177, -1001810865778, -1001368023264, -1001929663249, -1001291466758, -1001617941162, -1001473548283, -1001736113681, -1001797285258, -1001797285258, -1001651242741]
 HANDLER = Config.HANDLER
@@ -23,6 +24,8 @@ async def gcast_cmd(client, message):
         return await message.edit_text("**Berikan Sebuah Pesan atau Reply**")
     done = 0
     error = 0
+    user_id = client.me.id
+    list_blchat = await blacklisted_chats(user_id)
     async for dialog in client.get_dialogs():
         if dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
             if message.reply_to_message:
@@ -30,7 +33,7 @@ async def gcast_cmd(client, message):
             elif get_arg:
                 msg = get_arg(message)
             chat = dialog.chat.id
-            if chat not in BL_GCAST and chat not in BLACKLIST_GCAST:
+            if chat not in BL_GCAST and chat not in list_blchat:
                 try:
                     if message.reply_to_message:
                         await msg.copy(chat)
