@@ -92,5 +92,6 @@ dalam satu waktu.
 `gucast` [pesan] - Menyiarkan pesan kesemua pengguna
 chat pribadi dalam satu waktu.
 
-**🌿 More Commands:**\n=> [ggrups, gchat]
+🌿 More Commands:
+[.ggrups/.gchat]
 """
