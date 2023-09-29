@@ -1,4 +1,5 @@
 from .. import *
+from pyrogram import Client
 import time
 from datetime import datetime
 
