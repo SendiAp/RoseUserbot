@@ -16,6 +16,7 @@ class Config(object):
     BOT_TOKEN = getenv("BOT_TOKEN", None)
     STRING_SESSION = getenv("STRING_SESSION", None)
     MONGO_DATABASE = getenv("MONGO_DATABASE", None)
+    CMD_HNDLR = getenv("CMD_HNDLR", None)
   
     # OPTIONAL VARIABLES
     SESSION_STRING = getenv("SESSION_STRING", None)
