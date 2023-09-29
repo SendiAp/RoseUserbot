@@ -1,4 +1,4 @@
-from pyogram import Client
+from pyrogram import Client
 from pyrogram import filters
 import requests
 from ..import *
