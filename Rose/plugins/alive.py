@@ -18,7 +18,7 @@ async def alive():
     ALIVE_TEX = " 𝙷𝙴𝚈 , 𝙱𝙰𝙱𝙴 😍 𝙸 𝙰𝙼 𝙰𝙻𝙸𝚅𝙴"
     EMOTES = ["😍", "💀", "😊", "👋", "🎉", "🔥", "🌟", "💫", "🚀", "🤖", "👻", "👾", "🧡", "🌹"]
 
-    photo_url = "https://te.legra.ph/file/4489fb9f5bccfe210def1.jpg"
+    photo_url = "https://telegra.ph/file/6cd188eddea9ae8154d1d.jpg"
     
     ALIVE_TEXT = f"""{ALIVE_TEX}
 
