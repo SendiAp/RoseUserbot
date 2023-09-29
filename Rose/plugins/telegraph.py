@@ -8,7 +8,7 @@ telegraph = Telegraph()
 filesize = 5242880 #[5MB]
 
 
-@app.on_message(commandx("tg"))
+@app.on_message(commandx(["tg"]) & SUDOERS)
 async def telegraph_uploader(client, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
