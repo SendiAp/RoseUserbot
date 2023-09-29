@@ -41,8 +41,10 @@ async def alive_check(client, message):
 
 __NAME__ = "ping"
 __MENU__ = f"""
-**🥀 Periksa server bot pengguna.
+🥀 Periksa server bot pengguna.
 
-Latensi Ping ⭐
-**Example:** `.ping`
+`.ping` - Latensi ping by rose userbot.
+
+🌿 More Commands:
+[None]
 """
