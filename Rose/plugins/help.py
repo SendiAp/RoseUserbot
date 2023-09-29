@@ -56,7 +56,6 @@ async def help_button(client, query):
     top_text = f"""
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
 
-• **Owner**» {client.me.mention}
 • **Version**» {__version__} 
 • **Powered By**» [Rose Userbot](https://t.me/RoseUserbotV2)"""
     if plug_match:
