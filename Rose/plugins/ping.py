@@ -26,7 +26,8 @@ async def get_readable_time(seconds: int) -> str:
     up_time += ":".join(time_list)
 
     return up_time
-
+    
+StartTime = time.time()
 
 @app.on_message(commandx(["ping"]) & SUDOERS)
 async def alive_check(client, message):
