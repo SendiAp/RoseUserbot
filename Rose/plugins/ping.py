@@ -33,7 +33,7 @@ StartTime = time.time()
 async def alive_check(client, message):
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    m = await eor(message, "**🤖 Pong !**")
+    m = await eor(message, "**🌹**")
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     await m.edit(f"**🌹 Rose Ping 🌹**\n❊ **Ping:**\n`{ms}` ms\n❊ **Uptime:**\n{uptime}\n**✦҈͜͡➳ My Name:** {client.me.mention}")
