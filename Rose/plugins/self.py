@@ -1,20 +1,18 @@
 import asyncio
 import dotenv
 from pyrogram.types import Message
-from ubotlibs.ubot.utils import *
+from ..modules.vars import BLACKLIST_GCAST 
 from .. import *
 from ..modules.tools import get_arg
 
 @app.on_message(commandx(["gcast"]) & SUDOERS)
 async def gcast_cmd(client, message):
     if message.reply_to_message or get_arg(message):
-        nay = await message.reply("`Memulai Gcast...`")
+        Man = await edit_or_reply(message, "`Started global broadcast...`")
     else:
-        return await message.edit("**Balas ke pesan/berikan sebuah pesan**")
+        return await message.edit_text("**Berikan Sebuah Pesan atau Reply**")
     done = 0
     error = 0
-    user_id = client.me.id
-    list_blchat = await blacklisted_chats(user_id)
     async for dialog in client.get_dialogs():
         if dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
             if message.reply_to_message:
@@ -22,7 +20,7 @@ async def gcast_cmd(client, message):
             elif get_arg:
                 msg = get_arg(message)
             chat = dialog.chat.id
-            if chat not in BL_GCAST and chat not in list_blchat:
+            if chat not in BL_GCAST and chat not in BLACKLIST_GCAST:
                 try:
                     if message.reply_to_message:
                         await msg.copy(chat)
@@ -32,8 +30,9 @@ async def gcast_cmd(client, message):
                     await asyncio.sleep(0.3)
                 except Exception:
                     error += 1
-    await nay.edit(
-        f"**Berhasil mengirim ke** `{done}` **Groups chat, Gagal mengirim ke** `{error}` **Groups**"
+                    await asyncio.sleep(0.3)
+    await Man.edit_text(
+        f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{error}` **Grup**"
     )
 
 
