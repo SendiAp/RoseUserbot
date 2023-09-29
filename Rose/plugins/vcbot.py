@@ -187,21 +187,21 @@ async def leave_streams(client, message):
 
 __NAME__ = "vcbot"
 __MENU__ = """
-**🥀 Hanya Pemutar Audio & VideoHanya Pemutar Audio & Video
-Untuk Grup Telegram 🌹
+🥀 Hanya pemutar audio & videoHanya pemutar audio & video
+untuk grup telegram 🌹
 
-**🌿 Vcbot Semua Perintah:**
-`.play` [name] - Putar Audio
-Lagu Dengan Memberi Nama.
+**🌿 Vcbot semua perintah:**
+`.play` [name] - Putar audio
+lagu Dengan memberi nama.
 
-`.vplay` [name] - Putar Video
-Lagu Dengan Memberi Nama.
+`.vplay` [name] - Putar video
+lagu dengan memberi nama.
 
-`.pause` - To Pause Stream.
-`.resume` - To Resume Stream.
-`.skip` - Skip To Next Song.
-`.end` - To Stop Stream.
+`.pause` - To pause stream.
+`.resume` - To resume stream.
+`.skip` - Skip to Next song.
+`.end` - To stop stream.
 
-**🌷 Perintah Pintasan Vcbot:**
+🌿 More Commands:
 => [ply, vply, pse, rsm, skp, stp]
 """
