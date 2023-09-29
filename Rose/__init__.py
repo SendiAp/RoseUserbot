@@ -17,6 +17,9 @@ if not Config.API_HASH:
 if not Config.BOT_TOKEN:
     LOGGER.error("BOT_TOKEN is missing! Kindly check again!")
     exit()
+if not Config.CMD_HNDLR:
+    LOGGER.error("CMD_HNDLR is missing! Kindly check again!")
+    exit()
 if not Config.STRING_SESSION:
     LOGGER.error("STRING_SESSION is missing! Kindly check again!")
     exit()
