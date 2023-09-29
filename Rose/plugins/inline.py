@@ -23,7 +23,6 @@ async def help_menu_logo(answer):
             caption=f"""
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
 
-• **Owner**» {client.me.mention}
 • **Version**» {__version__} 
 • **Powered By**» [Rose Userbot](https://t.me/RoseUserbotV2)
             """,
@@ -41,7 +40,6 @@ async def help_menu_text(answer):
             input_message_content=InputTextMessageContent(f"""
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
 
-• **Owner**» {client.me.mention}
 • **Version**» {__version__} 
 • **Powered By**» [Rose Userbot](https://t.me/RoseUserbotV2)""",
             disable_web_page_preview=True
