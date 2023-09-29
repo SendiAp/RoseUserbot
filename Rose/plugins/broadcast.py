@@ -4,7 +4,6 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 from ..modules.vars import all_vars 
 from .. import *
-from .. import cmds
 from ..modules.basic import *
 from ..modules.tools import get_arg
 
