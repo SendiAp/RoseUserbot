@@ -44,7 +44,7 @@ async def gcast_cmd(client, message):
     )
 
 
-@app.on_message(commandx("gucast", "gchat" cmds) & SUDOERS)
+@app.on_message(commandx("gucast", "gchat", cmds) & SUDOERS)
 async def gucast(client, message: Message):
     if message.reply_to_message or get_arg(message):
         ny = await message.reply("`Started global broadcast...`")
