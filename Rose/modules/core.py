@@ -115,15 +115,6 @@ class Rose(Client, PyTgCalls):
             LOGGER.info(e)
             pass
         try:
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "/setinline")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "🥀 𝗥𝗼𝘀𝗲 𝗨𝘀𝗲𝗿𝗯𝗼𝘁 🌹")
-        except:
-            pass
-        try:
             await self.bot.send_message(Config.LOG_GROUP_ID, "**Helper Bot Started.**")
         except:
             LOGGER.error("Please Promote Bot in Your Log Group")
