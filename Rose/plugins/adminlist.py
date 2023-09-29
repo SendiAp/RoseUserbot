@@ -202,4 +202,7 @@ __MENU__ = """
 `.zombies` - Menghapus akun terhapus dalam groups.
 `.tagall` - Mention teman dalan groups.
 `.botlist` - Mendapatkan list bot dalam groups.
+
+🌿 More Commands:
+[.adminlist/.kickdel/.everyone/.bots]
 """
