@@ -5,6 +5,7 @@ from .modules.core import Rose
 from .modules.vars import Config
 from .modules.utils import commandx
 from .modules.utils import commandz
+from ..modules.vars import all_vars
 
 __version__ = "v2.0.1"
 
