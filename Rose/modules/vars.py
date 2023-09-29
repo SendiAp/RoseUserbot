@@ -17,6 +17,7 @@ class Config(object):
     STRING_SESSION = getenv("STRING_SESSION", None)
     MONGO_DATABASE = getenv("MONGO_DATABASE", None)
     CMD_HNDLR = getenv("CMD_HNDLR", None)
+    BLACKLIST_GCAST = getenv("BLACKLIST_GCAST", None)
   
     # OPTIONAL VARIABLES
     SESSION_STRING = getenv("SESSION_STRING", None)
