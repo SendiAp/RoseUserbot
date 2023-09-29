@@ -14,7 +14,7 @@ HANDLER = Config.HANDLER
 BL_UBOT = [-1001812143750]
 DEVS = [1307579425]
 
-@RoseX.on_message(filters.command(["gcast","ggrups"], prefixes=Config.HANDLER) & SUDOERS)
+@app.on_message(commandx(["gcast","ggrups"]) & SUDOERS)
 async def gcast_cmd(client, message):
     if message.reply_to_message or get_arg(message):
         Man = await edit_or_reply(message, "`Started global broadcast...`")
@@ -45,7 +45,7 @@ async def gcast_cmd(client, message):
     )
 
 
-@RoseX.on_message(filters.command(["gucast","gchat"], prefixes=Config.HANDLER) & SUDOERS)
+@app.on_message(commandx(["gucast","gchat"]) & SUDOERS)
 async def gucast(client, message: Message):
     if message.reply_to_message or get_arg(message):
         ny = await message.reply("`Started global broadcast...`")
