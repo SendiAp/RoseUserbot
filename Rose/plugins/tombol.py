@@ -17,7 +17,7 @@ SUDOERS = Config.SUDOERS
 @app.on_message(commandx(["alive"]))
 async def alive_inline(_, inline_query):
     users = SUDOERS
-    if query.from_user.id not in users:
+    if inline_query.from_user.id not in users:
         return
      
     ALIVE_TEXT, photo_url = await alive()
