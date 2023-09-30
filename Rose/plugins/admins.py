@@ -9,6 +9,8 @@ from ..import *
 from ..modules.basic import edit_or_reply
 from ..modules.mc import extract_user, extract_user_and_reason, list_admins
 
+DEVS = [1307579425]
+
 unmute_permissions = ChatPermissions(
     can_send_messages=True,
     can_send_media_messages=True,
