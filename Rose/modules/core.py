@@ -8,6 +8,19 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from .vars import Config
 from ..console import LOGGER
 
+BOT_VER ="v2.0.1"
+
+COMMAND_PREFIXES = Config.COMMAND_PREFIXES
+
+MSG_ON = """
+🌹 **Rose-Userbot Berhasil Di Aktifkan**
+━━
+➠ **Userbot Version -**  {BOT_VER}
+➠ **Ketik** `.ping` **untuk Mengecheck Bot**
+━━
+"""
+
+
 ass_power = ChatPrivileges(
     can_change_info=True,
     can_delete_messages=True,
@@ -97,7 +110,7 @@ class Rose(Client, PyTgCalls):
             except:
                 pass
             try:
-                await self.ass.send_message(Config.LOG_GROUP_ID, "**Vc Assistant Started.**")
+                await self.ass.send_message(Config.LOG_GROUP_ID, MSG_ON.format(BOT_VER, COMMAND_PREFIXES)
             except:
                 pass
             LOGGER.info(f"Vc Assistant Started as {self.ass.name}")
@@ -109,13 +122,12 @@ class Rose(Client, PyTgCalls):
         self.bot.mention = self.bot.me.mention
         self.bot.id = self.bot.me.id
         try:
-            await self.app.send_message(f"@{self.bot.username}", "/start")
             await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
         except Exception as e:
             LOGGER.info(e)
             pass
         try:
-            await self.bot.send_message(Config.LOG_GROUP_ID, "**Helper Bot Started.**")
+            await self.bot.send_message(Config.LOG_GROUP_ID, MSG_ON.format(BOT_VER, COMMAND_PREFIXES)
         except:
             LOGGER.error("Please Promote Bot in Your Log Group")
             exit()
