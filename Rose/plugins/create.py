@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from ..import **
+from ..import *
 from ..modules.basic import edit_or_reply
 
 
