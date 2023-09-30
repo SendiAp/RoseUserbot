@@ -1,3 +1,4 @@
+from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
 from pyrogram.filters import chat
 from pyrogram import Client
 from typing import Dict, List, Union
