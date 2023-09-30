@@ -82,10 +82,10 @@ class Rose(Client, PyTgCalls):
     async def start(self):
         LOGGER.info("Starting Userbot")
         await self.app.start()
-        self.bot.name = self.bot.me.first_name + "" + (self.bot.me.last_name or "")
-        self.bot.username = self.bot.me.username
-        self.bot.mention = self.bot.me.mention
-        self.bot.id = self.bot.me.id
+        self.app.name = self.app.me.first_name + "" + (self.app.me.last_name or "")
+        self.app.username = self.app.me.username if self.app.me.username else self.app.me.mention
+        self.app.mention = self.app.me.mention
+        self.app.id = self.app.me.id 
         if self.app.id not in Config.SUDOERS:
             Config.SUDOERS.add(int(self.app.id))
         try:
@@ -94,7 +94,7 @@ class Rose(Client, PyTgCalls):
             await self.app.join_chat("RoseUserbotSupport")
         except:
             pass
-        await self.bot.send_message(Config.LOG_GROUP_ID, "Memulai Userbot...")
+        await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
         LOGGER.info(f"Userbot Started as {self.app.name}")
         LOGGER.info("Starting PyTgCalls")
         if Config.SESSION_STRING:
@@ -113,17 +113,17 @@ class Rose(Client, PyTgCalls):
         await self.call.start()
         LOGGER.info("Starting Helperbot")
         await self.bot.start()
-        self.app.name = self.app.me.first_name + "" + (self.app.me.last_name or "")
-        self.app.username = self.app.me.username if self.app.me.username else self.app.me.mention
-        self.app.mention = self.app.me.mention
-        self.app.id = self.app.me.id 
+        self.bot.name = self.bot.me.first_name + "" + (self.bot.me.last_name or "")
+        self.bot.username = self.bot.me.username
+        self.bot.mention = self.bot.me.mention
+        self.bot.id = self.bot.me.id
         try:
             await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
         except Exception as e:
             LOGGER.info(e)
             pass
         try:
-            await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
+            await self.bot.send_message(Config.LOG_GROUP_ID, "Starting Helperbot*)
         except:
             pass
             LOGGER.error("Please Promote Bot in Your Log Group")
