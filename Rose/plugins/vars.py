@@ -33,6 +33,5 @@ dapatkan semua nilai variabel.**
 **Note:** Jangan gunakan perintah ini
 di grup publik mana pun.
 
-🌿 More Commands:
-[None]
+© Rose Userbot
 """
