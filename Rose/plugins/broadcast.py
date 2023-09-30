@@ -33,7 +33,7 @@ async def gcast_cmd(client, message):
             elif get_arg:
                 msg = get_arg(message)
             chat = dialog.chat.id
-            if chat not in BL_GCAST and not in list_blchat:
+            if chat not in list_blchat and chat not in BL_GCAST:
                 try:
                     if message.reply_to_message:
                         await msg.copy(chat)
