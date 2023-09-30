@@ -111,17 +111,16 @@ async def sudo_users_list(client, message: Message):
 
 __NAME__ = "sudo"
 __MENU__ = f"""
-🥀 Tambah atau hapus pengguna sudo tambah atau hapus pengguna sudo
-dari userbot anda.
+**🥀 Tambah atau hapus pengguna sudo tambah atau hapus pengguna sudo
+dari userbot anda.**
 
-`.addsudo` - Balas perintah ini balas perintah ini 
-untuk setiap pesan pengguna target untuk menambahkan pengguna sudo.
+`.addsudo` - **Balas perintah ini balas perintah ini 
+untuk setiap pesan pengguna target untuk menambahkan pengguna sudo.**
 
-`.delsudo` - Balas perintah ini balas perintah ini
-untuk setiap pesan pengguna target untuk menghapus dari pengguna sudo.
+`.delsudo` - **Balas perintah ini balas perintah ini
+untuk setiap pesan pengguna target untuk menghapus dari pengguna sudo.**
 
-`.sudolist - Dapatkan semua aktif daftar pengguna sudo.
+`.sudolist` - **Dapatkan semua aktif daftar pengguna sudo.**
 
-🌿 More Commands:
-[`.as`, `.ds`, `.sl`]
+© Rose Userbot
 """
