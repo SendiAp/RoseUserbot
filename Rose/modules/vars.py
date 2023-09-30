@@ -16,8 +16,12 @@ class Config(object):
     BOT_TOKEN = getenv("BOT_TOKEN", None)
     STRING_SESSION = getenv("STRING_SESSION", None)
     MONGO_DATABASE = getenv("MONGO_DATABASE", None)
-    HANDLER = ["~", ".","!","?","@","$"]
     BLACKLIST_GCAST = getenv("BLACKLIST_GCAST", None)
+    GIT_TOKEN = getenv("GIT_TOKEN", None)
+    REPO_URL = getenv("REPO_URL", "https://github.com/SendiAp/RoseUserbot")
+    BRANCH = getenv("BRANCH", "rose")
+    HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
+    HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
   
     # OPTIONAL VARIABLES
     SESSION_STRING = getenv("SESSION_STRING", None)
