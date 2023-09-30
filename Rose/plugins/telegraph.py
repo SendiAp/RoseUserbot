@@ -65,13 +65,12 @@ async def telegraph_uploader(client, message):
 __NAME__ = "telegraph"
 __MENU__ = """**Telegraph Uploader:**
 
-`.tg` - Balas perintah ini Ke balas perintah Ini ke
+`.tg` - **Balas perintah ini Ke balas perintah Ini ke
 teks atau media apa pun untuk dibuat
-tautan telegraf.
+tautan telegraf.**
 
-`.tg` [title] - Tetapkan judul kustom
-di pos telegraf anda (Hanya Bekerja Pada Posting Teks).
+`.tg` [title] - **Tetapkan judul kustom
+di pos telegraf anda** (Hanya Bekerja Pada Posting Teks).
 
-🌿 More Commands:
-[None]
+© Rose Userbot 
 """
