@@ -255,3 +255,22 @@ async def demote(client, message):
     )
     umention = (await client.get_users(user_id)).mention
     await Man.edit(f"Demoted! {umention}")
+
+__NAME__ = "admin"
+__MENU__ = f"""
+**🥀 Meng-handle groups tanpa harus menggunakan bantuan bot lain
+hanya menggunakan userbot.**
+
+`.ban` [reply username/userid] [alasan] - Membanned pengguna dari groups
+`.unban` [reply username/userid] - Menghapus pengguna dari banned groups.
+`.kick` [reply username/userid] - Keluarkan pengguna dari groups.
+`.promote` - Mempromosikan pengguna menjadi admin groups.
+`.delmote` - Menghapus pengguna dari admin groups.
+`.mute` [reply] - Membisukan pengguna dari groups.
+`.unmute` [reply] - Menghapus bisu pengguna dari groups.
+`.pin` [reply] - Menyematkan pesan / gambar dll digroups.
+`.unpin` [reply] - Melepas semat postingan groups.
+`.setgpic [reply foto] - Memasang foto groups.
+
+© Rose Userbot
+"""
