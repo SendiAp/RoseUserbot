@@ -11,7 +11,7 @@ from pytgcalls.types.input_stream.quality import *
 
 
 # Audio Stream
-@app.on_message(commandx(["rplay", "ply"]))
+@app.on_message(commandx(["play", "rplay"]) & SUDOERS)
 async def audio_stream(client, message):
     chat_id = message.chat.id
     replied = message.reply_to_message
@@ -58,7 +58,7 @@ async def audio_stream(client, message):
 
   
 # Video Stream
-@app.on_message(commandx(["rvplay", "vply"]))
+@app.on_message(commandx(["vplay", "rvplay"]) & SUDOERS)
 async def video_stream(client, message):
     chat_id = message.chat.id
     replied = message.reply_to_message
@@ -106,7 +106,7 @@ async def video_stream(client, message):
 
 
 # Pause Stream
-@app.on_message(commandx(["pause", "pse"]))
+@app.on_message(commandx(["pause", "pse"]) & SUDOERS)
 async def pause_stream(client, message):
     chat_id = message.chat.id
     try:
@@ -121,7 +121,7 @@ async def pause_stream(client, message):
 
 
 # Resume Stream
-@app.on_message(commandx(["resume", "rsm"]))
+@app.on_message(commandx(["resume", "rsm"]) & SUDOERS)
 async def resume_streams(client, message):
     chat_id = message.chat.id
     try:
@@ -136,7 +136,7 @@ async def resume_streams(client, message):
         
         
 # Skip To Next Stream
-@app.on_message(commandx(["skip", "skp"]))
+@app.on_message(commandx(["skip", "skp"]) & SUDOERS)
 async def change_streams(client, message):
     chat_id = message.chat.id
     try:
@@ -170,7 +170,7 @@ async def change_streams(client, message):
 
 
 # Stop/End Stream
-@app.on_message(commandx(["stop", "end", "stp"]))
+@app.on_message(commandx(["end", "stop"]) & SUDOERS)
 async def leave_streams(client, message):
     chat_id = message.chat.id
     try:
@@ -191,10 +191,10 @@ __MENU__ = """
 untuk grup telegram 🌹
 
 **🌿 Vcbot semua perintah:**
-`.rplay` [name] - Putar audio
+`.play` [name] - Putar audio
 lagu Dengan memberi nama.
 
-`.rvplay` [name] - Putar video
+`.vplay` [name] - Putar video
 lagu dengan memberi nama.
 
 `.pause` - To pause stream.
@@ -202,6 +202,5 @@ lagu dengan memberi nama.
 `.skip` - Skip to Next song.
 `.end` - To stop stream.
 
-🌿 More Commands:
-=> [ply, vply, pse, rsm, skp, stp]
+© Rose Userbot
 """
