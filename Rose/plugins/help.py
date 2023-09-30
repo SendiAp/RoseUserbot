@@ -10,7 +10,7 @@ from pyrogram import *
 from pyrogram.types import *
 
 
-@app.on_message(commandx(["help"]))
+@app.on_message(commandx(["help", "helpme"]) & SUDOERS)
 async def inline_help_menu(client, message: Message):
    try:
        if var.USERBOT_PICTURE:
