@@ -17,8 +17,8 @@ import heroku3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 
-from .vars *
-from .vars Config, all_vars
+from .vars import *
+from .vars import Config, all_vars
 from  ..import LOGGER
 
 HAPP = None
