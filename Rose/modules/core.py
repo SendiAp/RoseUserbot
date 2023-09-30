@@ -8,14 +8,13 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from .vars import Config
 from ..console import LOGGER
 
-BOT_VER ="v2.0.1"
 
 COMMAND_PREFIXES = Config.COMMAND_PREFIXES
 
 MSG_ON = """
 🌹 **Rose-Userbot Berhasil Di Aktifkan**
 ━━
-➠ **Userbot Version -**  {BOT_VER}
+➠ **Userbot Version -**  v2.0.1
 ➠ **Ketik** `.ping` **untuk Mengecheck Bot**
 ━━
 """
