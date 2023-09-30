@@ -1,4 +1,5 @@
 import os
+from aiohttp import ClientSession
 from pyrogram import Client, enums, filters
 from .console import LOGGER
 from .modules.core import Rose
@@ -37,6 +38,7 @@ for file in os.listdir():
 
 RoseX = Client(name="RoseX", session_string=Config.STRING_SESSION, api_id=Config.API_ID, api_hash=Config.API_HASH, plugins=dict(root="plugins"))
 
+aiosession = ClientSession()
 rose = Rose()
 app = rose.app
 bot = rose.bot
