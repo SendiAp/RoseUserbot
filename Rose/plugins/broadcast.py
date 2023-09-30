@@ -138,8 +138,9 @@ dalam satu waktu.
 `.gucast` [pesan] - Menyiarkan pesan kesemua pengguna
 chat pribadi dalam satu waktu.
 
-`.addbl` - Menambahkan daftar hitam gcast.
-`.delbl` - Menghapus dari daftar hitam gcast.
+`.addbl` [id] - Menambahkan daftar hitam gcast.
+
+`.delbl` [id] - Menghapus dari daftar hitam gcast.
 
 © Rose Userbot
 """
