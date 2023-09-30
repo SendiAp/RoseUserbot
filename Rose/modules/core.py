@@ -109,10 +109,6 @@ class Rose(Client, PyTgCalls):
                 await self.ass.join_chat("RoseUserbotSupport")
             except:
                 pass
-            try:
-                await self.ass.send_message(Config.LOG_GROUP_ID, MSG_ON.format(BOT_VER, COMMAND_PREFIXES)
-            except:
-                pass
             LOGGER.info(f"Vc Assistant Started as {self.ass.name}")
         await self.call.start()
         LOGGER.info("Starting Helperbot")
