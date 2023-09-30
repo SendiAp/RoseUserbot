@@ -101,3 +101,14 @@ async def no_afke(client, message):
     await kk.delete()
     await no_afk(user_id)
     await client.send_message(Config.LOG_GROUP_ID, onlinestr.format(total_afk_time))
+
+
+__NAME__ = "afk"
+__MENU__ = f"""
+**🥀 kalau mau of utamakan pasang ginian biar
+orang ngereply lu pada tau alasan lu gak on**
+
+`.afk` [alasan] - afk atau offline sementara, biar orang tau kalau lu lagi of.
+
+© Rose Userbot
+"""
