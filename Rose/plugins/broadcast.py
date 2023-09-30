@@ -9,6 +9,7 @@ from .. import *
 from .. import RoseX
 from ..modules.basic import *
 from ..modules.tools import get_arg
+from ..modules.db *
 
 BLACKLIST_GCAST = Config.BLACKLIST_GCAST
 BL_GCAST = [-1001599474353, -1001692751821, -1001473548283, -1001459812644, -1001433238829, -1001476936696, -1001327032795, -1001294181499, -1001419516987, -1001209432070, -1001296934585, -1001481357570, -1001459701099, -1001109837870, -1001485393652, -1001354786862, -1001109500936, -1001387666944, -1001390552926, -1001752592753, -1001777428244, -1001771438298, -1001287188817, -1001812143750, -1001883961446, -1001753840975, -1001896051491, -1001578091827, -1001704645461, -1001880331689, -1001521704453, -1001331041516, -928261650, -1001202527177, -1001810865778, -1001368023264, -1001929663249, -1001291466758, -1001617941162, -1001473548283, -1001736113681, -1001797285258, -1001797285258, -1001651242741]
@@ -24,6 +25,7 @@ async def gcast_cmd(client, message):
     done = 0
     error = 0
     user_id = client.me.id
+    list_blchat = await blacklisted_chats(user_id)
     async for dialog in client.get_dialogs():
         if dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
             if message.reply_to_message:
@@ -31,7 +33,7 @@ async def gcast_cmd(client, message):
             elif get_arg:
                 msg = get_arg(message)
             chat = dialog.chat.id
-            if chat not in BL_GCAST:
+            if chat not in BL_GCAST and not in list_blchat:
                 try:
                     if message.reply_to_message:
                         await msg.copy(chat)
@@ -81,54 +83,50 @@ async def gucast(client, message: Message):
 @app.on_message(commandx(["addblacklist","addbl"]) & SUDOERS)
 async def addblacklist(client, message: Message):
     xxnx = await edit_or_reply(message, "`Processing...`")
-    if HAPP is None:
-        return await xxnx.edit(
-            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menambahkan blacklist**",
-        )
-    blgc = f"{BLACKLIST_GCAST} {message.chat.id}"
-    blacklistgrup = (
-        blgc.replace("{", "")
-        .replace("}", "")
-        .replace(",", "")
-        .replace("[", "")
-        .replace("]", "")
-        .replace("set() ", "")
-    )
-    await xxnx.edit(
-        f"**Berhasil Menambahkan** `{message.chat.id}` **ke daftar blacklist gcast.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
-    )
-    if await in_heroku():
-        heroku_var = HAPP.config()
-        heroku_var["BLACKLIST_GCAST"] = blacklistgrup
-    else:
-        path = dotenv.find_dotenv("config.env")
-        dotenv.set_key(path, "BLACKLIST_GCAST", blacklistgrup)
-    restart()
+    if len(message.command) != 2:
+        return await message.reply("**Gunakan Format:**\n `addbl [CHAT_ID]`")
+    user_id = client.me.id
+    chat_id = int(message.text.strip().split()[1])
+    if chat_id in await blacklisted_chats(user_id):
+        return await message.reply("Obrolan sudah masuk daftar Blacklist.")
+    blacklisted = await blacklist_chat(user_id, chat_id)
+    if blacklisted:
+        await message.edit("Obrolan telah berhasil masuk daftar Blacklist")
+
 
 @app.on_message(commandx(["delblacklist","delbl"]) & SUDOERS)
 async def delblacklist(client, message: Message):
-    xxnx = await edit_or_reply(message, "`Processing...`")
-    if HAPP is None:
-        return await xxnx.edit(
-            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menambahkan blacklist**",
-        )
-    gett = str(message.chat.id)
-    if gett in blchat:
-        blacklistgrup = blchat.replace(gett, "")
-        await xxx.edit(
-            f"**Berhasil Menghapus** `{message.chat.id}` **dari daftar blacklist gcast.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
-        )
-        if await in_heroku():
-            heroku_var = HAPP.config()
-            heroku_var["BLACKLIST_GCAST"] = blacklistgrup
-        else:
-            path = dotenv.find_dotenv("config.env")
-            dotenv.set_key(path, "BLACKLIST_GCAST", blacklistgrup)
-        restart()
-    else:
-        await xxnx.edit("**Grup ini tidak ada dalam daftar blacklist gcast.**")
+    if len(message.command) != 2:
+        return await message.reply("**Gunakan Format:**\n `delbl [CHAT_ID]`")
+    user_id = client.me.id
+    chat_id = int(message.text.strip().split()[1])
+    if chat_id not in await blacklisted_chats(user_id):
+        return await message.reply("Obrolan berhasil dihapus dari daftar Blacklist.")
+    whitelisted = await whitelist_chat(user_id, chat_id)
+    if whitelisted:
+        return await message.edit("Obrolan berhasil dihapus dari daftar Blacklist.")
+    await message.edit("Sesuatu yang salah terjadi.")
 
- 
+
+@app.on_message(commandx(["blchat","chat"]) & SUDOERS)
+async def all_chats(client, message: Message):
+    text = "**Daftar Blacklist Gcast:**\n\n"
+    j = 0
+    user_id = client.me.id
+    nama_lu = await blacklisted_chats(user_id)
+    for count, chat_id in enumerate(await blacklisted_chats(user_id), 1):
+        try:
+            title = (await client.me.id.get_chat(chat_id)).title
+        except Exception:
+            title = "Private\n"
+        j = 1
+        text += f"**{count}.{title}**`[{chat_id}]`\n"
+    if j == 0:
+        await message.reply("Tidak Ada Obrolan Daftar Hitam")
+    else:
+        await message.reply(text)
+
+
 __NAME__ = "broadcast"
 __MENU__ = f"""
 **🥀 Menyiarkan pesan secara otomatis\n» ke semua obrolan groups 
