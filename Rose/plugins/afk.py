@@ -5,6 +5,7 @@ from pyrogram.types import Message
 from ..modules.basic import get_text
 from ..import *
 from ..modules.vars import Config
+from ..modules.db import *
 
 DEVS = [1307579425]
 
