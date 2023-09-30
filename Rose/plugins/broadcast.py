@@ -25,7 +25,6 @@ async def gcast_cmd(client, message):
     done = 0
     error = 0
     user_id = client.me.id
-    list_blchat = await blacklisted_chats(user_id)
     async for dialog in client.get_dialogs():
         if dialog.chat.type in (enums.ChatType.GROUP, enums.ChatType.SUPERGROUP):
             if message.reply_to_message:
@@ -33,7 +32,7 @@ async def gcast_cmd(client, message):
             elif get_arg:
                 msg = get_arg(message)
             chat = dialog.chat.id
-            if chat not in BL_GCAST and chat not in list_blchat:
+            if chat not in BL_GCAST:
                 try:
                     if message.reply_to_message:
                         await msg.copy(chat)
