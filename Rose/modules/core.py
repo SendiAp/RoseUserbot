@@ -123,7 +123,7 @@ class Rose(Client, PyTgCalls):
             LOGGER.info(e)
             pass
         try:
-            await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON.format(BOT_VER, COMMAND_PREFIXES)
+            await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
         except:
             pass
             LOGGER.error("Please Promote Bot in Your Log Group")
