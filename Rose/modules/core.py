@@ -95,8 +95,6 @@ class Rose(Client, PyTgCalls):
         except:
             pass
         await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON.format(BOT_VER, COMMAND_PREFIXES)
-        except:
-            pass
         LOGGER.info(f"Userbot Started as {self.app.name}")
         LOGGER.info("Starting PyTgCalls")
         if Config.SESSION_STRING:
