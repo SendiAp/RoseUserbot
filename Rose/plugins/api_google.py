@@ -17,8 +17,6 @@ from ..import *
 from pyrogram import Client, filters
 from pyrogram.types import *
 
-from . import * 
-
 # isi var sini
 
 API_KEY_GOOGLE = "AIzaSyDw5Ex6fufy_wGzSp20OkXODYh_bhuLPb0"
