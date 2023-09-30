@@ -13,6 +13,7 @@ flask
 gunicorn
 gpytranslate
 googletrans
+googlesearch-python== 1.0.1
 pytgcalls==3.0.0.dev24
 openai
 uvloop
