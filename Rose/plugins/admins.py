@@ -92,7 +92,7 @@ async def member_unban(client, message):
             "Provide a username or reply to a user's message to unban."
         )
     await message.chat.unban_member(user)
-    umention = (await cleint.get_users(user)).mention
+    umention = (await client.get_users(user)).mention
     await Man.edit(f"Unbanned! {umention}")
 
 
