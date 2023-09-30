@@ -201,8 +201,11 @@ __MENU__ = """
 gua coba bisa berarti lu nya gak bisa pake nya.
 
 `.admins` - Melihat daftar admin groups.
+
 `.zombies` - Menghapus akun terhapus dalam groups.
+
 `.tagall` - Mention teman dalan groups.
+
 `.botlist` - Mendapatkan list bot dalam groups.
 
 © Rose Userbot
