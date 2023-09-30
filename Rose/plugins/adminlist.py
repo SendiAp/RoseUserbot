@@ -197,12 +197,13 @@ async def get_list_bots(client, message):
 
 __NAME__ = "tag"
 __MENU__ = """
+🌹 Kalau modules gak berfungsi lapor ya ke owner, kalau 
+gua coba bisa berarti lu nya gak bisa pake nya.
 
 `.admins` - Melihat daftar admin groups.
 `.zombies` - Menghapus akun terhapus dalam groups.
 `.tagall` - Mention teman dalan groups.
 `.botlist` - Mendapatkan list bot dalam groups.
 
-🌿 More Commands:
-[.adminlist/.kickdel/.everyone/.bots]
+© Rose Userbot
 """
