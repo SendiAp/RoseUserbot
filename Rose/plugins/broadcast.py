@@ -2,6 +2,7 @@ import asyncio
 import dotenv
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
+from ..modules.bc import HAPP, in_heroku
 from ..modules.vars import all_vars 
 from ..modules.vars import Config
 from .. import *
