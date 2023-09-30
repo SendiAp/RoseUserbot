@@ -109,7 +109,7 @@ __MENU__ = f"""
 **🥀 kalau mau of utamakan pasang ginian biar
 orang ngereply lu pada tau alasan lu gak on**
 
-`.afk` [alasan] - afk atau offline sementara, biar orang tau kalau lu lagi of.
+`.afk` [alasan] - **afk atau offline sementara, biar orang tau kalau lu lagi of.**
 
 © Rose Userbot
 """
