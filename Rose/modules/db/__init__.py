@@ -17,7 +17,7 @@ import urllib3
 import schedule
 import asyncio
 from ..import *
-from ..modules.vars import Config 
+from .modules.vars import Config 
 
 MONGO_DATABASE = Config.MONGO_DATABASE
 
