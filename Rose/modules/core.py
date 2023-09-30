@@ -94,7 +94,9 @@ class Rose(Client, PyTgCalls):
             await self.app.join_chat("RoseUserbotSupport")
         except:
             pass
-        await self.app.send_message(Config.LOG_GROUP_ID, "**Userbot Started**")
+        await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON.format(BOT_VER, COMMAND_PREFIXES)
+        except:
+            pass
         LOGGER.info(f"Userbot Started as {self.app.name}")
         LOGGER.info("Starting PyTgCalls")
         if Config.SESSION_STRING:
@@ -125,6 +127,7 @@ class Rose(Client, PyTgCalls):
         try:
             await self.bot.send_message(Config.LOG_GROUP_ID, MSG_ON.format(BOT_VER, COMMAND_PREFIXES)
         except:
+            pass
             LOGGER.error("Please Promote Bot in Your Log Group")
             exit()
         LOGGER.info(f"Helperbot Started as {self.bot.name}")
