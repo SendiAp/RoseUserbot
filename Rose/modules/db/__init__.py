@@ -17,7 +17,15 @@ import urllib3
 import schedule
 import asyncio
 from ..import *
+from ..modules.vars import Config 
 
+MONGO_DATABASE = Config.MONGO_DATABASE
+
+mongo = MongoCli(MONGO_DATABASE)
+db = mongo.app
+
+blchatdb = db.blchat
+afkdb = db.afk
 
 async def blacklisted_chats(user_id: int) -> list:
     chats_list = []
