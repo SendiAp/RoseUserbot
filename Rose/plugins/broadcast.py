@@ -9,6 +9,7 @@ from .. import RoseX
 from ..modules.basic import *
 from ..modules.tools import get_arg
 
+BLACKLIST_GCAST = Config.BLACKLIST_GCAST
 BL_GCAST = [-1001599474353, -1001692751821, -1001473548283, -1001459812644, -1001433238829, -1001476936696, -1001327032795, -1001294181499, -1001419516987, -1001209432070, -1001296934585, -1001481357570, -1001459701099, -1001109837870, -1001485393652, -1001354786862, -1001109500936, -1001387666944, -1001390552926, -1001752592753, -1001777428244, -1001771438298, -1001287188817, -1001812143750, -1001883961446, -1001753840975, -1001896051491, -1001578091827, -1001704645461, -1001880331689, -1001521704453, -1001331041516, -928261650, -1001202527177, -1001810865778, -1001368023264, -1001929663249, -1001291466758, -1001617941162, -1001473548283, -1001736113681, -1001797285258, -1001797285258, -1001651242741]
 HANDLER = Config.HANDLER
 BL_UBOT = [-1001812143750]
@@ -77,7 +78,57 @@ async def gucast(client, message: Message):
         f"**Successfully Sent Message To** `{done}` **chat, Failed to Send Message To** `{error}` **chat**"
     )
 
-        
+@app.on_message(commandx(["addblacklist","addbl"]) & SUDOERS)
+async def addblacklist(client, message: Message):
+    xxnx = await edit_or_reply(message, "`Processing...`")
+    if HAPP is None:
+        return await xxnx.edit(
+            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menambahkan blacklist**",
+        )
+    blgc = f"{BLACKLIST_GCAST} {message.chat.id}"
+    blacklistgrup = (
+        blgc.replace("{", "")
+        .replace("}", "")
+        .replace(",", "")
+        .replace("[", "")
+        .replace("]", "")
+        .replace("set() ", "")
+    )
+    await xxnx.edit(
+        f"**Berhasil Menambahkan** `{message.chat.id}` **ke daftar blacklist gcast.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
+    )
+    if await in_heroku():
+        heroku_var = HAPP.config()
+        heroku_var["BLACKLIST_GCAST"] = blacklistgrup
+    else:
+        path = dotenv.find_dotenv("config.env")
+        dotenv.set_key(path, "BLACKLIST_GCAST", blacklistgrup)
+    restart()
+
+@app.on_message(commandx(["delblacklist","delbl"]) & SUDOERS)
+async def delblacklist(client, message: Message):
+    xxnx = await edit_or_reply(message, "`Processing...`")
+    if HAPP is None:
+        return await xxnx.edit(
+            "**Silahkan Tambahkan Var** `HEROKU_APP_NAME` **untuk menambahkan blacklist**",
+        )
+    gett = str(message.chat.id)
+    if gett in blchat:
+        blacklistgrup = blchat.replace(gett, "")
+        await xxx.edit(
+            f"**Berhasil Menghapus** `{message.chat.id}` **dari daftar blacklist gcast.**\n\nSedang MeRestart Heroku untuk Menerapkan Perubahan."
+        )
+        if await in_heroku():
+            heroku_var = HAPP.config()
+            heroku_var["BLACKLIST_GCAST"] = blacklistgrup
+        else:
+            path = dotenv.find_dotenv("config.env")
+            dotenv.set_key(path, "BLACKLIST_GCAST", blacklistgrup)
+        restart()
+    else:
+        await xxnx.edit("**Grup ini tidak ada dalam daftar blacklist gcast.**")
+
+ 
 __NAME__ = "broadcast"
 __MENU__ = f"""
 **🥀 Menyiarkan pesan secara otomatis\n» ke semua obrolan groups 
@@ -88,6 +139,9 @@ dalam satu waktu.
 
 `.gucast` [pesan] - Menyiarkan pesan kesemua pengguna
 chat pribadi dalam satu waktu.
+
+`.addbl` - Menambahkan daftar hitam gcast.
+`.delbl` - Menghapus dari daftar hitam gcast.
 
 © Rose Userbot
 """
