@@ -52,6 +52,18 @@ def get_text(message: Message) -> [None, str]:
         return None
 
 
+def ReplyCheck(message: Message):
+    reply_id = None
+
+    if message.reply_to_message:
+        reply_id = message.reply_to_message.id
+
+    elif not message.from_user.is_self:
+        reply_id = message.id
+
+    return reply_id
+
+
 async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
     apa = (
         message.edit_text
