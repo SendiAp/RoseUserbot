@@ -262,14 +262,23 @@ __MENU__ = f"""
 hanya menggunakan userbot.**
 
 `.ban` [reply username/userid] [alasan] - Membanned pengguna dari groups
+
 `.unban` [reply username/userid] - Menghapus pengguna dari banned groups.
+
 `.kick` [reply username/userid] - Keluarkan pengguna dari groups.
+
 `.promote` - Mempromosikan pengguna menjadi admin groups.
+
 `.delmote` - Menghapus pengguna dari admin groups.
+
 `.mute` [reply] - Membisukan pengguna dari groups.
+
 `.unmute` [reply] - Menghapus bisu pengguna dari groups.
+
 `.pin` [reply] - Menyematkan pesan / gambar dll digroups.
+
 `.unpin` [reply] - Melepas semat postingan groups.
+
 `.setgpic [reply foto] - Memasang foto groups.
 
 © Rose Userbot
