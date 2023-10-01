@@ -36,7 +36,14 @@ for file in os.listdir():
         os.remove(file)
 
 
-RoseX = Client(name="RoseX", session_string=Config.STRING_SESSION, api_id=Config.API_ID, api_hash=Config.API_HASH, plugins=dict(root="plugins"))
+babi = Client(
+    name="app",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN,
+    plugins=dict(root="Rose/modules/basic/bot"),
+    in_memory=True,
+)
 
 aiosession = ClientSession()
 rose = Rose()
