@@ -6,7 +6,6 @@ from ..modules.bc import HAPP, in_heroku
 from ..modules.vars import all_vars 
 from ..modules.vars import Config
 from .. import *
-from .. import RoseX
 from ..modules.basic import *
 from ..modules.tools import get_arg
 from ..modules import *
