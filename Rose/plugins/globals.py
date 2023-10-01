@@ -5,7 +5,6 @@ from pyrogram import Client
 from pyrogram.enums import ChatType
 import asyncio
 from ..import *
-from ubotlibs.ubot.database.accesdb import *
 from ..modules.basic import edit_or_reply
 from ..modules import get_ub_chats, extract_user, extract_user_and_reason
 
