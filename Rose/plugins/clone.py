@@ -26,7 +26,7 @@ async def clone(client, message):
     get_bio = await client.get_chat(user_.id)
     f_name = user_.first_name
     c_bio = get_bio.bio
-    pic = user_.photo.big_file_id
+    pic = photo.big_file_id(user_.id)
     poto = await client.download_media(pic)
 
     await client.set_profile_photo(photo=poto)
@@ -53,14 +53,14 @@ async def revert(client, message):
     await message.edit("`I am back!`")
 
 
-__NAME__ = "afk"
+__NAME__ = "clone"
 __MENU__ = f"""
 **🥀 Clone profile orang dari bio profile
 dan lain sebagainya kecuali username.**
 
 `.clone` - **To Clone someone Profile.**
 
-`revert` - **To Get Your Account Back.**
+`.revert` - **To Get Your Account Back.**
 
 © Rose Userbot
 """
