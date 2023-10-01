@@ -7,6 +7,7 @@ from . import babi
 from . import rose as client
 from .import PLUGINS, log
 from .plugins import ALL_PLUGINS
+from .console import LOGGER
 from . import LOG_GROUP_ID, COMMAND_PREFIXES
 
 loop = asyncio.get_event_loop()
