@@ -4,7 +4,7 @@ import importlib
 from pytgcalls import idle
 
 from . import babi
-from . import rose import client
+from . import rose as client
 from .import PLUGINS, log
 from .plugins import ALL_PLUGINS
 
