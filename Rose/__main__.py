@@ -3,7 +3,7 @@ import importlib
 
 from pytgcalls import idle
 
-from . import app
+from . import babi
 from .import PLUGINS, log
 from .plugins import ALL_PLUGINS
 
@@ -11,7 +11,7 @@ from .plugins import ALL_PLUGINS
 loop = asyncio.get_event_loop()
 
 async def rose():
-    await app.start()
+    await babi.start()
     log.info("Importing all plugins ...")
     for all_plugin in ALL_PLUGINS:
         imported_plugin = importlib.import_module(
