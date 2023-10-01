@@ -48,6 +48,7 @@ db = {}
 commandx = commandx
 commandz = commandz
 
+MONGO_DATABASE = Config.MONGO_DATABASE
 PLUGINS = var.PLUGINS
 SUPUSER = var.SUPUSER
 SUDOERS = var.SUDOERS
