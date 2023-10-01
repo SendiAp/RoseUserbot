@@ -51,7 +51,7 @@ async def inv(client, message):
                 await mg.delete()
 
 
-@app.on_message(commandx(["invitelink") & SUDOERS)
+@app.on_message(commandx(["invitelink"]) & SUDOERS)
 async def invite_link(client, message):
     Rose = await edit_or_reply(message, "`Processing...`")
     if message.chat.type in [ChatType.GROUP, ChatType.SUPERGROUP]:
