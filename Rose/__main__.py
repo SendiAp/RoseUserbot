@@ -4,6 +4,7 @@ import importlib
 from pytgcalls import idle
 
 from . import babi
+from . import rose import client
 from .import PLUGINS, log
 from .plugins import ALL_PLUGINS
 
@@ -11,7 +12,7 @@ from .plugins import ALL_PLUGINS
 loop = asyncio.get_event_loop()
 
 async def rose():
-    await babi.start()
+    await client.start()
     log.info("Importing all plugins ...")
     for all_plugin in ALL_PLUGINS:
         imported_plugin = importlib.import_module(
