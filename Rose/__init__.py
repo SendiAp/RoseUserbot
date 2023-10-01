@@ -35,16 +35,6 @@ for file in os.listdir():
     if file.endswith(".session-journal"):
         os.remove(file)
 
-
-babi = Client(
-    name="app",
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH,
-    bot_token=Config.BOT_TOKEN,
-    plugins=dict(root="Rose/modules/basic/bot"),
-    in_memory=True,
-)
-
 aiosession = ClientSession()
 rose = Rose()
 app = rose.app
@@ -65,3 +55,12 @@ SUDOERS = var.SUDOERS
 
 from .modules.func import eor
 eor = eor
+
+babi = Client(
+    name="app",
+    api_id=Config.API_ID,
+    api_hash=Config.API_HASH,
+    bot_token=Config.BOT_TOKEN,
+    plugins=dict(root="Rose/modules/basic/bot"),
+    in_memory=True,
+)
