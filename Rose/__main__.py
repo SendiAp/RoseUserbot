@@ -5,13 +5,14 @@ from pytgcalls import idle
 
 from . import rose as client
 from .import PLUGINS, log
+from . import RoseX as ros
 from .plugins import ALL_PLUGINS
 
 
 loop = asyncio.get_event_loop()
 
 async def rose():
-    await client.start()
+    await ros.start()
     log.info("Importing all plugins ...")
     for all_plugin in ALL_PLUGINS:
         imported_plugin = importlib.import_module(
