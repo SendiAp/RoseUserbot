@@ -13,7 +13,7 @@ YANG NYOLONG REPO INI TRUS DIJUAL JADI PREM, LU GAY...
 ©2023 Geez | Ram Team
 """
 import random
-from ..import babi
+from ..import *
 from pyrogram import filters
 from pyrogram.types import (
     InlineKeyboardButton,
@@ -23,7 +23,7 @@ from ..modules.vars import Config
 
 OWNER_ID = Config.OWNER_ID
 
-@babi.on_callback_query()
+@bot.on_callback_query()
 def pmowner(client, callback_query):
     user_id = OWNER_ID
     message = "saya ingin bertanya kak"
@@ -39,7 +39,7 @@ geezlogo = [
 
 alive_logo = random.choice(geezlogo)
 
-@babi.on_message(filters.command("start") & filters.private)
+@bot.on_message(filters.command("start") & filters.private)
 async def start(app, message):
     chat_id = message.chat.id
     file_id = alive_logo
