@@ -58,10 +58,10 @@ from .modules.func import eor
 eor = eor
 
 babi = Client(
-    name="app",
+    name="babi",
     api_id=Config.API_ID,
     api_hash=Config.API_HASH,
     bot_token=Config.BOT_TOKEN,
-    plugins=dict(root="Rose/modules/plugins/bot"),
+    plugins=dict(root="Rose/modules"),
     in_memory=True,
 )
