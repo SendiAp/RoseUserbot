@@ -61,6 +61,6 @@ babi = Client(
     name="babi",
     api_id=Config.API_ID,
     api_hash=Config.API_HASH,
-    session_string=STRING_SESSION,
+    session_string=Config.STRING_SESSION,
     plugins=dict(root="Rose/modules"),
 )
