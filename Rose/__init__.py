@@ -46,7 +46,7 @@ var = Config()
 db = {}
 
 commandx = commandx
-commandz = commander
+commandz = commandz
 
 COMMAND_PREFIXES = Config.COMMAND_PREFIXES
 LOG_GROUP_ID = Config.LOG_GROUP_ID
