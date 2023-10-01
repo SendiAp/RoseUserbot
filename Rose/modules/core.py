@@ -58,22 +58,18 @@ class Rose(Client, PyTgCalls):
             api_id = Config.API_ID,
             api_hash = Config.API_HASH,
             session_string = Config.STRING_SESSION,
-            plugins=dict(root="Rose/modules"
-        ),
+        )
         self.ass = Client(
             name = "RosePlayer",
             api_id = Config.API_ID,
             api_hash = Config.API_HASH,
             session_string = Config.SESSION_STRING,
-            plugins=dict(root="Rose/modules"
-        ),
+        )
         self.bot = Client(
             name = "RosePlayer",
             api_id = Config.API_ID,
             api_hash = Config.API_HASH,
             bot_token = Config.BOT_TOKEN,
-            plugins=dict(root="Rose/modules"),
-            in_memory=True,
         )
         if Config.SESSION_STRING:
             self.call = PyTgCalls(self.ass)
