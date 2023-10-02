@@ -12,7 +12,7 @@ from . import LOG_GROUP_ID, COMMAND_PREFIXES
 
 loop = asyncio.get_event_loop()
 
-async def anjing():
+async def client():
     await client.start()
     log.info("Importing all plugins ...")
     for all_plugin in ALL_PLUGINS:
