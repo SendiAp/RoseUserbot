@@ -2,7 +2,7 @@ asyncio
 GitPython
 motor
 py-tgcalls
-pyrogram
+Pyrogram==1.2.9
 python-dotenv
 telegraph
 TgCrypto
