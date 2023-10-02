@@ -35,7 +35,7 @@ pykeyboard
 pymediainfo
 python-telegram-bot
 pytgcalls==3.0.0.dev24
-Pyrogram==1.2.9
+pyrogram
 reportlab
 requests
 speedtest-cli==2.1.3
