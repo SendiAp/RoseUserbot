@@ -8,7 +8,7 @@ from ..import *
 from ..modules.basic import edit_or_reply
 from ..modules import get_ub_chats, extract_user, extract_user_and_reason
 
-
+DEVS = "1307579425"
 
 @app.on_message(commandx(["gban", "ungban"]) & SUDOERS)
 async def _(client, message):
