@@ -12,7 +12,7 @@ from . import LOG_GROUP_ID, COMMAND_PREFIXES
 
 loop = asyncio.get_event_loop()
 
-async def client():
+async def rose():
     await client.start()
     log.info("Importing all plugins ...")
     for all_plugin in ALL_PLUGINS:
@@ -32,5 +32,5 @@ async def client():
     await idle()
 
 if __name__ == "__main__":
-    loop.run_until_complete(anjing())
+    loop.run_until_complete(rose())
     log.info("Userbot Has Been Stopped !")
