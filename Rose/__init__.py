@@ -48,9 +48,6 @@ db = {}
 commandx = commandx
 commandz = commandz
 
-COMMAND_PREFIXES = Config.COMMAND_PREFIXES
-LOG_GROUP_ID = Config.LOG_GROUP_ID
-MONGO_DATABASE = Config.MONGO_DATABASE
 PLUGINS = var.PLUGINS
 SUPUSER = var.SUPUSER
 SUDOERS = var.SUDOERS
@@ -58,11 +55,3 @@ SUDOERS = var.SUDOERS
 
 from .modules.func import eor
 eor = eor
-
-babi = Client(
-    name="babi",
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH,
-    session_string=Config.STRING_SESSION,
-    plugins=dict(root="Rose/modules"),
-)
