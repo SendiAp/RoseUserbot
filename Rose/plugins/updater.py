@@ -338,3 +338,16 @@ async def shutdown_bot(client, message):.
         HAPP.process_formation()["worker"].scale(0)
     else:
         sys.exit(0)
+
+
+__NAME__ = "Update"
+__MENU__ = f"""
+**🥀 Use This Plugin To Update
+Your Rose Userbot.**
+
+**🇮🇩 Command:**
+`.update` - Update Your Userbot
+To Latest Version.
+
+© Rose Userbot
+"""
