@@ -13,7 +13,7 @@ from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from ..import *
-from ..modules.vars import Config
+from ..modules.vars import Config, all_vars, all_vals
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
 from ..import LOGGER
@@ -23,7 +23,7 @@ HAPP = None
 GIT_TOKEN = Config.GIT_TOKEN
 REPO_URL = Config.REPO_URL
 BRANCH = Config.BRANCH
-BOTLOG_CHATID = Config.BOTLOG_CHATID
+LOG_GROUP_ID = Config.LOG_GROUP_ID
 
 XCB = [
     "/",
