@@ -1,3 +1,9 @@
+GitPython
+motor
+telegraph
+TgCrypto
+youtube-search-python
+yt-dlp
 APScheduler==3.7.0
 Pillow
 aiohttp
