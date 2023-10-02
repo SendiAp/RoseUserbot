@@ -124,9 +124,8 @@ async def updateme_requirements():
     except Exception as e:
         return repr(e)
 
-@Client.on_message(filters.command("gupdate", "*") & filters.user(DEVS))
-@Ubot("update", cmds)
-async def upstream(client: Client, message: Message):
+@app.on_message(commandx("update") & SUDOERS)
+async def upstream(client, message):
     status = await message.edit_text("`Checking for Updates, Wait a Moment...`")
     conf = get_arg(message)
     off_repo = UPSTREAM_REPO_URL
@@ -189,7 +188,7 @@ async def upstream(client: Client, message: Message):
                 remove("output.txt")
             else:
                 return await status.edit(
-                    f"{changelog_str}\n**Type** `{cmds}update deploy` **To Update Userbot.**",
+                    f"{changelog_str}\n**Type** `update deploy` **To Update Userbot.**",
                     disable_web_page_preview=True,
                 )
         else:
@@ -222,7 +221,7 @@ async def upstream(client: Client, message: Message):
             repo.__del__()
             return
         await status.edit(
-            "`[HEROKU]: Geez-Userbot Deploy Update is in Progress...`"
+            "`[HEROKU]: Rose-Userbot Deploy Update is in Progress...`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -239,7 +238,7 @@ async def upstream(client: Client, message: Message):
         except GitCommandError:
             pass
         await status.edit(
-            "`Rose-Premium🌹 Successfully Updated! Userbot can be used again.`"
+            "`Rose-Userbot🌹 Successfully Updated! Userbot can be used again.`"
         )
     else:
         try:
@@ -248,15 +247,15 @@ async def upstream(client: Client, message: Message):
             repo.git.reset("--hard", "FETCH_HEAD")
         await updateme_requirements()
         await status.edit(
-            "`Rose-Premium Successfully Updated! Userbot can be used again.`",
+            "`Rose-Userbot Successfully Updated! Userbot can be used again.`",
         )
-        args = [sys.executable, "-m", "Ubot"]
+        args = [sys.executable, "-m", "Rose"]
         execle(sys.executable, *args, environ)
         return
 
 
-@Ubot("goupdate", cmds)
-async def updatees(client: Client, message: Message):
+@app.on_message(commandx("goupdate") & SUDOERS)
+async def updatees(client, message):
     if await is_heroku():
         if HAPP is None:
             return await message.edit_text(
@@ -307,12 +306,12 @@ async def updatees(client: Client, message: Message):
         except Exception as err:
             return await response.edit(f"{nrs.text}\n\nERROR: <code>{err}</code>")
     else:
-        await bash("pip3 install -r requirements.txt")
+        await bash("pip3 install -r Installer")
         restart()
         exit()
 
-@Ubot("restart", cmds)
-async def restart_bot(_, message: Message):
+@app.on_message(commandx("restart") & SUDOERS)
+async def restart_bot(client, message):
     try:
         msg = await edit_or_reply(message, "`Restarting bot...`")
         LOGGER(__name__).info("BOT SERVER RESTARTED !!")
@@ -323,16 +322,16 @@ async def restart_bot(_, message: Message):
     if HAPP is not None:
         HAPP.restart()
     else:
-        args = [sys.executable, "-m", "Ubot"]
+        args = [sys.executable, "-m", "Rose"]
         execle(sys.executable, *args, environ)
 
-@Ubot("shutdown", cmds)
-async def shutdown_bot(client: Client, message: Message):
-    if BOTLOG_CHATID:
+@app.on_message(commandx("shoutdown") & SUDOERS)
+async def shutdown_bot(client, message):.
+    if LOG_GROUP_ID:
         await client.send_message(
-            BOTLOG_CHATID,
+            LOG_GROUP_ID,
             "**#SHUTDOWN** \n"
-            "**Rose-Premium🌹** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
+            "**Rose-Userbot🌹** telah di matikan!\nJika ingin menghidupkan kembali silahkan buka heroku",
         )
     await edit_or_reply(message, "**Rose-Premium🌹 Berhasil di matikan!**")
     if HAPP is not None:
