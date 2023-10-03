@@ -131,9 +131,9 @@ __NAME__ = "locks"
 __MENU__ = f"""
 **🥀 Dapatkan variabel userbot anda:**
 
-`{commandx}lock` [all atau jenis lock] - **Mengunci izin di grup.**
+`.lock` [all atau jenis lock] - **Mengunci izin di grup.**
 
-`{commandx}unlock` [all atau jenis unlock]
+`.unlock` [all atau jenis unlock]
 Membuka izin di grup Supported Locks / Unlocks:` `msg` | `media` | `stickers` | `polls` | `info`  | `invite` | `webprev` |`pin` | `all`.
 
 © Rose Userbot
