@@ -24,7 +24,7 @@ roselogo = [
 alive_logo = random.choice(roselogo)
 
 @bot.on_message(filters.command("/start") & filters.private)
-async def start(app, message):
+async def start(bot, message):
     chat_id = message.chat.id
     file_id = alive_logo
     caption = "Yoo, saya Rose Userbot Assistant, gada yang spesial dari saya\ntapi boong..."
