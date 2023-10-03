@@ -24,7 +24,7 @@ commands = {
     "fscreen": "screenshot",
 }
 
-@app.on_message(commandx(list(commands) & SUDOERS)
+@app.on_message(filters.command(list(commands), commandx) & SUDOERS)
 async def fakeactions_handler(client: Client, message: Message):
     cmd = message.command[0]
     try:
