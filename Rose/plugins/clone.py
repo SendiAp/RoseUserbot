@@ -56,8 +56,9 @@ __NAME__ = "clone"
 __MENU__ = f"""
 **🥀 Clone pengguna.**
 
-`.ping` - **To Clone someone Profile.**
+`.clone` - **To Clone someone Profile.**
 
 `.revert` - **To Get Your Account Back.**
+
 © Rose Userbot
-""
+"""
