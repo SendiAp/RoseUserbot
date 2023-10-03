@@ -326,7 +326,7 @@ async def restart_bot(client, message):
         execle(sys.executable, *args, environ)
 
 @app.on_message(commandx("shoutdown") & SUDOERS)
-async def shutdown_bot(client, message):.
+async def shutdown_bot(client, message):
     if LOG_GROUP_ID:
         await client.send_message(
             LOG_GROUP_ID,
