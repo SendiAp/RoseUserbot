@@ -73,6 +73,20 @@ async def get_botlog(user_id: int):
     return botlog_chat_id
 
 
+async def set_botlog(user_id: int, botlog_chat_id: int):
+    await logdb.users.update_one(
+        {"user_id": user_id},
+        {"$set": {"bot_log_group_id": botlog_chat_id}},
+        upsert=True
+    )
+
+
+async def get_log_groups(user_id: int):
+    user_data = await logdb.users.find_one({"user_id": user_id})
+    botlog_chat_id = user_data.get("bot_log_group_id") if user_data else []
+    return botlog_chat_id
+
+
 async def blacklisted_chats(user_id: int) -> list:
     chats_list = []
     async for chat in blchatdb.users.find({"user_id": user_id, "chat_id": {"$lt": 0}}):
