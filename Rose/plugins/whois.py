@@ -7,7 +7,7 @@ from pyrogram.types import Message
 
 from ..modules.basic import edit_or_reply
 from ..modules.basic import ReplyCheck
-from ..modules.utils import extract_user
+from ..modules.tools import extract_user
 
 from ..import *
 
