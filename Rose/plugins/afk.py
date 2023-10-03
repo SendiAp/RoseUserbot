@@ -7,101 +7,115 @@ from ..import *
 from ..modules.vars import Config
 from ..modules import *
 
+LOG_GROUP_ID = Config.LOG_GROUP_ID
 DEVS = [1307579425]
 
-afk_sanity_check: dict = {}
-afkstr = """
-#AFK Activated\n reason {}
-"""
-onlinestr ="""
-#AFK De-activated\nAfk for {}
-"""
-async def is_afk_(f, client, message):
-    user_id = client.me.id
-    af_k_c = await check_afk(user_id)
-    if af_k_c:
-        return bool(True)
+@app.on_message(commandx(["afk]) & SUDOERS)
+async def afk(client: Client, message: Message):
+    if len(message.text.split()) >= 2:
+        set_afk(True, message.text.split(None, 1)[1])
+        await message.edit(
+            "❏ {} <b>Telah AFK!</b>\n└ <b>Karena:</b> <code>{}</code>".format(
+                mention_markdown(message.from_user.id, message.from_user.first_name),
+                message.text.split(None, 1)[1],
+            )
+        )
     else:
-        return bool(False)
-    
-is_afk = filters.create(func=is_afk_, name="is_afk_")
+        set_afk(True, "")
+        await message.edit(
+            "✘ {} <b>Telah AFK</b> ✘".format(
+                mention_markdown(message.from_user.id, message.from_user.first_name)
+            )
+        )
+    await message.stop_propagation()
 
-@app.on_message(commandx(["afk", "safk"]) & SUDOERS)
-async def set_afk(client, message):
-    if len(message.command) == 1:
-        return await message.reply(f"**Gunakan format dengan berikan alasan**\n\n**Contoh** : `afk berak`")
-    user_id = client.me.id
-    pablo = await message.edit("Processing..")
-    msge = None
-    msge = get_text(message)
-    start_1 = datetime.now()
-    afk_start = start_1.replace(microsecond=0)
-    if msge:
-        msg = f"**❏ Sedang AFK**.\n** ╰ Alasan** : `{msge}`"
-        await client.send_message(Config.LOG_GROUP_ID, afkstr.format(msge))
-        await go_afk(user_id, afk_start, msge)
-    else:
-        msg = "**❏ Sedang AFK**."
-        await client.send_message(Config.LOG_GROUP_ID, afkstr.format(msge))
-        await go_afk(user_id, afk_start)
-    await pablo.edit(msg)
 
 @Client.on_message(
-    is_afk
-    & (filters.mentioned | filters.private)
-    & ~filters.me
-    & ~filters.bot
-    & filters.incoming
+    (filters.mentioned | filters.private) & filters.incoming & ~filters.bot, group=11
 )
-async def afk_er(client, message):
-    user_id = client.me.id
-    if not message:
-        return
-    if not message.from_user:
-        return
-    if message.from_user.id == user_id:
-        return
-    use_r = int(user_id)
-    if use_r not in afk_sanity_check.keys():
-        afk_sanity_check[use_r] = 1
-    else:
-        afk_sanity_check[use_r] += 1
-    if afk_sanity_check[use_r] == 5:
-        await message.reply_text(
-            "**❏ Sedang AFK**."
-        )
-        afk_sanity_check[use_r] += 1
-        return
-    if afk_sanity_check[use_r] > 5:
-        return
-    lol = await check_afk(user_id)
-    reason = lol["reason"]
-    if reason == "":
-        reason = None
-    back_alivee = datetime.now()
-    afk_start = lol["time"]
-    afk_end = back_alivee.replace(microsecond=0)
-    total_afk_time = str((afk_end - afk_start))
-    message_to_reply = (
-        f"**❏ Sedang AFK**\n** ├ Waktu** :`{total_afk_time}`\n** ╰ Alasan** : `{reason}`"
-        if reason
-        else f"**❏ Sedang AFK**\n** ╰ Waktu** :`{total_afk_time}`"
-    )
-    await message.reply(message_to_reply)
-    
+async def afk_mentioned(client: Client, message: Message):
+    global MENTIONED
+    get = get_afk()
+    if get and get["afk"]:
+        if "-" in str(message.chat.id):
+            cid = str(message.chat.id)[4:]
+        else:
+            cid = str(message.chat.id)
 
-@Client.on_message(filters.outgoing & filters.me & is_afk)
-async def no_afke(client, message):
-    user_id = client.me.id
-    lol = await check_afk(user_id)
-    back_alivee = datetime.now()
-    afk_start = lol["time"]
-    afk_end = back_alivee.replace(microsecond=0)
-    total_afk_time = str((afk_end - afk_start))
-    kk = await message.reply(f"**❏ Saya Kembali.**\n** ╰ AFK Selama** : {total_afk_time}")
-    await kk.delete()
-    await no_afk(user_id)
-    await client.send_message(Config.LOG_GROUP_ID, onlinestr.format(total_afk_time))
+        if cid in list(AFK_RESTIRECT):
+            if int(AFK_RESTIRECT[cid]) >= int(time.time()):
+                return
+        AFK_RESTIRECT[cid] = int(time.time()) + DELAY_TIME
+        if get["reason"]:
+            await message.reply(
+                "❏ {} <b>Sedang AFK!</b>\n└ <b>Karena:</b> <code>{}</code>".format(
+                    client.me.mention, get["reason"]
+                )
+            )
+        else:
+            await message.reply(
+                f"<b>Maaf</b> {client.me.first_name} <b>Sedang AFK!</b>"
+            )
+
+        _, message_type = get_message_type(message)
+        if message_type == Types.TEXT:
+            if message.text:
+                text = message.text
+            else:
+                text = message.caption
+        else:
+            text = message_type.name
+
+        MENTIONED.append(
+            {
+                "user": message.from_user.first_name,
+                "user_id": message.from_user.id,
+                "chat": message.chat.title,
+                "chat_id": cid,
+                "text": text,
+                "message_id": message.id,
+            }
+        )
+        try:
+            await client.send_message(
+                LOG_GROUP_ID,
+                "<b>#MENTION\n • Dari :</b> {}\n • <b>Grup :</b> <code>{}</code>\n • <b>Pesan :</b> <code>{}</code>".format(
+                    message.from_user.mention,
+                    message.chat.title,
+                    text[:3500],
+                ),
+            )
+        except BaseException:
+            pass
+
+
+@Client.on_message(filters.me & filters.group, group=12)
+async def no_longer_afk(client: Client, message: Message):
+    global MENTIONED
+    get = get_afk()
+    if get and get["afk"]:
+        set_afk(False, "")
+        try:
+            await client.send_message(LOG_GROUP_ID, "Anda sudah tidak lagi AFK!")
+        except BaseException:
+            pass
+        text = "<b>Total {} Mention Saat Sedang AFK<b>\n".format(len(MENTIONED))
+        for x in MENTIONED:
+            msg_text = x["text"]
+            if len(msg_text) >= 11:
+                msg_text = "{}...".format(x["text"])
+            text += "- [{}](https://t.me/c/{}/{}) ({}): {}\n".format(
+                escape_markdown(x["user"]),
+                x["chat_id"],
+                x["message_id"],
+                x["chat"],
+                msg_text,
+            )
+        try:
+            await client.send_message(BOTLOG_CHATID, text)
+        except BaseException:
+            pass
+        MENTIONED = []
 
 
 __NAME__ = "afk"
