@@ -2,7 +2,7 @@ from py_trans import Async_PyTranslator
 from gpytranslate import Translator
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
-from ..modules.tools import from get_arg
+from ..modules.tools import get_arg
 from ..modules.basic import edit_or_reply
 
 from ..import *
