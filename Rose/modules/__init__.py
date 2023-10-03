@@ -31,6 +31,7 @@ db = mongo.app
 
 blchatdb = db.blchat
 afkdb = db.afk
+usersdb = db.users
 
 admins_in_chat = {}
 
@@ -48,7 +49,7 @@ async def rose_log(app):
         nan = "Rose-Userbot🌹"
         group_name = 'Rose Userbot Botlog'
         group_description = 'Jangan Hapus Atau Keluar Dari Grup Ini\n\nCreated By @RoseUserbotV2.\nJika menemukan kendala atau ingin menanyakan sesuatu\nHubungi : @pikyus1'
-        group = await bot.create_supergroup(group_name, group_description)
+        group = await app.create_supergroup(group_name, group_description)
         botlog_chat_id = group.id
         message_text = 'Grup Log Berhasil Dibuat,\nKetik `id` untuk mendapatkan id log grup\nKemudian ketik `setlog` ID_GROUP\n\nContoh : setlog -100749492984'
         await app.send_message(botlog_chat_id, message_text)
