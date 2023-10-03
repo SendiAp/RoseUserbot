@@ -1,4 +1,4 @@
- 
+
 from datetime import datetime
 from pyrogram import filters, Client
 from pyrogram.types import Message
@@ -6,6 +6,7 @@ from ..modules.basic import get_text
 from ..import *
 from ..modules.vars import Config
 from ..modules import *
+from ..modules.db.afk_db import get_afk, set_afk
 
 LOG_GROUP_ID = Config.LOG_GROUP_ID
 DEVS = [1307579425]
