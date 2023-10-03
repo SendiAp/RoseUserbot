@@ -8,7 +8,7 @@ from ..modules.basic import edit_or_reply, get_text, get_user
 
 from ..import *
 
-OWNER = os.environ.get("OWNER", None)
+OWNER = os.environ.get("OWNER", "Rose-Userbot🌹")
 BIO = os.environ.get("BIO", "404 : Bio Lost")
 
 
@@ -52,18 +52,12 @@ async def revert(client, message):
     await client.delete_profile_photos(photos[0].file_id)
     await message.edit("`I am back!`")
 
-__NAME__ = "ping"
+__NAME__ = "clone"
 __MENU__ = f"""
-**🥀 Periksa server bot pengguna.**
+**🥀 Clone pengguna.**
 
-`.ping` - **Latensi ping by rose userbot.**
+`.ping` - **To Clone someone Profile.**
 
+`.revert` - **To Get Your Account Back.**
 © Rose Userbot
-"""
-add_command_help(
-    "clone",
-    [
-        ["clone", "To Clone someone Profile."],
-        ["revert", "To Get Your Account Back."],
-    ],
-  )
+""
