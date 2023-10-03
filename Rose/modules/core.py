@@ -82,8 +82,6 @@ class Rose(Client, PyTgCalls):
     async def start(self):
         await self.app.start()
         LOGGER.info("Starting Userbot")
-        await rose_log(self.app)
-        botlog_chat_id = await get_botlog(user_id)
         self.app.name = self.app.me.first_name + "" + (self.app.me.last_name or "")
         self.app.username = self.app.me.username if self.app.me.username else self.app.me.mention
         self.app.mention = self.app.me.mention
