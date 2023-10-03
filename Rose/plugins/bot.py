@@ -10,13 +10,6 @@ from ..modules.vars import Config
 
 OWNER_ID = Config.OWNER_ID
 
-@bot.on_callback_query()
-def pmowner(client, callback_query):
-    user_id = OWNER_ID
-    message = "saya ingin bertanya kak"
-    client.send_message(user_id, message)
-    client.answer_callback_query(callback_query.id, text="Message sent")
-
 roselogo = [
     "https://telegra.ph/file/d03ce0fb84f81be3aeb09.png",
 ]
