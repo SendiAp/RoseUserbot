@@ -11,7 +11,7 @@ from ..modules.db.afk_db import get_afk, set_afk
 LOG_GROUP_ID = Config.LOG_GROUP_ID
 DEVS = [1307579425]
 
-@app.on_message(commandx(["afk]") & SUDOERS)
+@app.on_message(commandx(["afk"]) & SUDOERS)
 async def afk(client: Client, message: Message):
     if len(message.text.split()) >= 2:
         set_afk(True, message.text.split(None, 1)[1])
