@@ -46,7 +46,7 @@ async def rose_log(app):
         botlog_chat_id = user_data.get("bot_log_group_id")
 
     if not user_data or not botlog_chat_id:
-        nan = "Rose-Userbot🌹"
+        nan = "Rose-Userbot"
         group_name = 'Rose Userbot Botlog'
         group_description = 'Jangan Hapus Atau Keluar Dari Grup Ini\n\nCreated By @RoseUserbotV2.\nJika menemukan kendala atau ingin menanyakan sesuatu\nHubungi : @pikyus1'
         group = await app.create_supergroup(group_name, group_description)
