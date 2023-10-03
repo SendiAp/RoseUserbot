@@ -20,6 +20,8 @@ from ..import LOGGER
 from ..modules.basic import edit_or_reply
 HAPP = None
 
+HEROKU_API_KEY =  Config.HEROKU_API_KEY
+HEROKU_APP_NAME = Config.HEROKU_APP_NAME
 GIT_TOKEN = Config.GIT_TOKEN
 REPO_URL = Config.REPO_URL
 BRANCH = Config.BRANCH
