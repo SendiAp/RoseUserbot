@@ -17,7 +17,7 @@ from ..modules.vars import Config, all_vars, all_vals
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
 from ..import LOGGER
-from ..modules.basic edit_or_reply
+from ..modules.basic import edit_or_reply
 HAPP = None
 
 GIT_TOKEN = Config.GIT_TOKEN
