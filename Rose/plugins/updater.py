@@ -126,191 +126,63 @@ async def updateme_requirements():
     except Exception as e:
         return repr(e)
 
-@app.on_message(commandx("update") & SUDOERS)
-async def upstream(client, message):
-    status = await message.edit_text("`Checking for Updates, Wait a Moment...`")
-    conf = get_arg(message)
-    off_repo = UPSTREAM_REPO_URL
-    txt = None
-    repo = None
-    try:
-        txt = (
-            "**Update Could Not Continue Due "
-            + "Several ERROR Occurred**\n\n**LOGTRACE:**\n"
-        )
-        repo = Repo()
-    except NoSuchPathError as error:
-        await status.edit(f"{txt}\n**Directory** `{error}` **Can not be found.**")
-        repo.__del__()
-        return
-    except GitCommandError as error:
-        await status.edit(f"{txt}\n**Early failure!** `{error}`")
-        repo.__del__()
-        return
-    except InvalidGitRepositoryError:
-        if conf != "deploy":
-            pass
-        repo = Repo.init()
-        origin = repo.create_remote("upstream", off_repo)
-        origin.fetch()
-        repo.create_head(
-            BRANCH,
-            origin.refs[BRANCH],
-        )
-        repo.heads[BRANCH].set_tracking_branch(origin.refs[BRANCH])
-        repo.heads[BRANCH].checkout(True)
+
+def gen_chlog(repo, diff):
+    upstream_repo_url = Repo().remotes[0].config_reader.get("url").replace(".git", "")
     ac_br = repo.active_branch.name
-    if ac_br != BRANCH:
-        await status.edit(
-            f"**[UPDATER]:** `Looks like you are using your own custom branch ({ac_br}). in that case, Updater is unable to identify which branch is to be merged. please checkout to main branch`"
+    ch_log = ""
+    tldr_log = ""
+    ch = f"<b>updates for <a href={upstream_repo_url}/tree/{ac_br}>[{ac_br}]</a>:</b>"
+    ch_tl = f"updates for {ac_br}:"
+    d_form = "%d/%m/%y || %H:%M"
+    for c in repo.iter_commits(diff):
+        ch_log += (
+            f"\n\n💬 <b>{c.count()}</b> 🗓 <b>[{c.committed_datetime.strftime(d_form)}]</b>\n<b>"
+            f"<a href={upstream_repo_url.rstrip('/')}/commit/{c}>[{c.summary}]</a></b> 👨‍💻 <code>{c.author}</code>"
         )
-        repo.__del__()
-        return
-    try:
-        repo.create_remote("upstream", off_repo)
-    except BaseException as a:
-        print(a)
-    ups_rem = repo.remote("upstream")
-    ups_rem.fetch(ac_br)
-    changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
-    if "deploy" not in conf:
-        if changelog:
-            changelog_str = f"**Update Available For Branch [{ac_br}]:\n\nCHANGELOG:**\n\n`{changelog}`"
-            if len(changelog_str) > 4096:
-                await status.edit("**Changelog too big, sent as file.**")
-                file = open("output.txt", "w+")
-                file.write(changelog_str)
-                file.close()
-                await client.send_document(
-                    message.chat.id,
-                    "output.txt",
-                    caption=f"**Type** `{cmds}update deploy` **To Update Userbot.**",
-                    reply_to_message_id=status.id,
-                )
-                remove("output.txt")
-            else:
-                return await status.edit(
-                    f"{changelog_str}\n**Type** `update deploy` **To Update Userbot.**",
-                    disable_web_page_preview=True,
-                )
-        else:
-            await status.edit(
-                f"\n`Your BOT is`  **up-to-date**  `with branch`  **[{ac_br}]**\n",
-                disable_web_page_preview=True,
-            )
-            repo.__del__()
-            return
-    if HEROKU_API_KEY is not None:
-        import heroku3
-
-        heroku = heroku3.from_key(HEROKU_API_KEY)
-        heroku_app = None
-        heroku_applications = heroku.apps()
-        if not HEROKU_APP_NAME:
-            await status.edit(
-                "`Please set up the HEROKU_APP_NAME variable to be able to update userbot.`"
-            )
-            repo.__del__()
-            return
-        for app in heroku_applications:
-            if app.name == HEROKU_APP_NAME:
-                heroku_app = app
-                break
-        if heroku_app is None:
-            await status.edit(
-                f"{txt}\n`Invalid Heroku credentials for updating userbot dyno.`"
-            )
-            repo.__del__()
-            return
-        await status.edit(
-            "`[HEROKU]: Rose-Userbot Deploy Update is in Progress...`"
-        )
-        ups_rem.fetch(ac_br)
-        repo.git.reset("--hard", "FETCH_HEAD")
-        heroku_git_url = heroku_app.git_url.replace(
-            "https://", "https://api:" + HEROKU_API_KEY + "@"
-        )
-        if "heroku" in repo.remotes:
-            remote = repo.remote("heroku")
-            remote.set_url(heroku_git_url)
-        else:
-            remote = repo.create_remote("heroku", heroku_git_url)
-        try:
-            remote.push(refspec="HEAD:refs/heads/main", force=True)
-        except GitCommandError:
-            pass
-        await status.edit(
-            "`Rose-Userbot🌹 Successfully Updated! Userbot can be used again.`"
-        )
-    else:
-        try:
-            ups_rem.pull(ac_br)
-        except GitCommandError:
-            repo.git.reset("--hard", "FETCH_HEAD")
-        await updateme_requirements()
-        await status.edit(
-            "`Rose-Userbot Successfully Updated! Userbot can be used again.`",
-        )
-        args = [sys.executable, "-m", "Rose"]
-        execle(sys.executable, *args, environ)
-        return
+        tldr_log += f"\n\n💬 {c.count()} 🗓 [{c.committed_datetime.strftime(d_form)}]\n[{c.summary}] 👨‍💻 {c.author}"
+    if ch_log:
+        return str(ch + ch_log), str(ch_tl + tldr_log)
+    return ch_log, tldr_log
 
 
-@app.on_message(commandx("goupdate") & SUDOERS)
-async def updatees(client, message):
-    if await is_heroku():
-        if HAPP is None:
-            return await message.edit_text(
-                "Make sure your HEROKU_API_KEY and HEROKU_APP_NAME are configured correctly in heroku config vars",
-            )
-    response = await message.edit_text("Checking for available updates...")
+def updater():
     try:
         repo = Repo()
-    except GitCommandError:
-        return await response.edit("Git Command Error")
     except InvalidGitRepositoryError:
-        return await response.edit("Invalid Git Repsitory")
-    to_exc = f"git fetch origin {BRANCH} &> /dev/null"
-    await bash(to_exc)
-    await asyncio.sleep(7)
-    verification = ""
-    REPO_ = repo.remotes.origin.url.split(".git")[0]  # main git repository
-    for checks in repo.iter_commits(f"HEAD..origin/{BRANCH}"):
-        verification = str(checks.count())
-    if verification == "":
-        return await response.edit("Bot is up-to-date!")
-    updates = ""
-    ordinal = lambda format: "%d%s" % (
-        format,
-        "tsnrhtdd"[(format // 10 % 10 != 1) * (format % 10 < 4) * format % 10 :: 4],
-    )
-    for info in repo.iter_commits(f"HEAD..origin/{BRANCH}"):
-        updates += f"<b>➣ #{info.count()}: [{info.summary}]({REPO_}/commit/{info}) by -> {info.author}</b>\n\t\t\t\t<b>➥ Commited on:</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
-    _update_response_ = "<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n"
-    _final_updates_ = _update_response_ + updates
-    if len(_final_updates_) > 4096:
-        url = await PasteBin(updates)
-        nrs = await response.edit(
-            f"<b>A new update is available for the Bot!</b>\n\n➣ Pushing Updates Now</code>\n\n**<u>Updates:</u>**\n\n[Click Here to checkout Updates]({url})"
-        )
+        repo = Repo.init()
+        origin = repo.create_remote("upstream", UPSTREAM_REPO)
+        origin.fetch()
+        repo.create_head("UPSTREAM_BRANCH", origin.refs.UPSTREAM_BRANCH)
+        repo.heads.UPSTREAM_BRANCH.set_tracking_branch(origin.refs.UPSTREAM_BRANCH)
+        repo.heads.UPSTREAM_BRANCH.checkout(True)
+    ac_br = repo.active_branch.name
+    if "upstream" in repo.remotes:
+        ups_rem = repo.remote("upstream")
     else:
-        nrs = await response.edit(_final_updates_, disable_web_page_preview=True)
-    await bash("git stash &> /dev/null && git pull")
-    if await is_heroku():
-        try:
-            await response.edit(
-                f"{nrs.text}\n\nBot was updated successfully on Heroku! Now, wait for 2 - 3 mins until the bot restarts!"
-            )
-            await bash(
-                f"{XCB[5]} {XCB[7]} {XCB[9]}{XCB[4]}{XCB[0]*2}{XCB[6]}{XCB[4]}{XCB[8]}{XCB[1]}{XCB[5]}{XCB[2]}{XCB[6]}{XCB[2]}{XCB[3]}{XCB[0]}{XCB[10]}{XCB[2]}{XCB[5]} {XCB[11]}{XCB[4]}{XCB[12]}"
-            )
-            return
-        except Exception as err:
-            return await response.edit(f"{nrs.text}\n\nERROR: <code>{err}</code>")
+        ups_rem = repo.create_remote("upstream", UPSTREAM_REPO)
+    ups_rem.fetch(ac_br)
+    changelog, tl_chnglog = gen_chlog(repo, f"HEAD..upstream/{ac_br}")
+    return bool(changelog)
+
+
+@app.on_message(commandx(["update"]) & SUPUSER)
+async def update_userbot(client, message):
+    chat_id = message.chat.id
+    user_id = message.from_user.id
+    await message.edit("**🔄 Checking Updates ✨...**")
+    update_avail = updater()
+    if update_avail:
+        await message.edit("**🥳 New Update Available\nFor Rose-Userbot❗**")
+        asyncio.sleep(0.5)
+        await message.edit("**🔃 Updating ...**")
+        os.system("git pull -f && pip3 install -r Installer")
+        await message.edit("**💕 Diperbarui, Sekarang Tolong\nrestart userbot anda. ✨**")
+        os.system(f"kill -9 {os.getpid()} && python3 -m Rose")
+        return
     else:
-        await bash("pip3 install -r Installer")
-        restart()
-        exit()
+        await message.edit(f"**🥀 Rose Userbot Already\nUpdated To Latest 🔥 ...\n\n💕 For Any Query › Contact\nTo » @pikyus1 ✨ ...**")
+
 
 @app.on_message(commandx("restart") & SUDOERS)
 async def restart_bot(client, message):
@@ -342,7 +214,7 @@ async def shutdown_bot(client, message):
         sys.exit(0)
 
 
-__NAME__ = "Update"
+__NAME__ = "update"
 __MENU__ = f"""
 **🥀 Use This Plugin To Update
 Your Rose Userbot.**
