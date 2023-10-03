@@ -5,6 +5,7 @@ from pyrogram.types import ChatPrivileges
 from pytgcalls import PyTgCalls
 from motor.motor_asyncio import AsyncIOMotorClient
 
+from .import rose_log
 from .vars import Config
 from ..console import LOGGER
 
@@ -81,6 +82,8 @@ class Rose(Client, PyTgCalls):
     async def start(self):
         await self.app.start()
         LOGGER.info("Starting Userbot")
+        await rose_log(app)
+        LOGGER.info("Berhasil Membuat Logs")
         self.app.name = self.app.me.first_name + "" + (self.app.me.last_name or "")
         self.app.username = self.app.me.username if self.app.me.username else self.app.me.mention
         self.app.mention = self.app.me.mention
