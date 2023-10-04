@@ -82,7 +82,7 @@ async def end_vc_(client, message):
 @app.on_message(commandx(["joinvc"]) & SUDOERS)
 async def joinvc(app, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    if message.from_user.id != client.me.id:
+    if message.from_user.id != app.me.id:
         Ros = await message.reply("`Processing...`")
     else:
         Ros = await message.edit("`Processing....`")
@@ -100,7 +100,7 @@ async def joinvc(app, message):
 @app.on_message(commandx(["leavevc"]) & SUDOERS)
 async def leavevc(app, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    if message.from_user.id != client.me.id:
+    if message.from_user.id != app.me.id:
         Ros = await message.reply("`Processing...`")
     else:
         Ros = await message.edit("`Processing....`")
