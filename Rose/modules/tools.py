@@ -39,7 +39,6 @@ async def extract_userid(message, text: str):
         return entity.user.id
     return None
 
-
 async def extract_user_and_reason(message, sender_chat=False):
     args = message.text.strip().split()
     text = message.text
@@ -75,10 +74,8 @@ async def extract_user_and_reason(message, sender_chat=False):
 
     return user, reason
 
-
 async def extract_user(message):
     return (await extract_user_and_reason(message))[0]
-
 
 def get_text(message: Message) -> [None, str]:
     """Extract Text From Commands"""
@@ -119,34 +116,6 @@ def get_args(message: Message):
     except ValueError:
         return message
     return list(filter(lambda x: len(x) > 0, split))
-
-
-def resize_image(image):
-    im = Image.open(image)
-    maxsize = (512, 512)
-    if (im.width and im.height) < 512:
-        size1 = im.width
-        size2 = im.height
-        if im.width > im.height:
-            scale = 512 / size1
-            size1new = 512
-            size2new = size2 * scale
-        else:
-            scale = 512 / size2
-            size1new = size1 * scale
-            size2new = 512
-        size1new = math.floor(size1new)
-        size2new = math.floor(size2new)
-        sizenew = (size1new, size2new)
-        im = im.resize(sizenew)
-    else:
-        im.thumbnail(maxsize)
-    file_name = "Sticker.png"
-    im.save(file_name, "PNG")
-    if os.path.exists(image):
-        os.remove(image)
-    return file_name
-
 
 async def add_text_img(image_path, text):
     font_size = 12
@@ -217,31 +186,3 @@ async def bash(cmd):
     err = stderr.decode().strip()
     out = stdout.decode().strip()
     return out, err
-
-
-def resize_image(image):
-    im = Image.open(image)
-    maxsize = (512, 512)
-    if (im.width and im.height) < 512:
-        size1 = im.width
-        size2 = im.height
-        if im.width > im.height:
-            scale = 512 / size1
-            size1new = 512
-            size2new = size2 * scale
-        else:
-            scale = 512 / size2
-            size1new = size1 * scale
-            size2new = 512
-        size1new = math.floor(size1new)
-        size2new = math.floor(size2new)
-        sizenew = (size1new, size2new)
-        im = im.resize(sizenew)
-    else:
-        im.thumbnail(maxsize)
-    file_name = "Sticker.png"
-    im.save(file_name, "PNG")
-    if os.path.exists(image):
-        os.remove(image)
-    return file_name
-    
