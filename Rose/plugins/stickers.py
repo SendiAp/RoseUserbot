@@ -439,7 +439,7 @@ __MENU__ = f"""
 
 `.packinfo` - **Untuk Mendapatkan Informasi Sticker Pack.**
 
-`.getsticker` - "*Balas ke sticker untuk mendapatkan foto sticker.**
+`.getsticker` - **Balas ke sticker untuk mendapatkan foto sticker.**
 
 `.stickers` [nama sticker] Untuk Mencari Sticker Pack.
     
