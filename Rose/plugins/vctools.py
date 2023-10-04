@@ -89,9 +89,9 @@ async def joinvc(app, message):
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
-        await app.group_call.start(chat_id)
+        await app.get_group_call.start(chat_id)
     except Exception as e:
-        return await Man.edit(f"**ERROR:** `{e}`")
+        return await Ros.edit(f"**ERROR:** `{e}`")
     await Ros.edit(f"❏ **Berhasil Join ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
     await sleep(5)
     await app.group_call.set_is_mute(True)
@@ -107,7 +107,7 @@ async def leavevc(app, message):
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
-        await app.group_call.stop()
+        await app.get_group_call.stop()
     except Exception as e:
         return await edit_or_reply(message, f"**ERROR:** `{e}`")
     msg = "❏ **Berhasil Turun dari Obrolan Suara**"
