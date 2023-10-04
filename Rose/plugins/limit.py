@@ -18,9 +18,8 @@ async def spamban(client, message):
     )
     Ros = await edit_or_reply(message, "`Processing...`")
     await asyncio.sleep(1)
-    await Ros.delete()
     spambot_msg = response.updates[1].message.id + 1
-    status = await client.get_messages(chat_id="SpamBot", message_ids=spambot_msg)
+    status = await app.get_messages(chat_id="SpamBot", message_ids=spambot_msg)
     await Ros.edit(f"~ {status.text}")
 
 __NAME__ = "limit"
