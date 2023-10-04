@@ -7,8 +7,8 @@
 #
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-from pyrogram.types import Message
-
+from pyrogram.types import Message, User
+from pyrogram import Client, enums
 
 def get_user(message: Message, text: str) -> [int, str, None]:
     """Get User From Message"""
@@ -74,3 +74,7 @@ async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
 
 
 eor = edit_or_reply
+
+
+def GetChatID(message: Message):
+    return message.chat.id
