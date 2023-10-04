@@ -57,7 +57,7 @@ async def delayspam(client, message):
     )
 
 
-@Client.on_message(filters.command(commands, cmd) & filters.me)
+@Client.on_message(filters.command(commands, commandx) & filters.me)
 async def sspam(client: Client, message: Message):
     amount = int(message.command[1])
     text = " ".join(message.command[2:])
