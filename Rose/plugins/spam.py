@@ -6,10 +6,9 @@ from pyrogram.types import Message
 from ..modules.vars import Config
 from ..modules.basic import edit_or_reply
 from ..modules.misc import extract_args
-
+from .broadcast import BL_GCAST
 from ..import *
 
-BLACKLIST_CHAT = Config.BLACKLIST_CHAT
 LOG_GROUP_ID = Config.LOG_GROUP_ID
 
 commands = ["spam", "statspam", "slowspam", "fastspam"]
@@ -27,7 +26,7 @@ def spam_allowed():
 
 @app.on_message(commandx(["dspam"]) & SUDOERS)
 async def delayspam(client, message):
-    if message.chat.id in BLACKLIST_CHAT:
+    if message.chat.id in BL_GCAST:
         return await edit_or_reply(
             message, "**Perintah ini Dilarang digunakan di Group ini**"
         )
@@ -54,7 +53,7 @@ async def delayspam(client, message):
             break
 
     await client.send_message(
-        BOTLOG_CHATID, "**#DELAYSPAM**\nDelaySpam was executed successfully"
+        LOG_GROUP_ID, "**#DELAYSPAM**\nDelaySpam was executed successfully"
     )
 
 
