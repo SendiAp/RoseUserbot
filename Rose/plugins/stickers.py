@@ -440,27 +440,8 @@ __MENU__ = f"""
 `.packinfo` - **Untuk Mendapatkan Informasi Sticker Pack.**
 
 `.getsticker` - "*Balas ke sticker untuk mendapatkan foto sticker.**
-• stickers [nama sticker] Untuk Mencari Sticker Pack.
+
+`.stickers` [nama sticker] Untuk Mencari Sticker Pack.
     
-© Rose Userbot
-"""
-
-__NAME__ = "memify"
-__MENU__ = f"""
-**🥀 Memify Command:**
-
-`.mmf` Teks Atas ; Teks Bawah
-Balas Ke Pesan Sticker atau Foto akan Di ubah menjadi sticker teks meme yang di tentukan.
-        
-© Rose Userbot
-"""
-
-__NAME__ = "tiny"
-__MENU__ = f"""
-**🥀 Memify Command:**
-
-`.tiny` [reply ke foto/sticker]
-Untuk Mengubah Sticker Menjadi Kecil.
-        
 © Rose Userbot
 """
