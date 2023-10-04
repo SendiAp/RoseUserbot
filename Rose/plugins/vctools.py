@@ -80,40 +80,40 @@ async def end_vc_(client, message):
 
 
 @app.on_message(commandx(["joinvc"]) & SUDOERS)
-async def joinvc(client, message):
+async def joinvc(app, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
-        Man = await message.reply("`Processing...`")
+        Ros = await message.reply("`Processing...`")
     else:
-        Man = await message.edit("`Processing....`")
+        Ros = await message.edit("`Processing....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
-        await client.get_group_call.start(chat_id)
+        await app.group_call.start(chat_id)
     except Exception as e:
         return await Man.edit(f"**ERROR:** `{e}`")
-    await Man.edit(f"❏ **Berhasil Join Ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
+    await Ros.edit(f"❏ **Berhasil Join ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
     await sleep(5)
-    await client.group_call.set_is_mute(True)
+    await app.group_call.set_is_mute(True)
 
 
 @app.on_message(commandx(["leavevc"]) & SUDOERS)
-async def leavevc(client, message):
+async def leavevc(app, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
-        Man = await message.reply("`Processing...`")
+        Ros = await message.reply("`Processing...`")
     else:
-        Man = await message.edit("`Processing....`")
+        Ros = await message.edit("`Processing....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
-        await client.get_group_call.stop()
+        await app.group_call.stop()
     except Exception as e:
         return await edit_or_reply(message, f"**ERROR:** `{e}`")
     msg = "❏ **Berhasil Turun dari Obrolan Suara**"
     if chat_id:
         msg += f"\n└ **Chat ID:** `{chat_id}`"
-    await Man.edit(msg)
+    await Ros.edit(msg)
 
 
 __NAME__ = "vcg"
