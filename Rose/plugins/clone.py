@@ -13,7 +13,7 @@ BIO = os.environ.get("BIO", "404 : Bio Lost")
 
 
 @app.on_message(commandx(["clone"]) & SUDOERS)
-async def clone(client, message):
+async def clone(client: Client, message: Message):
     text = get_text(message)
     op = await edit_or_reply(message, "`Cloning`")
     userk = get_user(message, text)[0]
