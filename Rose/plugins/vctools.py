@@ -80,40 +80,44 @@ async def end_vc_(client, message):
 
 
 @app.on_message(commandx(["joinvc"]) & SUDOERS)
-async def joinvc(app, message):
+async def joinvc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    if message.from_user.id != app.me.id:
-        Ros = await message.reply("`Processing...`")
+    if message.from_user.id != client.me.id:
+        Ros = await message.reply("`Otw Naik...`")
     else:
-        Ros = await message.edit("`Processing....`")
+        Ros = await message.edit("`Otw Naik....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
-        await app.get_group_call.start(chat_id)
+        await client.group_call.start(chat_id)
     except Exception as e:
-        return await Ros.edit(f"**ERROR:** `{e}`")
-    await Ros.edit(f"❏ **Berhasil Join ke Obrolan Suara**\n└ **Chat ID:** `{chat_id}`")
-    await sleep(5)
-    await app.group_call.set_is_mute(True)
-
+        return await Man.edit(f"**ERROR:** `{e}`")
+    await Ros.edit(f"**Berhasil Join Ke Obrolan Group**\n└ **Chat ID:** `{chat_id}`")
+    await asyncio.sleep(5)
+    await client.group_call.set_is_mute(True)
+    await asyncio.sleep(3)
+    await Ros.delete()
 
 @app.on_message(commandx(["leavevc"]) & SUDOERS)
-async def leavevc(app, message):
+async def leavevc(client: Client, message: Message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    if message.from_user.id != app.me.id:
-        Ros = await message.reply("`Processing...`")
+    if message.from_user.id != client.me.id:
+        Ros = await message.reply("`Turun Dulu...`")
     else:
-        Ros = await message.edit("`Processing....`")
+        Ros = await message.edit("`Turun Dulu....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
-        await app.get_group_call.stop()
+        await client.group_call.stop()
     except Exception as e:
         return await edit_or_reply(message, f"**ERROR:** `{e}`")
-    msg = "❏ **Berhasil Turun dari Obrolan Suara**"
+    msg = "**Berhasil Turun dari Obrolan Suara**"
     if chat_id:
         msg += f"\n└ **Chat ID:** `{chat_id}`"
     await Ros.edit(msg)
+    await asyncio.sleep(3)
+    await Ros.delete(msg)
+
 
 
 __NAME__ = "vcg"
