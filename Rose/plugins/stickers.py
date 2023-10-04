@@ -387,7 +387,7 @@ async def memify(client, message):
     Man = await edit_or_reply(message, "`Processing . . .`")
     text = get_arg(message)
     if len(text) < 1:
-        return await msg.edit(f"Harap Ketik `{cmd}mmf text`")
+        return await msg.edit(f"Harap Ketik `.memifytext`")
     meme = await add_text_img(file, text)
     await asyncio.gather(
         Man.delete(),
