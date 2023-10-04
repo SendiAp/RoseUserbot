@@ -1,3 +1,9 @@
+import os
+import sys
+from re import sub
+from time import time
+
+from pyrogram import Client, enums
 from .. import SUDOERS
 from pyrogram.types import *
 from traceback import format_exc
