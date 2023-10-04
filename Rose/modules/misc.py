@@ -78,3 +78,21 @@ def inline_wrapper(func):
            return await func(bot, query)
 
     return wrapper
+
+async def extract_args(message, markdown=True):
+    if not (message.text or message.caption):
+        return ""
+
+    text = message.text or message.caption
+
+    text = text.markdown if markdown else text
+    if " " not in text:
+        return ""
+
+    text = sub(r"\s+", " ", text)
+    text = text[text.find(" ") :].strip()
+    return text
+
+
+async def extract_args_arr(message, markdown=True):
+    return extract_args(message, markdown).split()
