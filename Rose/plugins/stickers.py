@@ -373,63 +373,9 @@ async def tinying(client: Client, message: Message):
     os.remove(file)
     os.remove(ik)
 
-
-@app.on_message(commandx(["memify"]) & SUDOERS)
-async def memify(client, message):
-    if not message.reply_to_message_id:
-        await edit_or_reply(message, "**Balas ke pesan foto atau sticker!**")
-        return
-    reply_message = message.reply_to_message
-    if not reply_message.media:
-        await edit_or_reply(message, "**Harap Balas ke foto atau sticker!**")
-        return
-    file = await client.download_media(reply_message)
-    Man = await edit_or_reply(message, "`Processing . . .`")
-    text = get_arg(message)
-    if len(text) < 1:
-        return await msg.edit(f"Harap Ketik `.memifytext`")
-    meme = await add_text_img(file, text)
-    await asyncio.gather(
-        Man.delete(),
-        client.send_sticker(
-            message.chat.id,
-            sticker=meme,
-            reply_to_message_id=ReplyCheck(message),
-        ),
-    )
-    os.remove(meme)
-
-
-@app.on_message(commandx(["getsticker"]) & SUDOERS)
-async def stick2png(client, message):
-    try:
-        await message.edit("`Downloading . . .`")
-
-        path = await message.reply_to_message.download()
-        with open(path, "rb") as f:
-            content = f.read()
-        os.remove(path)
-
-        file_io = BytesIO(content)
-        file_io.name = "sticker.png"
-
-        await asyncio.gather(
-            message.delete(),
-            client.send_photo(
-                message.chat.id,
-                file_io,
-                reply_to_message_id=ReplyCheck(message),
-            ),
-        )
-    except Exception as e:
-        return await client.send_message(
-            message.chat.id, f"**INFO:** `{e}`", reply_to_message_id=ReplyCheck(message)
-        )
-
-
-__NAME__ = "sticker"
+__NAME__ = "stickers"
 __MENU__ = f"""
-**🥀 Sticker Command.**
+**🥀 Stickers Command.**
 
 `.kang` - **Balas Ke Sticker Atau Gambar Untuk Menambahkan Ke Sticker Pack.**
 
@@ -438,8 +384,6 @@ __MENU__ = f"""
 •  **CONTOH:** .kang 2 untuk membuat dan menyimpan ke sticker pack ke 2
 
 `.packinfo` - **Untuk Mendapatkan Informasi Sticker Pack.**
-
-`.getsticker` - **Balas ke sticker untuk mendapatkan foto sticker.**
 
 `.stickers` [nama sticker] Untuk Mencari Sticker Pack.
     
