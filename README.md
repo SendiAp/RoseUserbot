@@ -1,7 +1,9 @@
 ![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=SELAMAT+DATANG+DI+ROSE+USERBOT!;POWERED+BY+SENDI-A-P!;EXPLORE+THE+MAGIC+OF+PYROGRAM!;ENJOY+THE+ULTIMATE+USERBOT+EXPERIENCE!)
 
+<h1 align="center">✘ʀᴏꜱᴇ ᴜꜱᴇʀʙᴏᴛ✘<h1 align="center">
+  
 <div align="center">
-  <img src="https://telegra.ph/file/ddd400fce0284ad813e04.jpg" alt="PyroX Userbot" width="500">
+  <img src="https://telegra.ph/file/02a8f5eb1cc74dca1a591.jpg" alt="Rose Userbot" width="500">
 </div>
 
 <p align="center">
