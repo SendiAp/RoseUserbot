@@ -13,11 +13,13 @@ from ..console import LOGGER
 COMMAND_PREFIXES = Config.COMMAND_PREFIXES
 
 MSG_ON = """
-🌹 **Rose-Userbot Berhasil Di Aktifkan**
-━━
-➠ **Userbot Version -**  v2.0.1
-➠ **Ketik** `.ping` **untuk Mengecheck Bot**
-━━
+Rσʂҽ UʂҽɾႦσƚ Bҽɾԋαʂιʅ Dιαƙƚιϝƙαɳ🌹
+━━━━━━━━━━━━━━━
+❃ Branch : Rose-Userbot
+❃ BotVer : V2.0.1
+━━━━━━━━━━━━━━━
+❃ Support : @RoseUserbotV2
+━━━━━━━━━━━━━━━
 """
 
 
