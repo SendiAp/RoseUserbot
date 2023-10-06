@@ -13,7 +13,7 @@ from ..modules.tools import extract_user
 from ..import *
 
 
-@app.on_message(commandx(["whois") & SUDOERS)
+@app.on_message(commandx(["whois"]) & SUDOERS)
 async def who_is(client: Client, message: Message):
     user_id = await extract_user(message)
     Man = await edit_or_reply(message, "`Processing . . .`")
@@ -76,7 +76,7 @@ async def who_is(client: Client, message: Message):
         return await Man.edit(f"**INFO:** `{e}`")
 
 
-@app.on_message(commandx(["info") & SUDOERS)
+@app.on_message(commandx(["info"]) & SUDOERS)
 async def chatinfo_handler(client: Client, message: Message):
     Man = await edit_or_reply(message, "`Processing...`")
     try:
