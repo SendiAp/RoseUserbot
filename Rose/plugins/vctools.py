@@ -89,7 +89,7 @@ async def joinvc(client: Client, message: Message):
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
-        await client.join_group_call(chat_id)
+        await call.start(chat_id)
     except Exception as e:
         return await Ros.edit(f"**ERROR:** `{e}`")
     await Ros.edit(f"**Berhasil Join Ke Obrolan Group**\n└ **Chat ID:** `{chat_id}`")
