@@ -18,7 +18,8 @@ from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 
 from .vars import *
-from .vars import Config, all_vars
+from .vars import Config
+from .vars import all_vars, all_vals
 from  ..import LOGGER
 
 HAPP = None
@@ -38,9 +39,9 @@ XCB = [
     "git",
     "heroku",
     "push",
-    str(HEROKU_API_KEY),
+    str(Config.HEROKU_API_KEY),
     "https",
-    str(HEROKU_APP_NAME),
+    str(Config.HEROKU_APP_NAME),
     "HEAD",
     "main",
 ]
@@ -112,11 +113,11 @@ def is_heroku():
 def heroku():
     global HAPP
     if is_heroku:
-        if HEROKU_API_KEY and HEROKU_APP_NAME:
+        if Config.HEROKU_API_KEY and Config.HEROKU_APP_NAME:
             try:
-                Heroku = heroku3.from_key(HEROKU_API_KEY)
-                HAPP = Heroku.app(HEROKU_APP_NAME)
-                LOGGER("ProjectMan").info(f"Heroku App Configured")
+                Heroku = heroku3.from_key(Config.HEROKU_API_KEY)
+                HAPP = Heroku.app(Config.HEROKU_APP_NAME)
+                LOGGER("Rose").info(f"Heroku App Configured")
             except BaseException as e:
                 LOGGER("Heroku").error(e)
                 LOGGER("Heroku").info(
