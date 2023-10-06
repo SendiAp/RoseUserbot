@@ -10,7 +10,7 @@ from pyrogram.types import Message
 
 from ..modules.vars import Config
 from ..modules.basic import edit_or_reply
-from ..modules.mc import HAPP, in_heroku
+from ..modules.bc import HAPP, in_heroku
 from ..modules.mc import restart
 from ..modules.vars import all_vars, all_vals
 
