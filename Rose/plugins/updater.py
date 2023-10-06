@@ -69,7 +69,7 @@ async def update_userbot(client, message):
     else:
         await message.edit(f"**🥀 Rose Userbot Already\nUpdated To Latest 🔥 ...\n\n💕 For Any Query › Contact\nTo » @pikyus1 ✨ ...**")
 
-__NAME__ = "Update"
+__NAME__ = "update"
 __MENU__ = f"""
 **🥀 Use This Plugin To Update
 Your Rose Userbot.**
