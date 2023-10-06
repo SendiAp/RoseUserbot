@@ -1,6 +1,7 @@
 import requests
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from ..import *
 
 API_URL = "https://api.nekosapi.com/v2/images/random"
 
