@@ -21,6 +21,7 @@ from .vars import *
 from .vars import Config
 from .vars import all_vars, all_vals
 from  ..import LOGGER
+from ..import *
 
 HAPP = None
 
@@ -39,9 +40,9 @@ XCB = [
     "git",
     "heroku",
     "push",
-    str(Config.HEROKU_API_KEY),
+    str(var.HEROKU_API_KEY),
     "https",
-    str(Config.HEROKU_APP_NAME),
+    str(var.HEROKU_APP_NAME),
     "HEAD",
     "main",
 ]
@@ -113,10 +114,10 @@ def is_heroku():
 def heroku():
     global HAPP
     if is_heroku:
-        if Config.HEROKU_API_KEY and Config.HEROKU_APP_NAME:
+        if var.HEROKU_API_KEY and var.HEROKU_APP_NAME:
             try:
-                Heroku = heroku3.from_key(Config.HEROKU_API_KEY)
-                HAPP = Heroku.app(Config.HEROKU_APP_NAME)
+                Heroku = heroku3.from_key(var.HEROKU_API_KEY)
+                HAPP = Heroku.app(var.HEROKU_APP_NAME)
                 LOGGER("Rose").info(f"Heroku App Configured")
             except BaseException as e:
                 LOGGER("Heroku").error(e)
