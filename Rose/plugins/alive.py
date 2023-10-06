@@ -21,8 +21,6 @@ from ..modules.mc import restart
 from ..import __version__
 from ..import *
 
-alive_logo = Config.ALIVE_LOGO
-
 EMOTES = ["😍", "💀", "😊", "👋", "🎉", "🔥", "🌟", "💫", "🚀", "🤖", "👻", "👾", "🧡", "🌹", "🩲"]
 
 @app.on_message(commandx(["alive"]) & SUDOERS)
@@ -44,7 +42,7 @@ async def alive(client: Client, message: Message):
             xx.delete(),
             send(
                 message.chat.id,
-                alive_logo,
+                var.ALIVE_LOGO,
                 caption=ros,
                 reply_to_message_id=ReplyCheck(message),
             ),
