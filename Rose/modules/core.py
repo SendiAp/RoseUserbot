@@ -91,8 +91,6 @@ class Rose(Client, PyTgCalls):
         self.app.id = self.app.me.id 
         if self.app.id not in Config.LOG_GROUP_ID:
             await rose_log(self.app)
-        try: 
-        LOGGER.info("Berhasil Membuat Rose Logs")
         except:
             pass
         if self.app.id not in Config.SUDOERS:
