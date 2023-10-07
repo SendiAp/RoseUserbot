@@ -135,26 +135,6 @@ async def in_heroku():
     return "heroku" in socket.getfqdn()
 
 
-async def create_botlog(client):
-    if HAPP is None:
-        return
-    LOGGER("Rose").info(
-        "TUNGGU SEBENTAR. SEDANG MEMBUAT GROUP LOG USERBOT UNTUK ANDA"
-    )
-    desc = "Group Log untuk Rose-UserBot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n✨ Powered By ~ Rose Userbot ✨"
-    try:
-        gruplog = await client.create_supergroup("Log UserBot", desc)
-        if await in_heroku():
-            heroku_var = HAPP.config()
-            heroku_var["LOG_GROUP_ID"] = gruplog.id
-        else:
-            path = dotenv.find_dotenv("config.env")
-            dotenv.set_key(path, "LOG_GROUP_ID", gruplog.id)
-    except Exception:
-        LOGGER("Rose").warning(
-            "var LOG_GROUP_ID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var LOG_GROUP_ID"
-        )
-
 async def rose_log():
     botlog_chat_id = os.environ.get('BOTLOG_CHATID')
     if botlog_chat_id:
