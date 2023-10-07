@@ -21,6 +21,7 @@ from typing import Tuple
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 
+from .mc import restart
 from .vars import *
 from .vars import Config
 from .vars import all_vars, all_vals
