@@ -85,14 +85,11 @@ class Rose(Client, PyTgCalls):
     async def start(self):
         await self.app.start()
         LOGGER.info("Starting Userbot")
+        await rose_log(self.app)
         self.app.name = self.app.me.first_name + "" + (self.app.me.last_name or "")
         self.app.username = self.app.me.username if self.app.me.username else self.app.me.mention
         self.app.mention = self.app.me.mention
         self.app.id = self.app.me.id 
-        if self.app.id not in Config.LOG_GROUP_ID:
-            await rose_log(self.app)
-        except:
-            pass
         if self.app.id not in Config.SUDOERS:
             Config.SUDOERS.add(int(self.app.id))
         try:
