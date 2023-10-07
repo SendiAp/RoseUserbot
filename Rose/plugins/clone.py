@@ -1,6 +1,6 @@
 from ..import *
 from pyrogram import filters
-from ..modules.SQL.clone_db import store_profile, get_profile
+from ..modules.clone_db import store_profile, get_profile
 
 
 @app.on_message(commandx(["cpfp"]) & SUDOERS)
