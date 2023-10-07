@@ -295,3 +295,22 @@ async def convert_to_image(message, client) -> [None, str]:
         vid_path = await client.download_media(message.reply_to_message)
         await run_cmd(f"ffmpeg -i {vid_path} -filter:v scale=500:500 -an {final_path}")
     return final_path
+
+async def extract_args(message, markdown=True):
+    if not (message.text or message.caption):
+        return ""
+
+    text = message.text or message.caption
+
+    text = text.markdown if markdown else text
+    if " " not in text:
+        return ""
+
+    text = sub(r"\s+", " ", text)
+    text = text[text.find(" ") :].strip()
+    return text
+
+
+async def extract_args_arr(message, markdown=True):
+    return extract_args(message, markdown).split()
+    
