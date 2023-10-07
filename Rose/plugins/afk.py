@@ -6,7 +6,7 @@ from ..modules.tools import get_arg
 from ..modules import afk_db as Zect
 from ..modules.help_func import user_afk
 from .ping import get_readable_time
-from ..modules.msg_types impo.rt get_message_type, Types
+from ..modules.msg_types import get_message_type, Types
 from ..modules.var import *
 from ..modules.help_func import get_datetime 
 import time
