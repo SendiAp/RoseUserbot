@@ -26,9 +26,6 @@ if not Config.STRING_SESSION:
 if not Config.MONGO_DATABASE:
     LOGGER.error("DATABASE_URL is missing! Kindly check again!")
     exit()
-if Config.LOG_GROUP_ID == 0:
-    LOGGER.error("LOG_GROUP_ID is missing! Kindly check again!")
-    exit()
 
 for file in os.listdir():
     if file.endswith(".session"):
