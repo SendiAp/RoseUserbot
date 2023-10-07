@@ -120,10 +120,10 @@ def is_heroku():
 def heroku():
     global HAPP
     if is_heroku:
-        if var.HEROKU_API_KEY and var.HEROKU_APP_NAME:
+        if HEROKU_API_KEY and HEROKU_APP_NAME:
             try:
-                Heroku = heroku3.from_key(var.HEROKU_API_KEY)
-                HAPP = Heroku.app(var.HEROKU_APP_NAME)
+                Heroku = heroku3.from_key(HEROKU_API_KEY)
+                HAPP = Heroku.app(HEROKU_APP_NAME)
                 LOGGER("Rose").info(f"Heroku App Configured")
             except BaseException as e:
                 LOGGER("Heroku").error(e)
