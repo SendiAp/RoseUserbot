@@ -42,7 +42,7 @@ async def alive(client: Client, message: Message):
     try:
         await asyncio.gather(
             xx.delete(),
-            send(
+            client.send_photo(
                 message.chat.id,
                 alive_logo,
                 caption=ros,
