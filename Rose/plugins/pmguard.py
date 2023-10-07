@@ -8,19 +8,17 @@ from .. import *
 from ..modules.data import approve, disapprove, is_approved
 
 MSG_PERMIT = """
-PM_SECURITY ROSE-USERBOT
-
-{}
-▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
-⍟ You have {}/{} warning!!!
+╔═════════════════════╗
+   Ⓦ︎Ⓔ︎Ⓛ︎Ⓒ︎Ⓞ︎Ⓜ︎Ⓔ︎ Ⓟ︎Ⓔ︎Ⓢ︎Ⓐ︎Ⓝ︎    
+╚═════════════════════╝
+**TOLONG JANGAN MELAKUKAN SPAM CHAT KEPADA BOS SAYA**
+**KARENA SAYA AKAN OTOMATIS MEMBLOKIR KAMU, TUNGGU SAMPAI BOS SAYA MENERIMA PESAN KAMU**
+╔═════════════════════╗
+│○›ᑭᗴՏᗩᑎ OTOᗰᗩTIՏ         
+│○›ᗷY ᖇOՏᗴ-ᑌՏᗴᖇᗷOT 
+|○›WARNING {}/{}
+╚═════════════════════╝
 """
-
-DEFAULT = """
-WELCOME....
-
-Hi, this is the keeper of private messages. Don't spam ya or I'll block you. Wait until my master receives your message.
-"""
-
 
 @app.on_message(
     (
