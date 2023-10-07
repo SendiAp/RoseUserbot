@@ -173,7 +173,7 @@ async def unblock_user_func(client: Client, message: Message):
     await message.reply("Unblock User Successfully!!!")
 
 
-__NAME__ = "PM"
+__NAME__ = "antipm"
 __MENU__ = f"""
 **🥀 Private Message Guard ✨...**
 
