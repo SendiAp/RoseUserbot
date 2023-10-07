@@ -28,7 +28,7 @@ EMOTES = ["😍", "💀", "😊", "👋", "🎉", "🔥", "🌟", "💫", "🚀"
 async def alive(client: Client, message: Message):
     xx = await edit_or_reply(message, "🌹")
     await asyncio.sleep(2)
-    var.ALIVE_LOGO
+    alive_logo = var.ALIVE_LOGO
     uptime = await get_readable_time((time.time() - StartTime))
     ros = (
         f"**[Rose-Userbot](https://github.com/SendiAp/RoseUserbot) 𝙷𝙴𝚈 , 𝙱𝙰𝙱𝙴 😍 𝙸 𝙰𝙼 𝙰𝙻𝙸𝚅𝙴!**\n\n"
@@ -44,7 +44,7 @@ async def alive(client: Client, message: Message):
             xx.delete(),
             send(
                 message.chat.id,
-                ALIVE_LOGO,
+                alive_logo,
                 caption=ros,
                 reply_to_message_id=ReplyCheck(message),
             ),
