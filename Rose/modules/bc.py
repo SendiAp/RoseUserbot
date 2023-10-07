@@ -27,7 +27,7 @@ from .vars import Config
 from .vars import all_vars, all_vals
 from  ..import LOGGER
 from ..import *
-fron ..import app
+from ..import app
 
 HAPP = None
 
