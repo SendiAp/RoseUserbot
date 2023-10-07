@@ -27,7 +27,6 @@ from .vars import Config
 from .vars import all_vars, all_vals
 from  ..import LOGGER
 from ..import *
-from ..import app
 
 HAPP = None
 
@@ -137,19 +136,19 @@ async def in_heroku():
     return "heroku" in socket.getfqdn()
 
 
-async def rose_log():
+async def rose_log(client):
     botlog_chat_id = os.environ.get('BOTLOG_CHATID')
     if botlog_chat_id:
         return
    
     group_name = "RσʂҽUʂҽɾႦσƚ Lσɠʂ"
     group_description = 'This group is used to log my bot activities'
-    group = await app.create_supergroup(group_name, group_description)
+    group = await client.create_supergroup(group_name, group_description)
 
     if await is_heroku():
         try:
             Heroku = heroku3.from_key(os.environ.get('HEROKU_API_KEY'))
-            happ = Heroku.app(os.environ.get('HEROKU_APP_NAME'))
+            happ = Heroku.client(os.environ.get('HEROKU_APP_NAME'))
             happ.Config()['LOG_GROUP_ID'] = str(group.id)
         except:
             pass
@@ -158,5 +157,5 @@ async def rose_log():
             env_file.write(f'\nLOG_GROUP_ID={group.id}')
 
     message_text = 'Grouplog berhasil diaktifkan,\nmohon masukkan bot anda ke group ini, dan aktifkan mode inline.\nRestarting..!'
-    await app.send_message(group.id, message_text)
+    await client.send_message(group.id, message_text)
     restart()
