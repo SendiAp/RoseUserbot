@@ -1,5 +1,9 @@
 import asyncio
-
+import shlex
+import requests 
+import datetime 
+import pytz
+import re
 from .vars import Config
 from math import ceil
 from pyrogram import filters
@@ -11,6 +15,14 @@ from youtubesearchpython import VideosSearch
 
 PREFIXES = Config.COMMAND_PREFIXES
 HANDLERS = Config.COMMAND_HANDLERS
+
+async def get_datetime():
+    timezone = pytz.timezone("Asia/Kolkata")
+    kkk = str(datetime.datetime.now(timezone))
+    TIME = kkk.split()[1]
+    date = kkk.split()[0]
+    time = await railway_to_normal(TIME)
+    return {"date": date, "time": time}
 
 def commandx(commands: Union[str, List[str]]):
     return filters.command(commands, PREFIXES)
