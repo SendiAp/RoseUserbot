@@ -36,37 +36,6 @@ usersdb = db.users
 admins_in_chat = {}
 
 
-async def rose_log(app):
-    user = await app.get_me()
-    user_id = user.id
-    user_data = await usersdb.users.find_one({"user_id": user_id})
-    botlog_chat_id = None
-
-    if user_data:
-        botlog_chat_id = user_data.get("bot_log_group_id")
-
-    if not user_data or not botlog_chat_id:
-        nan = "Rose-Userbot"
-        group_name = 'Rose Userbot Botlog'
-        group_description = 'Jangan Hapus Atau Keluar Dari Grup Ini\n\nCreated By @RoseUserbotV2.\nJika menemukan kendala atau ingin menanyakan sesuatu\nHubungi : @pikyus1'
-        group = await app.create_supergroup(group_name, group_description)
-        botlog_chat_id = group.id
-        message_text = 'Grup Log Berhasil Dibuat,\nKetik `id` untuk mendapatkan id log grup\nKemudian ketik `setlog` ID_GROUP\n\nContoh : setlog -100749492984'
-        await app.send_message(botlog_chat_id, message_text)
-        await asyncio.sleep(1)
-        await app.add_chat_members(botlog_chat_id, nan)
-        await usersdb.users.update_one(
-            {"user_id": user_id},
-            {"$set": {"bot_log_group_id": botlog_chat_id}},
-            upsert=True
-        )
-    
-    if botlog_chat_id is None:
-        return None
-    
-    return int(botlog_chat_id)
-
-
 async def get_botlog(user_id: int):
     user_data = await logdb.users.find_one({"user_id": user_id})
     botlog_chat_id = user_data.get("bot_log_group_id") if user_data else None
