@@ -2,7 +2,7 @@ from pyrogram import filters
 import asyncio
 from pyrogram import client
 from ..import *
-from PyroX.helpers.help_func import get_arg
+from ..modules.tools import get_arg
 import ..modules.afk_db as Zect
 from ..modules.help_func import user_afk
 from .ping import get_readable_time
