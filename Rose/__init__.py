@@ -46,7 +46,9 @@ call = rose.call
 log = LOGGER
 var = Config()
 
-db = {}
+db = {} 
+flood = {}
+OLD_MSG = {}
 
 commandx = commandx
 commandz = commandz
