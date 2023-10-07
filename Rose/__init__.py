@@ -41,6 +41,8 @@ DB_URL = os.getenv("Config.MONGO_DATABASE")
 DB = MongoClient(DB_URL)
 DATABASE = DB.MAIN
 
+cli = motor.motor_asyncio.AsyncIOMotorClient(DB_URL)
+
 aiosession = ClientSession()
 rose = Rose()
 app = rose.app
