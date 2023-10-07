@@ -143,7 +143,7 @@ async def rose_log():
    
     group_name = "RσʂҽUʂҽɾႦσƚ Lσɠʂ"
     group_description = 'This group is used to log my bot activities'
-    group = await bot1.create_supergroup(group_name, group_description)
+    group = await app.create_supergroup(group_name, group_description)
 
     if await is_heroku():
         try:
