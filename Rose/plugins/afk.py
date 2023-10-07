@@ -1,7 +1,7 @@
 from pyrogram import filters
 import asyncio
 from pyrogram import client
-from PyroX import PyroX
+from ..import *
 from PyroX.helpers.help_func import get_arg
 import ..modules.afk_db as Zect
 from ..modules.help_func import user_afk
@@ -11,7 +11,6 @@ from ..modules.var import *
 from ..modules.help_func import get_datetime 
 import time
 
-LOG_CHAT
 MENTIONED = []
 AFK_RESTIRECT = {}
 DELAY_TIME = 20
