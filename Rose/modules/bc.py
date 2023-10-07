@@ -8,12 +8,16 @@
 # All rights reserved.
 
 import asyncio
+import math
+import os
+import dotenv
+import heroku3
+import requests
+import urllib3
 import shlex
 import socket
 from typing import Tuple
 
-import dotenv
-import heroku3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 
@@ -30,6 +34,7 @@ GIT_TOKEN = Config.GIT_TOKEN
 HEROKU_API_KEY = Config.HEROKU_API_KEY
 HEROKU_APP_NAME = Config.HEROKU_APP_NAME
 REPO_URL = Config.REPO_URL
+LOG_GROUP_ID = var.LOG_GROUP_ID
 
 XCB = [
     "/",
@@ -149,3 +154,27 @@ async def create_botlog(client):
         LOGGER("Rose").warning(
             "var LOG_GROUP_ID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var LOG_GROUP_ID"
         )
+
+async def rose_log():
+    botlog_chat_id = os.environ.get('BOTLOG_CHATID')
+    if botlog_chat_id:
+        return
+   
+    group_name = "RσʂҽUʂҽɾႦσƚ Lσɠʂ"
+    group_description = 'This group is used to log my bot activities'
+    group = await bot1.create_supergroup(group_name, group_description)
+
+    if await is_heroku():
+        try:
+            Heroku = heroku3.from_key(os.environ.get('HEROKU_API_KEY'))
+            happ = Heroku.app(os.environ.get('HEROKU_APP_NAME'))
+            happ.Config()['LOG_GROUP_ID'] = str(group.id)
+        except:
+            pass
+    else:
+        with open('.env', 'a') as env_file:
+            env_file.write(f'\nLOG_GROUP_ID={group.id}')
+
+    message_text = 'Grouplog berhasil diaktifkan,\nmohon masukkan bot anda ke group ini, dan aktifkan mode inline.\nRestarting..!'
+    await app.send_message(group.id, message_text)
+    restart()
