@@ -6,7 +6,6 @@ from pytgcalls import PyTgCalls
 from motor.motor_asyncio import AsyncIOMotorClient
 
 from .bc import rose_log
-from .import rose_log, get_botlog
 from .vars import Config
 from ..console import LOGGER
 
