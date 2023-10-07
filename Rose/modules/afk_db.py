@@ -1,3 +1,5 @@
+from pyrogram.types import Message, User
+from pyrogram import Client
 from ..import cli
 from ..import *
 import asyncio
@@ -43,3 +45,11 @@ async def afk_stuff():
     afk_since = result["afk_since"]
     reason = result["reason"]
     return afk_since, reason
+
+
+async def user_afk(filter, client: Client, message: Message):
+    check = await get_afk_status()
+    if check:
+        return True
+    else:
+        return False
