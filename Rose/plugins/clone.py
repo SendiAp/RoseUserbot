@@ -1,4 +1,4 @@
-from ..import "
+from ..import *
 from pyrogram import filters
 from ..modules.SQL.clone_db import store_profile, get_profile
 
