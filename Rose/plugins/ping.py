@@ -43,7 +43,11 @@ __NAME__ = "ping"
 __MENU__ = f"""
 **🥀 Periksa server bot pengguna.**
 
-`.ping` - **Latensi ping by rose userbot.**
+`.ping` 
+**Latensi ping by rose userbot.**
+
+`.alive` 
+**Profile rose userbot.**
 
 © Rose Userbot
 """
