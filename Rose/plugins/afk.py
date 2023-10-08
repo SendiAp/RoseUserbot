@@ -29,8 +29,7 @@ async def set_afk(client, message):
     if len(message.command) == 1:
         return await message.reply(f"**Gunakan format dengan berikan alasan**\n\n**Contoh** : `afk berak`")
     user_id = client.me.id
-    get_log_groups = var.LOG_GROUP_ID
-    botlog = await get_log_groups(user_id)
+    botlog = var.LOG_GROUP_ID
     pablo = await message.edit("Processing..")
     msge = None
     msge = get_text(message)
@@ -93,8 +92,7 @@ async def afk_er(client, message):
 @app.on_message(filters.outgoing & filters.me & is_afk)
 async def no_afke(client, message):
     user_id = client.me.id
-    get_log_groups = var.LOG_GROUP_ID
-    botlog = await get_log_groups(user_id)
+    botlog = var.LOG_GROUP_ID
     lol = await check_afk(user_id)
     back_alivee = datetime.now()
     afk_start = lol["time"]
