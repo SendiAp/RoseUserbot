@@ -3,7 +3,7 @@ import asyncio
 
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
-from ..import 
+from ..import *
 from ..modules import *
 from ..modules.tools import get_arg
 from ..modules.vars import *
