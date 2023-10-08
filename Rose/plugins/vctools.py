@@ -80,7 +80,7 @@ async def end_vc_(client, message):
 
 
 @app.on_message(commandx(["joinvc"]) & SUDOERS)
-async def joinvc(app, message: Message):
+async def joinvc(app, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
     if message.from_user.id != client.me.id:
         Ros = await message.reply("`Otw Naik...`")
