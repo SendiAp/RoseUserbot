@@ -38,7 +38,7 @@ async def varget_(client, message):
     if len(message.command) != 2:
         return await message.reply_text(usage)
     check_var = message.text.split(None, 2)[1]
-    if await is_heroku():
+    if is_heroku():
         if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
             return await message.reply_text(
                 "<b>Menggunakan App Heroku!</b>\n\nMasukan/atur  `HEROKU_API_KEY` dan `HEROKU_APP_NAME` untuk bisa melakukan update!"
@@ -76,11 +76,11 @@ async def varget_(client, message):
 
 @app.on_message(commandx(["delvar"]) & SUDOERS)
 async def vardel_(client, message):
-    usage = f"**Usage:**\n{cmds}delvar [nama var]"
+    usage = f"**Usage:**\n.delvar [nama var]"
     if len(message.command) != 2:
         return await message.reply_text(usage)
     check_var = message.text.split(None, 2)[1]
-    if await is_heroku():
+    if is_heroku():
         if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
             return await message.reply_text(
                 "<b>Menggunakan App Heroku!</b>\n\nMasukan/atur  `HEROKU_API_KEY` dan `HEROKU_APP_NAME` untuk bisa melakukan update!"
@@ -119,12 +119,12 @@ async def vardel_(client, message):
 
 @app.on_message(commandx(["setvar"]) & SUDOERS)
 async def setvar(client, message):
-    usage = f"**Usage:**\n{cmds}setvar [nama var] [isi var]"
+    usage = f"**Usage:**\n.setvar [nama var] [isi var]"
     if len(message.command) < 3:
         return await message.reply_text(usage)
     to_set = message.text.split(None, 2)[1].strip()
     value = message.text.split(None, 2)[2].strip()
-    if await is_heroku():
+    if is_heroku():
         if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
             return await message.reply_text(
                 "<b>Menggunakan App Heroku!</b>\n\nMasukan/atur  `HEROKU_API_KEY` dan `HEROKU_APP_NAME` untuk bisa melakukan update!"
@@ -167,7 +167,7 @@ async def setvar(client, message):
 
 @app.on_message(commandx(["usage"]) & SUDOERS)
 async def usage_dynos(client, message):
-    if await is_heroku():
+    if is_heroku():
         if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
             return await message.reply_text(
                 "<b>Menggunakan App Heroku!</b>\n\nMasukan/atur  `HEROKU_API_KEY` dan `HEROKU_APP_NAME` untuk bisa melakukan update!"
