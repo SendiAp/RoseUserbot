@@ -3,7 +3,7 @@ import random
 from datetime import datetime
 from platform import python_version
 from ..modules import *
-from ubotlibs.ubot.helper.PyroHelpers import ReplyCheck
+from ..modules.basic import ReplyCheck
 from pyrogram import __version__, filters, Client
 from pyrogram.types import Message
 from ..import *
