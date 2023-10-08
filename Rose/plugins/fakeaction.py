@@ -8,6 +8,7 @@ from pyrogram.types import Message
 from ..import *
 from ..modules.basic import ReplyCheck
 
+cmd = commandx
 
 commands = {
     "ftyping": enums.ChatAction.TYPING,
@@ -24,9 +25,8 @@ commands = {
     "fscreen": "screenshot",
 }
 
-@app.on_message(commandx(["ftyping"]) & SUDOERS)
+@app.on_message(filters.command(list(commands), cmd) & filters.me)
 async def fakeactions_handler(client: Client, message: Message):
-    ftyping = enums.ChatAction.TYPING,
     cmd = message.command[0]
     try:
         sec = int(message.command[1])
