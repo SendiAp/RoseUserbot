@@ -102,3 +102,14 @@ async def no_afke(client, message):
     await kk.delete()
     await no_afk(user_id)
     await client.send_message(botlog, onlinestr.format(total_afk_time))
+
+
+__NAME__ = "afk"
+__MENU__ = f"""
+**🥀 Afk Reaction:**
+
+`.afk` [alasan]
+**Memberi tau kalau anda sedang mati.**
+
+© Rose Userbot
+"""
