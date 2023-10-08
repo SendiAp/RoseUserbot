@@ -3,6 +3,7 @@ import asyncio
 import os
 import time
 from platform import python_version
+from os import getenv
 
 from pyrogram import Client
 from pyrogram import __version__ as versipyro
@@ -22,6 +23,17 @@ from ..import __version__
 from ..import *
 
 EMOTES = ["😍", "💀", "😊", "👋", "🎉", "🔥", "🌟", "💫", "🚀", "🤖", "👻", "👾", "🧡", "🌹", "🩲"]
+
+DANA = getenv("DANA", None)
+SHOPE = getenv("SHOPE", None)
+GOPAY = getenv("GOPAY", None)
+OVO = getenv("OVO", None)
+LINKAJA = getenv("LINKAJA", None)
+BCA = getenv("BCA", None)
+BRI = getenv("BRI", None)
+JAGO = getenv("JAGO", None)
+PERINGATAN = getenv("PERINGATAN", None)
+QRIS = getenv("QRIS", None)
 
 @app.on_message(commandx(["alive"]) & SUDOERS)
 async def alive(client: Client, message: Message):
@@ -55,3 +67,44 @@ async def alive(client: Client, message: Message):
     except BaseException:
         await xx.edit(ros, disable_web_page_preview=True)
 
+
+@app.on_message(commandx(["alive"]) & SUDOERS)
+async def alive(client: Client, message: Message):
+    xx = await edit_or_reply(message, "Sedang Mengambil Data Payment...")
+    await asyncio.sleep(2)
+    dana = var.DANA
+    shope = var.SHOPE
+    gopay = var.GOPAY
+    ovo = var.OVO
+    linkaja = var.LINKAJA
+    bca = var.BCA
+    bri = var.BRI
+    jago = var.JAGO
+    peringatan = var.PERINGATAN
+    qris = var.QRIS
+    pay = (
+        f"𝗤𝗥𝗜𝗦 & 𝗔𝗟𝗟 𝗣𝗔𝗬𝗠𝗘𝗡𝗧\n\n"
+        f"🏧 **DANA:** {dana}\n\n"
+        f"🏧 **ShopeePay:** {shope}\n\n"
+        f"🏧 **Gopay:** {gopay}\n\n"
+        f"🏧 **Ovo:** {ovo}\n\n"
+        f"🏧 **LinkAja:** {linkaja}\n\n"
+        f"🏧 **BCA:** {bca}\n\n"
+        f"🏧 **BRI:** {bri}\n\n"
+        f"🏧 **BankJago:** {jago}\n\n"
+        f"🆘 PERINGATAN BACA!\n"
+        f"{peringatan}"
+    )
+    try:
+        await asyncio.gather(
+            xx.delete(),
+            client.send_photo(
+                message.chat.id,
+                qris,
+                caption=pay,
+                reply_to_message_id=ReplyCheck(message),
+            ),
+        )
+    except BaseException:
+        await xx.edit(pay, disable_web_page_preview=True)
+        
