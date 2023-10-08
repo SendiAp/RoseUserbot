@@ -51,3 +51,16 @@ async def revert(client: Client, message: Message):
     await client.delete_profile_photos(photos[0].file_id)
     await message.edit("`I am back!`")
 
+
+__NAME__ = "clone"
+__MENU__ = f"""
+**🥀 Clone Pengguna:**
+
+`.clone`
+**Clone Akun Pengguna Lain.**
+
+`.revert`
+**Kembalikan Seperti Semula.**
+
+© Rose Userbot
+"""
