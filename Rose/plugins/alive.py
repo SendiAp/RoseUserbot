@@ -4,6 +4,7 @@ import os
 import time
 from platform import python_version
 from os import getenv
+from datetime import datetime
 
 from pyrogram import Client
 from pyrogram import __version__ as versipyro
@@ -72,15 +73,6 @@ async def alive(client: Client, message: Message):
 async def alive(client: Client, message: Message):
     xx = await edit_or_reply(message, "Sedang Mengambil Data Payment...")
     await asyncio.sleep(2)
-    dana = var.DANA
-    shope = var.SHOPE
-    gopay = var.GOPAY
-    ovo = var.OVO
-    linkaja = var.LINKAJA
-    bca = var.BCA
-    bri = var.BRI
-    jago = var.JAGO
-    peringatan = var.PERINGATAN
     qris = var.QRIS
     pay = (
         f"𝗤𝗥𝗜𝗦 & 𝗔𝗟𝗟 𝗣𝗔𝗬𝗠𝗘𝗡𝗧\n\n"
