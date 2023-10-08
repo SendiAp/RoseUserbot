@@ -16,7 +16,7 @@ YANG NYOLONG REPO INI TRUS DIJUAL JADI PREM, LU GAY...
 
 from ..import *
 from ..modules.tools import get_arg
-from ..modules *
+from ..modules import *
 
 _font = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 _font1 = "ᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘϙʀsᴛᴜᴠᴡxʏᴢABCDEFGHIJKLMNOPQRSTUVWXYZ"
