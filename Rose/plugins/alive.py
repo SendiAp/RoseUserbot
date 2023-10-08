@@ -30,7 +30,7 @@ SHOPE = getenv("SHOPE", "085894831504 S.A.P")
 GOPAY = getenv("GOPAY", "085894831504 S.A.P")
 OVO = getenv("OVO", "085894831504 S.A.P")
 LINKAJA = getenv("LINKAJA", "085894831504 S.A.P")
-BCA = getenv("BCA", "4860428721 DEWI HENDRIANI")
+BCA = getenv("BCA", "4860428721 D.H")
 BRI = getenv("BRI", None)
 JAGO = getenv("JAGO", "100875241009 D.H")
 PERINGATAN = getenv("PERINGATAN", "Kalau lu donasi pahala lu gede")
@@ -71,7 +71,7 @@ async def alive(client: Client, message: Message):
 
 @app.on_message(commandx(["donasi", "d", "payment", "p"]) & SUDOERS)
 async def alive(client: Client, message: Message):
-    xx = await edit_or_reply(message, "Sedang Mengambil Data Payment...")
+    xx = await edit_or_reply(message, "`Sedang Mengambil Data Payment...`")
     await asyncio.sleep(2)
     dana = DANA
     shope = SHOPE
@@ -93,7 +93,7 @@ async def alive(client: Client, message: Message):
         f"🏧 **BCA:** {bca}\n\n"
         f"🏧 **BRI:** {bri}\n\n"
         f"🏧 **BankJago:** {jago}\n\n"
-        f"🆘 PERINGATAN BACA!\n"
+        f"🆘 **PERINGATAN BACA!**\n"
         f"{peringatan}"
     )
     try:
