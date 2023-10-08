@@ -76,6 +76,7 @@ async def alive(client: Client, message: Message):
     dana = DANA
     shope = SHOPE
     gopay = GOPAY 
+    ovo = OVO
     linkaja = LINKAJA
     bca = BCA
     bri = BRI
