@@ -50,7 +50,7 @@ async def font_ubot(client, message):
     if not message.reply_to_message and not get_arg(message):
         return await message.reply("Balas Teks Dan Isi Nama Font!!!")
     font = get_arg(message)
-    text = message.reply_to_message.text
+    text = message.reply_to_message
     if not font:
         return await message.reply(f"<code>{font} Tidak ada dalam daftar font...</code>")
     if font == "1":
