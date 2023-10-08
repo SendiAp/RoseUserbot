@@ -24,16 +24,16 @@ from ..import *
 
 EMOTES = ["😍", "💀", "😊", "👋", "🎉", "🔥", "🌟", "💫", "🚀", "🤖", "👻", "👾", "🧡", "🌹", "🩲"]
 
-DANA = getenv("DANA", None)
-SHOPE = getenv("SHOPE", None)
-GOPAY = getenv("GOPAY", None)
-OVO = getenv("OVO", None)
-LINKAJA = getenv("LINKAJA", None)
-BCA = getenv("BCA", None)
+DANA = getenv("DANA", "085894831504 S.A.P")
+SHOPE = getenv("SHOPE", "085894831504 S.A.P")
+GOPAY = getenv("GOPAY", "085894831504 S.A.P")
+OVO = getenv("OVO", "085894831504 S.A.P")
+LINKAJA = getenv("LINKAJA", "085894831504 S.A.P")
+BCA = getenv("BCA", "4860428721 DEWI HENDRIANI")
 BRI = getenv("BRI", None)
-JAGO = getenv("JAGO", None)
-PERINGATAN = getenv("PERINGATAN", None)
-QRIS = getenv("QRIS", None)
+JAGO = getenv("JAGO", "100875241009 D.H")
+PERINGATAN = getenv("PERINGATAN", "Kalau lu donasi pahala lu gede")
+QRIS = getenv("QRIS", "https://telegra.ph/file/29d8901cabe22ad3fd6d1.jpg")
 
 @app.on_message(commandx(["alive"]) & SUDOERS)
 async def alive(client: Client, message: Message):
@@ -68,7 +68,7 @@ async def alive(client: Client, message: Message):
         await xx.edit(ros, disable_web_page_preview=True)
 
 
-@app.on_message(commandx(["alive"]) & SUDOERS)
+@app.on_message(commandx(["donasi", "d", "payment", "p"]) & SUDOERS)
 async def alive(client: Client, message: Message):
     xx = await edit_or_reply(message, "Sedang Mengambil Data Payment...")
     await asyncio.sleep(2)
