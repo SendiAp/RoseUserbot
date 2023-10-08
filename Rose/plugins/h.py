@@ -5,13 +5,15 @@ import dotenv
 import heroku3
 import requests
 import urllib3
-from ..modules.bc import is_heroku, paste_queue
+from ..modules.bc import is_heroku
 from ..modules.vars import *
 from ..import *
 from ..modules.mc import restart
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+HEROKU_API_KEY = var.HEROKU_API_KEY
+HEROKU_APP_NAME = var.HEROKU_APP_NAME
 
 XCB = [
     "/",
@@ -30,40 +32,9 @@ XCB = [
 ]
 
 
-@geez("logs", cmds)
-async def log_(client, message):
-    if await is_heroku():
-        if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
-            return await message.reply_text(
-                "<b>Menggunakan App Heroku!</b>\n\nMasukan/atur  `HEROKU_API_KEY` dan `HEROKU_APP_NAME` untuk bisa melakukan update!"
-            )
-        elif HEROKU_API_KEY == "" or HEROKU_APP_NAME == "":
-            return await message.reply_text(
-                "<b>Menggunakan App Heroku!</b>\n\n<b>pastikan</b> `HEROKU_API_KEY` **dan** `HEROKU_APP_NAME` <b>sudah di configurasi dengan benar!</b>"
-            )
-    else:
-        return await message.reply_text("hanya untuk Heroku Deployment")
-    try:
-        Heroku = heroku3.from_key(HEROKU_API_KEY)
-        happ = Heroku.app(HEROKU_APP_NAME)
-    except BaseException:
-        return await message.reply_text(
-            " Pastikan Heroku API Key, App name sudah benar"
-        )
-    data = happ.get_log()
-    if len(data) > 1024:
-        link = await paste_queue(data)
-        url = link + "/index.txt"
-        return await message.reply_text(
-            f"Logs [{HEROKU_APP_NAME}]\n\n[Klik untuk melihat({url})"
-        )
-    else:
-        return await message.reply_text(data)
-
-
-@geez("getvar", cmds)
+@app.on_message(commandx(["getvar"]) & SUDOERS)
 async def varget_(client, message):
-    usage = f"**Usage:**\n{cmds}get_var [Var Name]"
+    usage = f"**Usage:**\n.get_var [Var Name]"
     if len(message.command) != 2:
         return await message.reply_text(usage)
     check_var = message.text.split(None, 2)[1]
@@ -103,7 +74,7 @@ async def varget_(client, message):
             )
 
 
-@geez("delvar", cmds)
+@app.on_message(commandx(["delvar"]) & SUDOERS)
 async def vardel_(client, message):
     usage = f"**Usage:**\n{cmds}delvar [nama var]"
     if len(message.command) != 2:
@@ -146,7 +117,7 @@ async def vardel_(client, message):
             )
 
 
-@geez("setvar", cmds)
+@app.on_message(commandx(["setvar"]) & SUDOERS)
 async def setvar(client, message):
     usage = f"**Usage:**\n{cmds}setvar [nama var] [isi var]"
     if len(message.command) < 3:
@@ -194,7 +165,7 @@ async def setvar(client, message):
             )
 
 
-@geez("usage", cmds)
+@app.on_message(commandx(["usage"]) & SUDOERS)
 async def usage_dynos(client, message):
     if await is_heroku():
         if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
@@ -251,44 +222,30 @@ async def usage_dynos(client, message):
     AppMinutes = math.floor(AppQuotaUsed % 60)
     await asyncio.sleep(1.5)
     text = f"""
-**Penggunaan Dyno Geez-Pyro**
-
-Dyno terpakai:
-  ┗ Terpakai: `{AppHours}`**h**  `{AppMinutes}`**m**  [`{AppPercentage}`**%**]
-Dyno tersisa:
-  ┗ Tersisa: `{hours}`**h**  `{minutes}`**m**  [`{percentage}`**%**]"""
+⚙️ **Dyno Heroku** ⚙️:
+➸ Pemakaian Dyno:
+•  `{AppHours}`**Jam** `{AppMinutes}`**Menit |**  [`{AppPercentage}`**%**]
+➸ Sisa kuota dyno bulan ini:
+•  `{hours}`**Jam**  `{minutes}`**Menit |**  [`{percentage}`**%**]
+➸ **Sisa Dyno Heroku** `{day}` **Hari Lagi**"""
     return await dyno.edit(text)
 
-async def geez_log():
-    botlog_chat_id = os.environ.get('BOTLOG_CHATID')
-    if botlog_chat_id:
-        return
-   
-    group_name = "GeezPyro BotLog"
-    group_description = 'This group is used to log my bot activities'
-    group = await bot1.create_supergroup(group_name, group_description)
 
-    if await is_heroku():
-        try:
-            Heroku = heroku3.from_key(os.environ.get('HEROKU_API_KEY'))
-            happ = Heroku.app(os.environ.get('HEROKU_APP_NAME'))
-            happ.config()['BOTLOG_CHATID'] = str(group.id)
-        except:
-            pass
-    else:
-        with open('.env', 'a') as env_file:
-            env_file.write(f'\nBOTLOG_CHATID={group.id}')
+__NAME__ = "heroku"
+__MENU__ = f"""
+**🥀 Heroku Command;**
 
-    message_text = 'Grouplog berhasil diaktifkan,\nmohon masukkan bot anda ke group ini, dan aktifkan mode inline.\nRestarting Geez Pyro...!'
-    await bot1.send_message(group.id, message_text)
-    restart()
+`.setvar` [VAR] [VALUE]
+**Untuk mengatur variabel config userbot.**
 
-add_command_help(
-    "heroku",
-    [
-        [f"{cmds}getvar", "Check vars."],
-        [f"{cmds}setvar", "Set Var."],
-        [f"{cmds}usage", "Check Dyno usage."],
-        [f"{cmds}delvar", "Del var."],
-    ],
-)
+`.delvar` [VAR] 
+**Untuk menghapus variabel config userbot.**
+
+`.getvar` [VAR] 
+**Untuk melihat variabel config userbot.**
+
+`.usage`
+**Untuk mengecheck kouta dyno heroku.**
+
+© Rose Userbot
+"""
