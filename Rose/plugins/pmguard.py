@@ -11,13 +11,17 @@ MSG_PERMIT = """
 ╔═════════════════════╗
    Ⓦ︎Ⓔ︎Ⓛ︎Ⓒ︎Ⓞ︎Ⓜ︎Ⓔ︎ Ⓟ︎Ⓔ︎Ⓢ︎Ⓐ︎Ⓝ︎    
 ╚═════════════════════╝
-**TOLONG JANGAN MELAKUKAN SPAM CHAT KEPADA BOS SAYA**
-**KARENA SAYA AKAN OTOMATIS MEMBLOKIR KAMU, TUNGGU SAMPAI BOS SAYA MENERIMA PESAN KAMU**
+{}
 ╔═════════════════════╗
 │○›ᑭᗴՏᗩᑎ OTOᗰᗩTIՏ         
 │○›ᗷY ᖇOՏᗴ-ᑌՏᗴᖇᗷOT 
 |○›WARNING {}/{}
 ╚═════════════════════╝
+"""
+
+DEFAULT = """
+**TOLONG JANGAN MELAKUKAN SPAM CHAT KEPADA BOS SAYA**
+**KARENA SAYA AKAN OTOMATIS MEMBLOKIR KAMU, TUNGGU SAMPAI BOS SAYA MENERIMA PESAN KAMU**
 """
 
 @app.on_message(
@@ -68,8 +72,10 @@ async def pmpermit_func(client: Client, message: Message):
         return await client.block_user(user_.id)
     getmsg = Config.PERMIT_MSG
     pm_message = DEFAULT if not getmsg else getmsg
-    msg_dlt = await client.send_message(
+    alive_logo = var.ALIVE_LOGO
+    msg_dlt = await client.send_photo(
         user_.id,
+        alive_logo,
         MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),
     )
     if str(user_.id) in OLD_MSG:
