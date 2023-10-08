@@ -9,12 +9,11 @@ from ..modules.tools import get_arg
 from ..modules.vars import *
 
 
-@Client.on_message(filters.group & filters.mentioned & filters.incoming & ~filters.bot & ~filters.via_bot)
+@app.on_message(filters.group & filters.mentioned & filters.incoming & ~filters.bot & ~filters.via_bot)
 async def log_tagged_messages(client, message):
     chat_id = message.chat.id
     user_id = client.me.id
-    get_botlog = var.LOG_GROUP_ID
-    botlog_chat_id = await get_botlog(user_id)
+    botlog_chat_id = var.LOG_GROUP_ID
     knl = f"📨<b><u>ANDA TELAH DI TAG</u></b>\n<b> • Dari : </b>{message.from_user.mention}"
     knl += f"\n<b> • Grup : </b>{message.chat.title}"
     knl += f"\n<b> • 👀 </b><a href = '{message.link}'>Lihat Pesan</a>"
