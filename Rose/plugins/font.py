@@ -118,4 +118,5 @@ __MENU__ = f"""
 `.listfont` 
 **Melihat Daftar Font.**
 © Rose Userbot
-""".
+"""
+
