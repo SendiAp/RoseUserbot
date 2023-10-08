@@ -11,8 +11,6 @@ from ..import *
 
 LOG_GROUP_ID = var.LOG_GROUP_ID
 
-cmd = commandx
-
 SPAM_COUNT = [0]
 commands = ["spam", "statspam", "slowspam", "restspam"]
 
@@ -59,7 +57,7 @@ async def delayspam(client: Client, message: Message):
     )
 
 
-@app.on_message(filters.command(commands, cmd) & filters.me)
+@app.on_message(filters.command(commands) & filters.me)
 async def sspam(client: Client, message: Message):
     amount = int(message.command[1])
     text = " ".join(message.command[2:])
@@ -196,3 +194,22 @@ async def spam(client: Client, message: Message):
             await client.send_message(message.chat.id, spam_message)
             await asyncio.sleep(0.10)
 
+            
+__NAME__ = "spam"
+__MENU__ = f"""
+**🥀 Spam Command:**
+
+`.dspam` [waktu delay] [jumlah] [kata-kata]
+**delay spam.**
+
+`.sspam` [balas ke stiker] [jumlah spam]
+**spam stiker.**
+
+`.rspam` [jumlah] [emoji]
+**spam reactions.**
+
+`.spam` [jumlah] [kata-kata]
+spam (do it with your own risk)
+
+© Rose Userbot
+"""
