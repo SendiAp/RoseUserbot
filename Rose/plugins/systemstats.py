@@ -7,7 +7,6 @@ from pyrogram import filters, Client
 from pyrogram import __version__
 from pyrogram.raw.functions import Ping
 from pyrogram.types import Message
-from . import *
 from pytgcalls import __version__ as pytgcalls
 from pyrogram.enums import ParseMode 
 from datetime import datetime, timedelta
