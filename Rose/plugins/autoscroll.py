@@ -14,7 +14,7 @@ YANG NYOLONG REPO INI TRUS DIJUAL JADI PREM, LU GAY...
 """
 from pyrogram import filters, Client
 from pyrogram.types import Message
-from ..modules *
+from ..modules import *
 from ..import *
 
 f = filters.chat([])
