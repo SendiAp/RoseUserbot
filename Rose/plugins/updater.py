@@ -10,7 +10,7 @@ from pyrogram.types import *
 
 
 UPSTREAM_REPO = "https://github.com/SendiAp/RoseUserbot"
-UPSTREAM_BRANCH = "master"
+UPSTREAM_BRANCH = "rose"
 
 
 def gen_chlog(repo, diff):
