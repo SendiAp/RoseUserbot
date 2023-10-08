@@ -24,7 +24,7 @@ async def clone(client: Client, message: Message):
 
     get_bio = await client.get_chat(user_.id)
     f_name = user_.first_name
-    c_bio = user_.bio if user_.bio else None
+    c_bio = get_bio.bio
     pic = user_.photo.big_file_id if user_.photo else None
     poto = await client.download_media(pic)
 
