@@ -109,3 +109,15 @@ async def alive(client: Client, message: Message):
     except BaseException:
         await xx.edit(pay, disable_web_page_preview=True)
         
+
+__NAME__ = "donasi"
+__MENU__ = f"""
+**🥀 Donasi Bang:**
+
+`.donasi`
+**Donasi Developer.**
+
+Makasih bang yang udah donasi🥰🥰
+
+© Rose Userbot
+"""
