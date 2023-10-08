@@ -21,7 +21,6 @@ from ..modules.mc import restart
 from ..import __version__
 from ..import *
 
-ALIVE_LOGO = "https://telegra.ph/file/ddd400fce0284ad813e04.jpg"
 EMOTES = ["😍", "💀", "😊", "👋", "🎉", "🔥", "🌟", "💫", "🚀", "🤖", "👻", "👾", "🧡", "🌹", "🩲"]
 
 @app.on_message(commandx(["alive"]) & SUDOERS)
@@ -30,14 +29,18 @@ async def alive(client: Client, message: Message):
     await asyncio.sleep(2)
     alive_logo = var.ALIVE_LOGO
     uptime = await get_readable_time((time.time() - StartTime))
+    start = datetime.now()
+    end = datetime.now()
+    ms = (end - start).microseconds / 1000
     ros = (
-        f"**[Rose-Userbot](https://github.com/SendiAp/RoseUserbot) 𝙷𝙴𝚈 , 𝙱𝙰𝙱𝙴 😍 𝙸 𝙰𝙼 𝙰𝙻𝙸𝚅𝙴!**\n\n"
+        f"**𝙷𝙴𝚈 , 𝙱𝙰𝙱𝙴 {random.choice(EMOTES)} 𝙸 𝙰𝙼 𝙰𝙻𝙸𝚅𝙴!**\n\n"
         f"{random.choice(EMOTES)} <b>Master :</b> {client.me.mention} \n"
         f"{random.choice(EMOTES)} <b>Bot Version :</b> <code>{__version__}</code> \n"
         f"{random.choice(EMOTES)} <b>Python Version :</b> <code>{python_version()}</code> \n"
         f"{random.choice(EMOTES)} <b>Pyrogram Version :</b> <code>{versipyro}</code> \n"
+        f"{random.choice(EMOTES)} <b>Bot Ping :</b> <code>{ms}</code> \n"
         f"{random.choice(EMOTES)} <b>Bot Uptime :</b> <code>{uptime}</code> \n\n"
-        f"**[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/RoseUserbotSupport)** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/RoseUserbotV2)** | **[𝗢𝘄𝗻𝗲𝗿](tg://user?id={client.me.id})**"
+        f"**[𝗦𝘂𝗽𝗽𝗼𝗿𝘁](https://t.me/RoseUserbotSupport)** | **[𝗖𝗵𝗮𝗻𝗻𝗲𝗹](https://t.me/RoseUserbotV2)** | **[𝗚𝗶𝘁𝗵𝘂𝗯](https://github.com/SendiAp/RoseUserbot)**"
     )
     try:
         await asyncio.gather(
