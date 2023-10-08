@@ -46,10 +46,3 @@ autoscroll again. This is useful if you have Telegram open on another screen.**
 
 © Rose Userbot
 """
-
-add_command_help(
-    "autoscroll",
-    [
-        [f"{cmds}autoscroll",f"
-    ],
-)
