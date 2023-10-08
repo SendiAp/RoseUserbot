@@ -34,7 +34,7 @@ BCA = getenv("BCA", "4860428721 DEWI HENDRIANI")
 BRI = getenv("BRI", None)
 JAGO = getenv("JAGO", "100875241009 D.H")
 PERINGATAN = getenv("PERINGATAN", "Kalau lu donasi pahala lu gede")
-QRIS = getenv("QRIS", "https://telegra.ph/file/29d8901cabe22ad3fd6d1.jpg")
+
 
 @app.on_message(commandx(["alive"]) & SUDOERS)
 async def alive(client: Client, message: Message):
@@ -73,6 +73,14 @@ async def alive(client: Client, message: Message):
 async def alive(client: Client, message: Message):
     xx = await edit_or_reply(message, "Sedang Mengambil Data Payment...")
     await asyncio.sleep(2)
+    dana = DANA
+    shope = SHOPE
+    gopay = GOPAY 
+    linkaja = LINKAJA
+    bca = BCA
+    bri = BRI
+    jago = JAGO
+    peringatan = PERINGATAN 
     qris = var.QRIS
     pay = (
         f"𝗤𝗥𝗜𝗦 & 𝗔𝗟𝗟 𝗣𝗔𝗬𝗠𝗘𝗡𝗧\n\n"
