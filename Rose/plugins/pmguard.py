@@ -72,10 +72,10 @@ async def pmpermit_func(client: Client, message: Message):
         return await client.block_user(user_.id)
     getmsg = Config.PERMIT_MSG
     pm_message = DEFAULT if not getmsg else getmsg
-    alive_logo = var.ALIVE_LOGO
+    pmpermit_logo = var.PMPERMIT_LOGO
     msg_dlt = await client.send_photo(
         user_.id,
-        alive_logo,
+        pmpermit_logo,
         MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),
     )
     if str(user_.id) in OLD_MSG:
