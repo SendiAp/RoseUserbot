@@ -37,7 +37,7 @@ def updater():
         repo = Repo()
     except InvalidGitRepositoryError:
         repo = Repo.init()
-        origin = repo.create_remote("upstream", UPSTREAM_REPO)
+        origin = repo.create_remote("upstream", UPSTREAM_BRANCH)
         origin.fetch()
         repo.create_head("UPSTREAM_BRANCH", origin.refs.UPSTREAM_BRANCH)
         repo.heads.UPSTREAM_BRANCH.set_tracking_branch(origin.refs.UPSTREAM_BRANCH)
