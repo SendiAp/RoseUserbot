@@ -24,8 +24,9 @@ commands = {
     "fscreen": "screenshot",
 }
 
-@app.on_message(filters.command(list(commands), commandx) & SUDOERS)
+@app.on_message(commandx(["ftyping"]) & SUDOERS)
 async def fakeactions_handler(client: Client, message: Message):
+    ftyping = enums.ChatAction.TYPING,
     cmd = message.command[0]
     try:
         sec = int(message.command[1])
