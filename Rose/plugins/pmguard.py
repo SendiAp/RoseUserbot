@@ -86,7 +86,7 @@ async def pmpermit_func(client: Client, message: Message):
     OLD_MSG[str(user_.id)] = msg_dlt
 
 
-@app.on_message(commandx(["approve", "a"]))
+@app.on_message(commandx(["ok"]))
 async def pm_approve(client: Client, message: Message):
     permit = await is_approved()
     if message.reply_to_message:
@@ -127,7 +127,7 @@ async def pm_approve(client: Client, message: Message):
         await xnxx.delete()
 
 
-@app.on_message(commandx(["disapprove", "da"]))
+@app.on_message(commandx(["no"]))
 async def pm_disapprove(client: Client, message: Message):
     permit = await is_approved()
     if message.reply_to_message:
@@ -183,15 +183,17 @@ __NAME__ = "antipm"
 __MENU__ = f"""
 **🥀 Private Message Guard ✨...**
 
-`.a` or `.approve`
-For approve user
+`.ok`
+**Terima Pesan**
 
-`.da` or `.disapprove`
-For rejected user
+`.no**
+**Tolak Pesan**
 
 `.block`
-For Blocking User
+**Untuk Memblokir Pengguna**
 
 `.unblock`
-For Unblock User
+**Untuk Buka Blokir Pengguna**
+
+© Rose Userbot
 """
