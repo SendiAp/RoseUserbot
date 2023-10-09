@@ -30,11 +30,8 @@ from ..import *
 
 HAPP = None
 
-BRANCH = Config.BRANCH
-GIT_TOKEN = Config.GIT_TOKEN
 HEROKU_API_KEY = Config.HEROKU_API_KEY
 HEROKU_APP_NAME = Config.HEROKU_APP_NAME
-REPO_URL = Config.REPO_URL
 LOG_GROUP_ID = Config.LOG_GROUP_ID
 
 XCB = [
@@ -71,46 +68,6 @@ def install_req(cmd: str) -> Tuple[str, str, int, int]:
         )
 
     return asyncio.get_event_loop().run_until_complete(install_requirements())
-
-
-def git():
-    REPO_LINK = REPO_URL
-    if GIT_TOKEN:
-        GIT_USERNAME = REPO_LINK.split("com/")[1].split("/")[0]
-        TEMP_REPO = REPO_LINK.split("https://")[1]
-        UPSTREAM_REPO = f"https://{GIT_USERNAME}:{GIT_TOKEN}@{TEMP_REPO}"
-    else:
-        UPSTREAM_REPO = REPO_URL
-    try:
-        repo = Repo()
-        LOGGER("Rose").info(f"Git Client Found")
-    except GitCommandError:
-        LOGGER("Rose").info(f"Invalid Git Command")
-    except InvalidGitRepositoryError:
-        repo = Repo.init()
-        if "origin" in repo.remotes:
-            origin = repo.remote("origin")
-        else:
-            origin = repo.create_remote("origin", UPSTREAM_REPO)
-        origin.fetch()
-        repo.create_head(
-            BRANCH,
-            origin.refs[BRANCH],
-        )
-        repo.heads[BRANCH].set_tracking_branch(origin.refs[BRANCH])
-        repo.heads[BRANCH].checkout(True)
-        try:
-            repo.create_remote("origin", REPO_URL)
-        except BaseException:
-            pass
-        nrs = repo.remote("origin")
-        nrs.fetch(BRANCH)
-        try:
-            nrs.pull(BRANCH)
-        except GitCommandError:
-            repo.git.reset("--hard", "FETCH_HEAD")
-        install_req("pip3 install --no-cache-dir -U -r requirements.txt")
-        LOGGER("Rose").info("Fetched Latest Updates")
 
 
 def is_heroku():
