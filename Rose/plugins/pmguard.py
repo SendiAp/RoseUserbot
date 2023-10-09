@@ -4,6 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.enums import ChatType
 from pyrogram.types import *
 
+from ..modules.tools import get_arg
 from .. import *
 from ..modules.data import approve, disapprove, is_approved
 from pyrogram.types import (
@@ -95,8 +96,7 @@ async def pmpermit_func(client: Client, message: Message):
     msg_dlt = await client.send_photo(
         user_.id,
         pmpermit_logo,
-        MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),
-        reply_markup=InlineKeyboardMarkup(buttons),
+        MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),    
     )
     if str(user_.id) in OLD_MSG:
         try:
