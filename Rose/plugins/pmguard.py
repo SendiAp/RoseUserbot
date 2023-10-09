@@ -23,7 +23,7 @@ buttons = [
             InlineKeyboardButton(text="ᴄʟᴏsᴇ", url="t.me/BottyCu"),
         ],
     ]
-    return buttons
+    
 
 
 MSG_PERMIT = """
