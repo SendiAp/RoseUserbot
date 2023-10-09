@@ -10,7 +10,7 @@ from pyrogram import Client, errors
 from pyrogram.types import Message
 from emoji import get_emoji_regexp
 from PIL import Image, ImageDraw, ImageFont
-from ..modules.basic import get_arg
+from ..modules.tools import get_arg
 from ..modules import *
 from ..import *
 
