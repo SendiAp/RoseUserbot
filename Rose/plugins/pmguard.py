@@ -16,16 +16,6 @@ from pyrogram.types import (
     Message,
 )
 
-buttons = [
-        [
-            InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="t.me/BottyCu"),
-        ],
-        [
-            InlineKeyboardButton(text="ᴄʟᴏsᴇ", url="t.me/BottyCu"),
-        ],
-    ]
-    
-
 
 MSG_PERMIT = """
 ╔═════════════════════╗
@@ -97,13 +87,7 @@ async def pmpermit_func(client: Client, message: Message):
         user_.id,
         pmpermit_logo,
         MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),    
-    ),
-        reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("ꜱᴜᴘᴘᴏʀᴛ", url="t.me/RosePremiumUserbot")]]
-            ),
-        )
     )
-    return message
     if str(user_.id) in OLD_MSG:
         try:
             await OLD_MSG[str(user_.id)].delete()
