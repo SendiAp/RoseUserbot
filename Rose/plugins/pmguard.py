@@ -15,7 +15,7 @@ from pyrogram.types import (
     Message,
 )
 
- def buttons = [
+buttons = [
         [
             InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="t.me/BottyCu"),
         ],
