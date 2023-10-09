@@ -23,7 +23,7 @@ class Config(object):
     PMPERMIT_LOGO = getenv("PMPERMIT_LOGO", "https://telegra.ph/file/ddd400fce0284ad813e04.jpg")
     HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
-    UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/SendiAp/RoseUserbot")
+    UPSTREAM_REPO = getenv("UPSTREAM_REPO", "SendiAp/RoseUserbot")
     UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "rose")
 
     # OPTIONAL VARIABLES
