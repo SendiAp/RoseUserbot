@@ -96,9 +96,14 @@ async def pmpermit_func(client: Client, message: Message):
     msg_dlt = await client.send_photo(
         user_.id,
         pmpermit_logo,
-        reply_markup=InlineKeyboardMarkup(buttons),
         MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),    
     ),
+        reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("ꜱᴜᴘᴘᴏʀᴛ", url="t.me/RosePremiumUserbot")]]
+            ),
+        )
+    )
+    return message
     if str(user_.id) in OLD_MSG:
         try:
             await OLD_MSG[str(user_.id)].delete()
