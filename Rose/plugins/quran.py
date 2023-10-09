@@ -40,31 +40,10 @@ async def quran_audio(client: Client, message: Message):
             prik.delete(),
             client.send_audio(
                 message.chat.id,
-                quran.audio.file_path,
+                quran.audio.file_id,
                 caption=f"**Upload by:** {client.me.mention}",
                 reply_to_message_id=ReplyCheck(message),
             ),
         )
         await client.delete_messages(bot, 2)
     
-
-@app.on_message(commandx(["quran"]) & SUDOERS)
-async def quran_bot(client: Client, message: Message):
-    args = get_arg(message)
-    if not args:
-        return await message.edit("**Contoh 1:3**")
-    await client.unblock_user("AlFurqanRobot")
-    response = await client.send(
-        raw.functions.messages.StartBot(
-            bot=await client.resolve_peer("AlFurqanRobot"),
-            peer=await client.resolve_peer("AlFurqanRobot"),
-            random_id=client.rnd_id(),
-            start_param="{args}",
-        )
-    )
-    Ros = await edit_or_reply(message, "`Processing...`")
-    await asyncio.sleep(1)
-    spambot_msg = response.updates[1].message.id + 1
-    status = await app.get_messages(chat_id="AlFurqanRobot", message_ids=spambot_msg)
-    await Ros.edit(f"~ {status.text}")
-        
