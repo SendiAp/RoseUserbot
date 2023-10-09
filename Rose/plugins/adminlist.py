@@ -1,12 +1,3 @@
-# Credits: @mrismanaziz
-# Copyright (C) 2022 Pyro-ManUserbot
-#
-# This file is a part of < https://github.com/mrismanaziz/PyroMan-Userbot/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/mrismanaziz/PyroMan-Userbot/blob/main/LICENSE/>.
-#
-# t.me/SharingUserbot & t.me/Lunatic0de
-
 import html
 from pyrogram import *
 from pyrogram import Client, enums, filters
@@ -197,16 +188,17 @@ async def get_list_bots(client, message):
 
 __NAME__ = "tag"
 __MENU__ = """
-🌹 Kalau modules gak berfungsi lapor ya ke owner, kalau 
-gua coba bisa berarti lu nya gak bisa pake nya.
+✘ **Perintah:**`.admins` 
+• **Melihat daftar admin groups.**
 
-`.admins` - Melihat daftar admin groups.
+✘ **Perintah:** `.zombies` 
+• **Fungsi: Menghapus akun terhapus dalam groups.**
 
-`.zombies` - Menghapus akun terhapus dalam groups.
+✘ **Perintah:** .tagall`
+• **Fungsi: Mention teman dalan groups.**
 
-`.tagall` - Mention teman dalan groups.
-
-`.botlist` - Mendapatkan list bot dalam groups.
+✘ **Perintah:** `.botlist` 
+• **Fungsi: Mendapatkan list bot dalam groups.**
 
 © Rose Userbot
 """
