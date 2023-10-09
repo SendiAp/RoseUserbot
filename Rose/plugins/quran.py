@@ -208,6 +208,26 @@ async def surah_list(client, message):
     quran_list = QURANN
     await message.edit("`Sedang mengirimkan...`")
     await asyncio.sleep(5)
-    xx = await client.send_message(botlog, list_quran)
-    await xx.reply(botlog, quran_list)
+    xx = await client.send_message(list_quran, botlog)
+    await xx.reply(quran_list, botlog)
     await message.edit("`Berhasil Dikirim Di Botlog Chat ID`")
+
+__NAME__ = "alquran"
+__MENU__ = f"""
+**🥀 Alquran Command: ✨...**
+
+`.quran` [1]
+**untuk mendapatkan audio surah Al-Qur'an**
+[1] Alfatihah surah ke satu
+
+`.rquran**
+**Untuk mendapatkan audio surah random.**
+
+`.listsurah`
+**Untuk mendapatkan list surah nomer.**
+
+🆘 **WARNING:** Gunakan ditempat yang baik, dan jangan digunakan 
+untuk main main.
+
+© Rose Userbot
+"""
