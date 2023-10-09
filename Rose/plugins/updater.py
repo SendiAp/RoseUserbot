@@ -7,10 +7,10 @@ from git import *
 from git.exc import *
 from pyrogram import *
 from pyrogram.types import *
+from ..modules.vars import *
 
-
-UPSTREAM_REPO = "https://github.com/SendiAp/RoseUserbot"
-UPSTREAM_BRANCH = "rose"
+off_repo = var.UPSTREAM_REPO
+off_branch = var.UPSTREAM_BRANCH
 
 
 def gen_chlog(repo, diff):
@@ -37,7 +37,7 @@ def updater():
         repo = Repo()
     except InvalidGitRepositoryError:
         repo = Repo.init()
-        origin = repo.create_remote("upstream", UPSTREAM_BRANCH)
+        origin = repo.create_remote("upstream", off_repo)
         origin.fetch()
         repo.create_head("UPSTREAM_BRANCH", origin.refs.UPSTREAM_BRANCH)
         repo.heads.UPSTREAM_BRANCH.set_tracking_branch(origin.refs.UPSTREAM_BRANCH)
@@ -46,7 +46,7 @@ def updater():
     if "upstream" in repo.remotes:
         ups_rem = repo.remote("upstream")
     else:
-        ups_rem = repo.create_remote("upstream", UPSTREAM_REPO)
+        ups_rem = repo.create_remote("upstream", off_branch)
     ups_rem.fetch(ac_br)
     changelog, tl_chnglog = gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     return bool(changelog)
