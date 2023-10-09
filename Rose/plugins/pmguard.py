@@ -6,6 +6,25 @@ from pyrogram.types import *
 
 from .. import *
 from ..modules.data import approve, disapprove, is_approved
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+    InlineQueryResultPhoto,
+    Message,
+)
+
+ def buttons = [
+        [
+            InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url="t.me/BottyCu"),
+        ],
+        [
+            InlineKeyboardButton(text="ᴄʟᴏsᴇ", url="t.me/BottyCu"),
+        ],
+    ]
+    return buttons
+
 
 MSG_PERMIT = """
 ╔═════════════════════╗
@@ -77,6 +96,7 @@ async def pmpermit_func(client: Client, message: Message):
         user_.id,
         pmpermit_logo,
         MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),
+        reply_markup=InlineKeyboardMarkup(buttons),
     )
     if str(user_.id) in OLD_MSG:
         try:
