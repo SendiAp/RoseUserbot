@@ -21,12 +21,11 @@ class Config(object):
     ALIVE_LOGO = getenv("ALIVE_LOGO", "https://telegra.ph/file/ddd400fce0284ad813e04.jpg")
     QRIS = getenv("QRIS", "https://telegra.ph/file/29d8901cabe22ad3fd6d1.jpg")
     PMPERMIT_LOGO = getenv("PMPERMIT_LOGO", "https://telegra.ph/file/ddd400fce0284ad813e04.jpg")
-    GIT_TOKEN = getenv("GIT_TOKEN", None)
-    REPO_URL = getenv("REPO_URL", "https://github.com/SendiAp/RoseUserbot")
-    BRANCH = getenv("BRANCH", "master")
     HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
-  
+    UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/SendiAp/RoseUserbot")
+    UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "rose")
+
     # OPTIONAL VARIABLES
     SESSION_STRING = getenv("SESSION_STRING", None)
     COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", ".").split())
