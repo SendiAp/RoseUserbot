@@ -47,6 +47,5 @@ async def quran_bot(client: Client, message: Message):
     response = await client.send_message(bot, f"{args}")
     Ros = await edit_or_reply(message, "`Processing...`")
     await asyncio.sleep(1)
-    spambot_msg = response.updates[1].message.id + 1
-    status = await app.get_messages(chat_id=bot, message_ids=spambot_msg)
+    status = await app.get_messages(chat_id=bot)
     await Ros.edit(f"~ {status.text}")
