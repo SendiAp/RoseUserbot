@@ -56,27 +56,19 @@ except Exception as e:
 
 class Rose(Client, PyTgCalls):
     def __init__(self):
-        self.app = Client(
-            name = "RosePlayer",
-            api_id = Config.API_ID,
-            api_hash = Config.API_HASH,
-            session_string = Config.STRING_SESSION,
-        )
-        self.ass = Client(
-            name = "RosePlayer",
-            api_id = Config.API_ID,
-            api_hash = Config.API_HASH,
-            session_string = Config.SESSION_STRING,
-        )
         self.bot = Client(
             name = "RosePlayer",
             api_id = Config.API_ID,
             api_hash = Config.API_HASH,
             bot_token = Config.BOT_TOKEN,
         )
+        self.app = Client(
+            name = "RosePlayer",
+            api_id = Config.API_ID,
+            api_hash = Config.API_HASH,
+            session_string = Config.STRING_SESSION,
+        )
         if Config.SESSION_STRING:
-            self.call = PyTgCalls(self.ass)
-        else:
             self.call = PyTgCalls(self.app)
   
 
@@ -98,20 +90,6 @@ class Rose(Client, PyTgCalls):
             pass
         await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
         LOGGER.info(f"Userbot Started as {self.app.name}")
-        LOGGER.info("Starting PyTgCalls")
-        if Config.SESSION_STRING:
-            await self.ass.start()
-            self.ass.name = self.ass.me.first_name + "" + (self.ass.me.last_name or "")
-            self.ass.username = self.ass.me.username
-            self.ass.mention = self.ass.me.mention
-            self.ass.id = self.ass.me.id
-            try:
-                await self.ass.join_chat("RoseUserbotV2")
-                await self.ass.join_chat("smprojectID")
-                await self.ass.join_chat("RoseUserbotSupport")
-            except:
-                pass
-            LOGGER.info(f"Vc Assistant Started as {self.ass.name}")
         await self.call.start()
         LOGGER.info("Starting Helperbot")
         await self.bot.start()
@@ -128,7 +106,7 @@ class Rose(Client, PyTgCalls):
             await self.bot.send_message(Config.LOG_GROUP_ID, "Starting Helperbot")
         except:
             pass
-            LOGGER.error("Please Promote Bot in Your Log Group")
+            LOGGER.error("Silakan Promosikan Bot di Grup Log Anda")
             exit()
         LOGGER.info(f"Helperbot Started as {self.bot.name}")
         if self.app.id not in Config.SUDOERS:
