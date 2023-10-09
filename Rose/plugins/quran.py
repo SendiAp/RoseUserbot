@@ -10,6 +10,7 @@ from pyrogram import Client, errors
 from pyrogram.types import Message
 from emoji import get_emoji_regexp
 from PIL import Image, ImageDraw, ImageFont
+from ..modules.basic import ReplyCheck
 from ..modules.basic import edit_or_reply
 from ..modules.tools import get_arg
 from ..modules import *
@@ -25,14 +26,14 @@ async def quran_audio(client: Client, message: Message):
     bot = "AlQuran_audio_bot"
     if link:
         try:
-            tuyul = await client.send_message(bot, link)
+            Rose = await client.send_message(bot, link)
             await asyncio.sleep(5)
-            await tuyul.delete()
+            await Rose.delete()
         except YouBlockedUser:
             await client.unblock_user(bot)
             tuyul = await client.send_message(bot, link)
             await asyncio.sleep(10)
-            await tuyul.delete()
+            await Rose.delete()
     async for quran in client.search_messages(
         bot, filter=enums.MessagesFilter.AUDIO, limit=1
     ):
