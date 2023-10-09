@@ -6,6 +6,7 @@ from functools import partial
 from ..modules.basic import ReplyCheck
 from ..modules.tools import get_arg
 from ..modules import *
+from ..import *
 from pyrogram import Client, enums
 from pyrogram.types import Message
 from youtubesearchpython import SearchVideos
