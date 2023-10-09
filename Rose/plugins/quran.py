@@ -40,7 +40,7 @@ async def quran_audio(client: Client, message: Message):
             prik.delete(),
             client.send_audio(
                 message.chat.id,
-                quran.audio=file_path,
+                quran.audio.file_path,
                 caption=f"**Upload by:** {client.me.mention}",
                 reply_to_message_id=ReplyCheck(message),
             ),
