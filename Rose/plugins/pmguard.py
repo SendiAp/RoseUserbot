@@ -127,7 +127,22 @@ async def pm_approve(client: Client, message: Message):
         await xnxx.delete()
 
 
-@app.on_message(commandx(["no"]))
+@app.on_message(commandx("pmguard") & SUPUSER)
+async def pmguard(app, message):
+    pmpermit = var.PMPERMIT
+    arg = get_arg(message)
+    if not arg:
+        await message.edit("**on atau off ??**")
+        return
+    if arg == "off":
+        await app.pmpermit(False)
+        await message.edit("**PM Guard Dimatikan**")
+    if arg == "on":
+        await app.pmpermit(True)
+        await message.edit("**PM Guard diaktifkan**")
+
+
+@app.on_message(commandx("no") & SUPUSER)
 async def pm_disapprove(client: Client, message: Message):
     permit = await is_approved()
     if message.reply_to_message:
@@ -159,7 +174,7 @@ async def pm_disapprove(client: Client, message: Message):
         await xnxx.delete()
 
 
-@app.on_message(commandx(["block"]))
+@app.on_message(commandx("block") & SUPUSER)
 async def block_user_func(client: Client, message: Message):
     if not message.reply_to_message:
         return await message.reply("Reply to user message.")
@@ -170,7 +185,7 @@ async def block_user_func(client: Client, message: Message):
     await client.block_user(user_id)
 
 
-@app.on_message(commandx(["unblock"]))
+@app.on_message(commandx("unblock") & SUPUSER)
 async def unblock_user_func(client: Client, message: Message):
     if not message.reply_to_message:
         return await message.reply("Reply to user message.")
