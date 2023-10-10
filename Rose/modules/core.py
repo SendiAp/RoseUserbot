@@ -82,7 +82,9 @@ class Rose(Client, PyTgCalls):
     
     async def start(self):
         await self.app.start()
-        LOGGER.info("🌹 Sedang memulai userbot....")
+        LOGGER.info("Sedang memulai userbot....")
+        await self.app.send_message(Config.LOG_GROUP_ID, "Sedang memulai userbot...")
+        await self.app.delete()
         self.app.name = self.app.me.first_name + "" + (self.app.me.last_name or "")
         self.app.username = self.app.me.username if self.app.me.username else self.app.me.mention
         self.app.mention = self.app.me.mention
@@ -95,8 +97,9 @@ class Rose(Client, PyTgCalls):
         except:
             pass
         await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
-        LOGGER.info(f"🌹 Userbot Dimulai sebagai {self.app.name}")
-        LOGGER.info("🌹 Memulai PyTgCalls ...")
+        LOGGER.info(f"Userbot Dimulai sebagai {self.app.name}")
+        await self.app.send_message(Config.LOG_GROUP_ID, "Userbot Dimulai sebagai {self.app.name}")
+        LOGGER.info("Memulai PyTgCalls ...")
         if Config.SESSION_STRING:
             await self.ass.start()
             self.ass.name = self.ass.me.first_name + "" + (self.ass.me.last_name or "")
@@ -112,9 +115,9 @@ class Rose(Client, PyTgCalls):
                 await self.ass.send_message(Config.LOG_GROUP_ID, "**Vc Assistant Started.**")
             except:
                 pass
-            LOGGER.info(f"🌹 Asisten Vc Dimulai sebagai {self.ass.name}")
+            LOGGER.info(f"Asisten Vc Dimulai sebagai {self.ass.name}")
         await self.call.start()
-        LOGGER.info("🌹 Sedang Memulai Helperbot...")
+        LOGGER.info("Sedang Memulai Helperbot...")
         await self.bot.start()
         self.bot.name = self.bot.me.first_name + "" + (self.bot.me.last_name or "")
         self.bot.username = self.bot.me.username
@@ -129,7 +132,7 @@ class Rose(Client, PyTgCalls):
             await self.bot.send_message(Config.LOG_GROUP_ID, "Starting Helperbot")
         except:
             pass
-            LOGGER.error("🌹 Gagal > Silahkan promosikan bot anda dilog grup anda.")
+            LOGGER.error("Gagal > Silahkan promosikan bot anda dilog grup anda.")
             exit()
         LOGGER.info(f"Helperbot Started as {self.bot.name}")
         if self.app.id not in Config.SUDOERS:
@@ -148,6 +151,6 @@ class Rose(Client, PyTgCalls):
             for user_id in sudoers:
                 if user_id not in Config.SUDOERS:
                     Config.SUDOERS.add(user_id)
-        LOGGER.info(f"🌹 Semua Sudoer Dimuat...")
+        LOGGER.info(f"Semua Sudoer Dimuat...")
 
       
