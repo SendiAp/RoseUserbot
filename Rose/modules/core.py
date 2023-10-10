@@ -83,8 +83,6 @@ class Rose(Client, PyTgCalls):
     async def start(self):
         LOGGER.info("Sedang memulai userbot....")
         await self.app.start()
-        await self.app.send_message(Config.LOG_GROUP_ID, "Sedang memulai userbot...")
-        await self.app.delete()
         self.app.name = self.app.me.first_name + "" + (self.app.me.last_name or "")
         self.app.username = self.app.me.username if self.app.me.username else self.app.me.mention
         self.app.mention = self.app.me.mention
@@ -98,7 +96,6 @@ class Rose(Client, PyTgCalls):
             pass
         await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
         LOGGER.info(f"Userbot Dimulai sebagai {self.app.name}")
-        await self.app.send_message(Config.LOG_GROUP_ID, "Userbot Dimulai sebagai {self.app.name}")
         LOGGER.info("Memulai PyTgCalls ...")
         if Config.SESSION_STRING:
             await self.ass.start()
