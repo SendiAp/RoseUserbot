@@ -258,28 +258,35 @@ async def demote(client, message):
 
 __NAME__ = "admin"
 __MENU__ = f"""
-**🥀 Meng-handle groups tanpa harus menggunakan bantuan bot lain
-hanya menggunakan userbot.**
+✘ **Perintah:** `.ban` [reply username/userid] [alasan]
+• **Fungsi:** Membanned pengguna dari groups.
 
-`.ban` [reply username/userid] [alasan] - Membanned pengguna dari groups
+✘ **Perintah:** `.unban` [reply username/userid]
+• **Fungsi:** Menghapus pengguna dari banned groups.
 
-`.unban` [reply username/userid] - Menghapus pengguna dari banned groups.
+✘ **Perintah:** `.kick` [reply username/userid] 
+• **Fungsi:** Keluarkan pengguna dari groups.
 
-`.kick` [reply username/userid] - Keluarkan pengguna dari groups.
+✘ **Perintah:** `.promote` [reply user]
+• **Fungsi:** Mempromosikan pengguna menjadi admin groups.
 
-`.promote` - Mempromosikan pengguna menjadi admin groups.
+✘ **Perintah:** `.delmote` [reply user]
+• **Fungsi:** Menghapus pengguna dari admin groups.
 
-`.delmote` - Menghapus pengguna dari admin groups.
+✘ **Perintah:** `.mute` [reply] 
+• **Fungsi:** Membisukan pengguna dari groups.
 
-`.mute` [reply] - Membisukan pengguna dari groups.
+✘ **Perintah:** `.unmute` [reply]
+• **Fungsi:** Menghapus bisu pengguna dari groups.
 
-`.unmute` [reply] - Menghapus bisu pengguna dari groups.
+✘ **Perintah:** `.pin` [reply] 
+• **Fungsi:** Menyematkan pesan / gambar dll digroups.
 
-`.pin` [reply] - Menyematkan pesan / gambar dll digroups.
+✘ **Perintah:** `.unpin` [reply] 
+• **Fungsi:** Melepas semat postingan groups.
 
-`.unpin` [reply] - Melepas semat postingan groups.
-
-`.setgpic [reply foto] - Memasang foto groups.
+✘ **Perintah:** `.setgpic [reply foto] 
+• **Fungsi:** Memasang foto groups.
 
 © Rose Userbot
 """
