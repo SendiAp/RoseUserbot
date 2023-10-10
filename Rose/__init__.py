@@ -39,7 +39,6 @@ aiosession = ClientSession()
 rose = Rose()
 app = rose.app
 bot = rose.bot
-call = rose.call
 log = LOGGER
 var = Config()
 
