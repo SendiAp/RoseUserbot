@@ -7,11 +7,15 @@ from . import rose as client
 from .import PLUGINS, log
 from .plugins import ALL_PLUGINS
 from .console import LOGGER
+from ..modules import *
+from . import *
 
 loop = asyncio.get_event_loop()
 
 async def rose():
     await client.start()
+    await rose_log(app)
+    botlog_chat_id = await get_botlog(user_id)
     log.info("Importing all plugins ...")
     for all_plugin in ALL_PLUGINS:
         imported_plugin = importlib.import_module(
