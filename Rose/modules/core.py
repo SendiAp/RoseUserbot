@@ -75,7 +75,7 @@ class Rose(Client, PyTgCalls):
     
     async def start(self):
         await self.app.start()
-        LOGGER.info("Starting Userbot")
+        LOGGER.info("🌹 Sedang memulai userbot....")
         self.app.name = self.app.me.first_name + "" + (self.app.me.last_name or "")
         self.app.username = self.app.me.username if self.app.me.username else self.app.me.mention
         self.app.mention = self.app.me.mention
@@ -84,14 +84,15 @@ class Rose(Client, PyTgCalls):
             Config.SUDOERS.add(int(self.app.id))
         try:
             await self.app.join_chat("RoseUserbotV2")
-            await self.app.join_chat("smprojectID")
             await self.app.join_chat("RoseUserbotSupport")
         except:
             pass
+        await self.app.rose_log()
+        botlog_chat_id = await get_botlog(user_id)
         await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
-        LOGGER.info(f"Userbot Started as {self.app.name}")
+        LOGGER.info(f"🌹 Userbot Dimulai sebagai {self.app.name} !")
         await self.call.start()
-        LOGGER.info("Starting Helperbot")
+        LOGGER.info("🌹 Sedang Memulai Helperbot...")
         await self.bot.start()
         self.bot.name = self.bot.me.first_name + "" + (self.bot.me.last_name or "")
         self.bot.username = self.bot.me.username
@@ -106,7 +107,7 @@ class Rose(Client, PyTgCalls):
             await self.bot.send_message(Config.LOG_GROUP_ID, "Starting Helperbot")
         except:
             pass
-            LOGGER.error("Silakan Promosikan Bot di Grup Log Anda")
+            LOGGER.error("🌹 Gagal > Silahkan promosikan bot anda dilog grup anda.")
             exit()
         LOGGER.info(f"Helperbot Started as {self.bot.name}")
         if self.app.id not in Config.SUDOERS:
@@ -125,6 +126,6 @@ class Rose(Client, PyTgCalls):
             for user_id in sudoers:
                 if user_id not in Config.SUDOERS:
                     Config.SUDOERS.add(user_id)
-        LOGGER.info(f"All Sudoers Loaded.")
+        LOGGER.info(f"🌹 Semua Sudoer Dimuat...")
 
       
