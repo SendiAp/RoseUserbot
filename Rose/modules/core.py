@@ -1,6 +1,6 @@
 import asyncio
 
-from pyrogram import Client
+from pyrogram import Client, Message 
 from pyrogram.types import ChatPrivileges
 from pytgcalls import PyTgCalls
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -81,8 +81,8 @@ class Rose(Client, PyTgCalls):
 
     
     async def start(self):
-        await self.app.start()
         LOGGER.info("Sedang memulai userbot....")
+        await self.app.start()
         await self.app.send_message(Config.LOG_GROUP_ID, "Sedang memulai userbot...")
         await self.app.delete()
         self.app.name = self.app.me.first_name + "" + (self.app.me.last_name or "")
