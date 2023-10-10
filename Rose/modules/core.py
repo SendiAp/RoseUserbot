@@ -8,7 +8,6 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from .bc import rose_log
 from .vars import Config
 from ..console import LOGGER
-from ..plugins.inline import rose_aktif
 
 COMMAND_PREFIXES = Config.COMMAND_PREFIXES
 
