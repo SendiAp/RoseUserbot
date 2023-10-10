@@ -1,6 +1,6 @@
 import asyncio
 
-from pyrogram import Client, Message 
+from pyrogram import Client
 from pyrogram.types import ChatPrivileges
 from pytgcalls import PyTgCalls
 from motor.motor_asyncio import AsyncIOMotorClient
