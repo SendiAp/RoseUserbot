@@ -56,21 +56,28 @@ except Exception as e:
 
 class Rose(Client, PyTgCalls):
     def __init__(self):
-        self.bot = Client(
-            name = "RosePlayer",
-            api_id = Config.API_ID,
-            api_hash = Config.API_HASH,
-            bot_token = Config.BOT_TOKEN,
-        )
         self.app = Client(
-            name = "RosePlayer",
+            name = "RoseHalder",
             api_id = Config.API_ID,
             api_hash = Config.API_HASH,
             session_string = Config.STRING_SESSION,
         )
+        self.ass = Client(
+            name = "RosePlayer",
+            api_id = Config.API_ID,
+            api_hash = Config.API_HASH,
+            session_string = Config.SESSION_STRING,
+        )
+        self.bot = Client(
+            name = "RoseServer",
+            api_id = Config.API_ID,
+            api_hash = Config.API_HASH,
+            bot_token = Config.BOT_TOKEN,
+        )
         if Config.SESSION_STRING:
+            self.call = PyTgCalls(self.ass)
+        else:
             self.call = PyTgCalls(self.app)
-  
 
     
     async def start(self):
