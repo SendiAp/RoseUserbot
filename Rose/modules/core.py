@@ -94,8 +94,6 @@ class Rose(Client, PyTgCalls):
             await self.app.join_chat("RoseUserbotSupport")
         except:
             pass
-        await self.app.rose_log()
-        botlog_chat_id = await get_botlog(user_id)
         await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
         LOGGER.info(f"🌹 Userbot Dimulai sebagai {self.app.name} !")
         await self.call.start()
