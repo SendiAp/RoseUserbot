@@ -95,7 +95,24 @@ class Rose(Client, PyTgCalls):
         except:
             pass
         await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
-        LOGGER.info(f"🌹 Userbot Dimulai sebagai {self.app.name} !")
+        LOGGER.info(f"🌹 Userbot Dimulai sebagai {self.app.name}")
+        LOGGER.info("🌹 Memulai PyTgCalls ...")
+        if Config.SESSION_STRING:
+            await self.ass.start()
+            self.ass.name = self.ass.me.first_name + "" + (self.ass.me.last_name or "")
+            self.ass.username = self.ass.me.username
+            self.ass.mention = self.ass.me.mention
+            self.ass.id = self.ass.me.id
+            try:
+                await self.ass.join_chat("RoseUserbotV2")
+                await self.ass.join_chat("RoseUserbotSupport")
+            except:
+                pass
+            try:
+                await self.ass.send_message(Config.LOG_GROUP_ID, "**Vc Assistant Started.**")
+            except:
+                pass
+            LOGGER.info(f"🌹 Asisten Vc Dimulai sebagai {self.ass.name}")
         await self.call.start()
         LOGGER.info("🌹 Sedang Memulai Helperbot...")
         await self.bot.start()
