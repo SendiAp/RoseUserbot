@@ -11,7 +11,6 @@ from ..console import LOGGER
 from ..plugins.inline import rose_aktif
 
 COMMAND_PREFIXES = Config.COMMAND_PREFIXES
-botlog = Config.LOG_GROUP_ID
 
 MSG_ON = """
 Rσʂҽ UʂҽɾႦσƚ Bҽɾԋαʂιʅ Dιαƙƚιϝƙαɳ🌹
@@ -96,7 +95,6 @@ class Rose(Client, PyTgCalls):
         except:
             pass
         await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
-        await rose_aktif(botlog)
         LOGGER.info(f"Userbot Dimulai sebagai {self.app.name}")
         LOGGER.info("Memulai PyTgCalls ...")
         if Config.SESSION_STRING:
