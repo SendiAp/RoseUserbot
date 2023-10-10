@@ -33,7 +33,7 @@
         },
         "LOG_GROUP_ID": {
             "description": "Enter Your Logger Group ID",
-            "required": true
+            "required": false
         }
     },
     "buildpacks": [
