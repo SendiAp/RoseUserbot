@@ -7,7 +7,7 @@ from . import rose as client
 from .import PLUGINS, log
 from .plugins import ALL_PLUGINS
 from .console import LOGGER
-from ..modules import *
+from .modules import *
 from . import *
 
 loop = asyncio.get_event_loop()
