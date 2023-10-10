@@ -6,7 +6,14 @@ from .. import __version__
 from ..modules.misc import *
 from ..modules.utils import *
 from pyrogram.types import *
-
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+    InlineQueryResultPhoto,
+    Message,
+)
 
 async def help_menu_logo(answer):
     if var.USERBOT_PICTURE:
@@ -76,3 +83,25 @@ async def inline_query_handler(bot, query):
             return
     else:
         return
+
+
+async def rose_aktif(message: Message, answers):
+    msg = (
+        f"<b>Rose USERBOT</b>\n\n"
+        f"Berhasil Diaktifkan\n"
+        f"Rose Userbot"
+    )
+    answers.append(
+        InlineQueryResultArticle(
+            title="aktif",
+            description="AktifBot",
+            thumb_url="https://telegra.ph/file/c78bb1efdeed38ee16eb2.png",
+            input_message_content=InputTextMessageContent(
+                msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+            ),
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("Support", url="t.me/BottyCu")]]
+            ),
+        )
+    )
+    return answers
