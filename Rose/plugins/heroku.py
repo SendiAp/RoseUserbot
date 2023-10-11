@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 import asyncio
 import math
 import os
@@ -234,19 +242,17 @@ async def usage_dynos(client, message):
 
 __NAME__ = "heroku"
 __MENU__ = f"""
-**🥀 Heroku Command;**
+✘ **Perintah:** `.setvar` [VAR] [VALUE]
+• **Fungsi:** Untuk mengatur variabel config userbot.
 
-`.setvar` [VAR] [VALUE]
-**Untuk mengatur variabel config userbot.**
+✘ **Perintah:** `.delvar` [VAR] 
+• **Fungsi:** Untuk menghapus variabel config userbot.
 
-`.delvar` [VAR] 
-**Untuk menghapus variabel config userbot.**
+✘ **Perintah:** `.getvar` [VAR] 
+• **Fungsi:** Untuk melihat variabel config userbot.
 
-`.getvar` [VAR] 
-**Untuk melihat variabel config userbot.**
-
-`.usage`
-**Untuk mengecheck kouta dyno heroku.**
+✘ **Perintah:** `.usage`
+• **Fungsi:** Untuk mengecheck kouta dyno heroku.
 
 © Rose Userbot
 """
