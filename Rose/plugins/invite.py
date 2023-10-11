@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 import asyncio
 
 from pyrogram import Client, filters
@@ -65,13 +73,15 @@ async def invite_link(client, message):
 
 __NAME__ = "invite"
 __MENU__ = f"""
-**🥀 dicoba sendiri ya ganteng atau cantik.**
+✘ **Perintah:** `.invitelink` 
+• **Fungsi:** Untuk mendapatkan link invite ke grup obrolan anda. 
+[Need Admin]
 
-`.invitelink` - **Untuk mendapatkan link invite ke grup obrolan anda. [Need Admin]**
+✘ **Perintah:** `.invite` @username 
+• **Fungsi:** Untuk Mengundang Anggota ke grup Anda.
 
-`.invite` @username - **Untuk Mengundang Anggota ke grup Anda.**
-
-`.inviteall` @usernamegc - **Untuk Mengundang Anggota dari obrolan grup lain ke obrolan grup anda.**
+✘ **Perintah:** `.inviteall` @usernamegc
+• **Fungsi:** Untuk Mengundang Anggota dari obrolan grup lain ke obrolan grup anda.
 
 © Rose Userbot
 """
