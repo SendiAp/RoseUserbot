@@ -6,14 +6,10 @@ https://www.github.com/SendiAp/RoseUserbot
 https://t.me/RoseUserbotV2 | © Rose Userbot 
 """
 
-
-
 import asyncio
-
 from pyrogram import Client, filters
 from pyrogram.errors import ChatAdminRequired
 from pyrogram.types import ChatPermissions, ChatPrivileges, Message
-
 from ..import *
 from ..modules.basic import edit_or_reply
 from ..modules.mc import extract_user, extract_user_and_reason, list_admins
