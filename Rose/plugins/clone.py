@@ -1,10 +1,15 @@
-import os
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
 
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
+import os
 from pyrogram import *
 from pyrogram.types import *
-
 from ..modules.basic import edit_or_reply, get_text, get_user
-
 from ..modules import *
 from ..import *
 
@@ -54,13 +59,11 @@ async def revert(client: Client, message: Message):
 
 __NAME__ = "clone"
 __MENU__ = f"""
-**🥀 Clone Pengguna:**
+✘ **Perintah:** `.clone`
+• **Fungsi:** Clone Akun Pengguna Lain.
 
-`.clone`
-**Clone Akun Pengguna Lain.**
-
-`.revert`
-**Kembalikan Seperti Semula.**
+✘ **Perintah:** `.revert`
+• **Fungsi:** Kembalikan Seperti Semula.
 
 © Rose Userbot
 """
