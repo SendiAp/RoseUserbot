@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 import random 
 import asyncio
 import os
@@ -112,10 +120,8 @@ async def alive(client: Client, message: Message):
 
 __NAME__ = "donasi"
 __MENU__ = f"""
-**🥀 Donasi Bang:**
-
-`.donasi`
-**Donasi Developer.**
+✘ **Perintah:** `.donasi`
+• **Fungsi:** Donasi Developer.
 
 Makasih bang yang udah donasi🥰🥰
 
