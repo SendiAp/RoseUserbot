@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 import asyncio
 import dotenv
 from pyrogram import Client, enums, filters
@@ -18,7 +26,7 @@ DEVS = [1307579425]
 @app.on_message(commandx(["gcast","ggrups"]) & SUDOERS)
 async def gcast_cmd(client, message):
     if message.reply_to_message or get_arg(message):
-        Man = await edit_or_reply(message, "`Started global broadcast...`")
+        Ros = await edit_or_reply(message, "`Started global broadcast...`")
     else:
         return await message.edit_text("**Berikan Sebuah Pesan atau Reply**")
     done = 0
@@ -43,7 +51,7 @@ async def gcast_cmd(client, message):
                 except Exception:
                     error += 1
                     await asyncio.sleep(0.3)
-    await Man.edit_text(
+    await Ros.edit_text(
         f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{error}` **Grup**"
     )
 
@@ -128,18 +136,19 @@ async def all_chats(client, message: Message):
 
 __NAME__ = "broadcast"
 __MENU__ = f"""
-**🥀 Menyiarkan pesan secara otomatis\n» ke semua obrolan groups 
-dan menyiarkan pesan kesemua chat pribadi ✨**
-
-`.gcast` [pesan] - Menyiarkan pesan kesemua groups
+✘ **Perintah:** `.gcast` [pesan] 
+• **Fungsi:** Menyiarkan pesan kesemua groups
 dalam satu waktu.
 
-`.gucast` [pesan] - Menyiarkan pesan kesemua pengguna
+✘ **Perintah:** `.gucast` [pesan]
+• **Fungsi:** Menyiarkan pesan kesemua pengguna
 chat pribadi dalam satu waktu.
 
-`.addbl` [id] - Menambahkan daftar hitam gcast.
+✘ **Perintah:** `.addbl` [id] 
+• **Fungsi:** Menambahkan daftar hitam gcast.
 
-`.delbl` [id] - Menghapus dari daftar hitam gcast.
+✘ **Perintah:* `.delbl` [id] 
+• **Fungsi:** Menghapus dari daftar hitam gcast.
 
 © Rose Userbot
 """
