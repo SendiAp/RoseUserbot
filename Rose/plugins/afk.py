@@ -114,10 +114,8 @@ async def no_afke(client, message):
 
 __NAME__ = "afk"
 __MENU__ = f"""
-**🥀 Afk Reaction:**
-
-`.afk` [alasan]
-**Memberi tau kalau anda sedang mati.**
+✘ **Perintah:** `.afk` [alasan]
+• **Fungsi:** Memberi tau kalau anda sedang mati.
 
 © Rose Userbot
 """
