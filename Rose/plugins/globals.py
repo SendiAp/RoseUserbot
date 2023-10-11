@@ -1,3 +1,10 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
 
 from pyrogram import Client, errors, filters
 from pyrogram.types import ChatPermissions, Message
@@ -130,12 +137,11 @@ async def _(client, message):
 
 __NAME__ = "globals"
 __MENU__ = f"""
-**🥀 Kalau ada yang ganggu kalian, kalian harus
-global banned kepada orang itu huft**
+✘ **Perintah:** `.gban` [reply user]
+• **Fungsi:** Melakukan Global Banned Ke Semua Grup Dimana anda Sebagai Admin.
 
-`.gban` [reply user] - **Melakukan Global Banned Ke Semua Grup Dimana anda Sebagai Admin..**
-
-`.ungban` [reply user] - **Membatalkan global banned.**
+✘ **Perintah:** `.ungban` [reply user] 
+• **Fungsi:** Membatalkan global banned.
 
 © Rose Userbot
 """
