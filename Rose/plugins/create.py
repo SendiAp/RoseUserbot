@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
@@ -34,11 +42,11 @@ async def create(client, message):
 
 __NAME__ = "create"
 __MENU__ = f"""
-**🥀 Buat yang males buka tombol apapun
-buat gc atau ch pake perintah ini aja.**
+✘ **Perintah:** `.create ch`
+• **Fungsi:** Untuk membuat channel telegram dengan userbot.
 
-`.create ch` - **Untuk membuat channel telegram dengan userbot.**
-`.create gc` - **Untuk membuat group telegram dengan userbot.**
+✘ **Perintah:** `.create gc`
+• **Fungsi:** Untuk membuat group telegram dengan userbot.
 
 © Rose Userbot
 """
