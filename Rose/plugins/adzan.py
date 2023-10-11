@@ -37,10 +37,8 @@ async def adzan_shalat(client: Client, message: Message):
 
 __NAME__ = "adzan"
 __MENU__ = f"""
-**🥀 Melihat jadwal sholat seluruh kota
-biar pada rajin ya sayang sholat nya.**
-
-`.adzan` [Kota] - Menampilkan jadwal adzan yang tersedia dibot.
+✘ **Perintah:** `.adzan` [Kota]
+• **Fungsi:** Menampilkan jadwal adzan yang tersedia dibot.
 
 © Rose Userbot
 """
