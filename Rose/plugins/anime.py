@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 import requests
 from pyrogram import Client, filters
 from pyrogram.types import Message
@@ -31,10 +39,8 @@ async def random_anime(client: Client, message: Message):
 
 __NAME__ = "anime"
 __MENU__ = f"""
-**🥀 Random Anime:**
-
-`.randomanime`
-**Mendapatkan Random Anime**
+✘ **Perintah:** `.randomanime`
+• **Fungsi:** Mendapatkan Random Anime.
 
 © Rose Userbot
 """
