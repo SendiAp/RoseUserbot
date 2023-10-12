@@ -7,8 +7,6 @@ from ..modules.vars import *
 from ..modules import *
 from ..import *
 
-START = Config.START
-
 @bot.on_message(filters.text)
 async def text(c, m):
       if m.from_user.id in Config.LOGIN:
