@@ -16,11 +16,15 @@ LOG_CHANNEL = Config.LOG_GROUP_ID
 AUTH_USERS = "1307579425"
 DB_URL = Config.MONGO_DATABASE
 DB_NAME = Config.DATABASE_NAME
+UPDATE_CHANNEL = "t.me/BottyCu"
+SUPPORT_GROUP = "t.me/BottyCu"
 
 donate_link="t.me/BottyCu"
 owner_id="1307579425"
 
 db = Database(DB_URL, DB_NAME)
+
+START = "HALO"
 
 LOG_TEXT = "ID: <code>{}</code>\nFirst Name: <a href='tg://user?id={}'>{}{}</a>\nDC ID: <code>{}</code>"
 
@@ -93,10 +97,9 @@ async def start(bot, message):
     await bot.send_message(
         chat_id=owner_id,
         text=LOG_TEXT.format(message.chat.id,message.chat.id,message.chat.first_name,message.chat.last_name,message.chat.dc_id),
-        parse_mode="html"
     )
     await message.reply_text(
-        text="**Hi {}!**\n".format(message.chat.first_name)+C.START,
+        text="**Hi {}!**\n".format(message.chat.first_name)+START,
         reply_markup=InlineKeyboardMarkup([
             [ InlineKeyboardButton(text="🛠SUPPORT🛠", url=f"{C.SUPPORT_GROUP}"), InlineKeyboardButton(text="📮UPDATES📮", url=f"{C.UPDATE_CHANNEL}")]
         ])
