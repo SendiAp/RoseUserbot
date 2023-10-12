@@ -6,6 +6,7 @@ from pyrogram import Client, filters
 from ..modules.vars import *
 from ..modules import *
 from ..import *
+from ..modules.parser import *
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.types import *
 from ..modules.broadcast import broadcast
@@ -98,7 +99,7 @@ async def start(bot, message):
     await bot.send_message(
         chat_id=owner_id,
         text=LOG_TEXT.format(message.chat.id,message.chat.id,message.chat.first_name,message.chat.last_name,message.chat.dc_id),
-        parse_mode=html
+        parse_mode=html,
     )
     await message.reply_text(
         text="**Hi {}!**\n".format(message.chat.first_name)+START,
@@ -347,7 +348,7 @@ async def pm_text(bot, message):
     await bot.send_message(
         chat_id=owner_id,
         text=IF_TEXT.format(reference_id, info.first_name, message.text),
-        parse_mode=html
+        parse_mode=html,
     )
 
 @bot.on_message((filters.group | filters.private) & filters.media_group)
@@ -415,7 +416,7 @@ async def pm_media(bot, message):
             from_chat_id=message.chat.id,
             message_id=message.message_id,
             caption=IF_CONTENT.format(reference_id, info.first_name),
-            parse_mode=html
+            parse_mode=html,
         )
 
 
@@ -481,12 +482,12 @@ async def replay_media(bot, message):
                 from_chat_id=message.chat.id,
                 message_id=message.message_id,
                 caption=message.caption,
-                parse_mode=html
+                parse_mode=html,
             )
         else:
             await bot.copy_message(
                 chat_id=int(reference_id),
                 from_chat_id=message.chat.id,
                 message_id=message.message_id,
-                parse_mode=html
+                parse_mode=html,
             )
