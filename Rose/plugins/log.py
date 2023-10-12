@@ -9,7 +9,7 @@ from ..modules.tools import get_arg
 from ..modules.vars import *
 
 
-@app.on_message(filters.group & filters.mentioned & filters.incoming & ~filters.bot & ~filters.via_bot)
+@bot.on_message(filters.group & filters.mentioned & filters.incoming & ~filters.bot & ~filters.via_bot)
 async def log_tagged_messages(client, message):
     chat_id = message.chat.id
     user_id = client.me.id
