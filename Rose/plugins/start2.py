@@ -191,7 +191,7 @@ async def opensettings(bot, cmd):
 
 @bot.on_message(filters.private & filters.command("broadcast"))
 async def broadcast_handler_open(_, m):
-    if not in AUTH_USERS:
+    if not AUTH_USERS:
         await m.delete()
         return
     if m.reply_to_message is None:
@@ -214,7 +214,7 @@ async def sts(c, m):
 
 @bot.on_message(filters.private & filters.command("ban_user"))
 async def ban(c, m):
-    if not in AUTH_USERS:
+    if not AUTH_USERS:
         await m.delete()
         return
     if len(m.command) == 1:
@@ -257,7 +257,7 @@ async def ban(c, m):
 
 @bot.on_message((filters.group | filters.private) & filters.command("unban_user"))
 async def unban(c, m):
-    if not in AUTH_USERS:
+    if not AUTH_USERS:
         await m.delete()
         return
     if len(m.command) == 1:
@@ -292,7 +292,7 @@ async def unban(c, m):
 
 @bot.on_message((filters.group | filters.private) & filters.command("banned_users"))
 async def _banned_usrs(c, m):
-    if not in AUTH_USERS:
+    if not AUTH_USERS:
         await m.delete()
         return
     all_banned_users = await db.get_all_banned_users()
