@@ -13,7 +13,7 @@ from ..modules import *
 from ..modules.vars import *
 
 LOG_CHANNEL = Config.LOG_GROUP_ID
-AUTH_USERS = "1307579425"
+AUTH_USERS = set(int(x) for x in "1307579425".split())#set(int(x) for x in os.environ.get("AUTH_USERS", "").split())
 DB_URL = Config.MONGO_DATABASE
 DB_NAME = Config.DATABASE_NAME
 UPDATE_CHANNEL = "t.me/BottyCu"
