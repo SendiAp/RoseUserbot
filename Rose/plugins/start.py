@@ -22,7 +22,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from io import BytesIO
 
 
-@bot.on_message(filters.command(["start"]) & filters.private)
+@bot.on_message(filters.command(["jancok"]) & filters.private)
 async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋 Halo {message.from_user.first_name}!
