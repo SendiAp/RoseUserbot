@@ -1,3 +1,10 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
 
 from pyrogram import Client, enums, filters
 from pyrogram.types import Message
@@ -70,18 +77,20 @@ async def kickmeallch(client, message):
 
 __NAME__ = "joinleave"
 __MENU__ = f"""
-**🥀 Join leave naik gc atau channel atau keluar 
-otomatis menggunakan bot✨**
+✘ **Perintah:** `.kickme` 
+• **Fungsi:** Keluar dari grup dengan menampilkan pesan has left this group, bye!!.
 
-`.kickme` - Keluar dari grup dengan menampilkan pesan has left this group, bye!!.
+✘ **Perintah:** `.join` [username] 
+• **Fungsi:** Untuk Bergabung dengan Obrolan Melalui username.
 
-`.join` [username] - Untuk Bergabung dengan Obrolan Melalui username.
+✘ **Perintah:** `.leave` [username]  
+• **Fungsi:** Untuk keluar dari grup Melalui username.
 
-`.leave` [username] - Untuk keluar dari grup Melalui username.
+✘ **Perintah:** `.leaveallch` 
+• **Fungsi:** Keluar dari semua channel telegram yang anda gabung.
 
-`.leaveallch` - Keluar dari semua channel telegram yang anda gabung.
-
-`.leaveallgc` - Keluar dari semua grup telegram yang anda gabung.
+✘ **Perintah:** `.leaveallgc` 
+• **Fungsi:** Keluar dari semua grup telegram yang anda gabung.
 
 © Rose Userbot
 """
