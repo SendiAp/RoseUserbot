@@ -127,7 +127,7 @@ class Rose(Client, PyTgCalls):
         try:
             await self.app.send_message(f"@botfather", "/setinline")
             await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "@{self.bot.username}")
+            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "Search")
             await asyncio.sleep(1)
@@ -137,15 +137,15 @@ class Rose(Client, PyTgCalls):
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "/setabouttext")
             await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "@{self.bot.username}")
+            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
             await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "Managed With ✨ By {self.app.name}")
+            await self.app.send_message(f"@botfather", f"Managed With ✨ By {self.app.name}")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "/setdescription")
             await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "@{self.bot.username}")
+            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
             await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "✨ Owner ~ {self.app.name} ✨\n\n✨ Powered By ~ @RoseUserbotv2 ✨")
+            await self.app.send_message(f"@botfather", f"✨ Owner ~ {self.app.name} ✨\n\n✨ Powered By ~ @RoseUserbotv2 ✨")
         except:
             pass
         try:
