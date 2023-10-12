@@ -202,7 +202,7 @@ async def broadcast_handler_open(_, m):
 
 @bot.on_message((filters.group | filters.private) & filters.command("stats"))
 async def sts(c, m):
-    if not in AUTH_USERS:
+    if not AUTH_USERS:
         await m.delete()
         return
     await m.reply_text(
