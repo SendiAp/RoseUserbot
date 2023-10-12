@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 import asyncio
 import io
 import os
@@ -8,8 +16,6 @@ from io import BytesIO
 from base64 import b64decode
 from pyrogram import Client, errors
 from pyrogram.types import Message
-from emoji import get_emoji_regexp
-from PIL import Image, ImageDraw, ImageFont
 from ..modules.basic import ReplyCheck
 from ..modules.basic import edit_or_reply
 from ..modules.tools import get_arg
@@ -214,17 +220,15 @@ async def surah_list(client, message):
 
 __NAME__ = "alquran"
 __MENU__ = f"""
-**🥀 Alquran Command: ✨...**
-
-`.quran` [1]
-**untuk mendapatkan audio surah Al-Qur'an**
+✘ **Perintah:** `.quran` [1]
+• **Fungsi:** untuk mendapatkan audio surah Al-Qur'an
 [1] Alfatihah surah ke satu
 
-`.rquran**
-**Untuk mendapatkan audio surah random.**
+✘ **Perintah:** `.rquran**
+• **Fungsi:** Untuk mendapatkan audio surah random.
 
-`.listsurah`
-**Untuk mendapatkan list surah nomer.**
+✘ **Perintah:** `.listsurah`
+• **Fungsi:** Untuk mendapatkan list surah nomer.
 
 🆘 **WARNING:** Gunakan ditempat yang baik, dan jangan digunakan 
 untuk main main.
