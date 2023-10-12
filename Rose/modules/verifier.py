@@ -3,7 +3,7 @@ import datetime
 
 from ..modules.vars import *
 from ..import *
-from database.database import Database
+from .database import Database
 
 DB_URL = Config.MONGO_DATABASE
 DB_NAME = Config.DATABASE_NAME
