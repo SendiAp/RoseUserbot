@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 import os
 from asyncio import sleep
 
@@ -80,19 +88,17 @@ async def set_bio(client: Client, message: Message):
 
 __NAME__ = "profile"
 __MENU__ = f"""
-**🥀 Profile Command:**
+✘ **Perintah:** `.block`
+• **Fungsi:** Untuk memblokir pengguna telegram.
 
-`.block`
-**Untuk memblokir pengguna telegram.**
+✘ **Perintah:** `.unblock`
+• **Fungsi:** Untuk membuka pengguna yang anda blokir.
 
-`.unblock`
-**Untuk membuka pengguna yang anda blokir.**
+✘ **Perintah:** `.setname`
+• **Fungsi:** Untuk Mengganti Nama Telegram.
 
-`.setname`
-**Untuk Mengganti Nama Telegram.**
-
-`.setbio` 
-**Untuk Mengganti Bio Telegram.**
+✘ **Perintah:** `.setbio` 
+Untuk Mengganti Bio Telegram.
 
 © Rose Userbot
 """
