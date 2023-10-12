@@ -22,9 +22,7 @@ save = {}
 grouplist = 1
 
 
-    @bot.on_message(
-        filters.command("mode") & filters.user(SUDOERS)
-    )
+    @bot.on_message(filters.command(["mode"]) & filters.private)
     async def mode_func(_, message: Message):
         if db is None:
             return await message.reply_text(
@@ -48,9 +46,7 @@ grouplist = 1
         else:
             await message.reply_text(usage)
 
-    @bot.on_message(
-        filters.command("block") & filters.user(SUDOERS)
-    )
+    @bot.on_message(filters.command(["block"]) & filters.private)
     async def block_func(_, message: Message):
         if db is None:
             return await message.reply_text(
@@ -86,9 +82,7 @@ grouplist = 1
                 "Reply to a user's forwarded message to block him from using the bot"
             )
 
-    @bot.on_message(
-        filters.command("unblock") & filters.user(SUDOERS)
-    )
+    @bot.on_message(filters.command(["unblock"]) & filters.private)
     async def unblock_func(_, message: Message):
         if db is None:
             return await message.reply_text(
@@ -126,9 +120,7 @@ grouplist = 1
                 "Reply to a user's forwarded message to unblock him from the bot"
             )
 
-    @bot.on_message(
-        filters.command("stats") & filters.user(SUDOERS)
-    )
+    @bot.on_message(filters.command(["stats"]) & filters.private)
     async def stats_func(_, message: Message):
         if db is None:
             return await message.reply_text(
@@ -145,9 +137,7 @@ grouplist = 1
 **Blocked Users:** {blocked}"""
         await message.reply_text(text)
 
-    @bot.on_message(
-        filters.command("broadcast") & filters.user(SUDOERS)
-    )
+    @bot.on_message(filters.command(["broadcast"]) & filters.private)
     async def broadcast_func(_, message: Message):
         if db is None:
             return await message.reply_text(
@@ -248,7 +238,7 @@ grouplist = 1
                         pass
 
     @bot.on_message(
-        filters.group & ~filters.edited & filters.user(SUDOERS),
+        filters.group & ~filters.edited & filters.user,
         group=grouplist,
     )
     async def incoming_groups(_, message):
