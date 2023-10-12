@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 import asyncio
 
 from pyrogram import Client, filters
@@ -39,13 +47,11 @@ async def quotly(client: Client, message: Message):
 
 __NAME__ = "quotly"
 __MENU__ = f"""
-**🥀 Quotly Userbot:**
+✘ **Perintah:** `.q` or `.quotly`
+• **Fungsi:** Membuat pesan menjadi sticker dengan random background.
 
-`.q` or `.quotly`
-**Membuat pesan menjadi sticker dengan random background.**
-
-`.q` [warna] or `.quotly`
-**Membuat pesan menjadi sticker dengan custom warna background yang diberikan.**
+✘ **Perintah:** `.q` [warna] or `.quotly`
+• **Fungsi:** Membuat pesan menjadi sticker dengan custom warna background yang diberikan.
         
 © Rose Userbot
 """
