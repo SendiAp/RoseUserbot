@@ -129,12 +129,21 @@ async def locktypes(client, message):
 
 __NAME__ = "locks"
 __MENU__ = f"""
-**🥀 Dapatkan variabel userbot anda:**
+✘ **Perintah:** `.lock` [all atau jenis lock] 
+• **Fungsi:** Mengunci izin di grup.
 
-`.lock` [all atau jenis lock] - **Mengunci izin di grup.**
+✘ **Perintah:** `.unlock` [all atau jenis unlock]
+• **Fungsi:** Membuka izin di grup Supported Locks / Unlocks: 
 
-`.unlock` [all atau jenis unlock]
-Membuka izin di grup Supported Locks / Unlocks:` `msg` | `media` | `stickers` | `polls` | `info`  | `invite` | `webprev` |`pin` | `all`.
+`msg` | 
+`media` | 
+`stickers` | 
+`polls` | 
+`info`  | 
+`invite` | 
+`webprev` |
+`pin` | 
+`all` |
 
 © Rose Userbot
 """
