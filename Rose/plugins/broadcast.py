@@ -54,8 +54,6 @@ async def gcast_cmd(client, message):
     await Ros.edit_text(
         f"**Berhasil Mengirim Pesan Ke** `{done}` **Grup, Gagal Mengirim Pesan Ke** `{error}` **Grup**"
     )
-        await bot.send_message(botlog, "📨**BERHASIL GCAST**\n• **Berhasil:** {done}\n • **Failed:** {error}\n • **Type:** .gcast")
-
 
 @app.on_message(commandx(["gucast","gchat"]) & SUDOERS)
 async def gucast(bot, client, message: Message):
@@ -87,7 +85,6 @@ async def gucast(bot, client, message: Message):
     await message.edit(
         f"**Successfully Sent Message To** `{done}` **chat, Failed to Send Message To** `{error}` **chat**"
     )
-    await bot.send_message(botlog, "📨**BERHASIL GCAST**\n• **Berhasil:** {done}\n • **Failed:** {error}\n • **Type:** .gucast")
 
 @app.on_message(commandx(["addblacklist","addbl"]) & SUDOERS)
 async def addblacklist(client, message: Message):
