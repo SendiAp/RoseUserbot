@@ -133,6 +133,8 @@ class Rose(Client, PyTgCalls):
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "/setuserpic")
             await asyncio.sleep(1)
+            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
+            await asyncio.sleep(1)
             await self.app.send_photo(father, logo)
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "/setabouttext")
