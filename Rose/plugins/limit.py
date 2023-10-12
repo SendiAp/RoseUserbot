@@ -24,9 +24,8 @@ async def spamban(client, message):
 
 __NAME__ = "limit"
 __MENU__ = f"""
-**🌹 Command userbot:**
-
-`.limit` - **Cek limit/batasan akun.**
+✘ **Perintah:** `.limit` 
+• **Fungsi:** Cek limit/batasan akun.
 
 © Rose Userbot
 """
