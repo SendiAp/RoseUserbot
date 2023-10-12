@@ -131,12 +131,18 @@ class Rose(Client, PyTgCalls):
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "Search")
             await asyncio.sleep(1)
+            await self.app.send_message(f"@botfather", "/setname")
+            await asyncio.sleep(1)
+            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
+            await asyncio.sleep(1)
+            await self.app.send_message(f"@botfather", f"{self.app.name} My Assistant Bot🌹")
+            await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "/setuserpic")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", f"@{self.bot.username}")
             await asyncio.sleep(1)
             await self.app.send_photo(father, logo)
-            await asyncio.sleep(1)
+            await asyncio.sleep(3)
             await self.app.send_message(f"@botfather", "/setabouttext")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", f"@{self.bot.username}")
@@ -147,7 +153,7 @@ class Rose(Client, PyTgCalls):
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", f"@{self.bot.username}")
             await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"✨ Owner ~ {self.app.name} ✨\n\n✨ Powered By ~ @RoseUserbotv2 ✨")
+            await self.app.send_message(f"@botfather", f"✨ Owner ~ @{self.app.username} ✨\n\n✨ Powered By ~ @RoseUserbotv2 ✨")
         except:
             pass
         try:
