@@ -119,10 +119,36 @@ class Rose(Client, PyTgCalls):
         self.bot.username = self.bot.me.username
         self.bot.mention = self.bot.me.mention
         self.bot.id = self.bot.me.id
+        father = @botfather
+        logo = Config.ALIVE_LOGO
         try:
             await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
         except Exception as e:
             LOGGER.info(e)
+            pass
+        try:
+        await self.app.send_message(f"@botfather", "/setinline")
+        await asyncio.sleep(1)
+        await self.app.send_message(f"@botfather", "@{self.bot.username}")
+        await asyncio.sleep(1)
+        await self.app.send_message(f"@botfather", "Search")
+        await asyncio.sleep(1)
+        await self.app.send_message(f"@botfather", "/setuserpic")
+        await asyncio.sleep(1)
+        await self.app.send_photo(father, logo)
+        await asyncio.sleep(1)
+        await self.app.send_message(f"@botfather", "/setabouttext")
+        await asyncio.sleep(1)
+        await self.app.send_message(f"@botfather", "@{self.bot.username}")
+        await asyncio.sleep(1)
+        await self.app.send_message(f"@botfather", "Managed With ✨ By {self.app.name}")
+        await asyncio.sleep(1)
+        await self.app.send_message(f"@botfather", "/setdescription")
+        await asyncio.sleep(1)
+        await self.app.send_message(f"@botfather", "@{self.bot.username}")
+        await asyncio.sleep(1)
+        await self.app.send_message(f"@botfather", "✨ Owner ~ {self.app.name} ✨\n\n✨ Powered By ~ @RoseUserbotv2 ✨")
+        except:
             pass
         try:
             await self.bot.send_message(Config.LOG_GROUP_ID, "Starting Helperbot")
