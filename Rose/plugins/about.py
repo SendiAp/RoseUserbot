@@ -1,4 +1,4 @@
-from config import Config
+from ..modules.vars import *
 
 class About(object):
       START = str(Config.START)
