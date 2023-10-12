@@ -101,7 +101,7 @@ async def start(bot, message):
     await message.reply_text(
         text="**Hi {}!**\n".format(message.chat.first_name)+START,
         reply_markup=InlineKeyboardMarkup([
-            [ InlineKeyboardButton(text="🛠SUPPORT🛠", url=f"{C.SUPPORT_GROUP}"), InlineKeyboardButton(text="📮UPDATES📮", url=f"{C.UPDATE_CHANNEL}")]
+            [ InlineKeyboardButton(text="🛠SUPPORT🛠", url=f"{SUPPORT_GROUP}"), InlineKeyboardButton(text="📮UPDATES📮", url=f"{UPDATE_CHANNEL}")]
         ])
     )
 
@@ -128,7 +128,7 @@ async def help(bot, message):
     await message.reply_text(
         text=HELP,
         reply_markup=InlineKeyboardMarkup([
-            [ InlineKeyboardButton(text="🛠SUPPORT🛠", url=f"{C.SUPPORT_GROUP}"), InlineKeyboardButton(text="📮UPDATES📮", url=f"{C.UPDATE_CHANNEL}")]
+            [ InlineKeyboardButton(text="🛠SUPPORT🛠", url=f"{SUPPORT_GROUP}"), InlineKeyboardButton(text="📮UPDATES📮", url=f"{UPDATE_CHANNEL}")]
         ])
     )
 
@@ -191,7 +191,7 @@ async def opensettings(bot, cmd):
 
 @bot.on_message(filters.private & filters.command("broadcast"))
 async def broadcast_handler_open(_, m):
-    if m.from_user.id not in AUTH_USERS:
+    if not in AUTH_USERS:
         await m.delete()
         return
     if m.reply_to_message is None:
@@ -202,7 +202,7 @@ async def broadcast_handler_open(_, m):
 
 @bot.on_message((filters.group | filters.private) & filters.command("stats"))
 async def sts(c, m):
-    if m.from_user.id not in AUTH_USERS:
+    if not in AUTH_USERS:
         await m.delete()
         return
     await m.reply_text(
@@ -214,7 +214,7 @@ async def sts(c, m):
 
 @bot.on_message(filters.private & filters.command("ban_user"))
 async def ban(c, m):
-    if m.from_user.id not in AUTH_USERS:
+    if not in AUTH_USERS:
         await m.delete()
         return
     if len(m.command) == 1:
@@ -257,7 +257,7 @@ async def ban(c, m):
 
 @bot.on_message((filters.group | filters.private) & filters.command("unban_user"))
 async def unban(c, m):
-    if m.from_user.id not in AUTH_USERS:
+    if not in AUTH_USERS:
         await m.delete()
         return
     if len(m.command) == 1:
@@ -292,7 +292,7 @@ async def unban(c, m):
 
 @bot.on_message((filters.group | filters.private) & filters.command("banned_users"))
 async def _banned_usrs(c, m):
-    if m.from_user.id not in AUTH_USERS:
+    if not in AUTH_USERS:
         await m.delete()
         return
     all_banned_users = await db.get_all_banned_users()
@@ -368,10 +368,10 @@ async def pm_media_group(bot, message):
         return
       
     if message.from_user.id == owner_id:
-        await replay_media(bot, message)
+        await replay_photo(bot, message)
         return
     reference_id = int(message.chat.id)
-    await bot.copy_media_group(chat_id=owner_id, from_chat_id=reference_id, message_id=message.message_id)
+    await bot.copy_media_group(chat_id=owner_id, from_chat_id=reference_id, message_id=message.id)
     
 
 @bot.on_message((filters.group | filters.private) & filters.media)
@@ -395,7 +395,7 @@ async def pm_media(bot, message):
         return
       
     if message.from_user.id == owner_id:
-        await replay_media(bot, message)
+        await replay_photo(bot, message)
         return
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
@@ -412,7 +412,6 @@ async def pm_media(bot, message):
             from_chat_id=message.chat.id,
             message_id=message.message_id,
             caption=IF_CONTENT.format(reference_id, info.first_name),
-            parse_mode="html"
         )
 
 
@@ -478,12 +477,10 @@ async def replay_media(bot, message):
                 from_chat_id=message.chat.id,
                 message_id=message.message_id,
                 caption=message.caption,
-                parse_mode="html"
             )
         else:
             await bot.copy_message(
                 chat_id=int(reference_id),
                 from_chat_id=message.chat.id,
                 message_id=message.message_id,
-                parse_mode="html"
             )
