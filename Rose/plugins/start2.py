@@ -27,7 +27,7 @@ donate_link="t.me/BottyCu"
 owner_id="1307579425"
 
 START="APAAN"
-HELP="BANTUANNYA'
+HELP="BANTUANNYA"
 
 LOG_TEXT = "ID: <code>{}</code>\nFirst Name: <a href='tg://user?id={}'>{}{}</a>\nDC ID: <code>{}</code>"
 
