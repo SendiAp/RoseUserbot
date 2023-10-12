@@ -78,15 +78,15 @@ async def purgeme(client, message):
     await message.delete()
 
 
-__NAME__ = "purge"
+__NAME__ = "purgeme"
 __MENU__ = f"""
-**🌹 Command userbot:**
+✘ **Perintah:** `.del` 
+• **Fungsi:** to delete someone's message.
 
-`.del` - **to delete someone's message.**
+✘ **Perintah:** `.purge`
+• **Fungsi:** reply to all messages from your replied.
 
-`.purge` - **reply to all messages from your replied.**
-
-`.purgeme` [count]
+✘ **Perintah:** `.purgeme` [count]
 
 © Rose Userbot
 """
