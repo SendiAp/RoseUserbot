@@ -12,10 +12,11 @@ from ..import *
 from ..modules import *
 from ..modules.vars import *
 
-LOG_CHANNEL = "t.me/BottyCu"
+LOG_CHANNEL = Config.LOG_GROUP_ID
 AUTH_USERS = "1307579425"
 DB_URL = Config.MONGO_DATABASE
 DB_NAME = Config.DATABASE_NAME
+
 donate_link="t.me/BottyCu"
 owner_id="1307579425"
 
