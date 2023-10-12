@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 from .. import *
 from pyrogram import Client
 import time
@@ -41,13 +49,11 @@ async def alive_check(client, message):
 
 __NAME__ = "ping"
 __MENU__ = f"""
-**🥀 Periksa server bot pengguna.**
+✘ **Perintah:** `.ping` 
+• **Fungsi:** Latensi ping by rose userbot.
 
-`.ping` 
-**Latensi ping by rose userbot.**
-
-`.alive` 
-**Profile rose userbot.**
+✘ **Perintah:** `.alive` 
+• **Fungsi:** Your rose userbot.**
 
 © Rose Userbot
 """
