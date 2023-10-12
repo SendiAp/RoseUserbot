@@ -7,7 +7,7 @@ from .database import Database
 
 DB_URL = Config.MONGO_DATABASE
 DB_NAME = Config.DATABASE_NAME
-LOG_CHANNEL = Config.LOG_CHANNEL
+LOG_CHANNEL = Config.LOG_GROUP_ID
 db = Database(DB_URL, DB_NAME)
 
 
