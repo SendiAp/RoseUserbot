@@ -13,6 +13,7 @@ from ..modules.mongo import db
 from ..import *
 from ..modules import *
 from ..modules.vars import *
+from ..console import LOGGER
 
 loop = asyncio.get_event_loop()
 SUDOERS = Config.SUDOERS
