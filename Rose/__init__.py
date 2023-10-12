@@ -58,7 +58,3 @@ SUDOERS = var.SUDOERS
 
 from .modules.func import eor
 eor = eor
-
-for app in bot:
-    if not hasattr(app, "group_call"):
-        setattr(app, "group_call", GroupCallFactory(app).get_group_call())
