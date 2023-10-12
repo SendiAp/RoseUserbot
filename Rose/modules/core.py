@@ -117,7 +117,7 @@ class Rose(Client, PyTgCalls):
         self.bot.username = self.bot.me.username
         self.bot.mention = self.bot.me.mention
         self.bot.id = self.bot.me.id
-        father = @botfather
+        father = "@botfather"
         logo = Config.ALIVE_LOGO
         try:
             await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
