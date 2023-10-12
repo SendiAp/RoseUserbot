@@ -2,7 +2,6 @@ import os
 import motor.motor_asyncio
 from pymongo import MongoClient
 from aiohttp import ClientSession
-from pytgcalls import GroupCallFactory
 from pyrogram import Client, enums, filters
 from .console import LOGGER
 from .modules.core import Rose
