@@ -80,16 +80,16 @@ async def end_vc_(client, message):
 
 
 @app.on_message(commandx(["joinvc"]) & SUDOERS)
-async def joinvc(app, message):
+async def joinvc(client, message):
     chat_id = message.command[1] if len(message.command) > 1 else message.chat.id
-    if message.from_user.id != app.me.id:
+    if message.from_user.id != client.me.id:
         Ros = await message.reply("`Otw Naik...`")
     else:
         Ros = await message.edit("`Otw Naik....`")
     with suppress(ValueError):
         chat_id = int(chat_id)
     try:
-        await call.join(chat_id)
+        await client.group_call.start(chat_id)
     except Exception as e:
         return await Ros.edit(f"**ERROR:** `{e}`")
     await Ros.edit(f"**Berhasil Join Ke Obrolan Group**\n└ **Chat ID:** `{chat_id}`")
