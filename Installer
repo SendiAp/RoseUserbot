@@ -35,7 +35,6 @@ pykeyboard
 pymediainfo
 python-telegram-bot
 py-tgcalls
-pytgcalls
 pytgcalls==3.0.0.dev24
 pyrogram
 reportlab
