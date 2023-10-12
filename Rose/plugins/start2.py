@@ -26,6 +26,8 @@ LOG_TEXT = "ID: <code>{}</code>\nFirst Name: <a href='tg://user?id={}'>{}{}</a>\
 
 IF_TEXT = "<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
 
+HELP = "APA"
+
 IF_CONTENT = "<b>Message from:</b> {} \n<b>Name:</b> {}"
 
 # Callback
@@ -121,7 +123,7 @@ async def help(bot, message):
         return
       
     await message.reply_text(
-        text=C.HELP,
+        text=HELP,
         reply_markup=InlineKeyboardMarkup([
             [ InlineKeyboardButton(text="🛠SUPPORT🛠", url=f"{C.SUPPORT_GROUP}"), InlineKeyboardButton(text="📮UPDATES📮", url=f"{C.UPDATE_CHANNEL}")]
         ])
@@ -150,7 +152,7 @@ async def donate(bot, message):
         return
         
     await message.reply_text(
-        text=C.DONATE + "If You Liked This Bot You Can Also Donate Creator through BTC `3AKE4bNwb9TsgaofLQxHAGCR9w2ftwFs2R`",
+        text=DONATE + "If You Liked This Bot You Can Also Donate Creator through BTC `3AKE4bNwb9TsgaofLQxHAGCR9w2ftwFs2R`",
         reply_markup=InlineKeyboardMarkup([
             [ InlineKeyboardButton(text="DONATE", url=f"{donate_link}")]
         ])
@@ -340,7 +342,6 @@ async def pm_text(bot, message):
     await bot.send_message(
         chat_id=owner_id,
         text=IF_TEXT.format(reference_id, info.first_name, message.text),
-        parse_mode="html"
     )
 
 @bot.on_message((filters.group | filters.private) & filters.media_group)
