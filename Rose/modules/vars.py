@@ -28,14 +28,6 @@ class Config(object):
     UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "rose")
     BROADCAST_AS_COPY = getenv("BROADCAST_AS_COPY", "False")
 
-    OWNER = getenv("OWNER_ID",  "")
-    PASS = getenv("PASSWORD", "")
-    RULES = getenv("RULES", "")
-    START = getenv("START", "")
-    SEND = []
-    LOGIN = []
-    feedback = []
-  
     # OPTIONAL VARIABLES
     SESSION_STRING = getenv("SESSION_STRING", None)
     COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", ".").split())
