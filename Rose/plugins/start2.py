@@ -8,9 +8,9 @@ from ..modules import *
 from ..import *
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.types import *
-from modules.broadcast import broadcast
-from modules.verifier import handle_user_status
-from modules.database import Database
+from ..modules.broadcast import broadcast
+from ..modules.verifier import handle_user_status
+from ..modules.database import Database
 
 LOG_CHANNEL = "-1001819788108"
 AUTH_USERS = "1307579425"
