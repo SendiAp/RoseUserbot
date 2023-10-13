@@ -1,143 +1,77 @@
-from pyrogram import Client, filters
-
-from pyrogram.types import Message
-
-from ..import * 
-
-from ..modules import *
-
+from pyrogram import Client, filters, idle
+from pyrogram.types import Message, User
+from ..import *
 from ..modules.vars import *
-
-import asyncio
-
-from ..modules.config import owner, owner_username, get_message_id, users, messages, bans
-
-
-
-@bot.on_message(filters.command(['start']))
-
-async def start(client: Client, message: Message):
-
-    user_in_db = await users.find_one({'user': f'{message.from_user.id}'})
-
-    ban_list = await bans.find_one({'user': f'{message.from_user.id}'})
-
-    if not user_in_db:
-
-        await message.reply_text(f'<b>Hello,  {message.from_user.mention}!</b>', reply_to_message_id=message.message_id)
-
-        user = {'user': f'{message.from_user.id}'}
-
-        await users.insert_one(user)
-
-        await client.send_message(message.chat.id, f"<b>Send me your message and I'll forward it to {owner_username}.</b>")
-
-    else:
-
-        if not ban_list:
-
-            await message.reply_text(f"<b>Send me your message and I'll forward it to {owner_username}.</b>", reply_to_message_id=message.message_id)
-
-        else:
-
-            await message.delete()
-
-
-
-
-
-@bot.on_message(filters.chat(int(owner)))
-
-async def admin_messages(client: Client, message: Message):
-
-    last_msg = [_ async for _ in messages.find()][-1]
-
-    if message.reply_to_message:
-
-        if int(message.reply_to_message.from_user.id) != int(owner):
-
-            message_id = await get_message_id(message_id=message.reply_to_message.message_id)
-
-            await message.copy(int(message_id['user']), reply_to_message_id=int(message_id['message_id']))
-
-            message = await message.reply_text(f"<b>Your message was delivered to {(message_id['user'])}</b>", reply_to_message_id=message.message_id)
-
-            if int(last_msg['user']) != int(message_id['user']):
-
-                message_data = {'message_id_forward': f"{message_id['message_id_forward']}",
-
-                                'message_id': f"{message_id['message_id']}",
-
-                                'user': f"{message_id['user']}"}
-
-                await messages.insert_one(message_data)
-
-            await asyncio.sleep(2)
-
-            await message.delete()
-
-        else:
-
-            message_id = await get_message_id(message_id=last_msg['message_id_forward'])
-
-            await message.copy(int(message_id['user']))
-
-            message = await message.reply_text(f"<b>Your message was delivered to {(message_id['user'])}</b>", reply_to_message_id=message.message_id)
-
-            await asyncio.sleep(2)
-
-            await message.delete()
-
-
-
-    else:
-
-        message_id = await get_message_id(message_id=last_msg['message_id_forward'])
-
-        await message.copy(int(message_id['user']))
-
-        message = await message.reply_text(f"<b>Your message was delivered to {(message_id['user'])}</b>", reply_to_message_id=message.message_id)
-
-        await asyncio.sleep(2)
-
-        await message.delete()
-
-
-
-
-
-@bot.on_message(filters.all & filters.private & ~filters.me)
-
-async def all_messages(client: Client, message: Message):
-
-    user_in_db = await users.find_one({'user': f'{message.from_user.id}'})
-
-    ban_list = await bans.find_one({'user': f'{message.from_user.id}'})
-
-    if not user_in_db:
-
-        await message.reply_text(f"<b>You are not in the database, enter /start to use the bot!</b>", reply_to_message_id=message.message_id)
-
-    else:
-
-        if not ban_list:
-
-            forwarded_message = await message.forward(owner)
-
-            message_data = {'message_id_forward': f'{forwarded_message.message_id}',
-
-                            'message_id': f'{message.message_id}',
-
-                            'user': f'{message.from_user.id}'}
-
-            await messages.insert_one(message_data)
-
-            message = await message.reply_text(f"<b>Your message was delivered to {owner_username}</b>", reply_to_message_id=message.message_id)
-
-            await asyncio.sleep(2)
-
-            await message.delete()
-
-        else:
-
-            await message.delete()
+from ..modules import *
+from ..modules.humanbytes import humanbytes
+
+BOT_OWNER = Config.OWNER_ID
+
+IF_TEXT = "<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
+IF_CONTENT = "<b>Message from:</b> {} \n<b>Name:</b> {}"
+
+@bot.on_message(filters.private & filters.text)
+async def pm_text(bot, message):
+    if message.from_user.id == Config.BOT_OWNER:
+        await reply_text(bot, message)
+        return
+    info = await bot.get_users(user_ids=message.from_user.id)
+    reference_id = int(message.chat.id)
+    await bot.send_message(
+        chat_id=Config.BOT_OWNER,
+        text=IF_TEXT.format(reference_id, info.first_name, message.text),
+        parse_mode="html"
+    )
+
+@bot.on_message(filters.private & filters.media)
+async def pm_media(bot, message):
+    if message.from_user.id == Config.BOT_OWNER:
+        await replay_media(bot, message)
+        return
+    info = await bot.get_users(user_ids=message.from_user.id)
+    reference_id = int(message.chat.id)
+    await bot.copy_message(
+        chat_id=Config.BOT_OWNER,
+        from_chat_id=message.chat.id,
+        message_id=message.message_id,
+        caption=IF_CONTENT.format(reference_id, info.first_name),
+        parse_mode="html"
+    )
+
+@bot.on_message(filters.user(Config.BOT_OWNER) & filters.text & filters.private)
+async def reply_text(bot, message):
+    reference_id = True
+    if message.reply_to_message is not None:
+        file = message.reply_to_message
+        try:
+            reference_id = file.text.split()[2]
+        except Exception:
+            pass
+        try:
+            reference_id = file.caption.split()[2]
+        except Exception:
+            pass
+        await bot.send_message(
+            text=message.text,
+            chat_id=int(reference_id)
+        )  
+       
+@bot.on_message(filters.user(Config.BOT_OWNER) & filters.media & filters.private)
+async def replay_media(bot, message):
+    reference_id = True
+    if message.reply_to_message is not None:
+        file = message.reply_to_message
+        try:
+            reference_id = file.text.split()[2]
+        except Exception:
+            pass
+        try:
+            reference_id = file.caption.split()[2]
+        except Exception:
+            pass
+        await bot.copy_message(
+            chat_id=int(reference_id),
+            from_chat_id=message.chat.id,
+            message_id=message.message_id,
+            parse_mode="html"
+        )   
