@@ -119,13 +119,7 @@ class Rose(Client, PyTgCalls):
         self.bot.id = self.bot.me.id
         father = "@botfather"
         logo = Config.ALIVE_LOGO
-        try:
-            await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
-        except Exception as e:
-            LOGGER.info(e)
-            pass
-        try:
-            await self.app.send_message(f"@botfather", "/setinline")
+        if not Config.BOT_TOKEN
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", f"@{self.bot.username}")
             await asyncio.sleep(1)
@@ -154,7 +148,14 @@ class Rose(Client, PyTgCalls):
             await self.app.send_message(f"@botfather", f"@{self.bot.username}")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", f"✨ Owner ~ @{self.app.username} ✨\n\n✨ Powered By ~ @RoseUserbotv2 ✨")
-        except:
+        try:
+            await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
+        except Exception as e:
+            LOGGER.info(e)
+            pass
+        try:
+            await self.app.send_message(f"@botfather", "/setinline")
+   
             pass
         try:
             await self.bot.send_message(Config.LOG_GROUP_ID, "Starting Helperbot")
