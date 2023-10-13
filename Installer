@@ -53,5 +53,4 @@ youtube-search-python
 yt-dlp
 urllib3
 sqlalchemy==1.3.23
-pyrogram==1.4.6
 telethon 
