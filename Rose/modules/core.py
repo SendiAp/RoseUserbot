@@ -119,7 +119,7 @@ class Rose(Client, PyTgCalls):
         self.bot.id = self.bot.me.id
         father = "@botfather"
         logo = Config.ALIVE_LOGO
-        if not Config.BOT_TOKEN
+        if not Config.BOT_TOKEN:
             await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
         except Exception as e:
             LOGGER.info(e)
