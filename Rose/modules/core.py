@@ -113,18 +113,16 @@ class Rose(Client, PyTgCalls):
         await self.call.start()
         LOGGER.info("Sedang Memulai Helperbot...")
         await self.bot.start()
+        father = "@botfather"
+        logo = Config.ALIVE_LOGO
         self.bot.name = self.bot.me.first_name + "" + (self.bot.me.last_name or "")
         self.bot.username = self.bot.me.username
         self.bot.mention = self.bot.me.mention
         self.bot.id = self.bot.me.id
-        father = "@botfather"
-        logo = Config.ALIVE_LOGO
         if not Config.BOT_TOKEN:
-        try:
             await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
         except Exception as e:
             LOGGER.info(e)
-            pass
         try:
             await self.app.send_message(f"@botfather", "/start")
             await asyncio.sleep(1)
