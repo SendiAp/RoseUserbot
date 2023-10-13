@@ -13,26 +13,26 @@ IF_CONTENT = "<b>Message from:</b> {} \n<b>Name:</b> {}"
 
 @bot.on_message(filters.private & filters.text)
 async def pm_text(bot, message):
-    if message.from_user.id == Config.BOT_OWNER:
+    if message.from_user.id == BOT_OWNER:
         await reply_text(bot, message)
         return
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     await bot.send_message(
-        chat_id=Config.BOT_OWNER,
+        chat_id=BOT_OWNER,
         text=IF_TEXT.format(reference_id, info.first_name, message.text),
         parse_mode="html"
     )
 
 @bot.on_message(filters.private & filters.media)
 async def pm_media(bot, message):
-    if message.from_user.id == Config.BOT_OWNER:
+    if message.from_user.id == BOT_OWNER:
         await replay_media(bot, message)
         return
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     await bot.copy_message(
-        chat_id=Config.BOT_OWNER,
+        chat_id=BOT_OWNER,
         from_chat_id=message.chat.id,
         message_id=message.message_id,
         caption=IF_CONTENT.format(reference_id, info.first_name),
