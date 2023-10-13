@@ -33,7 +33,6 @@ class Config(object):
     COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", ".").split())
     USERBOT_PICTURE = getenv("USERBOT_PICTURE", None)
     OWNER_ID = getenv("OWNER_ID", None)
-    OWNER_USERNAME = getenv("OWNER_USERNAME", None)
     LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", 0))
     PMPERMIT = getenv("PMPERMIT", "True")
     PERMIT_MSG = getenv("PERMIT_MSG", None)
