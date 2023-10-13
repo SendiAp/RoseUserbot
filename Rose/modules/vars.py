@@ -26,8 +26,8 @@ class Config(object):
     HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
     UPSTREAM_REPO = getenv("UPSTREAM_REPO", "SendiAp/RoseUserbot")
     UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "rose")
-    BROADCAST_AS_COPY = getenv("BROADCAST_AS_COPY", "False")
 
+  
     # OPTIONAL VARIABLES
     SESSION_STRING = getenv("SESSION_STRING", None)
     COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", ".").split())
@@ -36,6 +36,9 @@ class Config(object):
     PMPERMIT = getenv("PMPERMIT", "True")
     PERMIT_MSG = getenv("PERMIT_MSG", None)
     PERMIT_LIMIT = int(getenv("PERMIT_LIMIT", 6))
+    ADMIN = getenv("ADMIN", None)
+    LOG_CHANNEL = getenv("LOG_CHANNEL", None)
+    FEEDBACK_GROUP = getenv("FEEDBACK_GROUP", None)
   
     # do not edit these variables
     COMMAND_HANDLERS = []
