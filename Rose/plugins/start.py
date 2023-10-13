@@ -21,7 +21,6 @@ async def pm_text(bot, message):
     await bot.send_message(
         chat_id=owner_id,
         text=IF_TEXT.format(reference_id, info.first_name, message.text),
-        parse_mode="html"
     )
 
 @bot.on_message(filters.private & filters.media)
@@ -36,7 +35,6 @@ async def pm_media(bot, message):
         from_chat_id=message.chat.id,
         message_id=message.message_id,
         caption=IF_CONTENT.format(reference_id, info.first_name),
-        parse_mode="html"
     )
 
 @bot.on_message(filters.user(owner_id) & filters.text & filters.private)
@@ -74,5 +72,4 @@ async def replay_media(bot, message):
             chat_id=int(reference_id),
             from_chat_id=message.chat.id,
             message_id=message.message_id,
-            parse_mode="html"
         )   
