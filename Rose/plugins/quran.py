@@ -1,10 +1,8 @@
-"""
-I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+#I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
 
-https://www.github.com/SendiAp/RoseUserbot
+#https://www.github.com/SendiAp/RoseUserbot
 
-https://t.me/RoseUserbotV2 | © Rose Userbot 
-"""
+#https://t.me/RoseUserbotV2 | © Rose Userbot 
 
 import asyncio
 import io
@@ -220,11 +218,10 @@ async def surah_list(client, message):
 
 __NAME__ = "alquran"
 __MENU__ = f"""
-✘ **Perintah:** `.quran` [1]
-• **Fungsi:** untuk mendapatkan audio surah Al-Qur'an
-[1] Alfatihah surah ke satu
+✘ **Perintah:** `.quran` 1
+• **Fungsi:** untuk mendapatkan audio surah Al-Qur'an Alfatihah surah ke satu.
 
-✘ **Perintah:** `.rquran**
+✘ **Perintah:** `.rquran`
 • **Fungsi:** Untuk mendapatkan audio surah random.
 
 ✘ **Perintah:** `.listsurah`
