@@ -290,7 +290,7 @@ __MENU__ = f"""
 ✘ **Perintah:** `.unpin` [reply] 
 • **Fungsi:** Melepas semat postingan groups.
 
-✘ **Perintah:** `.setgpic [reply foto] 
+✘ **Perintah:** `.setgpic` [reply foto] 
 • **Fungsi:** Memasang foto groups.
 
 © Rose Userbot
