@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 from datetime import datetime
 
 from pyrogram import Client, enums, filters
@@ -54,9 +62,8 @@ async def stats(client, message):
 
 __NAME__ = "stats"
 __MENU__ = f"""
-**🥀 Stats.**
-
-`.stats` - **To Check Your Account Status, how Joined Chats.**
+✘ **Perintah:** `.stats` 
+• **Fungsi:** To Check Your Account Status, how Joined Chats.
 
 © Rose Userbot
 """
