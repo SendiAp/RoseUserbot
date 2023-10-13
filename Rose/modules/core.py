@@ -120,9 +120,7 @@ class Rose(Client, PyTgCalls):
         self.bot.mention = self.bot.me.mention
         self.bot.id = self.bot.me.id
         if not Config.BOT_TOKEN:
-            await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
-        except Exception as e:
-            LOGGER.info(e)
+
         try:
             await self.app.send_message(f"@botfather", "/start")
             await asyncio.sleep(1)
@@ -159,7 +157,9 @@ class Rose(Client, PyTgCalls):
             pass
         try:
             await self.bot.send_message(Config.LOG_GROUP_ID, "Starting Helperbot")
-        except:
+            await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
+        except Exception as e:
+            LOGGER.info(e)
             pass
             LOGGER.error("Gagal > Silahkan promosikan bot anda dilog grup anda.")
             exit()
