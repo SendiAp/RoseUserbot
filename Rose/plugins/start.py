@@ -38,7 +38,7 @@ async def pm_media(bot, message):
         parse_mode="html"
     )
 
-@bot.on_message(filters.user & filters.text & filters.private & BOT_OWNER)
+@bot.on_message(filters.user & filters.text & filters.private)
 async def reply_text(bot, message):
     reference_id = True
     if message.reply_to_message is not None:
@@ -56,7 +56,7 @@ async def reply_text(bot, message):
             chat_id=int(reference_id)
         )  
        
-@bot.on_message(filters.user & filters.media & filters.private & BOT_OWNER)
+@bot.on_message(filters.user & filters.media & filters.private)
 async def replay_media(bot, message):
     reference_id = True
     if message.reply_to_message is not None:
