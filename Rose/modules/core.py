@@ -120,8 +120,6 @@ class Rose(Client, PyTgCalls):
         self.bot.mention = self.bot.me.mention
         self.bot.id = self.bot.me.id
         if not Config.BOT_TOKEN:
-
-        try:
             await self.app.send_message(f"@botfather", "/start")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "/setinline")
