@@ -18,13 +18,13 @@ class Config(object):
     OWNER_ID= getenv("OWNER_ID", None)
     MONGO_DATABASE = getenv("MONGO_DATABASE", None)
     DATABASE_NAME = getenv("DATABASE_NAME", None)
-    BLACKLIST_GCAST = getenv("BLACKLIST_GCAST", None)
     ALIVE_LOGO = getenv("ALIVE_LOGO", "https://telegra.ph/file/ddd400fce0284ad813e04.jpg")
     QRIS = getenv("QRIS", "https://telegra.ph/file/29d8901cabe22ad3fd6d1.jpg")
     PMPERMIT_LOGO = getenv("PMPERMIT_LOGO", "https://telegra.ph/file/ddd400fce0284ad813e04.jpg")
     HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
-    UPSTREAM_REPO = getenv("UPSTREAM_REPO", "SendiAp/RoseUserbot")
+    GIT_TOKEN = getenv("GIT_TOKEN", None)
+    UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/SendiAp/RoseUserbot")
     UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "rose")
 
   
