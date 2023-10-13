@@ -206,19 +206,17 @@ async def unblock_user_func(client: Client, message: Message):
 
 __NAME__ = "antipm"
 __MENU__ = f"""
-**🥀 Private Message Guard ✨...**
+✘ **Perintah:** `.ok`
+• **Fungsi:** Terima Pesan.
 
-`.ok`
-**Terima Pesan**
+✘ **Perintah:** `.no`
+• **Fungsi:** Tolak Pesan.
 
-`.no**
-**Tolak Pesan**
+✘ **Perintah:** `.block`
+• **Fungsi:** Untuk Memblokir Pengguna.
 
-`.block`
-**Untuk Memblokir Pengguna**
-
-`.unblock`
-**Untuk Buka Blokir Pengguna**
+✘ **Perintah:** `.unblock`
+• **Fungsi:** Untuk Buka Blokir Pengguna.
 
 © Rose Userbot
 """
