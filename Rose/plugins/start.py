@@ -6,6 +6,7 @@ from ..modules import *
 from ..modules.humanbytes import humanbytes
 
 BOT_OWNER = Config.OWNER_ID
+owner_id = Config.OWNER_ID
 
 IF_TEXT = "<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
 IF_CONTENT = "<b>Message from:</b> {} \n<b>Name:</b> {}"
@@ -38,7 +39,7 @@ async def pm_media(bot, message):
         parse_mode="html"
     )
 
-@bot.on_message(filters.user & filters.text & filters.private)
+@bot.on_message(filters.user(owner_id) & filters.text & filters.private)
 async def reply_text(bot, message):
     reference_id = True
     if message.reply_to_message is not None:
@@ -56,7 +57,7 @@ async def reply_text(bot, message):
             chat_id=int(reference_id)
         )  
        
-@bot.on_message(filters.user & filters.media & filters.private)
+@bot.on_message(filters.user(owner_id) & filters.media & filters.private)
 async def replay_media(bot, message):
     reference_id = True
     if message.reply_to_message is not None:
