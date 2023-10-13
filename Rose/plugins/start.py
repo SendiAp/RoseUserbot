@@ -1,3 +1,4 @@
+import html 
 from pyrogram import Client, filters, idle
 from pyrogram.types import Message, User
 from ..import *
