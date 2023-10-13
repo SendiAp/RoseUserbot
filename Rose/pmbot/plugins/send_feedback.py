@@ -12,6 +12,7 @@ from ..pmbot.helper import buttons
 
 from ..pmbot.helper import date_info
 
+from ..import *
 from ..modules import *
 from ..modules.vars import *
 
