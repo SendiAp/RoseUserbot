@@ -32,14 +32,13 @@ class Config(object):
     SESSION_STRING = getenv("SESSION_STRING", None)
     COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", ".").split())
     USERBOT_PICTURE = getenv("USERBOT_PICTURE", None)
+    OWNER_ID = getenv("OWNER_ID", None)
+    OWNER_USERNAME = getenv("OWNER_USERNAME", None)
     LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", 0))
     PMPERMIT = getenv("PMPERMIT", "True")
     PERMIT_MSG = getenv("PERMIT_MSG", None)
     PERMIT_LIMIT = int(getenv("PERMIT_LIMIT", 6))
-    ADMIN = getenv("ADMIN", None)
-    LOG_CHANNEL = getenv("LOG_CHANNEL", None)
-    FEEDBACK_GROUP = getenv("FEEDBACK_GROUP", None)
-  
+
     # do not edit these variables
     COMMAND_HANDLERS = []
     PLUGINS = {}
