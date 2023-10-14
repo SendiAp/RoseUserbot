@@ -50,7 +50,7 @@ async def inline_help_menu(client, message: Message):
 
 @bot.on_callback_query(filters.regex(r"help_(.*?)"))
 @cb_wrapper
-async def help_button(client, query, message):
+async def help_button(client, query):
     plug_match = re.match(r"help_plugin\((.+?)\)", query.data)
     prev_match = re.match(r"help_prev\((.+?)\)", query.data)
     next_match = re.match(r"help_next\((.+?)\)", query.data)
@@ -66,7 +66,7 @@ Rose Userbot » {__version__} 🌹...
     if plug_match:
         plugin = plug_match.group(1)
         text = (
-            "⭐ **Bantuan untuk:** {}\n".format(
+            "**♨️ Plugin :** {}\n".format(
                 PLUGINS[plugin].__NAME__
             )
             + PLUGINS[plugin].__MENU__
