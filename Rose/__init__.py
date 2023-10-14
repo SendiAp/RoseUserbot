@@ -17,9 +17,6 @@ if Config.API_ID == 0:
 if not Config.API_HASH:
     LOGGER.error("API_HASH is missing! Kindly check again!")
     exit()
-if not Config.BOT_TOKEN:
-    LOGGER.error("BOT_TOKEN is missing! Kindly check again!")
-    exit()
 if not Config.STRING_SESSION:
     LOGGER.error("STRING_SESSION is missing! Kindly check again!")
     exit()
