@@ -56,11 +56,11 @@ async def help_button(client, query, message):
     next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
     top_text = f"""
-**尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
+尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ
 
-點 Help Menu: {message.from_user.first_name} 
-✿ Version: {__version__} 
-✿ Modules: {num_basic_modules}"""
+• Help Menu: {message.from_user.first_name} 
+• Version: {__version__} 
+• Modules: {num_basic_modules}"""
     if plug_match:
         plugin = plug_match.group(1)
         text = (
