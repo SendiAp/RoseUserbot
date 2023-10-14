@@ -32,7 +32,7 @@ for file in os.listdir():
         os.remove(file)
 
 
-cmds = Config.COMMAND_HANDLER
+cmds = Config.COMMAND_HANDLERS
 
 aiosession = ClientSession()
 rose = Rose()
