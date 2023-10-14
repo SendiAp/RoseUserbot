@@ -2,7 +2,7 @@ import html
 from pyrogram import Client, filters, idle
 from pyrogram.types import Message, User
 from ..import *
-from ..modules.basic ReplyCheck
+from ..modules.basic import ReplyCheck
 from ..modules.vars import *
 from ..modules import *
 from ..modules.humanbytes import humanbytes
