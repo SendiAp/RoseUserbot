@@ -18,7 +18,7 @@ from pyrogram.types import (
 
 num_basic_modules = len(PLUGINS)
 
-async def help_menu_logo(answer):
+async def help_menu_logo(answer, message):
     if var.USERBOT_PICTURE:
         thumb_image = var.USERBOT_PICTURE
     else:
@@ -37,7 +37,7 @@ Rose Userbot » {__version__} 🌹...
 ᳇ **Help Menu:** {message.from_user.first_name} 
 • **Modules:** {num_basic_modules}
 
-🌷Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**
+🌹Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**
             """,
             reply_markup=InlineKeyboardMarkup(button),
         )
@@ -45,7 +45,7 @@ Rose Userbot » {__version__} 🌹...
     return answer
 
 
-async def help_menu_text(answer):
+async def help_menu_text(answer, message):
     button = paginate_plugins(0, PLUGINS, "help")
     answer.append(
         InlineQueryResultArticle(
