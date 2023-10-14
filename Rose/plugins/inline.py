@@ -1,5 +1,6 @@
 import asyncio
 
+from pyrogram.types import Message
 from pyrogram import Client
 from .. import *
 from .. import __version__
@@ -32,7 +33,7 @@ async def help_menu_logo(answer):
             caption=f"""
 尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ
 
-點 Help Menu: ꧁ {message.from_user.first_name} ꧂
+點 Help Menu: {message.from_user.first_name} 
 ✿ Version: {__version__} 
 ✿ Modules: {num_basic_modules}"""
             """,
@@ -50,7 +51,7 @@ async def help_menu_text(answer):
             input_message_content=InputTextMessageContent(f"""
 尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ
 
-點 Help Menu: ꧁ {message.from_user.first_name} ꧂
+點 Help Menu: {message.from_user.first_name} 
 ✿ Version: {__version__} 
 ✿ Modules: {num_basic_modules}""",
             disable_web_page_preview=True
