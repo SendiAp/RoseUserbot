@@ -45,7 +45,7 @@ Rose Userbot » {__version__} 🌹...
     return answer
 
 
-async def help_menu_text(message: Message, answer):
+async def help_menu_text(answer):
     button = paginate_plugins(0, PLUGINS, "help")
     answer.append(
         InlineQueryResultArticle(
@@ -54,7 +54,7 @@ async def help_menu_text(message: Message, answer):
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
 Rose Userbot » {__version__} 🌹...
 
-᳇ **Help Menu:** {message.from_user.first_name} 
+᳇ **Help Menu:** {answer.from_user.first_name} 
 • **Modules:** {num_basic_modules}
 
 🌹Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**""",
@@ -82,7 +82,7 @@ async def inline_query_handler(bot, query):
             return
     elif text.startswith("help_menu_text"):
         answer = []
-        answer = await help_menu_text(message: Message, answer)
+        answer = await help_menu_text(answer)
         try:
             await bot.answer_inline_query(
                 query.id, results=answer, cache_time=10
