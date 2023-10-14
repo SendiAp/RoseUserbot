@@ -54,7 +54,7 @@ async def help_menu_text(answer):
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
 Rose Userbot » {__version__} 🌹...
 
-᳇ **Help Menu:** {answer.from_user.first_name} 
+᳇ **Help Menu** 
 • **Modules:** {num_basic_modules}
 
 🌹Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**""",
