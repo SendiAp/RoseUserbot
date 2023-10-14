@@ -119,11 +119,11 @@ class Rose(Client, PyTgCalls):
         self.bot.username = self.bot.me.username
         self.bot.mention = self.bot.me.mention
         self.bot.id = self.bot.me.id
-        if who.username:
+        if self.app.username:
             username = f"{self.app.username}_Rosebot"
         else:
             username = f"Rose{(str(self.app.id))[5:]}bot"
-        if not Config.BOT_TOKEN:
+        if if self.app.id not in Config.BOT_TOKEN:
             await self.bot.send_message(Config.LOG_GROUP_ID, "Sedang membuat bot...")
             await self.app.unblock_user(father)
             await self.app.send_message(f"@botfather", "/cancel")
@@ -161,7 +161,7 @@ class Rose(Client, PyTgCalls):
             await self.app.send_message(f"@botfather", f"@{self.bot.username}")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", f"✨ Owner ~ @{self.app.username} ✨\n\n✨ Powered By ~ @RoseUserbotv2 ✨")
-            await set_var_value("BOT_TOKEN", token)
+            Config.BOT_TOKEN.add(int(token))
             await self.bot.send_message(Config.LOG_GROUP_ID, "Berhasil membuat bot...")
         try:
             await self.bot.send_message(Config.LOG_GROUP_ID, "Starting Helperbot")
