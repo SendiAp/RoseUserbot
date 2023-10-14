@@ -34,7 +34,7 @@ async def help_menu_logo(answer, message):
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
 Rose Userbot » {__version__} 🌹...
 
-᳇ **Help Menu:** {message.from_user.first_name} 
+᳇ **Help Menu** 
 • **Modules:** {num_basic_modules}
 
 🌹Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**
