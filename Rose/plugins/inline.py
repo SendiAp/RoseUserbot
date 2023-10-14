@@ -33,7 +33,7 @@ async def help_menu_logo(answer):
             caption=f"""
 尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ
 
-• Help Menu: {message.from_user.first_name} 
+᳇ Help Menu: {message.from_user.first_name} 
 • Version: {__version__} 
 • Modules: {num_basic_modules}"""
             """,
@@ -51,9 +51,9 @@ async def help_menu_text(answer):
             input_message_content=InputTextMessageContent(f"""
 尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ
 
-• help menu: {message.from_user.first_name} 
-• version: {__version__} 
-• modules: {num_basic_modules}""",
+᳇ Help menu: {message.from_user.first_name} 
+• Version: {__version__} 
+• Modules: {num_basic_modules}""",
             disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(button),
