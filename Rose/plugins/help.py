@@ -6,6 +6,7 @@ from .inline import *
 from ..modules.misc import *
 from ..modules.utils import *
 
+from pyrogram.types import Message
 from pyrogram import *
 from pyrogram.types import *
 
