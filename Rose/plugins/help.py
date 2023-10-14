@@ -57,9 +57,9 @@ async def help_button(client, query):
     top_text = f"""
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
 
-點 Help Menu: ꧁{message.from_user.first_name}꧂
-✿ **Version:** {__version__} 
-✿ **Modules:** {num_basic_modules}"""
+點 Help Menu: ꧁ {message.from_user.first_name} ꧂
+✿ Version: {__version__} 
+✿ Modules: {num_basic_modules}"""
     if plug_match:
         plugin = plug_match.group(1)
         text = (
