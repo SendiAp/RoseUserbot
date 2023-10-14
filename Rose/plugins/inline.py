@@ -15,6 +15,8 @@ from pyrogram.types import (
     Message,
 )
 
+num_basic_modules = len(PLUGINS)
+
 async def help_menu_logo(answer):
     if var.USERBOT_PICTURE:
         thumb_image = var.USERBOT_PICTURE
@@ -28,11 +30,11 @@ async def help_menu_logo(answer):
             thumb_url=f"{thumb_image}",
             description=f"🥀 Open Help Menu Of Rose-Userbot ✨...",
             caption=f"""
-**尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
+尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ
 
 點 Help Menu: ꧁{message.from_user.first_name}꧂
-✿ **Version:** {__version__} 
-✿ **Modules:** {num_basic_modules}"""
+✿ Version: {__version__} 
+✿ Modules: {num_basic_modules}"""
             """,
             reply_markup=InlineKeyboardMarkup(button),
         )
@@ -46,11 +48,11 @@ async def help_menu_text(answer):
         InlineQueryResultArticle(
             title="🥀 Help Menu ✨",
             input_message_content=InputTextMessageContent(f"""
-**尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
+尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ
 
 點 Help Menu: ꧁{message.from_user.first_name}꧂
-✿ **Version:** {__version__} 
-✿ **Modules:** {num_basic_modules}""",
+✿ Version: {__version__} 
+✿ Modules: {num_basic_modules}""",
             disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(button),
