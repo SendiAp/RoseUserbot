@@ -51,6 +51,7 @@ class Config(object):
     #######################################
     for x in COMMAND_PREFIXES:
         COMMAND_HANDLERS.append(x)
+    COMMAND_HANDLERS.append(x)
     #######################################
 
 
