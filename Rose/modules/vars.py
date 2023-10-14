@@ -30,7 +30,7 @@ class Config(object):
   
     # OPTIONAL VARIABLES
     SESSION_STRING = getenv("SESSION_STRING", None)
-    COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", ".").split())
+    COMMAND_PREFIXES = getenv("COMMAND_PREFIXES", ".")
     USERBOT_PICTURE = getenv("USERBOT_PICTURE", None)
     OWNER_ID = getenv("OWNER_ID", None)
     LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", 0))
@@ -39,7 +39,7 @@ class Config(object):
     PERMIT_LIMIT = int(getenv("PERMIT_LIMIT", 6))
 
     # do not edit these variables
-    COMMAND_HANDLERS = {}
+    COMMAND_HANDLERS = []
     PLUGINS = {}
     SUPUSER = filters.me
     SUDOERS = filters.user([])
