@@ -123,7 +123,7 @@ class Rose(Client, PyTgCalls):
             username = f"{self.app.username}_Rosebot"
         else:
             username = f"Rose{(str(self.app.id))[5:]}bot"
-        if if self.app.id not in Config.BOT_TOKEN:
+        if not Config.BOT_TOKEN:
             await self.bot.send_message(Config.LOG_GROUP_ID, "Sedang membuat bot...")
             await self.app.unblock_user(father)
             await self.app.send_message(f"@botfather", "/cancel")
