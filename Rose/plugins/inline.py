@@ -31,13 +31,13 @@ async def help_menu_logo(answer):
             thumb_url=f"{thumb_image}",
             description=f"🥀 Open Help Menu Of Rose-Userbot ✨...",
             caption=f"""
-**🥀 Welcome To Help Menu Of
-Genius Userbot » {__version__} ✨...
+**尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
+Rose Userbot » {__version__} 🌹...
 
-Click On Below 🌺 Buttons To
-Get Userbot Commands.
+᳇ **Help Menu:** {message.from_user.first_name} 
+• **Modules:** {num_basic_modules}
 
-🌷Powered By : [Aditya Server](https://t.me/AdityaServer).**
+🌷Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**
             """,
             reply_markup=InlineKeyboardMarkup(button),
         )
@@ -51,13 +51,13 @@ async def help_menu_text(answer):
         InlineQueryResultArticle(
             title="🥀 Help Menu ✨",
             input_message_content=InputTextMessageContent(f"""
-**🥀 Welcome To Help Menu Of
-Genius Userbot » {__version__} ✨...
+**尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
+Rose Userbot » {__version__} 🌹...
 
-Click On Below 🌺 Buttons To
-Get Userbot Commands.
+᳇ **Help Menu:** {message.from_user.first_name} 
+• **Modules:** {num_basic_modules}
 
-🌷Powered By : [Aditya Server](https://t.me/AdityaServer).**""",
+🌹Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**""",
             disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(button),
