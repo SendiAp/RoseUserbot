@@ -49,7 +49,7 @@ async def inline_help_menu(client, message: Message):
 
 @bot.on_callback_query(filters.regex(r"help_(.*?)"))
 @cb_wrapper
-async def help_button(client, query):
+async def help_button(client, query, message):
     plug_match = re.match(r"help_plugin\((.+?)\)", query.data)
     prev_match = re.match(r"help_prev\((.+?)\)", query.data)
     next_match = re.match(r"help_next\((.+?)\)", query.data)
@@ -57,7 +57,7 @@ async def help_button(client, query):
     top_text = f"""
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
 
-點 Help Menu: ꧁ {message.from_user.first_name} ꧂
+點 Help Menu: {message.from_user.first_name} 
 ✿ Version: {__version__} 
 ✿ Modules: {num_basic_modules}"""
     if plug_match:
