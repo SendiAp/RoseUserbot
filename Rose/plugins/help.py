@@ -56,11 +56,13 @@ async def help_button(client, query, message):
     next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
     top_text = f"""
-尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ
+**尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
+Rose Userbot » {__version__} 🌹...
 
-᳇ help menu: {message.from_user.first_name} 
-• version: {__version__} 
-• modules: {num_basic_modules}"""
+᳇ **Help Menu:** {message.from_user.first_name} 
+• **Modules:** {num_basic_modules}
+
+🌷Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**"""
     if plug_match:
         plugin = plug_match.group(1)
         text = (
