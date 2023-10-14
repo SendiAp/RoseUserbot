@@ -32,8 +32,7 @@ for file in os.listdir():
         os.remove(file)
 
 
-cmds = Config.COMMAND_PREFIXES
-Config.COMMAND_PREFIXES = {}
+cmds = Config.COMMAND_HANDLER
 
 aiosession = ClientSession()
 rose = Rose()
