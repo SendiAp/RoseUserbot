@@ -52,8 +52,8 @@ async def help_menu_text(answer):
 尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ
 
 ᳇ Help menu: {message.from_user.first_name} 
-• Version: {__version__} 
-• Modules: {num_basic_modules}""",
+• version: {__version__} 
+• modules: {num_basic_modules}""",
             disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(button),
