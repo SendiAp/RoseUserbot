@@ -53,7 +53,8 @@ async def help_menu_text(answer):
 
 help menu: {message.from_user.first_name} 
 version: {__version__} 
-modules: {num_basic_modules} """
+modules: {num_basic_modules} 
+powered by: rose""",
             disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(button),
