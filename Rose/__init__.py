@@ -32,6 +32,9 @@ for file in os.listdir():
         os.remove(file)
 
 
+cmds = COMMAND_PREFIXES
+COMMAND_PREFIXES = {}
+
 aiosession = ClientSession()
 rose = Rose()
 app = rose.app
