@@ -119,21 +119,30 @@ class Rose(Client, PyTgCalls):
         self.bot.username = self.bot.me.username
         self.bot.mention = self.bot.me.mention
         self.bot.id = self.bot.me.id
+        if who.username:
+            username = f"{self.app.username}_Rosebot"
+        else:
+            username = f"Rose{(str(who.id))[5:]}bot"
         if not Config.BOT_TOKEN:
+            await self.app.unblock_user(father)
+            await self.app.send_message(f"@botfather", "/cancel")
+            await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "/start")
+            await asyncio.sleep(1)
+            await self.app.send_message(f"@botfather", "/newbot")
+            await asyncio.sleep(1)
+            await self.app.send_message(f"@botfather", f"{self.app.name} My Assistant Bot🌹")
+            await asyncio.sleep(1)
+            await self.app.send_message(father, username)
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "/setinline")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", f"@{self.bot.username}")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", "Search")
-            await asyncio.sleep(3)
-            await self.app.send_message(f"@botfather", "/setname")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", f"@{self.bot.username}")
             await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"{self.app.name} My Assistant Bot🌹")
-            await asyncio.sleep(3)
             await self.app.send_message(f"@botfather", "/setuserpic")
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", f"@{self.bot.username}")
