@@ -9,6 +9,7 @@ from ..modules.utils import *
 from pyrogram import *
 from pyrogram.types import *
 
+num_basic_modules = len(PLUGINS)
 
 @app.on_message(commandx(["help", "helpme"]) & SUDOERS)
 async def inline_help_menu(client, message: Message):
@@ -56,8 +57,9 @@ async def help_button(client, query):
     top_text = f"""
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
 
-• **Version**» {__version__} 
-• **Powered By**» [Rose Userbot](https://t.me/RoseUserbotV2)"""
+點 Help Menu: ꧁{message.from_user.first_name}꧂
+✿ **Version:** {__version__} 
+✿ **Modules:** {num_basic_modules}"""
     if plug_match:
         plugin = plug_match.group(1)
         text = (
