@@ -39,6 +39,7 @@ class Config(object):
     PERMIT_LIMIT = int(getenv("PERMIT_LIMIT", 6))
 
     # do not edit these variables
+    COMMAND_HANDLERS []
     PLUGINS = {}
     SUPUSER = filters.me
     SUDOERS = filters.user([])
@@ -47,6 +48,10 @@ class Config(object):
     RRAIDUB = filters.user([])
     GBANSUB = filters.user([])
     GMUTEUB = filters.user([])
+    #######################################
+    for x in COMMAND_PREFIXES:
+        COMMAND_HANDLERS.append(x)
+    COMMAND_HANDLERS.append('')
     #######################################
 
 
