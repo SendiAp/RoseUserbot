@@ -62,7 +62,7 @@ Rose Userbot » {__version__} 🌹...
 ᳇ **Help Menu:** {message.from_user.first_name} 
 • **Modules:** {num_basic_modules}
 
-🌷Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**"""
+🌹Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**"""
     if plug_match:
         plugin = plug_match.group(1)
         text = (
