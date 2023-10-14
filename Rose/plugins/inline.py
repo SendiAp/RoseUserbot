@@ -82,7 +82,7 @@ async def inline_query_handler(bot, query):
             return
     elif text.startswith("help_menu_text"):
         answer = []
-        answer = await help_menu_text(answer, message)
+        answer = await help_menu_text(answer, message: Message)
         try:
             await bot.answer_inline_query(
                 query.id, results=answer, cache_time=10
