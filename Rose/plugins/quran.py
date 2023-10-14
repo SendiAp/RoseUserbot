@@ -207,24 +207,23 @@ async def quran_audio(client: Client, message: Message):
 
 @app.on_message(commandx(["listsurah"]) & SUDOERS)
 async def surah_list(client, message):
-    botlog = var.LOG_GROUP_ID
     list_quran = QURAN
     quran_list = QURANN
     await message.edit("`Sedang mengirimkan...`")
     await asyncio.sleep(5)
-    xx = await client.send_message(list_quran, botlog)
-    await xx.reply(quran_list, botlog)
+    xx = await client.send_message(list_quran)
+    await xx.reply(quran_list)
     await message.edit("`Berhasil Dikirim Di Botlog Chat ID`")
 
 __NAME__ = "alquran"
 __MENU__ = f"""
-✘ **Perintah:** `.quran` 1
+✘ **Perintah:** `{cmds}quran` 1
 • **Fungsi:** untuk mendapatkan audio surah Al-Qur'an Alfatihah surah ke satu.
 
-✘ **Perintah:** `.rquran`
+✘ **Perintah:** `{cmds}rquran`
 • **Fungsi:** Untuk mendapatkan audio surah random.
 
-✘ **Perintah:** `.listsurah`
+✘ **Perintah:** `{cmds}listsurah`
 • **Fungsi:** Untuk mendapatkan list surah nomer.
 
 🆘 **WARNING:** Gunakan ditempat yang baik, dan jangan digunakan 
