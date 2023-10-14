@@ -39,7 +39,7 @@ class Config(object):
     PERMIT_LIMIT = int(getenv("PERMIT_LIMIT", 6))
 
     # do not edit these variables
-    COMMAND_HANDLERS = []
+    COMMAND_HANDLERS = {}
     PLUGINS = {}
     SUPUSER = filters.me
     SUDOERS = filters.user([])
