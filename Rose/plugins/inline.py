@@ -18,7 +18,7 @@ from pyrogram.types import (
 
 num_basic_modules = len(PLUGINS)
 
-async def help_menu_logo(answer, message):
+async def help_menu_logo(answer):
     if var.USERBOT_PICTURE:
         thumb_image = var.USERBOT_PICTURE
     else:
