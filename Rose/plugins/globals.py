@@ -137,10 +137,10 @@ async def _(client, message):
 
 __NAME__ = "globals"
 __MENU__ = f"""
-✘ **Perintah:** `.gban` [reply user]
+✘ **Perintah:** `{cmds}gban` [reply user]
 • **Fungsi:** Melakukan Global Banned Ke Semua Grup Dimana anda Sebagai Admin.
 
-✘ **Perintah:** `.ungban` [reply user] 
+✘ **Perintah:** `{cmds}ungban` [reply user] 
 • **Fungsi:** Membatalkan global banned.
 
 © Rose Userbot
