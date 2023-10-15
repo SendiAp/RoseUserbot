@@ -3,7 +3,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove
 from keyboards.default.markups import all_right_message, cancel_message, submit_markup
 from aiogram.types import Message
-from ..modules.states import SosState
+from ..modules.state import SosState
 from ..modules.user import IsUser
 from ..modules import db
 from ..modules import *
