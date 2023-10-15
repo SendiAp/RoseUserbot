@@ -375,17 +375,18 @@ async def tinying(client: Client, message: Message):
 
 __NAME__ = "stickers"
 __MENU__ = f"""
-**🥀 Stickers Command.**
+✘ **Perintah:** `{cmds}kang` 
+• **Fungsi:** Balas Ke Sticker Atau Gambar Untuk Menambahkan Ke Sticker Pack.
 
-`.kang` - **Balas Ke Sticker Atau Gambar Untuk Menambahkan Ke Sticker Pack.**
+✘ **Perintah:** `{cmds}kang` [emoji] Untuk Menambahkan dan costum emoji sticker Ke Sticker Pack Mu.
+•  **NOTE:** Untuk Membuat Sticker Pack baru Gunakan angka dibelakang {cmds}kang
+•  **CONTOH:** {cmds}kang 2 untuk membuat dan menyimpan ke sticker pack ke 2
 
-`kang` [emoji] - __Untuk Menambahkan dan costum emoji sticker Ke Sticker Pack Mu.__
-•  **NOTE:** Untuk Membuat Sticker Pack baru Gunakan angka dibelakang .kang
-•  **CONTOH:** .kang 2 untuk membuat dan menyimpan ke sticker pack ke 2
+✘ **Perintah:** `{cmds}packinfo` 
+• **Fungsi:** Untuk Mendapatkan Informasi Sticker Pack.
 
-`.packinfo` - **Untuk Mendapatkan Informasi Sticker Pack.**
-
-`.stickers` [nama sticker] Untuk Mencari Sticker Pack.
+✘ **Perintah:** `{cmds}stickers` [nama sticker] 
+• **Fungsi:** Untuk Mencari Sticker Pack.
     
 © Rose Userbot
 """
