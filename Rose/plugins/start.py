@@ -36,7 +36,7 @@ async def text(c: Client, m: Message):
           pass
 
 
-@app.on_message(filters.command(["start"]) & filters.private)
+@bot.on_message(filters.command(["start"]) & filters.private)
 async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""<b>👋 Halo {message.from_user.first_name}!
