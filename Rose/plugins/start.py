@@ -1,11 +1,38 @@
 import asyncio
 from pyrogram import *
-from pyrogram import filters
+from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from ..modules.about import About
 from ..modules import *
 from ..modules.vars import *
 from ..import *
+
+@bot.on_message(filters.command(["start"]) & filters.private)
+async def start_(client: Client, message: Message):
+    await message.reply_text(
+        f"""<b>👋 Halo {message.from_user.first_name}!
+	@RosePremiumBot adalah bot yang membantu mengubah akun anda jadi menjadi userbot.\n
+ 👉 Hubungi owner bot ini dan lakukan transaksi untuk mengaktifkan userbot kamu.\n
+❓ APA PERINTAHNYA? ❓
+Tekan /deploy untuk melihat semua perintah dan cara kerjanya.
+</b>""",
+        reply_markup=InlineKeyboardMarkup(
+            [ 
+                [
+              InlineKeyboardButton(text="Feedback", callback_data="feed"),
+                ],
+                [
+                    InlineKeyboardButton(text="Rules", callback_data="rules"),
+                    InlineKeyboardButton(text="About", callback_data="about"),
+                ],
+                [
+              InlineKeyboardButton(text="Login", callback_data="login"),
+                ],
+            ]
+        ),
+     disable_web_page_preview=True
+    )
+
 
 @bot.on_message(filters.text)
 async def text(c: Client, m: Message):
@@ -34,31 +61,3 @@ async def text(c: Client, m: Message):
              await c.send_message(chat_id=m.chat.id, text="Notified successfully")
       except:
           pass
-
-
-@bot.on_message(filters.command(["start"]) & filters.private)
-async def start_(client: Client, message: Message):
-    await message.reply_text(
-        f"""<b>👋 Halo {message.from_user.first_name}!
-	@RosePremiumBot adalah bot yang membantu mengubah akun anda jadi menjadi userbot.\n
- 👉 Hubungi owner bot ini dan lakukan transaksi untuk mengaktifkan userbot kamu.\n
-❓ APA PERINTAHNYA? ❓
-Tekan /deploy untuk melihat semua perintah dan cara kerjanya.
-</b>""",
-        reply_markup=InlineKeyboardMarkup(
-            [ 
-                [
-              InlineKeyboardButton(text="Feedback", callback_data="feed"),
-                ],
-                [
-                    InlineKeyboardButton(text="Rules", callback_data="rules"),
-                    InlineKeyboardButton(text="About", callback_data="about"),
-                ],
-                [
-              InlineKeyboardButton(text="Login", callback_data="login"),
-                ],
-            ]
-        ),
-     disable_web_page_preview=True
-    )
-      
