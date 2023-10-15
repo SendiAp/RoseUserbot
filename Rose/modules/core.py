@@ -163,6 +163,8 @@ class Rose(Client, PyTgCalls):
             await asyncio.sleep(1)
             await self.app.send_message(f"@botfather", f"✨ Owner ~ @{self.app.username} ✨\n\n✨ Powered By ~ @RoseUserbotv2 ✨")
             Config.BOT_TOKEN.add(int(token))
+        except:
+            pass 
             await self.bot.send_message(Config.LOG_GROUP_ID, "Berhasil membuat bot...")
         try:
             await self.bot.send_message(Config.LOG_GROUP_ID, "Starting Helperbot")
