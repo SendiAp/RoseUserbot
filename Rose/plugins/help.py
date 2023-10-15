@@ -66,7 +66,7 @@ Rose Userbot » {__version__} 🌹...
     if plug_match:
         plugin = plug_match.group(1)
         text = (
-            "**♨️ Plugin :** {}\n".format(
+            "**☬ Bantuan dari:** {}\n".format(
                 PLUGINS[plugin].__NAME__
             )
             + PLUGINS[plugin].__MENU__
