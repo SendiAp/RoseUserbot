@@ -197,16 +197,16 @@ async def get_list_bots(client, message):
 
 __NAME__ = "tag"
 __MENU__ = """
-✘ **Perintah:**`.admins` 
+✘ **Perintah:**`{cmds}admins` 
 • **Fungsi:** Melihat daftar admin groups.
 
-✘ **Perintah:** `.zombies` 
+✘ **Perintah:** `{cmds}zombies` 
 • **Fungsi:** Menghapus akun terhapus dalam groups.
 
-✘ **Perintah:** `.tagall`
+✘ **Perintah:** `{cmds}tagall`
 • **Fungsi:** Mention teman dalan groups.
 
-✘ **Perintah:** `.botlist` 
+✘ **Perintah:** `{cmds}botlist` 
 • **Fungsi:** Mendapatkan list bot dalam groups.
 
 © Rose Userbot
