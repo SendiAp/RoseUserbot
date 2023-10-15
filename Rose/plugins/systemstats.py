@@ -75,10 +75,8 @@ async def psu(client: Client, message: Message):
 
 __NAME__ = "sistem"
 __MENU__ = f"""
-**🥀 Sistem:**
-
-`.spc`
-**Informasi Mesin**
+✘ **Perintah:** `{cmds}spc`
+• **Fungsi:** Informasi Mesin.
 
 © Rose Userbot
 """
