@@ -10,7 +10,7 @@ from .start import start
 
 @app.on_callback_query(filters.regex("feed"))
 async def feed(_, query: CallbackQuery):
-      Config.feedback.append(m.from_user.id)
+      Config.feedback.append(query.from_user.id)
       button = [[InlineKeyboardButton("cancel", callback_data="cancel")]]
       markup = InlineKeyboardMarkup(button)
       await query.delete()
