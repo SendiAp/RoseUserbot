@@ -67,15 +67,13 @@ async def logs_ubot(client: Client, message: Message):
 
 __NAME__ = "system"
 __MENU__ = f"""
-**🥀 System Modules Userbot;**
+✘ **Perintah:** `{cmds}restart`
+• **Fungsi:** Untuk merestart userbot.
 
-`.restart`
-**Untuk merestart userbot.**
+✘ **Perintah:** `{cmds}shutdown` 
+• **Fungsi:** Untuk mematikan userbot.
 
-`.shutdown` 
-**Untuk mematikan userbot.**
-
-`.logs`
+✘ **Perintah:** `{cmds}logs`
 **Untuk melihat logs userbot.**
 
 © Rose Userbot
