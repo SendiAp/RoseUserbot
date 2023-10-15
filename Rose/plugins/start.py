@@ -69,17 +69,6 @@ async def login(_, query: CallbackQuery):
       Config.LOGIN.append(m.from_user.id)
       await query.edit_message_text(chat_id=query.message.chat.id, text=Config.LOGIN)
        
-@bot.on_callback_query(filters.regex("yes"))
-async def yes(_, query: CallbackQuery):
-      Config.feedback.remove(query.from_user.id)
-      feedtext = query.message.reply_to_message
-      button = [[InlineKeyboardButton("Reply", callback_data=f"reply+{query.from_user.id}")]]
-      markup = InlineKeyboardMarkup(button)
-      for i in Config.OWNER_ID:
-          NS = return await self._client.forward_messages(feedtext)
-          await NS.reply_text("Send the reply", reply_markup=markup, quote=True)
-      await query.edit_message_text(chat_id=query.message.chat.id, text="Feedback sent successfully. Hope you will get reply soon")
-  
 @bot.on_callback_query(filters.regex("reply"))
 async def reply(_, query: CallbackQuery):
       id = m.data.split("+")[1]
