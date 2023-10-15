@@ -27,7 +27,7 @@ Tekan /deploy untuk melihat semua perintah dan cara kerjanya.
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
-              InlineKeyboardButton(text="Feedback", callback_data="feed"),
+              InlineKeyboardButton(text="Feedback", callback_data="feedback"),
                 ],
                 [
                     InlineKeyboardButton(text="Rules", callback_data="rules"),
@@ -55,7 +55,7 @@ async def cancel(_, query: CallbackQuery):
          Config.feedback.remove(query.from_user.id)
       if query.from_user.id in Config.LOGIN:
          Config.LOGIN.remove(query.from_user.id)
-      await start(query, query.message)
+      await start_(query, query.message)
 
 @bot.on_callback_query(filters.regex("rules"))
 async def rules(_, query: CallbackQuery):
