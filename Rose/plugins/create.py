@@ -42,10 +42,10 @@ async def create(client, message):
 
 __NAME__ = "create"
 __MENU__ = f"""
-✘ **Perintah:** `.create ch`
+✘ **Perintah:** `{cmds}create ch`
 • **Fungsi:** Untuk membuat channel telegram dengan userbot.
 
-✘ **Perintah:** `.create gc`
+✘ **Perintah:** `{cmds}create gc`
 • **Fungsi:** Untuk membuat group telegram dengan userbot.
 
 © Rose Userbot
