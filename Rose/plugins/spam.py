@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 import asyncio
 from threading import Event
 from telegram.error import BadRequest
@@ -197,19 +205,17 @@ async def spam(client: Client, message: Message):
             
 __NAME__ = "spam"
 __MENU__ = f"""
-**🥀 Spam Command:**
+✘ **Perintah:** `{cmds}dspam` [waktu delay] [jumlah] [kata-kata]
+• **Fungsi:** delay spam.
 
-`.dspam` [waktu delay] [jumlah] [kata-kata]
-**delay spam.**
+✘ **Perintah:** `{cmds}sspam` [balas ke stiker] [jumlah spam]
+• **Fungsi:** spam stiker.
 
-`.sspam` [balas ke stiker] [jumlah spam]
-**spam stiker.**
+✘ **Perintah:** `{cmds}rspam` [jumlah] [emoji]
+• **Fungsi:** spam reactions.
 
-`.rspam` [jumlah] [emoji]
-**spam reactions.**
-
-`.spam` [jumlah] [kata-kata]
-spam (do it with your own risk)
+✘ **Perintah:** `{cmds}spam` [jumlah] [kata-kata]
+• **Fungsi:** spam (do it with your own risk)
 
 © Rose Userbot
 """
