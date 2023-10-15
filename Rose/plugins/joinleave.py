@@ -77,19 +77,19 @@ async def kickmeallch(client, message):
 
 __NAME__ = "joinleave"
 __MENU__ = f"""
-✘ **Perintah:** `.kickme` 
+✘ **Perintah:** `{cmds}kickme` 
 • **Fungsi:** Keluar dari grup dengan menampilkan pesan has left this group, bye!!.
 
-✘ **Perintah:** `.join` [username] 
+✘ **Perintah:** `{cmds}join` [username] 
 • **Fungsi:** Untuk Bergabung dengan Obrolan Melalui username.
 
-✘ **Perintah:** `.leave` [username]  
+✘ **Perintah:** `{cmds}leave` [username]  
 • **Fungsi:** Untuk keluar dari grup Melalui username.
 
-✘ **Perintah:** `.leaveallch` 
+✘ **Perintah:** `{cmds}leaveallch` 
 • **Fungsi:** Keluar dari semua channel telegram yang anda gabung.
 
-✘ **Perintah:** `.leaveallgc` 
+✘ **Perintah:** `{cmds}leaveallgc` 
 • **Fungsi:** Keluar dari semua grup telegram yang anda gabung.
 
 © Rose Userbot
