@@ -39,7 +39,7 @@ async def add_to_auto_read(bot: Client, message: Message):
 
 __NAME__ = "autoscroll"
 __MENU__ = f"""
-✘ **Perintah:** `.autoscroll`
+✘ **Perintah:** `{cmds}autoscroll`
 • **Fungsi:** Send autoscroll in any chat to automatically read all sent messages until you call
 autoscroll again. This is useful if you have Telegram open on another screen.
 
