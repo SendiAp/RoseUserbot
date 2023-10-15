@@ -6,7 +6,7 @@ from ..modules.vars import *
 from ..modules import *
 from ..import *
 from ..modules.about import About
-from .start import start 
+from .start import *
 
 @app.on_callback_query(filters.regex("feed"))
 async def feed(_, query: CallbackQuery):
