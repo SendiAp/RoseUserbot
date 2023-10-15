@@ -39,7 +39,7 @@ async def random_anime(client: Client, message: Message):
 
 __NAME__ = "anime"
 __MENU__ = f"""
-✘ **Perintah:** `.randomanime`
+✘ **Perintah:** `{cmds}randomanime`
 • **Fungsi:** Mendapatkan Random Anime.
 
 © Rose Userbot
