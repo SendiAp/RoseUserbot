@@ -1,7 +1,7 @@
 import pyrogram
 from pyrogram import filters
 from pyrogram import *
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from ..modules.vars import *
 from ..modules import *
 from ..import *
