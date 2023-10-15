@@ -15,6 +15,8 @@ from pyrogram.types import (
     Message,
 )
 
+SUDOERS = var.SUDOERS
+
 @bot.on_message(filters.command(["start"]) & filters.private)
 async def start_(client: Client, message: Message):
     await message.reply_text(
@@ -88,30 +90,48 @@ async def about(_, query: CallbackQuery):
       await query.edit_message_text(chat_id=query.message.chat.id, text=About.ABOUT, disable_web_page_preview=True)
 
 
-@bot.on_message(filters.text & filters.private)
-async def text(c: Client, m: Message):
-      if m.from_user.id in Config.LOGIN:
-         if m.text == Config.PASS:
-            Config.LOGIN.remove(m.from_user.id)
-            Config.OWNER_ID.append(m.from_user.id)
-            await m.reply_text(text="From now you will receive feedbacks. Untill this bot restart.  If you want to get feedbacks permanently add your id in config vars")
-         if m.text != Config.PASS:
-            Config.LOGIN.remove(m.from_user.id)
-            await m.reply_text(text="**Incorrect Password**", parse_mode="markdown")
-      if m.from_user.id in Config.feedback:
-         button = [[
-                   InlineKeyboardButton("Yes", callback_data="yes"),
-                   InlineKeyboardButton("No", callback_data="cancel")
-                  ]]
-         markup = InlineKeyboardMarkup(button)
-         await m.reply_text(text="Are you sure to send this feedback",
-                            reply_markup=markup,
-                            quote=True)
-      try:
-          if Config.SEND is not None:
-             id = Config.SEND[0]
-             await c.send_message(chat_id=int(id), text=m.text, parse_mode="markdown")
-             Config.SEND.remove(id)
-             await c.send_message(chat_id=m.chat.id, text="Notified successfully")
-      except:
-          pass
+@bot.on_message(filters.private & ~filters.edited)
+async def incoming_private(_, message):
+      user_id = message.from_user.id
+      if user_id in SUDOERS:
+          if not message.reply_to_message.forward_sender_name:
+             return await message.reply_text("Please reply to forwarded messages only.")
+                    replied_id = message.reply_to_message_id
+                try:
+                    replied_user_id = save[replied_id]
+                except Exception as e:
+                    LOGGER(e)
+                    return await message.reply_text(
+                        "Failed to fetch user. You might've restarted bot or some error happened. Please check logs"
+                    )
+                try:
+                    return await bot.copy_message(
+                        replied_user_id,
+                        message.chat.id,
+                        message.message_id,
+                    )
+                except Exception as e:
+                    LOGGER(e)
+                    return await message.reply_text(
+                        "Failed to send the message, User might have blocked the bot or something wrong happened. Please check logs"
+                    )
+        else:
+            if await mongo.is_group():
+                try:
+                    forwarded = await bot.forward_messages(
+                        Config.LOG_GROUP_ID,
+                        message.chat.id,
+                        message.message_id,
+                    )
+                    save[forwarded.message_id] = user_id
+                except:
+                    pass
+            else:
+                for user in SUDOERS:
+                    try:
+                        forwarded = await bot.forward_messages(
+                            user, message.chat.id, message.message_id
+                        )
+                        save[forwarded.message_id] = user_id
+                    except:
+                        pass
