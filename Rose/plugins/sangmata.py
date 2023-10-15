@@ -50,7 +50,7 @@ async def sg(client: Client, message: Message):
 
 __NAME__ = "sangmata"
 __MENU__ = f"""
-✘ **Perintah:** `.sg` [reply user id / username] 
+✘ **Perintah:** `{cmds}sg` [reply user id / username] 
 • **Fungsi:** **Mengambil nama history pengguna.**
         
 © Rose Userbot
