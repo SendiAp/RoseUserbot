@@ -11,6 +11,7 @@ APScheduler==3.7.0
 blackpink
 bs4
 emoji==1.6.0
+aiogram==2.9.2
 ffmpeg-python
 git+https://github.com/Itz-fork/py-trans.git
 gitpython
