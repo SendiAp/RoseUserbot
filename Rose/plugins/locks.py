@@ -136,10 +136,10 @@ async def locktypes(client, message):
 
 __NAME__ = "locks"
 __MENU__ = f"""
-✘ **Perintah:** `.lock` [all atau jenis lock] 
+✘ **Perintah:** `{cmds}lock` [all atau jenis lock] 
 • **Fungsi:** Mengunci izin di grup.
 
-✘ **Perintah:** `.unlock` [all atau jenis unlock]
+✘ **Perintah:** `{cmds}unlock` [all atau jenis unlock]
 • **Fungsi:** Membuka izin di grup Supported Locks / Unlocks: 
 
 `msg` | 
