@@ -1,11 +1,19 @@
 import asyncio
 from pyrogram import *
 from pyrogram import Client, filters
-from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from ..modules.about import About
 from ..modules import *
 from ..modules.vars import *
 from ..import *
+from pyrogram.types import (
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+    InlineQueryResultPhoto,
+    Message,
+)
 
 @bot.on_message(filters.command(["start"]) & filters.private)
 async def start_(client: Client, message: Message):
