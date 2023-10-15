@@ -73,7 +73,7 @@ async def yes(_, query: CallbackQuery):
       button = [[InlineKeyboardButton("Reply", callback_data=f"reply+{query.from_user.id}")]]
       markup = InlineKeyboardMarkup(button)
       for i in Config.OWNER_ID:
-          NS = await feedtext.forward(int(i))
+          NS = return await self._client.forward_messages(feedtext)
           await NS.reply_text("Send the reply", reply_markup=markup, quote=True)
       await query.edit_message_text(chat_id=query.message.chat.id, text="Feedback sent successfully. Hope you will get reply soon")
   
