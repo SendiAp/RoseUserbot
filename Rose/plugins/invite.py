@@ -73,14 +73,14 @@ async def invite_link(client, message):
 
 __NAME__ = "invite"
 __MENU__ = f"""
-✘ **Perintah:** `.invitelink` 
+✘ **Perintah:** `{cmds}invitelink` 
 • **Fungsi:** Untuk mendapatkan link invite ke grup obrolan anda. 
 [Need Admin]
 
-✘ **Perintah:** `.invite` @username 
+✘ **Perintah:** `{cmds}invite` @username 
 • **Fungsi:** Untuk Mengundang Anggota ke grup Anda.
 
-✘ **Perintah:** `.inviteall` @usernamegc
+✘ **Perintah:** `{cmds}inviteall` @usernamegc
 • **Fungsi:** Untuk Mengundang Anggota dari obrolan grup lain ke obrolan grup anda.
 
 © Rose Userbot
