@@ -1,8 +1,6 @@
 import glob
 from os.path import basename, dirname, isfile
 
-SIMBOL = ["☬", "❀", "✰", "༺༻", "✞", "༒", "۝", "ຮ", "么", "卄", "I", "Ξ", "𐌁", "︻╦̵̵͇̿̿̿̿╤─", "➢", "𖤓"]
-
 def __list_all_plugins():
     mod_paths = glob.glob(dirname(__file__) + "/*.py")
 
