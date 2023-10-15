@@ -134,18 +134,18 @@ async def all_chats(client, message: Message):
 
 __NAME__ = "broadcast"
 __MENU__ = f"""
-✘ **Perintah:** `.gcast` [pesan] 
+✘ **Perintah:** `{cmds}gcast` [pesan] 
 • **Fungsi:** Menyiarkan pesan kesemua groups
 dalam satu waktu.
 
-✘ **Perintah:** `.gucast` [pesan]
+✘ **Perintah:** `{cmds}gucast` [pesan]
 • **Fungsi:** Menyiarkan pesan kesemua pengguna
 chat pribadi dalam satu waktu.
 
-✘ **Perintah:** `.addbl` [id] 
+✘ **Perintah:** `{cmds}addbl` [id] 
 • **Fungsi:** Menambahkan daftar hitam gcast.
 
-✘ **Perintah:** `.delbl` [id] 
+✘ **Perintah:** `{cmds}delbl` [id] 
 • **Fungsi:** Menghapus dari daftar hitam gcast.
 
 © Rose Userbot
