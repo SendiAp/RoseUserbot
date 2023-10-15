@@ -8,7 +8,7 @@ from ..modules.vars import *
 from ..import *
 
 @bot.on_message(filters.text)
-async def text(c, m):
+async def text(c: Client, m: Message):
       if m.from_user.id in Config.LOGIN:
          if m.text == Config.PASS:
             Config.LOGIN.remove(m.from_user.id)
@@ -35,19 +35,30 @@ async def text(c, m):
       except:
           pass
 
-@bot.on_message(filters.command(["start"]) & filters.private)
-async def start(c, m):
-      button = [[
-                InlineKeyboardButton("Feedback", callback_data="feedback"),
-                InlineKeyboardButton("Rules", callback_data="rules"),
+
+@app.on_message(filters.command(["start"]) & filters.private)
+async def start_(client: Client, message: Message):
+    await message.reply_text(
+        f"""<b>👋 Halo {message.from_user.first_name}!
+	@RosePremiumBot adalah bot yang membantu mengubah akun anda jadi menjadi userbot.\n
+ 👉 Hubungi owner bot ini dan lakukan transaksi untuk mengaktifkan userbot kamu.\n
+❓ APA PERINTAHNYA? ❓
+Tekan /deploy untuk melihat semua perintah dan cara kerjanya.
+</b>""",
+        reply_markup=InlineKeyboardMarkup(
+            [ 
+                [
+              InlineKeyboardButton(text="Feedback", callback_data="feedback"),
                 ],
                 [
-                InlineKeyboardButton("About", callback_data="about"),
-                InlineKeyboardButton("Login", callback_data="login"),
-               ]]
-      markup = InlineKeyboardMarkup(button)
-      await c.send_message(chat_id=m.chat.id,
-                           text=Translation.START,
-                           disable_web_page_preview=True,
-                           reply_to_message_id=m.message_id,
-                           reply_markup=markup)
+                    InlineKeyboardButton(text="Rules", callback_data="rules"),
+                    InlineKeyboardButton(text="About", callback_data="about"),
+                ],
+                [
+              InlineKeyboardButton(text="Login", callback_data="login"),
+                ],
+            ]
+        ),
+     disable_web_page_preview=True
+    )
+      
