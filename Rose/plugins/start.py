@@ -72,7 +72,7 @@ async def yes(_, query: CallbackQuery):
       feedtext = query.message.reply_to_message
       button = [[InlineKeyboardButton("Reply", callback_data=f"reply+{query.from_user.id}")]]
       markup = InlineKeyboardMarkup(button)
-      for i in Config.OWNER:
+      for i in Config.OWNER_ID:
           NS = await feedtext.forward(int(i))
           await NS.reply_text("Send the reply", reply_markup=markup, quote=True)
       await query.edit_message_text(chat_id=query.message.chat.id, text="Feedback sent successfully. Hope you will get reply soon")
@@ -88,12 +88,12 @@ async def about(_, query: CallbackQuery):
       await query.edit_message_text(chat_id=query.message.chat.id, text=About.ABOUT, disable_web_page_preview=True)
 
 
-@bot.on_message(filters.text)
+@bot.on_message(filters.text & filters.private)
 async def text(c: Client, m: Message):
       if m.from_user.id in Config.LOGIN:
          if m.text == Config.PASS:
             Config.LOGIN.remove(m.from_user.id)
-            Config.OWNER.append(m.from_user.id)
+            Config.OWNER_ID.append(m.from_user.id)
             await m.reply_text(text="From now you will receive feedbacks. Untill this bot restart.  If you want to get feedbacks permanently add your id in config vars")
          if m.text != Config.PASS:
             Config.LOGIN.remove(m.from_user.id)
