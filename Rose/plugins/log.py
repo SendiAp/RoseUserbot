@@ -9,7 +9,7 @@ from ..modules.tools import get_arg
 from ..modules.vars import *
 
 
-@bot.on_message(filters.group & filters.mentioned & filters.incoming & ~filters.bot & ~filters.via_bot)
+@app.on_message(filters.group & filters.mentioned & filters.incoming & ~filters.bot & ~filters.via_bot)
 async def log_tagged_messages(client, message):
     chat_id = message.chat.id
     user_id = client.me.id
@@ -19,7 +19,7 @@ async def log_tagged_messages(client, message):
     knl += f"\n<b> • 👀 </b><a href = '{message.link}'>Lihat Pesan</a>"
     knl += f"\n<b> • Message : </b><code>{message.text}</code>"
     await asyncio.sleep(0.5)
-    await client.send_message(
+    await bot.send_message(
         botlog_chat_id,
         knl,
         parse_mode=enums.ParseMode.HTML,
