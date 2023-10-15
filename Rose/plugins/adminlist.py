@@ -197,7 +197,7 @@ async def get_list_bots(client, message):
 
 __NAME__ = "tag"
 __MENU__ = """
-✘ **Perintah:**`{cmds}admins` 
+✘ **Perintah:** `{cmds}admins` 
 • **Fungsi:** Melihat daftar admin groups.
 
 ✘ **Perintah:** `{cmds}zombies` 
