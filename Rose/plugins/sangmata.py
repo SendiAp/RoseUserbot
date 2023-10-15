@@ -1,3 +1,11 @@
+"""
+I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+
+https://www.github.com/SendiAp/RoseUserbot
+
+https://t.me/RoseUserbotV2 | © Rose Userbot 
+"""
+
 import asyncio
 from pyrogram import Client
 from pyrogram.errors import YouBlockedUser
