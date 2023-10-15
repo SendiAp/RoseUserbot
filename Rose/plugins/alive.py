@@ -120,7 +120,7 @@ async def alive(client: Client, message: Message):
 
 __NAME__ = "donasi"
 __MENU__ = f"""
-✘ **Perintah:** `.donasi`
+✘ **Perintah:** `{cmds}donasi`
 • **Fungsi:** Donasi Developer.
 
 Makasih bang yang udah donasi🥰🥰
