@@ -242,16 +242,16 @@ async def usage_dynos(client, message):
 
 __NAME__ = "heroku"
 __MENU__ = f"""
-✘ **Perintah:** `.setvar` [VAR] [VALUE]
+✘ **Perintah:** `{cmds}setvar` [VAR] [VALUE]
 • **Fungsi:** Untuk mengatur variabel config userbot.
 
-✘ **Perintah:** `.delvar` [VAR] 
+✘ **Perintah:** `{cmds}delvar` [VAR] 
 • **Fungsi:** Untuk menghapus variabel config userbot.
 
-✘ **Perintah:** `.getvar` [VAR] 
+✘ **Perintah:** `{cmds}getvar` [VAR] 
 • **Fungsi:** Untuk melihat variabel config userbot.
 
-✘ **Perintah:** `.usage`
+✘ **Perintah:** `{cmds}usage`
 • **Fungsi:** Untuk mengecheck kouta dyno heroku.
 
 © Rose Userbot
