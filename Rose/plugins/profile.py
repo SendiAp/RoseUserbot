@@ -88,16 +88,16 @@ async def set_bio(client: Client, message: Message):
 
 __NAME__ = "profile"
 __MENU__ = f"""
-✘ **Perintah:** `.block`
+✘ **Perintah:** `{cmds}block`
 • **Fungsi:** Untuk memblokir pengguna telegram.
 
-✘ **Perintah:** `.unblock`
+✘ **Perintah:** `{cmds}unblock`
 • **Fungsi:** Untuk membuka pengguna yang anda blokir.
 
-✘ **Perintah:** `.setname`
+✘ **Perintah:** `{cmds}setname`
 • **Fungsi:** Untuk Mengganti Nama Telegram.
 
-✘ **Perintah:** `.setbio` 
+✘ **Perintah:** `{cmds}setbio` 
 Untuk Mengganti Bio Telegram.
 
 © Rose Userbot
