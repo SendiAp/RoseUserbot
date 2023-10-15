@@ -216,13 +216,11 @@ async def tiktok_dl(client: Client, message: Message):
 
 __NAME__ = "youtube"
 __MENU__ = f"""
-**🥀 Downloader From YouTube:**
+✘ **Perintah:** `{cmds}song` [title]
+• **Fungsi:** Download Audio From YouTube.
 
-`.song` [title]
-**Download Audio From YouTube.**
-
-`.video` [title]
-**Download Video from YouTube.**
+✘ **Perintah:** `{cmds}video` [title]
+• **Fungsi:** Download Video from YouTube.
 
 © Rose Userbot
 """
