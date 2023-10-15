@@ -1,7 +1,6 @@
 import asyncio
 from pyrogram import *
 from pyrogram import filters
-from bot import feedback
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from ..modules.about import About
 from ..modules import *
