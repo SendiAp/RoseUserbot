@@ -42,10 +42,8 @@ async def sg(client: Client, message: Message):
 
 __NAME__ = "sangmata"
 __MENU__ = f"""
-**🥀 Sangmata Command:"*
-
-`.sg` [reply user id / username] 
-**Mengambil nama history pengguna.**
+✘ **Perintah:** `.sg` [reply user id / username] 
+• **Fungsi:** **Mengambil nama history pengguna.**
         
 © Rose Userbot
 """
