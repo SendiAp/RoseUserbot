@@ -32,6 +32,7 @@ db = mongo.app
 blchatdb = db.blchat
 afkdb = db.afk
 usersdb = db.users
+modelist = {}
 
 admins_in_chat = {}
 
@@ -66,7 +67,19 @@ async def buat_log(bot):
     
     return int(botlog_chat_id)
 
-
+    
+    async def is_group() -> bool:
+        chat_id = 123
+        mode = modelist.get(chat_id)
+        if not mode:
+            user = await modedb.find_one({"chat_id": chat_id})
+            if not user:
+                modelist[chat_id] = False
+                return False
+            modelist[chat_id] = True
+            return True
+        return mode
+        
 async def get_botlog(user_id: int):
     user_data = await logdb.users.find_one({"user_id": user_id})
     botlog_chat_id = user_data.get("bot_log_group_id") if user_data else None
