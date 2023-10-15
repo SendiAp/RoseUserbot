@@ -1,7 +1,7 @@
 # Rose Userbot | 2023
 
 import random
-.import SIMBOL 
+from .import SIMBOL 
 from .. import *
 from ..modules.data import add_sudo, del_sudo
 from pyrogram.types import Message
