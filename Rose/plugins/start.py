@@ -62,7 +62,7 @@ async def rules(_, query: CallbackQuery):
       await query.edit_message_text(chat_id=query.message.chat.id, text=Config.RULES)
 
 @bot.on_callback_query(filters.regex("login"))
-async def login(_, query: CallbackQuery, ros: Message):
+async def login(_, query: CallbackQuery):
       Config.LOGIN.append(m.from_user.id)
       await query.edit_message_text(chat_id=query.message.chat.id, text=Config.LOGIN)
        
