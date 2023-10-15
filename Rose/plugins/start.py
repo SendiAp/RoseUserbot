@@ -48,7 +48,7 @@ Tekan /deploy untuk melihat semua perintah dan cara kerjanya.
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
-              InlineKeyboardButton(text="Feedback", callback_data="feedback"),
+              InlineKeyboardButton(text="Feedback", callback_data="feed"),
                 ],
                 [
                     InlineKeyboardButton(text="Rules", callback_data="rules"),
