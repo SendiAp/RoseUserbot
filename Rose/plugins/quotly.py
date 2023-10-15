@@ -47,10 +47,10 @@ async def quotly(client: Client, message: Message):
 
 __NAME__ = "quotly"
 __MENU__ = f"""
-✘ **Perintah:** `.q` or `.quotly`
+✘ **Perintah:** `{cmds}q` or `.quotly`
 • **Fungsi:** Membuat pesan menjadi sticker dengan random background.
 
-✘ **Perintah:** `.q` [warna] or `.quotly`
+✘ **Perintah:** `{cmds}q` [warna] or `.quotly`
 • **Fungsi:** Membuat pesan menjadi sticker dengan custom warna background yang diberikan.
         
 © Rose Userbot
