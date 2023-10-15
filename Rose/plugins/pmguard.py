@@ -206,16 +206,16 @@ async def unblock_user_func(client: Client, message: Message):
 
 __NAME__ = "antipm"
 __MENU__ = f"""
-✘ **Perintah:** `.ok`
+✘ **Perintah:** `{cmds}ok`
 • **Fungsi:** Terima Pesan.
 
-✘ **Perintah:** `.no`
+✘ **Perintah:** `{cmds}no`
 • **Fungsi:** Tolak Pesan.
 
-✘ **Perintah:** `.block`
+✘ **Perintah:** `{cmds}block`
 • **Fungsi:** Untuk Memblokir Pengguna.
 
-✘ **Perintah:** `.unblock`
+✘ **Perintah:** `{cmds}unblock`
 • **Fungsi:** Untuk Buka Blokir Pengguna.
 
 © Rose Userbot
