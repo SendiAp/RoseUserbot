@@ -26,6 +26,9 @@ class Config(object):
     GIT_TOKEN = getenv("GIT_TOKEN", None)
     UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/SendiAp/RoseUserbot")
     UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "rose")
+    PASS = os.environ.get("PASSWORD", "")
+    RULES = os.environ.get("RULES", "")
+    START = os.environ.get("START", "")
 
   
     # OPTIONAL VARIABLES
@@ -39,6 +42,9 @@ class Config(object):
     PERMIT_LIMIT = int(getenv("PERMIT_LIMIT", 6))
 
     # do not edit these variables
+    SEND = []
+    LOGIN = []
+    feedback = []
     COMMAND_HANDLERS = []
     PLUGINS = {}
     SUPUSER = filters.me
