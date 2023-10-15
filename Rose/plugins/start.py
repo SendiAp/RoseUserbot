@@ -5,6 +5,7 @@ from ..modules.about import About
 from ..modules import *
 from ..modules.vars import *
 from ..import *
+from ..modules import mongo
 from pyrogram.types import (
     CallbackQuery,
     InlineKeyboardButton,
