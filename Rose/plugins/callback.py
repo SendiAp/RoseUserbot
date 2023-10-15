@@ -36,11 +36,11 @@ async def login(_, query: CallbackQuery):
       await query.delete()
       await query.send_message(chat_id=m.message.chat.id, text=Config.LOGIN)
        
-@app.on_callback_query(filters.regex("login"))
-async def login(_, query: CallbackQuery):
+@app.on_callback_query(filters.regex("yes"))
+async yes(_, query: CallbackQuery):
       Config.feedback.remove(m.from_user.id)
       feedtext = query.message.reply_to_message
-      button = [[InlineKeyboardButton("Reply", callback_data=f"reply+{m.from_user.id}")]]
+      button = [[InlineKeyboardButton("Reply", callback_data=f"reply+{query.from_user.id}")]]
       markup = InlineKeyboardMarkup(button)
       for i in Config.OWNER:
           NS = await feedtext.forward(int(i))
@@ -48,13 +48,13 @@ async def login(_, query: CallbackQuery):
       await query.delete()
       await query.send_message(chat_id=m.message.chat.id, text="Feedback sent successfully. Hope you will get reply soon")
   
-@app.on_callback_query(filters.regex("login"))
-async def login(_, query: CallbackQuery):
+@app.on_callback_query(filters.regex("reply"))
+async def reply(_, query: CallbackQuery):
       id = m.data.split("+")[1]
       Config.SEND.append(id)
       await query.send_message(chat_id=m.message.chat.id, text="Reply me the text which you wanted to send us")
 
-@app.on_callback_query(filters.regex("login"))
-async def login(_, query: CallbackQuery):
+@app.on_callback_query(filters.regex("about"))
+async def about(_, query: CallbackQuery):
       await query.delete()
       await query.send_message(chat_id=m.message.chat.id, text=About.ABOUT, disable_web_page_preview=True)
