@@ -59,10 +59,10 @@ async def revert(client: Client, message: Message):
 
 __NAME__ = "clone"
 __MENU__ = f"""
-✘ **Perintah:** `.clone`
+✘ **Perintah:** `{cmds}clone`
 • **Fungsi:** Clone Akun Pengguna Lain.
 
-✘ **Perintah:** `.revert`
+✘ **Perintah:** `{cmds}revert`
 • **Fungsi:** Kembalikan Seperti Semula.
 
 © Rose Userbot
