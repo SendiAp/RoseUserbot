@@ -49,10 +49,10 @@ async def alive_check(client, message):
 
 __NAME__ = "ping"
 __MENU__ = f"""
-✘ **Perintah:** `.ping` 
+✘ **Perintah:** `{cmds}ping` 
 • **Fungsi:** Latensi ping by rose userbot.
 
-✘ **Perintah:** `.alive` 
+✘ **Perintah:** `{cmds}alive` 
 • **Fungsi:** Your rose userbot.**
 
 © Rose Userbot
