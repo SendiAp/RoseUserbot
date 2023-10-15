@@ -1,80 +1,55 @@
-import asyncio
-from pyrogram import *
-from pyrogram import Client, filters
-from ..modules.about import About
+
+from aiogram.dispatcher import FSMContext
+from aiogram.types import ReplyKeyboardMarkup, ReplyKeyboardRemove
+from keyboards.default.markups import all_right_message, cancel_message, submit_markup
+from aiogram.types import Message
+from ..modules.states import SosState
+from ..modules.user import IsUser
+from ..modules import db
 from ..modules import *
-from ..modules.vars import *
 from ..import *
-from ..modules import mongo
-from pyrogram.types import (
-    CallbackQuery,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    InlineQueryResultArticle,
-    InputTextMessageContent,
-    InlineQueryResultPhoto,
-    Message,
-)
 
-SUDOERS = var.SUDOERS
+@bot.message_handler(commands='sos')
+async def cmd_sos(message: Message):
+    await SosState.question.set()
+    await message.answer('Apa inti permasalahannya? Jelaskan sedetail mungkin dan administrator pasti akan menjawab Anda..', reply_markup=ReplyKeyboardRemove())
 
-@bot.on_message(filters.command(["start"]) & filters.private)
-async def start_(client: Client, message: Message):
-    await message.reply_text(
-        f"""<b>👋 Halo {message.from_user.first_name}!
-	@RosePremiumBot adalah bot yang membantu mengubah akun anda jadi menjadi userbot.\n
- 👉 Hubungi owner bot ini dan lakukan transaksi untuk mengaktifkan userbot kamu.\n
-❓ APA PERINTAHNYA? ❓
-Tekan /deploy untuk melihat semua perintah dan cara kerjanya.
-</b>""",
-        reply_markup=InlineKeyboardMarkup(
-            [ 
-                [
-              InlineKeyboardButton(text="Feedback", callback_data="feedback"),
-                ],
-                [
-                    InlineKeyboardButton(text="Rules", callback_data="rules"),
-                    InlineKeyboardButton(text="About", callback_data="about"),
-                ],
-                [
-              InlineKeyboardButton(text="Login", callback_data="login"),
-                ],
-            ]
-        ),
-     disable_web_page_preview=True
-    )
-	
 
-@bot.on_callback_query(filters.regex("feed"))
-async def feed(_, query: CallbackQuery):
-      Config.feedback.append(query.from_user.id)
-      button = [[InlineKeyboardButton("cancel", callback_data="cancel")]]
-      markup = InlineKeyboardMarkup(button)
-      await query.edit_message_text(chat_id=query.message.chat.id, text="Send your feed back here I will notify the admin.", reply_markup=markup)
+@bot.message_handler(state=SosState.question)
+async def process_question(message: Message, state: FSMContext):
+    async with state.proxy() as data:
+        data['question'] = message.text
 
-@bot.on_callback_query(filters.regex("cancel"))
-async def cancel(_, query: CallbackQuery):
-      if query.from_user.id in Config.feedback:
-         Config.feedback.remove(query.from_user.id)
-      if query.from_user.id in Config.LOGIN:
-         Config.LOGIN.remove(query.from_user.id)
-      await start_(query, query.message)
+    await message.answer('Memastikan, bahwa semuanya benar.', reply_markup=submit_markup())
+    await SosState.next()
 
-@bot.on_callback_query(filters.regex("rules"))
-async def rules(_, query: CallbackQuery):
-      await query.edit_message_text(chat_id=query.message.chat.id, text=Config.RULES)
 
-@bot.on_callback_query(filters.regex("login"))
-async def login(_, query: CallbackQuery):
-      Config.LOGIN.append(m.from_user.id)
-      await query.edit_message_text(chat_id=query.message.chat.id, text=Config.LOGIN)
-       
-@bot.on_callback_query(filters.regex("reply"))
-async def reply(_, query: CallbackQuery):
-      id = m.data.split("+")[1]
-      Config.SEND.append(id)
-      await query.edit_message_text(chat_id=query.message.chat.id, text="Reply me the text which you wanted to send us")
+@bot.message_handler(lambda message: message.text not in [cancel_message, all_right_message], state=SosState.submit)
+async def process_price_invalid(message: Message):
+    await message.answer('Tidak ada pilihan seperti itu.')
 
-@bot.on_callback_query(filters.regex("about"))
-async def about(_, query: CallbackQuery):
-      await query.edit_message_text(chat_id=query.message.chat.id, text=About.ABOUT, disable_web_page_preview=True)
+
+@bot.message_handler(text=cancel_message, state=SosState.submit)
+async def process_cancel(message: Message, state: FSMContext):
+    await message.answer('Dibatalkan!', reply_markup=ReplyKeyboardRemove())
+    await state.finish()
+
+
+@bot.message_handler(text=all_right_message, state=SosState.submit)
+async def process_submit(message: Message, state: FSMContext):
+
+    cid = message.chat.id
+
+    if db.fetchone('SELECT * FROM questions WHERE cid=?', (cid,)) == None:
+
+        async with state.proxy() as data:
+            db.query('INSERT INTO questions VALUES (?, ?)',
+                     (cid, data['question']))
+
+        await message.answer('Terkirim!', reply_markup=ReplyKeyboardRemove())
+
+    else:
+
+        await message.answer('Batas jumlah pertanyaan yang diajukan telah terlampaui.', reply_markup=ReplyKeyboardRemove())
+
+    await state.finish()
