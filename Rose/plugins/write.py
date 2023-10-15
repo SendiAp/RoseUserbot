@@ -37,10 +37,8 @@ async def handwrite(client, message):
  
 __NAME__ = "write"
 __MENU__ = """
-**Tulis Teks yang Diberikan Ke PutihTulis Teks yang Diberikan Ke Putih
-Halaman Demi Pena**.
-
-`.write [text]` - Untuk Menulis TeksUntuk Menulis Teks
+✘ **Perintah:** `{cmds}write` [text]
+• **Fungsi:** Untuk Menulis TeksUntuk Menulis Teks
 Di Halaman Putih.
 
 © Rose Userbot 
