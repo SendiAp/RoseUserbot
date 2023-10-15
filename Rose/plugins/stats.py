@@ -62,7 +62,7 @@ async def stats(client, message):
 
 __NAME__ = "stats"
 __MENU__ = f"""
-✘ **Perintah:** `.stats` 
+✘ **Perintah:** `{cmds}stats` 
 • **Fungsi:** To Check Your Account Status, how Joined Chats.
 
 © Rose Userbot
