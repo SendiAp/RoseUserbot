@@ -40,7 +40,7 @@ async def adzan_shalat(client: Client, message: Message):
 
 __NAME__ = "adzan"
 __MENU__ = f"""
-✘ **Perintah:** `.adzan` [Kota]
+✘ **Perintah:** `{cmds}adzan` [Kota]
 • **Fungsi:** Menampilkan jadwal adzan yang tersedia dibot.
 
 © Rose Userbot
