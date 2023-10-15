@@ -37,7 +37,7 @@ async def login(_, query: CallbackQuery):
       await query.send_message(chat_id=m.message.chat.id, text=Config.LOGIN)
        
 @app.on_callback_query(filters.regex("yes"))
-async yes(_, query: CallbackQuery):
+async def yes(_, query: CallbackQuery):
       Config.feedback.remove(m.from_user.id)
       feedtext = query.message.reply_to_message
       button = [[InlineKeyboardButton("Reply", callback_data=f"reply+{query.from_user.id}")]]
