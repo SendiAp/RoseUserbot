@@ -1,5 +1,7 @@
 # Rose Userbot | 2023
 
+import random
+.import SIMBOL 
 from .. import *
 from ..modules.data import add_sudo, del_sudo
 from pyrogram.types import Message
@@ -111,16 +113,16 @@ async def sudo_users_list(client, message: Message):
 
 __NAME__ = "sudo"
 __MENU__ = f"""
-**🥀 Tambah atau hapus pengguna sudo tambah atau hapus pengguna sudo
-dari userbot anda.**
+{random.choice(SIMBOL)} **Perintah:** `{cmds}addsudo` 
+• **Fungsi:** Balas perintah ini balas perintah ini untuk setiap
+pesan pengguna target untuk menambahkan pengguna sudo.
 
-`.addsudo` - **Balas perintah ini balas perintah ini 
-untuk setiap pesan pengguna target untuk menambahkan pengguna sudo.**
-
-`.delsudo` - **Balas perintah ini balas perintah ini
+{random.choice(SIMBOL)} **Perintah:** `{cmds}delsudo` 
+• **Fungsi:** Balas perintah ini balas perintah ini
 untuk setiap pesan pengguna target untuk menghapus dari pengguna sudo.**
 
-`.sudolist` - **Dapatkan semua aktif daftar pengguna sudo.**
+{random.choice(SIMBOL)} **Perintah:** `{cmds}sudolist` 
+• **Fungsi:** Dapatkan semua aktif daftar pengguna sudo.
 
 © Rose Userbot
 """
