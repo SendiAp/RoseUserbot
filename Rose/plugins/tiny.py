@@ -1,5 +1,5 @@
 from ..import *
-from ..modules *
+from ..modules import *
 from ..modules.vars import *
 
 __NAME__ = "tiny"
