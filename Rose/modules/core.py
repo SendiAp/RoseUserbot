@@ -6,7 +6,7 @@ from pytgcalls import PyTgCalls
 from motor.motor_asyncio import AsyncIOMotorClient
 from .vars import Config
 from ..console import LOGGER
-from .startup import startupmessage
+
 
 COMMAND_PREFIXES = Config.COMMAND_PREFIXES
 
