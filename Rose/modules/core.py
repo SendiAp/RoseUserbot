@@ -6,6 +6,7 @@ from pytgcalls import PyTgCalls
 from motor.motor_asyncio import AsyncIOMotorClient
 from .vars import Config
 from ..console import LOGGER
+from .starup import startupmessage
 
 COMMAND_PREFIXES = Config.COMMAND_PREFIXES
 
@@ -125,7 +126,7 @@ class Rose(Client, PyTgCalls):
             LOGGER.info(e)
             pass 
         try:
-            await self.bot.send_message(Config.LOG_GROUP_ID, "**Helper Bot Started.**")
+            await self.bot.send_message(Config.LOG_GROUP_ID, startupmessage)
         except:
             LOGGER.error("Please Promote Bot in Your Log Group")
             exit()
