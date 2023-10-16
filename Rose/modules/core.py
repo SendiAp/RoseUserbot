@@ -119,57 +119,15 @@ class Rose(Client, PyTgCalls):
         self.bot.username = self.bot.me.username
         self.bot.mention = self.bot.me.mention
         self.bot.id = self.bot.me.id
-        if self.app.username:
-            username = f"{self.app.username}_Rosebot"
-        else:
-            username = f"Rose{(str(self.app.id))[5:]}bot"
-        if not Config.BOT_TOKEN:
-            await self.app.send_message(f"@botfather", "/start")
-            await asyncio.sleep(1)
-            await self.bot.send_message(Config.LOG_GROUP_ID, "Sedang membuat bot...")
-            await self.app.unblock_user(father)
-            await self.app.send_message(f"@botfather", "/cancel")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "/newbot")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"{self.app.name} My Assistant Bot🌹")
-            await asyncio.sleep(1)
-            await self.app.send_message(father, username)
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "/setinline")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "Search")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", "/setuserpic")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
-            await asyncio.sleep(3)
-            await self.app.send_file(father, logo)
-            await asyncio.sleep(3)
-            await self.app.send_message(f"@botfather", "/setabouttext")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"Managed With ✨ By {self.app.name}")
-            await asyncio.sleep(3)
-            await self.app.send_message(f"@botfather", "/setdescription")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"@{self.bot.username}")
-            await asyncio.sleep(1)
-            await self.app.send_message(f"@botfather", f"✨ Owner ~ @{self.app.username} ✨\n\n✨ Powered By ~ @RoseUserbotv2 ✨")
-            Config.BOT_TOKEN.add(int(token)) 
-            await self.bot.send_message(Config.LOG_GROUP_ID, "Berhasil membuat bot...")
         try:
-            await self.bot.send_message(Config.LOG_GROUP_ID, "Starting Helperbot")
             await self.app.promote_chat_member(Config.LOG_GROUP_ID, self.bot.id, bot_power)
         except Exception as e:
             LOGGER.info(e)
-            pass
-            LOGGER.error("Gagal > Silahkan promosikan bot anda dilog grup anda.")
+            pass 
+        try:
+            await self.bot.send_message(Config.LOG_GROUP_ID, "**Helper Bot Started.**")
+        except:
+            LOGGER.error("Please Promote Bot in Your Log Group")
             exit()
         LOGGER.info(f"Helperbot Started as {self.bot.name}")
         if self.app.id not in Config.SUDOERS:
