@@ -126,7 +126,7 @@ class Rose(Client, PyTgCalls):
             LOGGER.info(e)
             pass 
         try:
-            await self.bot.send_message(Config.LOG_GROUP_ID, startupmessage)
+            await self.bot.send_message(Config.LOG_GROUP_ID, MSG_ON)
         except:
             LOGGER.error("Please Promote Bot in Your Log Group")
             exit()
