@@ -2,7 +2,8 @@ import os
 
 from .. import *
 from telegraph import Telegraph, upload_file
-from .. import COMMAND_PREFIXES as cmds
+from ..modules import *
+from ..modules.vars import *
 
 telegraph = Telegraph()
 filesize = 5242880 #[5MB]
