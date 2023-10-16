@@ -96,6 +96,7 @@ async def pmpermit_func(client: Client, message: Message):
     pm_message = DEFAULT if not getmsg else getmsg
     pmpermit_logo = var.PMPERMIT_LOGO
     msg_dlt = await client.send_photo(
+        user_.id,
         photo=f"pmpermit_logo",
         caption=MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),
         reply_markup=QUOTE_BUTTON,
@@ -103,7 +104,7 @@ async def pmpermit_func(client: Client, message: Message):
     if str(user_.id) in OLD_MSG:
         try:
             await OLD_MSG[str(user_.id)].delete()
-        except BaseException:
+        except Bauser_.id,seException:
             pass
     OLD_MSG[str(user_.id)] = msg_dlt
 
