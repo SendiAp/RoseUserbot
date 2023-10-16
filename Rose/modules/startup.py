@@ -13,6 +13,19 @@ from pyrogram.types import (
     Message,
 )
 
+QUOTE_BUTTON = InlineKeyboardMarkup(
+              [
+                [
+                  InlineKeyboardButton('🔵Telegram🔵' , url='https://t.me/ItsMeSithija'),
+                  InlineKeyboardButton('⭕Youtube⭕' , url='https://youtube.com/channel/UCFH_E0cu7U8GMjEJGnSvYjA'),
+                ], 
+                [
+                 InlineKeyboardButton('〣────────────────〢' , callback_data='auto_rep'),
+                ],
+              ]
+)
+
+
 LOG_GROUP_ID = var.LOG_GROUP_ID
 
 async def startupmessage():
@@ -25,8 +38,5 @@ async def startupmessage():
                 LOG_GROUP_ID,
                 "https://telegra.ph/file/248b4cd5adb27bf33f15c.jpg",
                 caption="**Your Wolf-Userbot has been started successfully**",
-                reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("ʜᴇʟᴘ", url="t.me/BottyCu")]]
-            ),
-        )
-    )
+                reply_markup=QUOTE_BUTTON,
+            )
