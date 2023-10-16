@@ -1,11 +1,15 @@
+import html
+from ..modules import *
 from ..modules.vars import *
 from .. import *
-from pyrogram import Client, filters, idle
+from pyrogram import Client, filters, idle, enums
 from pyrogram.types import Message, User
 from ..modules.humanbytes import humanbytes
 
 IF_TEXT = "<b>Message from:</b> {}\n<b>Name:</b> {}\n\n{}"
 IF_CONTENT = "<b>Message from:</b> {} \n<b>Name:</b> {}"
+
+owner_id = var.OWNER_ID
 
 @bot.on_message(filters.private & filters.text)
 async def pm_text(bot, message):
@@ -17,7 +21,7 @@ async def pm_text(bot, message):
     await bot.send_message(
         chat_id=owner_id,
         text=IF_TEXT.format(reference_id, info.first_name, message.text),
-        parse_mode="html"
+        parse_mode=enums.ParseMode.HTML,
     )
 
 @bot.on_message(filters.private & filters.media)
@@ -28,11 +32,11 @@ async def pm_media(bot, message):
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     await bot.copy_message(
-        chat_id=Config.BOT_OWNER,
+        chat_id=owner_id,
         from_chat_id=message.chat.id,
         message_id=message.message_id,
         caption=IF_CONTENT.format(reference_id, info.first_name),
-        parse_mode="html"
+        parse_mode=enums.ParseMode.HTML,
     )
 
 @bot.on_message(filters.user(owner_id) & filters.text & filters.private)
@@ -70,5 +74,5 @@ async def replay_media(bot, message):
             chat_id=int(reference_id),
             from_chat_id=message.chat.id,
             message_id=message.message_id,
-            parse_mode="html"
+            parse_mode=enums.ParseMode.HTML,
         )   
