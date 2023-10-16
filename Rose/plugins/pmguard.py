@@ -104,7 +104,7 @@ async def pmpermit_func(client: Client, message: Message):
     if str(user_.id) in OLD_MSG:
         try:
             await OLD_MSG[str(user_.id)].delete()
-        except Bauser_.id,seException:
+        except BaseException:
             pass
     OLD_MSG[str(user_.id)] = msg_dlt
 
