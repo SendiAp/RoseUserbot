@@ -2,6 +2,7 @@ import html
 from ..modules import *
 from ..modules.vars import *
 from .. import *
+from pyrogram.enums import ParseMode
 from pyrogram import Client, filters, idle, enums
 from pyrogram.types import Message, User
 from ..modules.humanbytes import humanbytes
