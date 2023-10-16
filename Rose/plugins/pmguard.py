@@ -16,6 +16,18 @@ from pyrogram.types import (
     Message,
 )
 
+QUOTE_BUTTON = InlineKeyboardMarkup(
+              [
+                [
+                  InlineKeyboardButton('🔵Telegram🔵' , url='https://t.me/ItsMeSithija'),
+                  InlineKeyboardButton('⭕Youtube⭕' , url='https://youtube.com/channel/UCFH_E0cu7U8GMjEJGnSvYjA'),
+                ], 
+                [
+                 InlineKeyboardButton('〣────────────────〢' , callback_data='auto_rep'),
+                ],
+              ]
+)
+
 
 MSG_PERMIT = """
 ╔═════════════════════╗
@@ -83,10 +95,12 @@ async def pmpermit_func(client: Client, message: Message):
     getmsg = Config.PERMIT_MSG
     pm_message = DEFAULT if not getmsg else getmsg
     pmpermit_logo = var.PMPERMIT_LOGO
-    msg_dlt = await client.send_photo(
+    msg_dlt = await client.send_message(
         user_.id,
         pmpermit_logo,
-        MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),    
+        MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),
+        reply_markup=QUOTE_BUTTON,
+        disable_web_page_preview=True
     )
     if str(user_.id) in OLD_MSG:
         try:
