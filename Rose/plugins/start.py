@@ -19,7 +19,7 @@ async def pm_text(bot, message):
     info = await bot.get_users(user_ids=message.from_user.id)
     reference_id = int(message.chat.id)
     await bot.send_message(
-        message.chat.id,
+        chat_id=owner_id,
         text=IF_TEXT.format(reference_id, info.first_name, message.text),
         parse_mode=enums.ParseMode.HTML,
     )
