@@ -5,6 +5,8 @@ from pyrogram.types import Message
 from ..modules.tools import get_arg
 from ..modules.basic import edit_or_reply
 
+from ..modules import *
+from ..modules.vars import *
 from ..import *
 
 
@@ -67,9 +69,8 @@ async def translate(client, message):
 
 __NAME__ = "translate"
 __MENU__ = f"""
-**🥀 Menerjemahkan bahasa asing.**
-
-`.tr` [kode bahasa] - **Menerjemahkan teks ke bahasa yang disetel. .**
+✘ **Perintah:** `{cmds}tr` [kode bahasa] 
+• **Fungsi:** Menerjemahkan teks ke bahasa yang disetel. 
 
 (Default kode bahasa indonesia)
 
