@@ -97,7 +97,7 @@ async def pmpermit_func(client: Client, message: Message):
     pmpermit_logo = var.PMPERMIT_LOGO
     msg_dlt = await client.send_photo(
         user_.id,
-        photo=f"pmpermit_logo",
+        pmpermit_logo,
         caption=MSG_PERMIT.format(pm_message, flood[str(user_.id)], limits),
         reply_markup=QUOTE_BUTTON,
     )
