@@ -92,3 +92,7 @@ async def inline_query_handler(bot, query):
             return
     else:
         return
+
+@bot.on_callback_query(filters.regex("close"))
+async def close(_, query: CallbackQuery):
+    await query.message.delete()
