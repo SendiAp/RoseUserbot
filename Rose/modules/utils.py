@@ -119,6 +119,10 @@ def paginate_plugins(page_n, plugin_dict, prefix, chat=None):
                     callback_data="{}_prev({})".format(prefix, modulo_page),
                 ),
                 EqInlineKeyboardButton(
+                    "close",
+                    callback_data="close"),
+                ),
+                EqInlineKeyboardButton(
                     "❯",
                     callback_data="{}_next({})".format(prefix, modulo_page),
                 ),
