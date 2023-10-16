@@ -1,6 +1,19 @@
 from .. import *
 from .vars import *
 from .. modules import *
+from pyrogram import Client, filters
+from pyrogram import __version__ as pyrover
+from pyrogram.enums import ParseMode
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+    InlineQueryResultPhoto,
+    Message,
+)
+
+LOG_GROUP_ID = var.LOG_GROUP_ID
 
 async def startupmessage():
     """
