@@ -17,7 +17,7 @@ from ..modules.basic import edit_or_reply
 from ..modules.parser import mention_html, mention_markdown
 
 
-@app.on_message(commandz(["admins", "adminlist"]) & SUDOERS)
+@app.on_message(commandx(["admins", "adminlist"]) & SUDOERS)
 async def adminlist(client, message):
     replyid = None
     toolong = False
@@ -80,7 +80,7 @@ async def adminlist(client, message):
         await message.edit(teks)
 
 
-@app.on_message(commandz(["kickdel", "zombies"]) & SUDOERS)
+@app.on_message(commandx(["kickdel", "zombies"]) & SUDOERS)
 async def kickdel_cmd(client, message):
     Man = await edit_or_reply(message, "<b>Kicking deleted accounts...</b>")
     # noinspection PyTypeChecker
@@ -92,7 +92,7 @@ async def kickdel_cmd(client, message):
     await Man.edit(f"<b>Successfully kicked {len(values)} deleted account(s)</b>")
 
 
-@app.on_message(commandz(["reportadmin", "reportadmins"]) & SUDOERS)
+@app.on_message(commandx(["reportadmin", "reportadmins"]) & SUDOERS)
 async def report_admin(client, message):
     await message.delete()
     if len(message.text.split()) >= 2:
@@ -139,7 +139,7 @@ async def report_admin(client, message):
         )
 
 
-@app.on_message(commandz(["everyone", "tagall"]) & SUDOERS)
+@app.on_message(commandx(["everyone", "tagall"]) & SUDOERS)
 async def tag_all_users(client, message):
     await message.delete()
     if len(message.text.split()) >= 2:
@@ -163,7 +163,7 @@ async def tag_all_users(client, message):
         )
 
 
-@app.on_message(commandz(["botlist", "bots"]) & SUDOERS)
+@app.on_message(commandx(["botlist", "bots"]) & SUDOERS)
 async def get_list_bots(client, message):
     replyid = None
     if len(message.text.split()) >= 2:
