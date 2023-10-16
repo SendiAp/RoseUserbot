@@ -1,11 +1,13 @@
 from ..import *
+from ..modules *
+from ..modules.vars import *
 
 __NAME__ = "tiny"
 __MENU__ = f"""
 **🥀 Memify Command:**
 
-`.tiny` [reply ke foto/sticker]
-Untuk Mengubah Sticker Menjadi Kecil.
+✘ **Perintah:** `{cmds}tiny` [reply ke foto/sticker]
+• **Fungsi:** Untuk Mengubah Sticker Menjadi Kecil.
         
 © Rose Userbot
 """
