@@ -120,7 +120,7 @@ def paginate_plugins(page_n, plugin_dict, prefix, chat=None):
                 ),
                 EqInlineKeyboardButton(
                     "close",
-                    callback_data="close"),
+                    callback_data="close",
                 ),
                 EqInlineKeyboardButton(
                     "❯",
