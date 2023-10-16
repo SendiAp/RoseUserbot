@@ -13,6 +13,8 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from ..import *
+from ..modules.vars import *
+from ..modules import *
 from ..modules.basic import edit_or_reply
 from ..modules.parser import mention_html, mention_markdown
 
