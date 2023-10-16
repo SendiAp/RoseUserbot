@@ -26,7 +26,7 @@ class Config(object):
     GIT_TOKEN = getenv("GIT_TOKEN", None)
     UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/SendiAp/RoseUserbot")
     UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "rose")
-    ADMINS = getenv("ADMINS", None)
+    OWNER_ID = getenv("OWNER_ID", None)
   
     # OPTIONAL VARIABLES
     SESSION_STRING = getenv("SESSION_STRING", None)
