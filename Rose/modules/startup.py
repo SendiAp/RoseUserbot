@@ -1,6 +1,7 @@
 from .. import *
 from .vars import *
 from .. modules import *
+
 async def startupmessage():
     """
     Start up message in telegram logger group
@@ -11,5 +12,8 @@ async def startupmessage():
                 LOG_GROUP_ID,
                 "https://telegra.ph/file/248b4cd5adb27bf33f15c.jpg",
                 caption="**Your Wolf-Userbot has been started successfully**",
-                buttons=[(Button.url("Support", "https://t.me/Rose_Userbot"),)],
-            )
+                reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("ʜᴇʟᴘ", url="t.me/BottyCu")]]
+            ),
+        )
+    )
