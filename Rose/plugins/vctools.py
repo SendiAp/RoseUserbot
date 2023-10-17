@@ -120,15 +120,17 @@ async def leavevc(client: Client, message: Message):
 
 __NAME__ = "vcg"
 __MENU__ = f"""
-**🥀 Periksa server bot pengguna.**
+✘ **Perintah:** `{cmds}startvc` 
+• **Fungsi:** Untuk Memulai voice chat group.
 
-`.startvc` - **Untuk Memulai voice chat group.**
+✘ **Perintah:** `{cmds}stopvc` 
+• **Fungsi:** Untuk Memberhentikan voice chat group.
 
-`.stopvc` - **Untuk Memberhentikan voice chat group.**
+✘ **Perintah:** `{cmds}joinvc` 
+• **Fungsi:** Untuk Bergabung ke voice chat group.
 
-`.joinvc` - **Untuk Bergabung ke voice chat group.**
-
-`.leavevc` - **Untuk Turun dari voice chat group.**
+✘ **Fungsi:** `{cmds}leavevc` 
+• **Fungsi:** Untuk Turun dari voice chat group.
 
 © Rose Userbot
 """
