@@ -158,10 +158,10 @@ async def pmguard(app, message):
         await message.edit("**on atau off ??**")
         return
     if arg == "off":
-        await app.pmpermit(False)
+        var.PMPERMIT.add(int(False))
         await message.edit("**PM Guard Dimatikan**")
     if arg == "on":
-        await app.pmpermit(True)
+        var.PMPERMIT.add(int(True))
         await message.edit("**PM Guard diaktifkan**")
 
 
