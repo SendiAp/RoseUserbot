@@ -7,7 +7,7 @@ from pyrogram.types import *
 
 from ..modules.tools import get_arg
 from .. import *
-from ..modules import set_pm as TOD
+from ..modules import pmpermit as TOD
 from ..modules.data import approve, disapprove, is_approved
 from pyrogram.types import (
     InlineKeyboardButton,
