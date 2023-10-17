@@ -33,6 +33,7 @@ blchatdb = db.blchat
 afkdb = db.afk
 usersdb = db.users
 modelist = {}
+pmdb = db.pmpermit
 
 admins_in_chat = {}
 
@@ -79,6 +80,18 @@ async def buat_log(bot):
             modelist[chat_id] = True
             return True
         return mode
+
+async def set_pm(value: bool):
+    doc = {"_id": 1, "pmpermit": value}
+    doc2 = {"_id": "Approved", "users": []}
+    r = await db.find_one({"_id": 1})
+    r2 = await db.find_one({"_id": "Approved"})
+    if r:
+        await db.update_one({"_id": 1}, {"$set": {"pmpermit": value}})
+    else:
+        await db.insert_one(doc)
+    if not r2:
+        await db.insert_one(doc2)
         
 async def get_botlog(user_id: int):
     user_data = await logdb.users.find_one({"user_id": user_id})
