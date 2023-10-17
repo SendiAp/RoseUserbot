@@ -7,6 +7,7 @@ from pyrogram.types import *
 
 from ..modules.tools import get_arg
 from .. import *
+from ..modules import set_pm as TOD
 from ..modules.data import approve, disapprove, is_approved
 from pyrogram.types import (
     InlineKeyboardButton,
@@ -152,16 +153,15 @@ async def pm_approve(client: Client, message: Message):
 
 @app.on_message(commandx("pmguard") & SUPUSER)
 async def pmguard(app, message):
-    pmpermit = var.PMPERMIT
     arg = get_arg(message)
     if not arg:
         await message.edit("**on atau off ??**")
         return
     if arg == "off":
-        var.PMPERMIT.add(int(False))
+        await TOD.set_pm(False)
         await message.edit("**PM Guard Dimatikan**")
     if arg == "on":
-        var.PMPERMIT.add(int(True))
+        await TOD.set_pm(True)
         await message.edit("**PM Guard diaktifkan**")
 
 
