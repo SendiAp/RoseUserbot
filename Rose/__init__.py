@@ -6,6 +6,7 @@ from pyrogram import Client, enums, filters
 from .console import LOGGER
 from .modules.core import Rose
 from .modules.vars import Config
+from .modules.vars import *
 from .modules.utils import commandx
 from .modules.utils import commandz
 
@@ -33,6 +34,7 @@ for file in os.listdir():
 
 
 cmds = Config.COMMAND_PREFIXES
+DB_URL = var.MONGO_DATABASE
 
 aiosession = ClientSession()
 rose = Rose()
