@@ -16,10 +16,8 @@ YANG NYOLONG REPO INI TRUS DIJUAL JADI PREM, LU GAY...
 import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from geezlibs.geez import geez
-from Geez.modules.basic import add_command_help
-from Geez.modules.basic.broadcast import get_arg
-from Geez import cmds
+from ..modules.tools import get_arg
+from .. import *
 
 @geez("dm", cmds)
 async def dm(coli: Client, memek: Message):
