@@ -95,7 +95,7 @@ __MENU__ = f"""
 ✘ **Perintah:** `{cmds}fdocument` [detik] 
 • **Fungsi:** Menampilkan tindakan tengirim Document/File palsu dalam obrolan.
 
-✘ **Perintah:** `{cmds)fscreen` [jumlah] 
+✘ **Perintah:** `{cmds}fscreen` [jumlah] 
 • **Fungsi:** Menampilkan tindakan screenshot palsu. (Gunakan di Obrolan Pribadi)
 
 ✘ **Perintah:** `{cmds}fstop`
