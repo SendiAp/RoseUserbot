@@ -126,9 +126,9 @@ class Rose(Client, PyTgCalls):
             LOGGER.info(e)
             pass 
         try:
-            await self.bot.send_message(Config.LOG_GROUP_ID, MSG_ON)
+            LOGGER.info(f"Akun {self.app.name} Berhasil Diaktifkan.!")
         except:
-            LOGGER.error("Please Promote Bot in Your Log Group")
+            LOGGER.error("Bot Gagal Aktif = Anda tidak memasukan bot anda kedalam log grup anda.")
             exit()
         LOGGER.info(f"Helperbot Started as {self.bot.name}")
         if self.app.id not in Config.SUDOERS:
