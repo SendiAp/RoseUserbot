@@ -92,7 +92,7 @@ class Rose(Client, PyTgCalls):
             await self.app.join_chat("RoseUserbotSupport")
         except:
             pass
-        await self.app.send_message(Config.LOG_GROUP_ID, MSG_ON)
+        LOGGER.info(f"Akun {self.app.name} Berhasil Diaktifkan.!")
         LOGGER.info(f"Userbot Dimulai sebagai {self.app.name}")
         LOGGER.info("Memulai PyTgCalls ...")
         if Config.SESSION_STRING:
@@ -126,7 +126,7 @@ class Rose(Client, PyTgCalls):
             LOGGER.info(e)
             pass 
         try:
-            LOGGER.info(f"Akun {self.app.name} Berhasil Diaktifkan.!")
+            await self.bot.send_message(Config.LOG_GROUP_ID, MSG_ON)
         except:
             LOGGER.error("Bot Gagal Aktif = Anda tidak memasukan bot anda kedalam log grup anda.")
             exit()
