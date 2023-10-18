@@ -5,6 +5,8 @@ from pyrogram import Client, filters, enums
 from pyrogram.enums import ChatType
 from pyrogram.types import *
 
+from ..modules.basic import edit_or_reply
+from ..SQL.globals import addgvar, gvarstatus
 from ..modules.tools import get_arg
 from .. import *
 from ..modules import pmpermit as TOD
@@ -150,19 +152,56 @@ async def pm_approve(client: Client, message: Message):
         await asyncio.sleep(3)
         await xnxx.delete()
 
+@app.on_message(commandx("pmlimit") & SUPUSER)
+async def pmguard(client: Client, message: Message):
+    if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
+        return await cust_msg.edit(
+            f"**Anda Harus Menyetel Var** `PM_AUTO_BAN` **Ke** `True`\n\n**Bila ingin Mengaktifkan PMPERMIT Silahkan Ketik:** `{cmd}setvar PM_AUTO_BAN True`"
+        )
+    try:
+        from ..SQL.globals import addgvar
+    except AttributeError:
+        await cust_msg.edit("**Running on Non-SQL mode!**")
+        return
+    input_str = (
+        cust_msg.text.split(None, 1)[1]
+        if len(
+            cust_msg.command,
+        )
+        != 1
+        else None
+    )
+    if not input_str:
+        return await cust_msg.edit("**Harap masukan angka untuk PM_LIMIT.**")
+    Ros = await cust_msg.edit("`Processing...`")
+    if input_str and not input_str.isnumeric():
+        return await Ros.edit("**Harap masukan angka untuk PM_LIMIT.**")
+    addgvar("PM_LIMIT", input_str)
+    await Ros.edit(f"**Set PM limit to** `{input_str}`")
+
 
 @app.on_message(commandx("pmguard") & SUPUSER)
-async def pmguard(app, message):
-    arg = get_arg(message)
-    if not arg:
-        await message.edit("**on atau off ??**")
-        return
-    if arg == "off":
-        await TOD.set_pm(False)
-        await message.edit("**PM Guard Dimatikan**")
-    if arg == "on":
-        await TOD.set_pm(True)
-        await message.edit("**PM Guard diaktifkan**")
+async def pmguard(client: Client, message: Message):
+    input_str = get_arg(message)
+    if input_str == "off":
+        h_type = False
+    elif input_str == "on":
+        h_type = True
+    if gvarstatus("PMPERMIT") and gvarstatus("PMPERMIT") == "false":
+        PMPERMIT = False
+    else:
+        PMPERMIT = True
+    if PMPERMIT:
+        if h_type:
+            await edit_or_reply(message, "**PMPERMIT Sudah Diaktifkan**")
+        else:
+            addgvar("PMPERMIT", h_type)
+            await edit_or_reply(message, "**PMPERMIT Berhasil Dimatikan**")
+    elif h_type:
+        addgvar("PMPERMIT", h_type)
+        await edit_or_reply(message, "**PMPERMIT Berhasil Diaktifkan**")
+    else:
+        await edit_or_reply(message, "**PMPERMIT Sudah Dimatikan**")
 
 
 @app.on_message(commandx("no") & SUPUSER)
