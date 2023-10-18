@@ -19,7 +19,7 @@ from pyrogram.types import Message
 from ..modules.tools import get_arg
 from .. import *
 
-@geez("dm", cmds)
+@app.on_message(commandx(["dm"]) & SUDOERS)
 async def dm(coli: Client, memek: Message):
     geez = await memek.reply_text("⚡ Proccessing.....")
     quantity = 1
@@ -44,7 +44,7 @@ async def dm(coli: Client, memek: Message):
 
 
 
-@geez("copy", cmds)
+@app.on_message(commandx(["copy"]) & SUDOERS)
 async def copy_msg(client: Client, message: Message):
     lugay = await message.reply("`Processing...`")
     link = get_arg(message)
@@ -66,9 +66,10 @@ async def copy_msg(client: Client, message: Message):
         await lugay.edit("`harap berikan link telegram dengan benar.`")
 
 
-add_command_help(
-    "directmessage",
-    [
-        [f"{cmds}dm @username / {cmds}directmessage @username", "Untuk Mengirim Pesan Tanpa Harus Kedalam Roomchat.",],
-    ],
-)
+__NAME__ = "directmessage"
+__MENU__ = f"""
+✘ **Perintah:** `{cmds}dm` [username]
+• **Fungsi:** Untuk Mengirim Pesan Tanpa Harus Kedalam Roomchat.
+
+© Rose Userbot
+"""
