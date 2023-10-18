@@ -138,13 +138,11 @@ async def chatinfo_handler(client: Client, message: Message):
 
 __NAME__ = "whois"
 __MENU__ = f"""
-**🥀 Whois Command:**
+✘ **Perintah:** `{cmds}whois` [username/userid/reply]
+• **Fungsi:** Dapatkan info pengguna telegram dengan deskripsi lengkap.
 
-`.whois` [username/userid/reply]
-**dapatkan info pengguna telegram dengan deskripsi lengkap.,**
-
-`.info` [username/userid/reply]
-**dapatkan info group dengan deskripsi lengkap.**
+✘ **Perintah:** `{cmds}info` [username/userid/reply]
+• **Fungsi:** Dapatkan info group dengan deskripsi lengkap.
         
 © Rose Userbot
 """
