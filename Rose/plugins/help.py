@@ -57,12 +57,13 @@ async def help_button(client, query):
     back_match = re.match(r"help_back", query.data)
     top_text = f"""
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
-Rose Userbot » {__version__} 🌹...
+Rosebot » {__version__} 🌹...
 
 ᳇ **Help Menu**
 • **Modules:** {num_basic_modules}
+• **Prefixes:** {cmds}
 
-🌹Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**"""
+꧁PoweredBy: [Rose Userbot](https://t.me/RoseUserbotV2).**"""
     if plug_match:
         plugin = plug_match.group(1)
         text = (
