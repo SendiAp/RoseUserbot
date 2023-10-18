@@ -34,7 +34,6 @@ for file in os.listdir():
 
 
 cmds = Config.COMMAND_PREFIXES
-DB_URL = Config.MONGO_DATABASE
 
 aiosession = ClientSession()
 rose = Rose()
