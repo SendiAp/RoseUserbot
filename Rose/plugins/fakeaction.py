@@ -68,29 +68,38 @@ __MENU__ = f"""
 ✘ **Perintah:** `{cmds}ftyping` [detik]
 • **Fungsi:** Menampilkan Pengetikan Palsu dalam obrolan.
 
-.fgame [detik] - Menampilkan sedang bermain game Palsu dalam obrolan.
+✘ **Perintah:** `{cmds}fgame` [detik] 
+• **Fungsi:** Menampilkan sedang bermain game Palsu dalam obrolan.
 
-.faudio [detik] - Menampilkan tindakan merekam suara palsu dalam obrolan.
+✘ **Perintah:** `{cmds}faudio` [detik] 
+• **Fungsi:** Menampilkan tindakan merekam suara palsu dalam obrolan.
 
-.fvideo [detik] - Menampilkan tindakan merekam video palsu dalam obrolan.
+✘ **Perintah:** `{cmds}fvideo` [detik] 
+• **Fungsi:** Menampilkan tindakan merekam video palsu dalam obrolan.
   
-.fround [detik] - Menampilkan tindakan merekam video palsu dalam obrolan.
+✘ **Perintah:** `{cmds}fround` [detik]
+• **Fungsi:** Menampilkan tindakan merekam video palsu dalam obrolan.
 
-.fphoto [detik] - Menampilkan tindakan mengirim foto palsu dalam obrolan.
+✘ **Perintah:** `{cmds}fphoto` [detik]
+• **Fungsi:** Menampilkan tindakan mengirim foto palsu dalam obrolan.
 
-.fsticker [detik] - Menampilkan tindakan memilih Sticker palsu dalam obrolan.
+✘ **Perintah:** `{cmds}fsticker` [detik]
+• **Fungsi:** Menampilkan tindakan memilih Sticker palsu dalam obrolan.
 
-.fcontact [detik] - Menampilkan tindakan Share Contact palsu dalam obrolan.
+✘ **Perintah:** `{cmds}fcontact` [detik] 
+• **Fungsi:** Menampilkan tindakan Share Contact palsu dalam obrolan.
 
-.flocation [detik] - Menampilkan tindakan Share Lokasi palsu dalam obrolan.
+✘ **Perintah:** `{cmds}flocation` [detik] 
+• **Fungsi:** Menampilkan tindakan Share Lokasi palsu dalam obrolan.
 
-.fdocument [detik] - Menampilkan tindakan tengirim Document/File palsu dalam obrolan.
+✘ **Perintah:** `{cmds}fdocument` [detik] 
+• **Fungsi:** Menampilkan tindakan tengirim Document/File palsu dalam obrolan.
 
-.fscreen [jumlah] - Menampilkan tindakan screenshot palsu. (Gunakan di Obrolan Pribadi)
+✘ **Perintah:** `{cmds)fscreen` [jumlah] 
+• **Fungsi:** Menampilkan tindakan screenshot palsu. (Gunakan di Obrolan Pribadi)
 
-.fstop - Memberhentikan tindakan palsu dalam obrolan.
+✘ **Perintah:** `{cmds}fstop`
+• **Fungsi:** Memberhentikan tindakan palsu dalam obrolan.
 
-© Rose Userbot
-"""
 © Rose Userbot
 """
