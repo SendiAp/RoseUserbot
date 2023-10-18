@@ -32,12 +32,13 @@ async def help_menu_logo(answer):
             description=f"🥀 Open Help Menu Of Rose-Userbot ✨...",
             caption=f"""
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
-Rose Userbot » {__version__} 🌹...
+Rosebot » {__version__} 🌹...
 
 ᳇ **Help Menu** 
 • **Modules:** {num_basic_modules}
+• **Prefixes:** {cmds}
 
-🌹Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**
+꧁PoweredBy: [Rose Userbot](https://t.me/RoseUserbotV2).
             """,
             reply_markup=InlineKeyboardMarkup(button),
         )
@@ -52,12 +53,13 @@ async def help_menu_text(answer):
             title="🥀 Help Menu ✨",
             input_message_content=InputTextMessageContent(f"""
 **尺ㄖ丂乇 ㄩ丂乇尺乃ㄖㄒ**
-Rose Userbot » {__version__} 🌹...
+Rosebot » {__version__} 🌹...
 
 ᳇ **Help Menu** 
 • **Modules:** {num_basic_modules}
+• **Prefixes:** {cmds}
 
-🌹Powered By : [Rose Userbot](https://t.me/RoseUserbotV2).**""",
+꧁PoweredBy: [Rose Userbot](https://t.me/RoseUserbotV2).""",
             disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(button),
