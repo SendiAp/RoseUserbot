@@ -66,10 +66,13 @@ async def copy_msg(client: Client, message: Message):
         await lugay.edit("`harap berikan link telegram dengan benar.`")
 
 
-__NAME__ = "directmessage"
+__NAME__ = "message"
 __MENU__ = f"""
 ✘ **Perintah:** `{cmds}dm` [username]
 • **Fungsi:** Untuk Mengirim Pesan Tanpa Harus Kedalam Roomchat.
+
+✘ **Perintah:** `{cmds}copy` [link konten telegram]
+• **Fungsi:** Untuk mengambil konten di telegram 
 
 © Rose Userbot
 """
