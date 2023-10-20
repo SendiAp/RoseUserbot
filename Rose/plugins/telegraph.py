@@ -64,7 +64,7 @@ async def telegraph_uploader(client, message):
 
 
 __NAME__ = "telegraph"
-__MENU__ = """
+__MENU__ = f"""
 ✘ **Perintah:** `{cmds}tg` 
 • **Fungsi:** Balas perintah ini Ke balas perintah Ini ke teks atau media apa pun untuk dibuat
 tautan telegraf.
