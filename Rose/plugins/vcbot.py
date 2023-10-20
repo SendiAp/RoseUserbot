@@ -186,7 +186,7 @@ async def leave_streams(client, message):
 
 
 __NAME__ = "vcbot"
-__MENU__ = """
+__MENU__ = f"""
 ✘ **Perintah:** `{cmds}play` [name] 
 • **Fungsi:** Putar audio lagu Dengan memberi nama.
 
