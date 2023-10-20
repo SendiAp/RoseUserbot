@@ -13,17 +13,21 @@ from .modules.utils import commandz
 __version__ = "v2.0.1"
 
 if Config.API_ID == 0:
-    LOGGER.error("API_ID is missing! Kindly check again!")
+    LOGGER.error("API_ID hilang! Silakan periksa lagi!")
     exit()
 if not Config.API_HASH:
-    LOGGER.error("API_HASH is missing! Kindly check again!")
+    LOGGER.error("API_HASH hilang! Silakan periksa lagi!")
     exit()
 if not Config.STRING_SESSION:
-    LOGGER.error("STRING_SESSION is missing! Kindly check again!")
+    LOGGER.error("STRING_SESSION hilang! Silakan periksa lagi!")
     exit()
 if not Config.MONGO_DATABASE:
-    LOGGER.error("DATABASE_URL is missing! Kindly check again!")
+    LOGGER.error("DATABASE_URL hilang! Silakan periksa lagi!")
     exit()
+if Config.LOG_GROUP_ID == 0:
+    LOGGER.error("LOG_GROUP_ID hilang! Silakan periksa lagi!")
+    exit()
+
 
 for file in os.listdir():
     if file.endswith(".session"):
