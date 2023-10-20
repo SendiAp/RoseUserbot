@@ -23,6 +23,51 @@
 🎥 **Video Music:** Rose support menggunakan video & audio asisten, kamu juga dapat mempublik modules ini ke orang lain, agar mereka bisa menggunakan nya.
 
 
-<h3 align="center">Click The Button</h3>
-<a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FSendiAp%2FRoseUserbot&template=https%3A%2F%2Fgithub.com%2FSendiAp%2FRoseUserbot"><img src="https://www.herokucdn.com/deploy/button.svg"></a>
-</div>
+<details>
+<summary><b>🔗 Deploy To Heroku</b></summary>
+<br>
+
+<p><a href="https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FSendiAp%2FRoseUserbot&template=https%3A%2F%2Fgithub.com%2FSendiAp%2FRoseUserbot"><img src="https://www.herokucdn.com/deploy/button.svg"></a>
+
+</details>
+
+<details>
+<summary><b>🔗 Deploy To Vps</b></summary>
+<br>
+
+<p><a 
+     
+Or, simply run the following commands in your Vps,
+
+1. At first enter this command and wait untill complete.
+```
+sudo apt update && sudo apt install git curl nano screen python3-pip ffmpeg -y && curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash && source ~/.bashrc && nvm install node
+```
+
+2. Now simply copy and paste this command and wait.
+```
+sudo rm -rf Rose && git clone https://github.com/SendiAp/RoseUserbot Rose && cd Rose && pip3 install -r Installer && screen -R Rose
+```
+
+4. After that, Enter this command and put your vars and hit ```ctrl+s``` to save and hit ```ctrl+x``` To Close Text Editor.
+```
+nano Internal.env
+```
+
+6. Now enter this command and wait untill run your userbot.
+```
+cp Internal.env Internal && python3 -m Rose
+```
+
+8. Finnally, just hit ```ctrl+a+d``` to minimize your bot for run in background.
+
+</details>
+
+<h2>Updates and Support</h2>
+<p title="Support">Anda dapat bergabung dengan kami dalam masalah apa pun yang terkait dengan RoseUserbot Pembaruan dan Dukungan di Telegram.</p>
+<a href="https://t.me/AdityaServer" target="_blank"><img src="Rose/resource/updates.svg"/></a>
+<a href="https://t.me/RoseuserbotV2" target="_blank"><img src="Rose/resource/support.svg"/></a>
+
+## © Credits
+-  [SendiAp](https://github.com/SendiAp) for [RoseUserbot](https://github.com/SendiAp/RoseUserbot)
+-  [AdityaHalder](https://github.com/LonamiWebs/) for [Genius-Userbot](https://github.com/AdityaHalder/Genius-Userbot)
