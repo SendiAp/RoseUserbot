@@ -198,7 +198,7 @@ async def get_list_bots(client, message):
         await message.edit(teks)
 
 __NAME__ = "tag"
-__MENU__ = """
+__MENU__ = f"""
 ✘ **Perintah:** `{cmds}admins` 
 • **Fungsi:** Melihat daftar admin groups.
 
