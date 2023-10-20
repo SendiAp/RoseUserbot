@@ -49,7 +49,7 @@ async def command1(bot, message):
     )
     await message.reply(
         "Use ReplyKeyboard or Inline Mode...",
-        reply_markup=ReplyKeyboardMarkup(buttons.REPLY_BUTTONS, one_time_keyboard=False, resize_keyboard=True)
+        reply_markup=ReplyKeyboardMarkup(REPLY_BUTTONS, one_time_keyboard=False, resize_keyboard=True)
     )
     try:
         await bot.send_message(Config.LOG_GROUP_ID,
