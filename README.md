@@ -65,8 +65,8 @@ cp Internal.env Internal && python3 -m Rose
 
 <h2>Updates and Support</h2>
 <p title="Support">Anda dapat bergabung dengan kami dalam masalah apa pun yang terkait dengan RoseUserbot Pembaruan dan Dukungan di Telegram.</p>
-<a href="https://t.me/AdityaServer" target="_blank"><img src="Rose/resource/updates.svg"/></a>
-<a href="https://t.me/RoseuserbotV2" target="_blank"><img src="Rose/resource/support.svg"/></a>
+<a href="https://t.me/AdityaServer" target="_blank"><img src="Rose/resources/updates.svg"/></a>
+<a href="https://t.me/RoseuserbotV2" target="_blank"><img src="Rose/resources/support.svg"/></a>
 
 ## © Credits
 -  [SendiAp](https://github.com/SendiAp) for [RoseUserbot](https://github.com/SendiAp/RoseUserbot)
