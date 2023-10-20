@@ -36,7 +36,7 @@ async def handwrite(client, message):
  
  
 __NAME__ = "write"
-__MENU__ = """
+__MENU__ = f"""
 ✘ **Perintah:** `{cmds}write` [text]
 • **Fungsi:** Untuk Menulis TeksUntuk Menulis Teks
 Di Halaman Putih.
