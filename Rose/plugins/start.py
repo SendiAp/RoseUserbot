@@ -40,7 +40,7 @@ REPLY_BUTTONS = [
 # START MESSAGE
 @bot.on_message(filters.command("start") & filters.private)
 async def command1(bot, message):
-    text = f"Hello **{message.from_user.first_name}!**\n\n" + messages.START_TEXT_CAPTION_TEXT
+    text = f"Hello **{message.from_user.first_name}!**"
     reply_markup = INLINE_BB
     await message.reply(
         text=text,
