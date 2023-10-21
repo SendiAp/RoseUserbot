@@ -136,3 +136,10 @@ def reply_finish(bot, message):
                      reply_markup=ReplyKeyboardMarkup(REPLY_BUTTONS, resize_keyboard=True,
                                                       one_time_keyboard=False))
 
+
+@bot.on_message(filters.regex(pattern="Sanila Assistant Bot"))
+async def reply_to_Assistant(bot, message):
+    reply_markup = ForceReply(message.chat.id)
+    await bot.send_message(message.chat.id, SANILA_ASSISTANT_TEXT,
+                           reply_markup=reply_markup
+                           , disable_web_page_preview=True)
