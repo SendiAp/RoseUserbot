@@ -56,3 +56,13 @@ async def command1(bot, message):
                              f"New User!\n\n◉ User - {message.from_user.first_name}\n◉ Joined time - {date_info.POSTED_TIME}\n◉ Joined date - {date_info.POSTED_DATE}")
     except Exception as er:
         print(f"Unable to send the logs to the channel.\nReason: {er}")
+
+
+@bot.on_message(filters.regex(pattern="Feedbacks"))
+def reply_to_Feedback(bot, message):
+    text = FEEDBACK_REPLY_TEXT
+    reply_markup = ReplyKeyboardMarkup(FEEDBACK_REPLY_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
+    message.reply(
+        text=text,
+        reply_markup=reply_markup
+    )
