@@ -12,6 +12,25 @@ START_TEXT_CAPTION_TEXT = getenv("START_TEXT_CAPTION_TEXT", None)
 
 FEEDBACK_FINISH_TEXT = "Thanks for your feedback!\n\nYour valuable feedbacks help us to build our bots much friendly. When you sending your feedback please include a screenshot of it because it helps us to decide what is the error.\n\nIt usually takes about 48 hours to get back to you, please accept our apologies in advance for any reply that exceeds this time frame.\n\nFeedback Centre."
 
+FEEDBACK_REPLY_BUTTONS = [
+    [
+        ("Sanila Assistant Bot🤖💖")
+    ],
+    [
+        ("Song Downloader Bot🤖💖")
+    ],
+    [
+        ("Torrent Downloader Bot🤖💖")
+    ],
+    [
+
+        ("Telegraph Uploader Bot🤖💖")
+    ],
+    [
+        ("Home 🔙")
+    ]
+]
+
 INLINE_BB = InlineKeyboardMarkup(
 
     [
