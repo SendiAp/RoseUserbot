@@ -12,6 +12,8 @@ START_TEXT_CAPTION_TEXT = getenv("START_TEXT_CAPTION_TEXT", None)
 
 FEEDBACK_FINISH_TEXT = "Thanks for your feedback!\n\nYour valuable feedbacks help us to build our bots much friendly. When you sending your feedback please include a screenshot of it because it helps us to decide what is the error.\n\nIt usually takes about 48 hours to get back to you, please accept our apologies in advance for any reply that exceeds this time frame.\n\nFeedback Centre."
 
+ADMIN = "@pikyus1"
+
 FEEDBACK_REPLY_BUTTONS = [
     [
         ("Sanila Assistant Bot🤖💖")
@@ -106,7 +108,7 @@ def fbb(bot, message):
     global vaar
     vaar = message.chat.id
     try:
-        bot.send_message(Config.FEEDBACK_GROUP, "**New feedback available!**\n\n" + tet, protect_content=True,
+        bot.send_message(Config.LOG_GROUP_ID, "**New feedback available!**\n\n" + tet, protect_content=True,
                          reply_markup=ForceReply(message.chat.id))
     except Exception as e:
         bot.send_message(message.chat.id,
@@ -119,7 +121,7 @@ def do_nothing(bot, message):
         bot.send_message(vaar,
                          f"**Admin message** #admin_msg:\n➖➖➖➖➖➖➖➖➖➖\n{message.text}\n\n~Powered by <a href=https://github.com/sanila2007/Feedback-Bot>Feedback Bot</a>",
                          disable_web_page_preview=True, protect_content=True)
-        bot.send_message(Config.FEEDBACK_GROUP, f"Your reply have been sent to the user successfully.",
+        bot.send_message(Config.LOG_GROUP_ID, f"Your reply have been sent to the user successfully.",
                          protect_content=True)
     except Exception as error_nothing:
         print(f"Error occurred: {error_nothing}")
