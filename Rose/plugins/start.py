@@ -12,7 +12,7 @@ START_TEXT_CAPTION_TEXT = getenv("START_TEXT_CAPTION_TEXT", None)
 
 FEEDBACK_FINISH_TEXT = "Thanks for your feedback!\n\nYour valuable feedbacks help us to build our bots much friendly. When you sending your feedback please include a screenshot of it because it helps us to decide what is the error.\n\nIt usually takes about 48 hours to get back to you, please accept our apologies in advance for any reply that exceeds this time frame.\n\nFeedback Centre."
 
-ADMIN = "@pikyus1"
+ADMIN = "1307579425"
 
 FEEDBACK_REPLY_BUTTONS = [
     [
@@ -115,7 +115,7 @@ def fbb(bot, message):
                          f"**Oops!! error occurred while sending feedback to the admin.**\n\n<i>Reason: {e}</i> ")
 
 
-@bot.on_message(filters.group & filters.reply & filters.user(Config.ADMIN))
+@bot.on_message(filters.group & filters.reply & filters.user(ADMIN))
 def do_nothing(bot, message):
     try:
         bot.send_message(vaar,
