@@ -129,3 +129,10 @@ def do_nothing(bot, message):
                          protect_content=True)
     except Exception as error_nothing:
         print(f"Error occurred: {error_nothing}")
+
+@bot.on_message(filters.regex(pattern="Finish"))
+def reply_finish(bot, message):
+    bot.send_message(message.chat.id, FEEDBACK_FINISH_TEXT,
+                     reply_markup=ReplyKeyboardMarkup(REPLY_BUTTONS, resize_keyboard=True,
+                                                      one_time_keyboard=False))
+
