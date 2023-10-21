@@ -6,6 +6,7 @@ from ..modules.date_info import *
 from ..modules.vars import *
 from pyrogram import enums
 
+FEEDBACK_REPLY_TEXT = "First please select a bot!!👮"
 
 START_TEXT_CAPTION_TEXT = getenv("START_TEXT_CAPTION_TEXT", None)
   
