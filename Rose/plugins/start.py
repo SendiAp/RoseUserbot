@@ -6,34 +6,23 @@ from ..modules.date_info import *
 from ..modules.vars import *
 from pyrogram import enums
 
-FEEDBACK_REPLY_TEXT = "First please select a bot!!👮"
+FEEDBACK_REPLY_TEXT = "Apa kamu yakin ingin mengirim pesan kepada owner bot ini?"
 
 START_TEXT_CAPTION_TEXT = getenv("START_TEXT_CAPTION_TEXT", None)
 
-FEEDBACK_FINISH_TEXT = "Thanks for your feedback!\n\nYour valuable feedbacks help us to build our bots much friendly. When you sending your feedback please include a screenshot of it because it helps us to decide what is the error.\n\nIt usually takes about 48 hours to get back to you, please accept our apologies in advance for any reply that exceeds this time frame.\n\nFeedback Centre."
+FEEDBACK_FINISH_TEXT = "**💬PESAN TERKIRIM!**"
 
-SANILA_ASSISTANT_TEXT = "Reporting Area‼️\n\nBot = <a href=https://t.me/sanilaassistant_bot> Sanila's Assistant Bot</a>\n\n" \
-                        "◉ Type your report here and send it\n\n" \
-                        "◉ After you finish click <<**Finish📩**>>\n\n" \
+ROSE_ASSISTANT_TEXT = "**❗BERIKAN SAYA PESAN KEPADA BOS SAYA.**\n\n" \
+                        ">> Berikan saya pesan teks tidak support dengan media atau sticker, jika sudah lalu klik  **KIRIM📩**" \
 
-ADMIN = "1307579425"
+ADMIN = var.OWNER_ID
 
 FEEDBACK_REPLY_BUTTONS = [
     [
-        ("Sanila Assistant Bot🤖💖")
+        ("Yes")
     ],
     [
-        ("Song Downloader Bot🤖💖")
-    ],
-    [
-        ("Torrent Downloader Bot🤖💖")
-    ],
-    [
-
-        ("Telegraph Uploader Bot🤖💖")
-    ],
-    [
-        ("Home 🔙")
+        ("No")
     ]
 ]
 
@@ -76,7 +65,7 @@ FINISH_FEEDBACK_BUTTONS = [
 # START MESSAGE
 @bot.on_message(filters.command("start") & filters.private)
 async def command1(bot, message):
-    text = f"Hello **{message.from_user.first_name}!**"
+    text = START_TEXT_CAPTION_TEXT
     reply_markup = INLINE_BB
     await message.reply(
         text=text,
@@ -89,7 +78,7 @@ async def command1(bot, message):
     )
     try:
         await bot.send_message(Config.LOG_GROUP_ID,
-                             f"New User!\n\n◉ User - {message.from_user.first_name}\n◉ Joined time - {date_info.POSTED_TIME}\n◉ Joined date - {date_info.POSTED_DATE}")
+                             f"**🆕PENGGUNA BARU!**\n\n◉ Nama: {message.from_user.first_name}\n◉ Bot: {self.bot.mention}")
     except Exception as er:
         print(f"Unable to send the logs to the channel.\nReason: {er}")
 
@@ -107,7 +96,7 @@ def reply_to_Feedback(bot, message):
 @bot.on_message(filters.reply & filters.private)
 def fbb(bot, message):
     bot.send_chat_action(message.chat.id, enums.ChatAction.TYPING)
-    tet = f"**<u>Feedback Information</u>**\n\nMessage - `{message.text}`\nWord count - {len(message.text.split())}\nPosted by - {message.from_user.first_name}\nUser ID - {message.from_user.id}\nUsername - @{message.chat.username}\nLanguage - {message.from_user.language_code}\nChat type - {message.chat.type}\n\n<i>*Note: Add more feedbacks or click finish</i>"
+    tet = f"**🆕PESAN BARU!**\n\n• Jumlah: {len(message.text.split())}\n• Nama: {message.from_user.first_name}\n• UseID: {message.from_user.id}\n• Username: @{message.chat.username}\n• Bahasa: {message.from_user.language_code}\n• Type: {message.chat.type}\n\n {message.text}"
     reply_markup = ReplyKeyboardMarkup(FINISH_FEEDBACK_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
     message.reply(
         text=tet,
@@ -118,7 +107,7 @@ def fbb(bot, message):
     global vaar
     vaar = message.chat.id
     try:
-        bot.send_message(Config.LOG_GROUP_ID, "**New feedback available!**\n\n" + tet, protect_content=True,
+        bot.send_message(Config.LOG_GROUP_ID, "• Bot: {self.bot.mention}\n\n" + tet, protect_content=True,
                          reply_markup=ForceReply(message.chat.id))
     except Exception as e:
         bot.send_message(message.chat.id,
@@ -129,7 +118,7 @@ def fbb(bot, message):
 def do_nothing(bot, message):
     try:
         bot.send_message(vaar,
-                         f"**Admin message** #admin_msg:\n➖➖➖➖➖➖➖➖➖➖\n{message.text}\n\n~Powered by <a href=https://github.com/sanila2007/Feedback-Bot>Feedback Bot</a>",
+                         f"**Admin message** #admin_msg:\n➖➖➖➖➖➖➖➖➖➖\n{message.text}\n\n~Powered by: Rose Userbot",
                          disable_web_page_preview=True, protect_content=True)
         bot.send_message(Config.LOG_GROUP_ID, f"Your reply have been sent to the user successfully.",
                          protect_content=True)
@@ -143,9 +132,9 @@ def reply_finish(bot, message):
                                                       one_time_keyboard=False))
 
 
-@bot.on_message(filters.regex(pattern="Sanila Assistant Bot"))
+@bot.on_message(filters.regex(pattern="Yes"))
 async def reply_to_Assistant(bot, message):
     reply_markup = ForceReply(message.chat.id)
-    await bot.send_message(message.chat.id, SANILA_ASSISTANT_TEXT,
+    await bot.send_message(message.chat.id, ROSE_ASSISTANT_TEXT,
                            reply_markup=reply_markup
                            , disable_web_page_preview=True)
