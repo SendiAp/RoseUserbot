@@ -67,6 +67,12 @@ REPLY_BUTTONS = [
     ]
 ]
 
+FINISH_FEEDBACK_BUTTONS = [
+    [
+        ("Finish📩")
+    ]
+]
+
 # START MESSAGE
 @bot.on_message(filters.command("start") & filters.private)
 async def command1(bot, message):
