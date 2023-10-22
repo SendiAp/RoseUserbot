@@ -101,7 +101,7 @@ def reply_to_Feedback(bot, message):
 @bot.on_message(filters.reply & filters.private)
 def fbb(bot, message):
     bot.send_chat_action(message.chat.id, enums.ChatAction.TYPING)
-    tet = f"**<u>Feedback Information</u>**\n\nMessage - `{message.text}`\nWord count - {len(message.text.split())}\nPosted by - {message.from_user.first_name}\nUser ID - {message.from_user.id}\nUsername - @{message.chat.username}\nLanguage - {message.from_user.language_code}\nChat type - {message.chat.type}\nPosted date - {date_info.POSTED_DATE}\nPosted time - {date_info.POSTED_TIME}\nDate of reply - {date_info.DATE_OF_REPLY}\n\n<i>*Note: Add more feedbacks or click finish</i>"
+    tet = f"**<u>Feedback Information</u>**\n\nMessage - `{message.text}`\nWord count - {len(message.text.split())}\nPosted by - {message.from_user.first_name}\nUser ID - {message.from_user.id}\nUsername - @{message.chat.username}\nLanguage - {message.from_user.language_code}\nChat type - {message.chat.type}\n\n<i>*Note: Add more feedbacks or click finish</i>"
     reply_markup = ReplyKeyboardMarkup(FINISH_FEEDBACK_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
     message.reply(
         text=tet,
