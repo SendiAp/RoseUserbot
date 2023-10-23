@@ -26,11 +26,11 @@ async def rose():
                 PLUGINS[imported_plugin.__NAME__.lower()
                 ] = imported_plugin
         log.info(f">> Importing: {all_plugin}.py")
-    log.info(">> Successfully Imported All Plugins.")
+    log.info(">> Berhasil Mengimpor Semua Plugin...")
     await asyncio.sleep(1)
-    log.info("Userbot is Now Ready to Use !")
+    log.info("🌹 Rose Userbot Sudah Bisa Digunakan 🌹")
     await idle()
 
 if __name__ == "__main__":
     loop.run_until_complete(rose())
-    log.info("Userbot Has Been Stopped !")
+    log.info("Userbot Telah Dihentikan !")
