@@ -128,7 +128,7 @@ class Rose(Client, PyTgCalls):
             LOGGER.info(e)
             pass 
         try:
-            await self.bot.send_message(Config.LOG_GROUP_ID, startupmessage)
+            await self.bot.send_message(Config.LOG_GROUP_ID, MSG_ON)
         except:
             LOGGER.error("Bot Gagal Aktif = Anda tidak memasukan bot anda kedalam log grup anda.")
             exit()
@@ -150,3 +150,4 @@ class Rose(Client, PyTgCalls):
                 if user_id not in Config.SUDOERS:
                     Config.SUDOERS.add(user_id)
         LOGGER.info(f"Semua Sudoer Dimuat...")
+
