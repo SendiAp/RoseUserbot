@@ -7,16 +7,9 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from .vars import Config
 from ..console import LOGGER
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
+from .import start
 
 COMMAND_PREFIXES = Config.COMMAND_PREFIXES
-
-INLINE_BB = InlineKeyboardMarkup(
-    [
-        [
-            InlineKeyboardButton("Inline Mode Bot list 🔎", switch_inline_query_current_chat="")
-        ]
-    ]
-)
 
 MSG_ON = """
 Rσʂҽ UʂҽɾႦσƚ Bҽɾԋαʂιʅ Dιαƙƚιϝƙαɳ🌹
