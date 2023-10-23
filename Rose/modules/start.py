@@ -1,3 +1,12 @@
+
+INLINE_BB = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton("Inline Mode Bot list 🔎", switch_inline_query_current_chat="")
+        ]
+    ]
+)
+
 async def startupmessage():
     """
     Start up message in telegram logger group
