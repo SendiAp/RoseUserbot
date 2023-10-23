@@ -1,3 +1,14 @@
+import asyncio
+
+from pyrogram import Client
+from pyrogram.types import ChatPrivileges
+from pytgcalls import PyTgCalls
+from motor.motor_asyncio import AsyncIOMotorClient
+from .vars import Config
+from .vars import *
+from ..console import LOGGER
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
+from ..import *
 
 INLINE_BB = InlineKeyboardMarkup(
     [
