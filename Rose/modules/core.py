@@ -7,7 +7,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from .vars import Config
 from ..console import LOGGER
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
-from .import start
+from .start import *
 
 COMMAND_PREFIXES = Config.COMMAND_PREFIXES
 
@@ -46,7 +46,7 @@ try:
     LOGGER.info("Menghubungkan Ke Basis Data MongoDB...")
     MONGO_DB_URL = Config.MONGO_DATABASE
     _mongo_async_ = AsyncIOMotorClient(MONGO_DB_URL)
-    mongodb = _mongo_async_.Genius
+    mongodb = _mongo_async_.Rose
     LOGGER.info("Berhasil Terhubung...")
 except Exception as e:
     print(f"Error: {e}")
