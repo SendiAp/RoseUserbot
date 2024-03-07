@@ -1,9 +1,11 @@
 """
-I am responsible for misuse of this script or code, I only correct it so that these modules and plugins function properly for other users.
+I am responsible for misuse of this script or code
+I only correct it so that these modules and plugins 
+function properly for other users.
 
-https://www.github.com/SendiAp/RoseUserbot
+https://www.github.com/SendiAp/
 
-https://t.me/RoseUserbotV2 | © Rose Userbot 
+https://t.me/pikyus1 | © Rose Userbot 
 """
 
 from datetime import datetime
